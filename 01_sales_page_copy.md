@@ -1,5 +1,5 @@
 # The Claude Power Move
-## A Full-Day Intensive for Small Business Owners Ready to Stop Doing Everything Themselves
+## A Full-Day Intensive for Anyone Running a Business Who's Ready to Stop Doing Everything Themselves
 
 **Presented by John Lawson | ColderICE Media**
 
@@ -15,7 +15,7 @@
 
 ## Short Description (75 words — for event listings, email, social)
 
-You don't need a big team or a big budget to compete with businesses twice your size. You need one tool, set up the right way. In this full-day working session, AI Strategy Consultant and 3x Amazon bestselling author John Lawson shows small business owners exactly how to put Claude to work — automating content, streamlining operations, and handling the tasks that are eating your week. No fluff. No theory. You leave with it running.
+You don't need a big team or a big budget to compete with businesses twice your size. You need one tool, set up the right way. In this full-day working session, AI Strategy Consultant and 3x Amazon bestselling author John Lawson shows you exactly how to put Claude to work — automating content, streamlining operations, and handling the tasks that are eating your week. No fluff. No theory. You leave with it running.
 
 ---
 
@@ -53,7 +53,7 @@ This intensive puts you on the right side of that gap. Fast.
 
 ### What This Day Is
 
-The Claude Power Move is a full-day, hands-on working session where small business owners build their Claude-powered business system from the ground up.
+The Claude Power Move is a full-day, hands-on working session where business owners, service providers, and consultants build their Claude-powered business system from the ground up.
 
 Not a lecture. Not a highlight reel of AI demos. Not homework you'll never finish.
 
@@ -85,10 +85,10 @@ John Lawson — AI Strategy Consultant, Verizon Digital Ready AI Instructor, and
 
 This intensive is built for you if you are:
 
-- A small business owner spending 10+ hours weekly on tasks you know Claude could handle
-- A solopreneur struggling to stay consistent on content without burning out
-- A coach or consultant who needs to produce great content but dreads the process
-- A service-based business owner ready to stop letting leads go cold because follow-up fell through the cracks
+- A business owner spending 10+ hours weekly on tasks you know Claude could handle
+- A solopreneur or service provider struggling to stay consistent on content without burning out
+- A coach, consultant, or agency owner who needs to produce great work but dreads the process of getting it done
+- Anyone who gets paid to deliver results for clients and knows they're leaving time and money on the table
 - Anyone who has tried AI tools before, didn't get much out of them, and wants to finally understand how to use them right
 
 If you've heard about Claude but never really set it up — this is the day.

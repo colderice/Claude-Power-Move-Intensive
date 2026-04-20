@@ -54,7 +54,26 @@
       color: var(--white);
       padding: 70px 20px 80px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('hero-bg.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      opacity: 0.38;
+      z-index: 0;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(20,20,19,0.85) 0%, rgba(20,20,19,0.4) 50%, rgba(20,20,19,0.75) 100%),
+                  linear-gradient(to bottom, rgba(20,20,19,0.3) 0%, rgba(20,20,19,0.7) 100%);
+    }
+    .hero > .container { position: relative; z-index: 1; }
     .hero .pre-headline {
       display: inline-block;
       background: rgba(217, 119, 87, 0.1);
@@ -197,9 +216,10 @@
 
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-bg"></div>
     <div class="container" style="max-width: 1100px;">
       <div class="pre-headline">
-        <span style="color: var(--purple); margin-right: 6px;">●</span> A Full-Day Intensive for Small Business Owners
+        <span style="color: var(--purple); margin-right: 6px;">●</span> A Full-Day Intensive for Anyone Running a Business
       </div>
       
       <p style="font-size: 26px; color: var(--purple); font-weight: 700; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; font-family: 'Poppins', sans-serif;">
@@ -214,9 +234,9 @@
       </p>
 
       <div class="hero-grid">
-        <div class="hero-left" style="background:#111; border-radius:12px; display:flex; flex-direction:column; justify-content:center; align-items:center; border: 1px solid #333; padding: 40px;">
-          <img src="Claude%20Power%20Move%20Intensive/AtlantaAIBusiness_QRCode.png" alt="Atlanta AI Business QR Code" style="max-width: 250px; border-radius: 8px;">
-          <p style="margin-top:20px; font-size:14px; text-transform:uppercase; letter-spacing:1px; color:#888;">Scan to Register or Click Buy Now</p>
+        <div class="hero-left" style="border-radius:12px; overflow:hidden; position:relative; min-height:320px; border: 1px solid rgba(217,119,87,0.2);">
+          <img src="hero-bg.jpg" alt="John Lawson teaching at The Claude Power Move Intensive" style="width:100%; height:100%; object-fit:cover; object-position:left center; display:block; border-radius:12px;">
+          <div style="position:absolute; inset:0; background:linear-gradient(to right, rgba(20,20,19,0.05) 0%, rgba(20,20,19,0.5) 100%); border-radius:12px;"></div>
         </div>
 
         <div class="hero-right">
@@ -239,7 +259,7 @@
               </a>
             </div>
             
-            <a href="http://www.AtlantaAIBusiness.com" class="btn-primary" style="width: 100%;">
+            <a href="https://go.johnlawson.com/order-form-checkout" class="btn-primary" style="width: 100%;">
               Register Now ➜
               <span class="btn-sub">Secure your spot today</span>
             </a>
@@ -297,12 +317,14 @@
   </section>
 
   <!-- WHAT IT IS -->
-  <section class="section-light">
-    <div class="container">
+  <section class="section-light" style="position:relative; overflow:hidden;">
+    <div style="position:absolute; inset:0; background-image:url('masterlystudios.jpg'); background-size:cover; background-position:center; opacity:0.45; z-index:0;"></div>
+    <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(235,233,225,0.72) 0%, rgba(235,233,225,0.65) 100%); z-index:1;"></div>
+    <div class="container" style="position:relative; z-index:2;">
       <div class="eyebrow-light">The Experience</div>
       <h2>What This Day Is</h2>
       
-      <p>The Claude Power Move is a full-day, hands-on working session where small business owners build their Claude-powered business system from the ground up.</p>
+      <p>The Claude Power Move is a full-day, hands-on working session where business owners, service providers, and consultants build their Claude-powered business system from the ground up.</p>
       
       <ul class="bullet-list" style="margin-bottom:30px;">
         <li>Not a lecture.</li>
@@ -335,7 +357,7 @@
       <div class="included-grid">
         <div class="included-card">
           <h4>Claude vs. everything else</h4>
-          <p>Why Claude is the right tool for small business owners specifically — and what you're leaving on the table if you haven't made it part of your stack.</p>
+          <p>Why Claude is the right tool for anyone running a service business — and what you're leaving on the table if you haven't made it part of your stack.</p>
         </div>
         <div class="included-card">
           <h4>Your Claude business setup</h4>
@@ -373,10 +395,10 @@
       <h2>Who This Day Is Built For</h2>
       
       <ul class="bullet-list">
-        <li>A small business owner spending 10+ hours weekly on tasks you know Claude could handle</li>
-        <li>A solopreneur struggling to stay consistent on content without burning out</li>
-        <li>A coach or consultant who needs to produce great content but dreads the process</li>
-        <li>A service-based business owner ready to stop letting leads go cold because follow-up fell through the cracks</li>
+        <li>A business owner spending 10+ hours weekly on tasks you know Claude could handle</li>
+        <li>A solopreneur or service provider struggling to stay consistent on content without burning out</li>
+        <li>A coach, consultant, or agency owner who needs to produce great work but dreads the process of getting it done</li>
+        <li>Anyone who gets paid to deliver results for clients and knows they're leaving time and money on the table</li>
         <li>Anyone who has tried AI tools before, didn't get much out of them, and wants to finally understand how to use them right</li>
       </ul>
       
@@ -393,14 +415,21 @@
     <div class="container">
       <div class="eyebrow-light">Your Instructor</div>
       <h2>About John Lawson</h2>
-      <p>John Lawson built a multi-million dollar e-commerce business from the ground up, generated $32M+ in career sales, and has spoken in front of tens of thousands of business owners across more than two dozen countries.</p>
-      
-      <p>He is Verizon's Digital Ready AI Instructor, a 3x Amazon bestselling author, a recognized IBM eCommerce Futurist, and one of America's Top 100 Small Business Influencers — named "Savviest in Social Media" by StartUp Nation.</p>
-      
-      <div style="margin-top:24px; padding:24px; border-left:4px solid var(--purple-light); background:var(--dark2); border-radius:4px;">
-        <p style="margin:0; color:var(--white); font-size:16px;">
-          His framework — <strong>People + AI = Power Moves</strong> — is built around one core idea: AI doesn't replace you. It multiplies you. This day is what that looks like in practice.
-        </p>
+      <div style="display:flex; gap:48px; align-items:flex-start; flex-wrap:wrap; margin-top:32px;">
+        <div style="flex:0 0 auto;">
+          <img src="about_john.jpg" alt="John Lawson" style="width:260px; border-radius:12px; border:2px solid rgba(217,119,87,0.3); display:block; object-fit:cover;">
+        </div>
+        <div style="flex:1; min-width:260px;">
+          <p>John Lawson built a multi-million dollar e-commerce business from the ground up, generated $32M+ in career sales, and has spoken in front of tens of thousands of business owners across more than two dozen countries.</p>
+
+          <p style="margin-top:16px;">He is Verizon's Digital Ready AI Instructor, a 3x Amazon bestselling author, a recognized IBM eCommerce Futurist, and one of America's Top 100 Small Business Influencers — named "Savviest in Social Media" by StartUp Nation.</p>
+
+          <div style="margin-top:24px; padding:24px; border-left:4px solid var(--purple-light); background:var(--dark2); border-radius:4px;">
+            <p style="margin:0; color:var(--white); font-size:16px;">
+              His framework — <strong>People + AI = Power Moves</strong> — is built around one core idea: AI doesn't replace you. It multiplies you. This day is what that looks like in practice.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -430,7 +459,7 @@
         <div style="font-size:32px; color:var(--white); font-weight:900; margin-bottom:4px; font-family:'Poppins',sans-serif;">Early Bird: <span style="color:var(--purple);">$495</span></div>
         <div style="font-size:20px; color:var(--gray); text-decoration:line-through; margin-bottom:28px; font-family:'Poppins',sans-serif;">Regular: $995</div>
 
-        <a href="http://www.AtlantaAIBusiness.com" class="btn-primary" style="font-size:20px; padding:20px 52px; width:auto;">
+        <a href="https://go.johnlawson.com/order-form-checkout" class="btn-primary" style="font-size:20px; padding:20px 52px; width:auto;">
           Secure My Spot ➜
         </a>
         <p style="font-size:16px; color:var(--gray); margin-top:24px;">Bring your laptop, your biggest operational headache, and walk out with an AI system that handles it.</p>
