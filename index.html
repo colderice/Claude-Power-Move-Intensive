@@ -261,6 +261,93 @@
     }
     .order-box .product-name { font-size: 36px; font-weight: 900; color: var(--white); margin-bottom: 8px; }
 
+    /* TICKET GRID */
+    .ticket-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 860px; margin: 0 auto; }
+    @media (max-width: 680px) { .ticket-grid { grid-template-columns: 1fr; } }
+    .ticket-card {
+      background: var(--dark2);
+      border: 2px solid #333;
+      border-radius: 14px;
+      padding: 32px 28px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+    .ticket-card.vip {
+      border-color: var(--purple-light);
+      background: linear-gradient(160deg, rgba(106,155,204,0.08) 0%, var(--dark2) 60%);
+      position: relative;
+    }
+    .vip-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--purple-light);
+      color: var(--black);
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 16px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .ticket-tier {
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--purple);
+      margin-bottom: 6px;
+    }
+    .ticket-card.vip .ticket-tier { color: var(--purple-light); }
+    .ticket-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .ticket-price-now {
+      font-family: 'Poppins', sans-serif;
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+    }
+    .ticket-card.vip .ticket-price-now { color: var(--purple-light); }
+    .ticket-price-was {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      color: #666;
+      text-decoration: line-through;
+      margin-top: 4px;
+      margin-bottom: 20px;
+    }
+    .ticket-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+      text-align: left;
+      flex: 1;
+    }
+    .ticket-features li {
+      font-size: 15px;
+      color: var(--gray);
+      padding: 8px 0;
+      border-bottom: 1px solid #2a2a2a;
+      padding-left: 22px;
+      position: relative;
+      line-height: 1.4;
+    }
+    .ticket-features li:last-child { border-bottom: none; }
+    .ticket-features li::before { content: '✓'; color: var(--purple); position: absolute; left: 0; font-weight: bold; }
+    .ticket-card.vip .ticket-features li::before { color: var(--purple-light); }
+
     .urgency-bar { background: var(--purple-dark); color: var(--white); text-align: center; padding: 14px 20px; font-size: 15px; font-weight: 700; font-family: 'Poppins', sans-serif; }
 
     .hero-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 30px; text-align: left; margin-top: 40px; }
@@ -648,38 +735,64 @@
 
   <section class="section-light">
     <div class="container">
-      <div class="order-box">
-        <div class="product-name">The Claude Power Move</div>
-        <p style="color:var(--purple-light); font-weight:bold; margin-bottom:20px; font-family:'Poppins',sans-serif;">A Full-Day Intensive &mdash; Atlanta, GA</p>
 
-        <ul style="list-style:none; text-align:left; max-width:420px; margin: 0 auto 24px; font-size:18px; color:var(--white); line-height: 1.7;">
-          <li style="margin-bottom:8px;"><strong style="color:var(--white);">Date:</strong> Saturday, May 23, 2026</li>
-          <li style="margin-bottom:8px;"><strong style="color:var(--white);">Time:</strong> 9:00 AM &ndash; 5:00 PM</li>
-          <li style="margin-bottom:8px;"><strong style="color:var(--white);">Location:</strong>
-            <a href="https://maps.google.com/?q=2135+Liddell+Dr+NE,+Atlanta,+GA" target="_blank" style="color: var(--white); text-decoration: none;">
-              <span style="border-bottom: 1px dotted var(--white);">&#128205; Masterly Studios, 2135 Liddell Dr NE, Atlanta, GA</span>
-            </a>
-          </li>
-          <li><strong style="color:var(--white);">Includes:</strong> 502 done-for-you prompts, 5 workflow templates, and John's personal Claude setup guide.</li>
-        </ul>
-
-        <div style="font-family:'Poppins',sans-serif; margin-bottom:24px;">
-          <div style="font-size:13px; color:var(--purple); font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:4px;">Early Bird Price</div>
-          <div style="font-size:48px; font-weight:900; color:var(--white); line-height:1;">$495</div>
-          <div style="font-size:18px; color:#777; text-decoration:line-through; margin-top:2px;">Regular $995</div>
-        </div>
-
-        <a href="https://go.johnlawson.com/order-form-checkout" class="btn-primary" style="font-size:20px; padding:20px 52px; width:auto;">
-          Claim My Seat &#x27A4;
-        </a>
-
-        <div class="guarantee-box">
-          <div class="guarantee-headline">&#10003; The Power Move Promise</div>
-          <p>If you leave this day without Claude set up and running in your business, I'll work with you personally until it is. You don't leave empty-handed. That's a promise.</p>
-        </div>
-
-        <p style="font-size:16px; color:var(--gray); margin-top:24px;">Bring your laptop, your biggest operational headache, and walk out with an AI system that handles it.</p>
+      <div style="text-align:center; margin-bottom:40px;">
+        <div class="eyebrow-light" style="color:var(--purple-dark);">Choose Your Seat</div>
+        <h2 style="color:var(--black);">Saturday, May 23, 2026 &mdash; Atlanta, GA</h2>
+        <p style="color:#555; font-size:18px;">&#128205; Masterly Studios, 2135 Liddell Dr NE &nbsp;|&nbsp; 9:00 AM &ndash; 5:00 PM</p>
       </div>
+
+      <div class="ticket-grid">
+
+        <!-- GENERAL ADMISSION -->
+        <div class="ticket-card">
+          <div class="ticket-tier">General Admission</div>
+          <div class="ticket-name">The Claude Power Move Intensive</div>
+          <div class="ticket-price-now">$495</div>
+          <div class="ticket-price-was">Regular $995</div>
+          <ul class="ticket-features">
+            <li>Full-day hands-on working session (9 AM &ndash; 5 PM)</li>
+            <li>Your Claude business setup built in the room</li>
+            <li>Content, workflow, and prompting frameworks</li>
+            <li>502 done-for-you prompts</li>
+            <li>5 workflow templates</li>
+            <li>John's personal Claude setup guide</li>
+          </ul>
+          <a href="https://go.johnlawson.com/order-form-checkout" class="btn-primary" style="width:100%; font-size:16px; padding:16px 20px;">
+            Claim My Seat &#x27A4;
+            <span class="btn-sub">Early bird &mdash; limited seats</span>
+          </a>
+        </div>
+
+        <!-- VIP -->
+        <div class="ticket-card vip">
+          <div class="vip-badge">Most Valuable</div>
+          <div class="ticket-tier">VIP</div>
+          <div class="ticket-name">The Claude Power Move Intensive</div>
+          <div class="ticket-price-now">$850</div>
+          <div class="ticket-price-was">Regular $1,995</div>
+          <ul class="ticket-features">
+            <li>Everything in General Admission</li>
+            <li>Personal hot seat with John &mdash; your business, your bottlenecks, live in the room</li>
+            <li>1:1 time with John &mdash; go deeper on your setup, strategy, or anything you didn't cover</li>
+            <li>Priority seating &mdash; front of the room all day</li>
+          </ul>
+          <a href="https://go.johnlawson.com/order-form-checkout" class="btn-primary" style="width:100%; font-size:16px; padding:16px 20px; background:var(--purple-light);">
+            Claim My VIP Seat &#x27A4;
+            <span class="btn-sub">Extremely limited &mdash; don't wait</span>
+          </a>
+          <p style="font-size:13px; color:var(--gray); margin-top:12px; margin-bottom:0;">General Admission gives you the system. VIP gives you John's eyes on your business.</p>
+        </div>
+
+      </div>
+
+      <div class="guarantee-box" style="max-width:680px; margin:36px auto 0;">
+        <div class="guarantee-headline">&#10003; The Power Move Promise</div>
+        <p>If you leave this day without Claude set up and running in your business, I'll work with you personally until it is. You don't leave empty-handed. That's a promise.</p>
+      </div>
+
+      <p style="font-size:16px; color:#666; margin-top:24px; text-align:center;">Bring your laptop, your biggest operational headache, and walk out with an AI system that handles it.</p>
+
     </div>
   </section>
 
