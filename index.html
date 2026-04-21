@@ -275,9 +275,14 @@
     }
     .ticket-card.vip {
       border-color: var(--purple-light);
-      background: linear-gradient(160deg, rgba(106,155,204,0.08) 0%, var(--dark2) 60%);
+      background: linear-gradient(160deg, var(--purple) 0%, var(--purple-dark) 100%);
       position: relative;
     }
+    .ticket-card.vip .ticket-name { color: var(--white); }
+    .ticket-card.vip .ticket-price-now { color: var(--purple-light); }
+    .ticket-card.vip .ticket-price-was { color: rgba(255,255,255,0.5); }
+    .ticket-card.vip .ticket-features li { color: rgba(255,255,255,0.9); border-bottom-color: rgba(255,255,255,0.15); }
+    .ticket-card.vip p { color: rgba(255,255,255,0.75); }
     .vip-badge {
       position: absolute;
       top: -14px;
@@ -417,9 +422,9 @@
   <!-- STICKY CTA -->
   <div class="sticky-cta" id="stickyCta">
     <div class="sticky-cta-text">
-      Claude Power Move &mdash; May 23 &mdash; <span>Early Bird $495</span>
+      GA from <span>$495</span> &nbsp;|&nbsp; VIP Weekend from <span>$850</span> &nbsp;|&nbsp; May 23&ndash;24 &mdash; Atlanta
     </div>
-    <a href="https://go.johnlawson.com/order-form-checkout">Claim My Seat &#x27A4;</a>
+    <a href="#tickets">Choose My Seat &#x27A4;</a>
   </div>
 
   <!-- COUNTDOWN BAR -->
@@ -498,9 +503,9 @@
               </a>
             </div>
 
-            <a href="https://go.johnlawson.com/order-form-checkout" class="btn-primary" style="width: 100%;">
-              Claim My Seat &#x27A4;
-              <span class="btn-sub">Early bird ends soon &mdash; seats are limited</span>
+            <a href="#tickets" class="btn-primary" style="width: 100%;">
+              Choose My Seat &#x27A4;
+              <span class="btn-sub">GA or VIP &mdash; seats are limited</span>
             </a>
 
             <div style="background: var(--black); border-radius: 8px; padding: 14px; margin-top: 20px; font-size: 13px; color: var(--gray); line-height: 1.5; border: 1px solid #333; text-align: left;">
@@ -733,7 +738,7 @@
     &#9203; Seats are limited. This is a working session, not a webinar &mdash; room size is intentional.
   </div>
 
-  <section class="section-light">
+  <section class="section-light" id="tickets">
     <div class="container">
 
       <div style="text-align:center; margin-bottom:40px;">
@@ -767,21 +772,22 @@
         <!-- VIP -->
         <div class="ticket-card vip">
           <div class="vip-badge">Most Valuable</div>
-          <div class="ticket-tier">VIP</div>
-          <div class="ticket-name">The Claude Power Move Intensive</div>
+          <div class="ticket-tier">VIP &mdash; Two Full Days</div>
+          <div class="ticket-name">The Claude Power Move Weekend</div>
           <div class="ticket-price-now">$850</div>
           <div class="ticket-price-was">Regular $1,995</div>
           <ul class="ticket-features">
-            <li>Everything in General Admission</li>
+            <li>Everything in General Admission &mdash; Saturday, May 23</li>
+            <li>Full second day &mdash; Sunday, May 24, go deeper and build more</li>
             <li>Personal hot seat with John &mdash; your business, your bottlenecks, live in the room</li>
             <li>1:1 time with John &mdash; go deeper on your setup, strategy, or anything you didn't cover</li>
-            <li>Priority seating &mdash; front of the room all day</li>
+            <li>Priority seating &mdash; front of the room both days</li>
           </ul>
           <a href="https://go.johnlawson.com/order-form-checkout" class="btn-primary" style="width:100%; font-size:16px; padding:16px 20px; background:var(--purple-light);">
-            Claim My VIP Seat &#x27A4;
+            Claim My Weekend Seat &#x27A4;
             <span class="btn-sub">Extremely limited &mdash; don't wait</span>
           </a>
-          <p style="font-size:13px; color:var(--gray); margin-top:12px; margin-bottom:0;">General Admission gives you the system. VIP gives you John's eyes on your business.</p>
+          <p style="font-size:13px; margin-top:12px; margin-bottom:0;">General Admission gives you the system. The Weekend gives you John's eyes on your business &mdash; for two full days.</p>
         </div>
 
       </div>
