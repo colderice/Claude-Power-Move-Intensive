@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're In — Claude Power Move Zoom Session</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:    #141413;
+  --dark:     #1a1a1a;
+  --dark2:    #222222;
+  --white:    #faf9f5;
+  --offwhite: #e8e6dc;
+  --gray:     #b0aea5;
+  --orange:   #d97757;
+  --od:       #b55f41;
+  --blue:     #6a9bcc;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Lora', serif; background: var(--black); color: var(--white); line-height: 1.6; }
+
+/* ── TOP BAR ── */
+.topbar {
+  background: var(--od);
+  padding: 10px 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+}
+.topbar a { color: var(--white); text-decoration: underline; }
+
+/* ── NAV ── */
+nav {
+  background: var(--black);
+  border-bottom: 2px solid var(--orange);
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+.nav-logo { height: 36px; display: block; }
+.nav-tag {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--black);
+  padding: 64px 20px 56px;
+  text-align: center;
+}
+.hero-inner { max-width: 720px; margin: 0 auto; }
+
+.confirm-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(217,119,87,0.12);
+  color: var(--orange);
+  border: 1px solid rgba(217,119,87,0.3);
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 7px 20px;
+  border-radius: 30px;
+  margin-bottom: 28px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 14px;
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(30px, 5vw, 52px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  margin-bottom: 16px;
+}
+h1 .accent { color: var(--orange); }
+.first-name { color: var(--orange); }
+
+.hero-sub {
+  font-size: clamp(16px, 2vw, 19px);
+  color: var(--gray);
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ── SESSION CARD ── */
+.session-section {
+  background: var(--dark);
+  padding: 60px 20px;
+}
+.session-inner { max-width: 680px; margin: 0 auto; }
+
+.session-card {
+  background: var(--dark2);
+  border: 2px solid var(--orange);
+  border-radius: 14px;
+  padding: 40px 36px;
+  text-align: center;
+}
+
+.session-card .card-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 18px;
+}
+
+.session-card h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 28px;
+}
+
+.session-details {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.detail-pill {
+  background: rgba(217,119,87,0.08);
+  border: 1px solid rgba(217,119,87,0.2);
+  border-radius: 8px;
+  padding: 14px 20px;
+  min-width: 130px;
+}
+.detail-pill .d-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--blue);
+  margin-bottom: 5px;
+}
+.detail-pill .d-value {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.join-btn {
+  display: inline-block;
+  background: var(--orange);
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  padding: 17px 40px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s, transform .15s;
+  width: 100%;
+  margin-bottom: 14px;
+}
+.join-btn:hover { background: var(--od); transform: translateY(-2px); }
+
+.join-note {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.6;
+  margin-top: 4px;
+}
+.join-note a { color: var(--blue); }
+
+/* Link hidden until JS populates it */
+.join-btn.hidden { display: none; }
+
+/* ── WHAT TO EXPECT ── */
+.expect-section {
+  background: var(--black);
+  padding: 64px 20px;
+}
+.expect-inner { max-width: 820px; margin: 0 auto; }
+
+.section-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 12px;
+}
+h2.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(24px, 3.5vw, 40px);
+  font-weight: 900;
+  color: var(--orange);
+  line-height: 1.15;
+  letter-spacing: -.02em;
+  margin-bottom: 32px;
+}
+
+.expect-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+.expect-card {
+  background: var(--dark2);
+  border: 1px solid #2e2e2e;
+  border-radius: 10px;
+  padding: 26px 22px;
+}
+.expect-icon { font-size: 28px; margin-bottom: 14px; }
+.expect-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.expect-body { font-size: 14px; color: var(--gray); line-height: 1.65; }
+
+/* ── SOFT INTENSIVE MENTION ── */
+.divider { height: 4px; background: linear-gradient(90deg, var(--od), var(--orange), var(--blue)); }
+
+.soft-cta {
+  background: var(--dark);
+  padding: 56px 20px;
+  text-align: center;
+  border-top: 1px solid #222;
+}
+.soft-cta h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(20px, 2.5vw, 30px);
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.soft-cta p {
+  font-size: 16px;
+  color: var(--gray);
+  max-width: 520px;
+  margin: 0 auto 22px;
+  line-height: 1.7;
+}
+.btn-outline {
+  display: inline-block;
+  background: transparent;
+  color: var(--orange);
+  border: 2px solid var(--orange);
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  padding: 13px 36px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s, color .2s;
+}
+.btn-outline:hover { background: var(--orange); color: var(--white); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--black);
+  padding: 36px 20px;
+  text-align: center;
+  border-top: 1px solid #222;
+}
+footer p { font-size: 13px; color: var(--gray); margin-bottom: 6px; line-height: 1.7; }
+footer a { color: var(--blue); text-decoration: none; }
+.tagline {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--orange);
+  margin-top: 12px;
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  🔥 The Claude Power Move Intensive — May 23, Atlanta &nbsp;·&nbsp; Early Bird $495
+  &nbsp;<a href="https://www.AtlantaAIBusiness.com">AtlantaAIBusiness.com →</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <img src="https://raw.githubusercontent.com/colderice/Claude-Power-Move-Intensive/main/assets/LOGO-Claude-Power-Move-Dark.png"
+       alt="Claude Power Move" class="nav-logo"
+       onerror="this.style.display='none'">
+  <div class="nav-tag">Thursdays 7 PM ET · Free Zoom Series</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="confirm-badge">✓ &nbsp;You're Registered</div>
+    <div class="eyebrow">Claude Power Move · Free Zoom Series</div>
+    <h1>See You <span class="accent">Thursday</span>,<br><span class="first-name" id="hero-name">Friend</span>.</h1>
+    <p class="hero-sub">Your spot is confirmed. Check your email for the confirmation and your unique join link. Session details are below.</p>
+  </div>
+</section>
+
+<!-- SESSION CARD -->
+<section class="session-section">
+  <div class="session-inner">
+    <div class="session-card">
+      <div class="card-label">Your Session Details</div>
+      <h2>The Claude Power Move<br>Free Zoom Series</h2>
+
+      <div class="session-details">
+        <div class="detail-pill">
+          <div class="d-label">Date</div>
+          <div class="d-value" id="event-date">Thursdays</div>
+        </div>
+        <div class="detail-pill">
+          <div class="d-label">Time</div>
+          <div class="d-value" id="event-time">7:00 PM ET</div>
+        </div>
+        <div class="detail-pill">
+          <div class="d-label">Format</div>
+          <div class="d-value">Live Zoom</div>
+        </div>
+        <div class="detail-pill">
+          <div class="d-label">Cost</div>
+          <div class="d-value" style="color:var(--orange);">Free</div>
+        </div>
+      </div>
+
+      <!-- Join button — shown only if WJ passes the unique link -->
+      <a href="#" class="join-btn hidden" id="join-btn" target="_blank">
+        Join the Session →
+      </a>
+
+      <p class="join-note">
+        A confirmation email is on its way to <strong id="registrant-email">your inbox</strong>.<br>
+        It includes your unique access link and a calendar reminder.<br>
+        Questions? <a href="mailto:john@3rdpoweroutlet.com">john@3rdpoweroutlet.com</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT TO EXPECT -->
+<section class="expect-section">
+  <div class="expect-inner">
+    <div class="section-label">What We Cover</div>
+    <h2 class="section-title">No Fluff. No Theory.<br>Just Claude Working for Your Business.</h2>
+    <div class="expect-grid">
+      <div class="expect-card">
+        <div class="expect-icon">🧠</div>
+        <div class="expect-title">Hands-On Implementation</div>
+        <div class="expect-body">Every session is a working session. We build things live — you leave with something you can use immediately.</div>
+      </div>
+      <div class="expect-card">
+        <div class="expect-icon">🎯</div>
+        <div class="expect-title">Built for Business Owners</div>
+        <div class="expect-body">Not for developers. Not for tech people. This is for coaches, consultants, and service providers who want real results.</div>
+      </div>
+      <div class="expect-card">
+        <div class="expect-icon">⚡</div>
+        <div class="expect-title">People + AI = Power Moves</div>
+        <div class="expect-body">Every session is built on this framework. AI amplifies what you already do well — it doesn't replace who you are.</div>
+      </div>
+      <div class="expect-card">
+        <div class="expect-icon">📅</div>
+        <div class="expect-title">Thursdays at 7 PM ET</div>
+        <div class="expect-body">Weekly series. Miss one, catch the next. Each session stands alone and builds on the last.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SOFT INTENSIVE MENTION -->
+<section class="soft-cta">
+  <h3>Want to Go Deeper?</h3>
+  <p>The Claude Power Move Intensive on May 23 is a full working session where we build your AI roadmap together — in person, in Atlanta. Early Bird is $495.</p>
+  <a href="https://go.johnlawson.com/order-form-checkout" class="btn-outline">
+    Learn About the Intensive →
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>The Claude Power Move · Free Zoom Series · Thursdays 7 PM ET</p>
+  <p>Questions? <a href="mailto:john@3rdpoweroutlet.com">john@3rdpoweroutlet.com</a></p>
+  <div class="tagline">People + AI = Power Moves</div>
+</footer>
+
+<script>
+  // ── Parse WebinarJam URL parameters ──────────────────────────────
+  // WJ appends these automatically when "Send register information" is ON:
+  //   wj_lead_first_name, wj_lead_email, wj_lead_unique_link_live_room,
+  //   wj_next_event_date, wj_next_event_time, wj_next_event_timezone
+  // All values arrive URL-encoded — decodeURIComponent handles them.
+
+  function getParam(name) {
+    const url = new URLSearchParams(window.location.search);
+    const val = url.get(name);
+    return val ? decodeURIComponent(val) : null;
+  }
+
+  const firstName  = getParam('wj_lead_first_name');
+  const email      = getParam('wj_lead_email');
+  const joinLink   = getParam('wj_lead_unique_link_live_room');
+  const eventDate  = getParam('wj_next_event_date');
+  const eventTime  = getParam('wj_next_event_time');
+
+  // Personalize hero greeting
+  if (firstName) {
+    document.getElementById('hero-name').textContent = firstName + '.';
+  }
+
+  // Show registrant email in note
+  if (email) {
+    document.getElementById('registrant-email').textContent = email;
+  }
+
+  // Populate session date/time if passed
+  if (eventDate) {
+    document.getElementById('event-date').textContent = eventDate;
+  }
+  if (eventTime) {
+    document.getElementById('event-time').textContent = eventTime;
+  }
+
+  // Show the Join button only if WJ passed the unique link
+  if (joinLink) {
+    const btn = document.getElementById('join-btn');
+    btn.href = joinLink;
+    btn.classList.remove('hidden');
+  }
+</script>
+</body>
+</html>
