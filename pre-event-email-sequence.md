@@ -15,9 +15,9 @@ You're registered. That's done.
 
 Here's what you need to know about **{TITLE}**:
 
-📅 **Date:** {DATE}
-🕐 **Time:** {TIME}
-🔗 **Your unique join link:** {LIVE_LINK}
+📅 Date: {DATE}
+🕐 Time: {TIME}
+🔗 Your unique join link: {LIVE_LINK}
 
 Save that link. That's YOUR link — it's registered to you and it's how you get in the room.
 
@@ -49,8 +49,9 @@ Two days until **{TITLE}**.
 
 Quick reminder of your details:
 
-📅 **{DATE}** at **{TIME}**
-🔗 **Your join link:** {LIVE_LINK}
+📅 Date: {DATE}
+🕐 Time: {TIME}
+🔗 Your unique join link: {LIVE_LINK}
 
 Here's what I want you to think about before you show up:
 
@@ -78,9 +79,11 @@ P.S. Still a few seats left for the May 23 intensive in Atlanta. If you've been 
 
 Today's the day.
 
-**{TITLE}** goes live tonight at **{TIME}**.
+**{TITLE}** goes live tonight.
 
-Your link: {LIVE_LINK}
+📅 Date: {DATE}
+🕐 Time: {TIME}
+🔗 Your unique join link: {LIVE_LINK}
 
 A few things to set yourself up right:
 
@@ -110,9 +113,9 @@ P.S. Forward this to someone who needs to be in the room. The more serious peopl
 
 We go live in 60 minutes.
 
-Here's your link one more time so it's right at the top of your inbox:
-
-👉 **{LIVE_LINK}**
+📅 Date: {DATE}
+🕐 Time: {TIME}
+🔗 Your unique join link: {LIVE_LINK}
 
 Open it. Get in early. Get settled.
 
