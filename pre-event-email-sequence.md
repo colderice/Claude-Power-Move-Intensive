@@ -124,4 +124,12 @@ I'll see you in the room.
 — John
 
 ---
+
+---
+
+## Text Alert — 15 Minutes Before
+
+🟧 {FIRST_NAME}, we go live in 15. Here's your link: {LIVE_LINK} — See you in there. — John
+
+---
 *Claude Power Move · Thursdays 7 PM ET · People + AI = Power Moves*
