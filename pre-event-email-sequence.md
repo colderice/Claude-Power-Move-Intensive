@@ -5,7 +5,7 @@
 
 ## Email 1 — Confirmation (Send Immediately at Registration)
 
-**Subject:** You're in, {FIRST_NAME}. Here's everything you need.
+**Subject:** 🟧 You're in, {FIRST_NAME}. Here's everything you need.
 
 ---
 
@@ -39,7 +39,7 @@ P.S. If you're serious about this, there's one more thing worth knowing. I'm run
 
 ## Email 2 — 48 Hours Before
 
-**Subject:** {FIRST_NAME}, two days out. Are you ready?
+**Subject:** 🟧 {FIRST_NAME}, two days out. Are you ready?
 
 ---
 
@@ -71,7 +71,7 @@ P.S. Still a few seats left for the May 23 intensive in Atlanta. If you've been 
 
 ## Email 3 — Day Of (Send Morning of Event)
 
-**Subject:** Tonight's the night, {FIRST_NAME}. We go live at {TIME}.
+**Subject:** 🟧 Tonight's the night, {FIRST_NAME}. We go live at {TIME}.
 
 ---
 
@@ -105,7 +105,7 @@ P.S. Forward this to someone who needs to be in the room. The more serious peopl
 
 ## Email 4 — 1 Hour Before (Send 60 Minutes Pre-Event)
 
-**Subject:** One hour, {FIRST_NAME}. Here's your link.
+**Subject:** 🟧 One hour, {FIRST_NAME}. Here's your link.
 
 ---
 
