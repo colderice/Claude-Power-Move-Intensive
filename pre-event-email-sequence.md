@@ -127,6 +127,28 @@ I'll see you in the room.
 
 ---
 
+## Email 5 — 15 Minutes Before
+
+**Subject:** 🟧 We're starting in 15, {FIRST_NAME}. Get in here.
+
+---
+
+{FIRST_NAME},
+
+15 minutes.
+
+📅 Date: {DATE}
+🕐 Time: {TIME}
+🔗 Your unique join link: {LIVE_LINK}
+
+Click that link. Get in the room. Let's go.
+
+— John
+
+---
+
+---
+
 ## Text Alert — 15 Minutes Before
 
 🟧 {FIRST_NAME}, we go live in 15. Here's your link: {LIVE_LINK} — See you in there. — John
