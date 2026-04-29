@@ -221,6 +221,12 @@
     .section-light .testi-card { background: var(--white); border-color: var(--gray); color: var(--black); }
     .section-light .testi-card p { color: #333; }
     .section-light strong { color: var(--black); }
+    .section-light .value-row { border-bottom-color: #ccc; }
+    .section-light .value-row .item-name { color: var(--black); }
+    .section-light .value-row .item-value { color: #555 !important; }
+    .section-light .value-total .total-label { color: #666 !important; }
+    .section-light .value-total .total-amount { color: #999 !important; }
+    .section-light .vip-callout { background: rgba(217, 119, 87, 0.06); border-color: var(--purple); }
 
     .container { max-width: 860px; margin: 0 auto; }
 
@@ -1281,7 +1287,7 @@
   </section>
 
   <!-- VIP SECTION (its own section) -->
-  <section class="vip-section">
+  <section class="section-light">
     <div class="container">
       <div class="eyebrow-light">For Serious Operators</div>
       <h2>The Full Build &mdash; Two Days, Your Business Completely Overhauled</h2>
@@ -1332,10 +1338,10 @@
   </section>
 
   <!-- SOCIAL PROOF -->
-  <section class="section-light">
+  <section class="section-darker">
     <div class="container">
       <div class="eyebrow-light">From People Who've Been In The Room</div>
-      <h2 style="color: var(--black);">What Happens When You Actually Implement</h2>
+      <h2>What Happens When You Actually Implement</h2>
 
       <p>These are the people who stopped watching and started building. Their words, not mine.</p>
 
@@ -1368,7 +1374,7 @@
   </section>
 
   <!-- WHO IT IS FOR (mirror language) -->
-  <section class="section-darker">
+  <section class="section-light">
     <div class="container">
       <div class="eyebrow-light">Is This You?</div>
       <h2>Who Saturday Is Built For</h2>
@@ -1383,7 +1389,7 @@
       </div>
 
       <div style="margin-top: 40px;">
-        <p style="font-size: 20px; color: var(--gray); line-height: 1.7;">This day is right for you if:</p>
+        <p style="font-size: 20px; color: #555; line-height: 1.7;">This day is right for you if:</p>
         <ul class="bullet-list">
           <li>You're running a service business &mdash; coaching, consulting, agency, freelance &mdash; and content + operations are eating your week</li>
           <li>You've tried AI tools before, gotten mediocre output, and given up before you figured out the real setup</li>
@@ -1392,7 +1398,7 @@
         </ul>
       </div>
 
-      <div style="margin-top: 30px; font-weight: bold; color: var(--white); font-size: 22px; line-height: 1.5;">
+      <div style="margin-top: 30px; font-weight: bold; color: var(--black); font-size: 22px; line-height: 1.5;">
         <p>If you've been meaning to implement for six months &mdash; <span style="color: var(--purple);">Saturday is the day it actually happens.</span></p>
       </div>
 
@@ -1594,7 +1600,7 @@
   </section>
 
   <!-- BIO (shrunk) -->
-  <section class="section-darker" style="border-top: 1px solid #2a2a2a; padding: 40px 20px;">
+  <section class="section-light" style="border-top: 1px solid #ddd; padding: 40px 20px;">
     <div class="container" style="text-align: center; max-width: 680px;">
       <div class="eyebrow-light">Your Instructor</div>
       <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap; justify-content: center; margin-top: 24px;">

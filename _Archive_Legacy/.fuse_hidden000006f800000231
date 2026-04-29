@@ -1,0 +1,390 @@
+# GHL Setup Guide — Atlanta AI Business Intensive Campaign
+## Complete step-by-step. Do this before Day 1 (April 12).
+
+Estimated time: 3–4 hours. Do it in one sitting.
+
+---
+
+## PART 1 — TAGS (15 minutes)
+
+Create these tags first. Everything else depends on them.
+
+Go to: **Contacts → Tags → Add Tag**
+
+Create each of the following:
+
+| Tag Name | Purpose |
+|----------|---------|
+| `atlaabi-email-opened` | Opened any campaign email |
+| `atlaabi-page-visited` | Visited AtlantaAIBusiness.com |
+| `atlaabi-seat-purchased` | Confirmed event buyer — exits all drips |
+| `atlaabi-webinar-registered` | Signed up for the April 28 webinar |
+| `atlaabi-webinar-attended` | Attended the live webinar |
+| `atlaabi-starter-kit-buyer` | Purchased the $17 Starter Kit |
+| `atlaabi-vip-interest` | Clicked VIP-specific content or link |
+
+---
+
+## PART 2 — PIXEL & TRACKING (20 minutes)
+
+### Install Facebook Pixel on AtlantaAIBusiness.com
+1. Go to your GHL funnel page settings for AtlantaAIBusiness.com
+2. Settings → Tracking → Paste your Facebook Pixel ID
+3. Create a Custom Conversion in Facebook Ads Manager:
+   - Event: Purchase
+   - URL contains: `thank-you` or your confirmation page URL
+4. Test using Facebook Pixel Helper Chrome extension
+
+### GHL Automation: Tag visitors to sales page
+1. Go to: **Automation → + New Workflow**
+2. Name it: `ATLAABI — Page Visit Tag`
+3. Trigger: **Funnel/Website Page Visit**
+   - Page: AtlantaAIBusiness.com (or your GHL funnel URL)
+4. Action: **Add Tag** → `atlaabi-page-visited`
+5. Action: **Add to Campaign** → `ATLAABI — Non-Buyer Follow-Up` (you'll create this in Part 4)
+6. Save and Publish
+
+---
+
+## PART 3 — EMAIL CAMPAIGNS (2 hours)
+
+### Campaign 1: ATLAABI — Main Launch Drip
+**Who gets it:** Your full email list
+
+Go to: **Email Marketing → Campaigns → + New Campaign**
+
+Name it: `ATLAABI — Main Launch Drip`
+
+Add each email below. For each one:
+- Click **Add Email**
+- Paste subject line, preview text, and body
+- Set the send delay per the schedule
+
+---
+
+#### EMAIL 1 — Day 0 (Send Immediately on Launch Day: April 12)
+**Subject:** They're not smarter than you.
+**Preview:** They just stopped doing $20/hr work with $200/hr brainpower.
+**Body:** → Copy from `Email_Nurture_Sequence_30Day.md`, EMAIL 1
+
+---
+
+#### EMAIL 2 — Day 3 (72 hours after Email 1)
+**Subject:** Meet Eva, Penny, Sonny, and Stan.
+**Preview:** Your new team doesn't need PTO. Or a benefits package.
+**Body:** → Copy from Email_Nurture_Sequence_30Day.md, EMAIL 2
+
+---
+
+#### EMAIL 3 — Day 6 (6 days after Email 1) — CONDITIONAL
+**Condition:** Contact did NOT purchase (does not have tag `atlaabi-seat-purchased`)
+**Subject:** "I'm not techy enough for this."
+**Preview:** Good. Neither are half the people who will be in that room.
+**Body:** → EMAIL 3
+
+> Set this email to only send if `atlaabi-seat-purchased` tag is NOT present.
+> In GHL: Add an **If/Else** branch before this email step.
+
+---
+
+#### EMAIL 4 — Day 8 (8 days after Email 1)
+**Subject:** I'll give you your money back.
+**Preview:** Here's the exact condition. No small print.
+**Body:** → EMAIL 4
+**Condition:** Does NOT have tag `atlaabi-seat-purchased`
+
+---
+
+#### EMAIL 5 — Day 10 (10 days after Email 1)
+**Subject:** She was losing 3-5 deals a year to slow follow-up.
+**Preview:** That's $50,000+ gone. Here's how she fixed it in one day.
+**Body:** → EMAIL 5
+**Condition:** Does NOT have tag `atlaabi-seat-purchased`
+
+---
+
+#### EMAIL 6 — Day 13 (13 days after Email 1)
+**Subject:** Free live demo — I'm building an AI employee on camera.
+**Preview:** Watch me deploy Eva, Penny, Sonny, and Stan in real time. Register below.
+**Body:** → EMAIL 6
+**Action:** Update `[WEBINAR LINK]` placeholder with your Zoom or GHL webinar URL
+
+---
+
+#### EMAIL 7 — Day 14 (14 days after Email 1)
+**Subject:** 15 VIP seats. Here's what that room looks like.
+**Preview:** Private Sunday. Hot seats. Direct access. No filters.
+**Body:** → EMAIL 7
+**Condition:** Does NOT have tag `atlaabi-seat-purchased`
+
+---
+
+#### EMAIL 8 — Day 17 MORNING (Webinar Day, April 28)
+**Subject:** We go live today. Here's the link.
+**Preview:** 45 minutes. I build your AI team on camera. Join us.
+**Send to:** Tag = `atlaabi-webinar-registered` only
+**Body:** → EMAIL 8
+**Action:** Update `[WEBINAR LINK]` with the live Zoom link
+
+> Set as a one-time broadcast, NOT drip. Send manually at 9am on April 28.
+
+---
+
+#### EMAIL 9 — Day 18 (April 29 — Replay)
+**Subject:** You missed it — replay is live for 24 hours.
+**Preview:** The 18-minute mark alone is worth watching. Here's the link.
+**Body:** → EMAIL 9
+**Send to:** Full list MINUS tag `atlaabi-webinar-attended`
+**Action:** Update `[REPLAY LINK]` with the replay URL
+
+> Send as a one-time broadcast on April 29 morning.
+
+---
+
+#### EMAIL 10 — Day 15 (April 26 — 6-Day Countdown)
+**Subject:** 6 days left at $795.
+**Preview:** May 1 is the cutoff. After that, it's $995. No exceptions.
+**Body:** → EMAIL 10
+**Condition:** Does NOT have tag `atlaabi-seat-purchased`
+
+---
+
+#### EMAIL 11 — Day 18 (April 29 — 3-Day Countdown)
+**Subject:** 3 days. Then the price goes up.
+**Preview:** May 1. No extensions. No exceptions. $795 becomes $995.
+**Body:** → EMAIL 11
+**Condition:** Does NOT have tag `atlaabi-seat-purchased`
+
+---
+
+#### EMAILS 12A, 12B, 12C — Day 20 (May 1 — Deadline Day)
+> These are THREE separate broadcasts. Do NOT automate. Send manually.
+
+**12A — Send at 7:00 AM:**
+Subject: Today's the last day. $795 ends tonight.
+Preview: After midnight, it's $995. No exceptions, no extensions.
+
+**12B — Send at 12:00 PM:**
+Subject: Halfway through deadline day. Seats are moving.
+Preview: Tonight at midnight the price locks. Here's your reminder.
+
+**12C — Send at 8:00 PM:**
+Subject: 4 hours left. $795 or $995. That's the choice.
+Preview: Midnight closes early bird. See you in Atlanta — or not.
+
+All body copy → EMAIL 12A, 12B, 12C from Email_Nurture_Sequence_30Day.md
+
+---
+
+#### EMAIL 13 — Day 21 (May 2)
+**Subject:** The price went up. Here's what's left.
+**Preview:** Early bird is closed. But the room isn't full yet.
+**Body:** → EMAIL 13
+**Condition:** Does NOT have tag `atlaabi-seat-purchased`
+
+---
+
+#### EMAIL 14 — Day 23 (May 4)
+**Subject:** What $5,000/month in replaced costs looks like.
+**Preview:** This is the math behind the Atlanta AI Business Intensive.
+**Body:** → EMAIL 14
+**Condition:** Does NOT have tag `atlaabi-seat-purchased`
+
+---
+
+#### EMAIL 15 — Day 29 (May 10)
+**Subject:** I want to say something to you directly.
+**Preview:** Not a pitch. Just a real conversation before the room closes.
+**Body:** → EMAIL 15
+**Condition:** Does NOT have tag `atlaabi-seat-purchased`
+
+---
+
+#### EMAIL 16 — Day 30 (May 11)
+**Subject:** Registration closes tomorrow.
+**Preview:** After May 12, the door is shut. This is the last email.
+**Body:** → EMAIL 16
+**Condition:** Does NOT have tag `atlaabi-seat-purchased`
+
+---
+
+### Campaign 2: ATLAABI — Non-Buyer Follow-Up
+**Who gets it:** Anyone who visited the sales page but didn't buy
+
+Go to: **Email Marketing → Campaigns → + New Campaign**
+
+Name it: `ATLAABI — Non-Buyer Follow-Up`
+
+**Trigger:** Added automatically by the Page Visit Workflow (Part 2)
+
+Emails to add:
+
+| Delay | Subject | Source |
+|-------|---------|--------|
+| Immediately | "I'm not techy enough for this." | EMAIL 3 |
+| 2 days | "I'll give you your money back." | EMAIL 4 |
+| 5 days | "You looked. What stopped you?" | Custom — write: "You clicked through to the Atlanta page. Something made you stop. Was it the price? The timing? I'd genuinely like to know — hit reply. If it's something I can fix, I will." |
+
+**Stop condition on ALL emails in this campaign:** Tag = `atlaabi-seat-purchased`
+
+---
+
+### Campaign 3: ATLAABI — Starter Kit Buyer Upgrade
+**Who gets it:** Anyone who buys the $17 Starter Kit but has NOT purchased a seat
+
+Go to: **Email Marketing → Campaigns → + New Campaign**
+
+Name it: `ATLAABI — Starter Kit Upgrade`
+
+**Trigger:** Created by purchase automation (Part 5, below)
+
+| Delay | Subject | Body |
+|-------|---------|------|
+| Day 1 | "You already took the first step." | "You bought the Starter Kit, which means you already know who Eva, Penny, Sonny, and Stan are. The only thing left is to actually build them. That happens in Atlanta on May 23. Early bird is still available — and as a Starter Kit buyer, your $17 applies toward your seat. Go here: AtlantaAIBusiness.com" |
+| Day 3 | "A quick question before you decide." | "What's the thing that would make showing up in Atlanta a no-brainer for you? Hit reply and tell me. Seriously — I read these." |
+| Day 7 | "Last push before early bird ends." | Use EMAIL 11 (3-day countdown) body, personalized: "You already understand the framework. Now come build it before the early bird closes." |
+
+**Stop condition:** Tag = `atlaabi-seat-purchased`
+
+---
+
+## PART 4 — PURCHASE AUTOMATION (30 minutes)
+
+### Workflow: ATLAABI — Seat Purchase Confirmation
+Go to: **Automation → + New Workflow**
+Name: `ATLAABI — Seat Purchase`
+Trigger: **Order Form Submission** → Your Atlanta AI Business Intensive order form
+
+Actions (in order):
+1. Add Tag: `atlaabi-seat-purchased`
+2. Remove from Campaign: `ATLAABI — Main Launch Drip`
+3. Remove from Campaign: `ATLAABI — Non-Buyer Follow-Up`
+4. Remove from Campaign: `ATLAABI — Starter Kit Upgrade`
+5. Send Email: Confirmation email (write a simple one: "You're in. See you in Atlanta on May 23. Details to follow.")
+6. Send Internal Notification to yourself: "New seat sold — {{contact.full_name}}"
+
+---
+
+### Workflow: ATLAABI — Starter Kit Purchase
+Go to: **Automation → + New Workflow**
+Name: `ATLAABI — Starter Kit Purchase`
+Trigger: **Order Form Submission** → Your Starter Kit order form
+
+Actions:
+1. Add Tag: `atlaabi-starter-kit-buyer`
+2. Send Email: Delivery email with PDF download link
+3. Wait: 10 minutes
+4. Add to Campaign: `ATLAABI — Starter Kit Upgrade`
+
+---
+
+## PART 5 — WEBINAR SETUP (30 minutes)
+
+### Webinar Registration Page (needed by April 22 — Day 11)
+
+Build a simple GHL funnel page:
+- Title: "Free Live Demo: Build Your AI Team on Camera — April 28"
+- Subtitle: "Watch John Lawson deploy Eva, Penny, Sonny, and Stan in 45 minutes"
+- Simple opt-in form: First Name + Email
+- Submit action: Add tag `atlaabi-webinar-registered` + add to webinar reminder sequence
+
+### Webinar Reminder Sequence
+Create a simple 3-email campaign triggered by `atlaabi-webinar-registered`:
+
+| Timing | Subject |
+|--------|---------|
+| Immediately after registration | "You're registered. Here's what to expect on April 28." |
+| April 27 morning | "Tomorrow. Live demo. I'll build your AI team on camera." |
+| April 28, 1 hour before | EMAIL 8 — day-of reminder with live link |
+
+---
+
+## PART 6 — STARTER KIT CHECKOUT PAGE (1 hour)
+
+### Option A: Use the HTML file (Fastest)
+The file `starter_kit_checkout.html` is already built and saved in your folder.
+- Upload it as a custom page in GHL Funnels
+- Replace the `<a href="#">` CTA button with your GHL order form embed code
+- Set the page URL to something like: `yourdomain.com/ai-starter-kit`
+
+### Option B: Build natively in GHL
+Use GHL's funnel builder. Content and copy is all in `AtlantaAIBI_StarterKit_SalesPage_OrderBump.md`.
+Sections to build:
+1. Hero (headline, subheadline, price, CTA button)
+2. The Problem (3 pain cards)
+3. Employee Cards (Eva, Penny, Sonny, Stan — 4 columns)
+4. What's Inside (checklist)
+5. Cost Table
+6. Tools Section (Claude, Genspark, Marblism)
+7. Guarantee
+8. About John
+9. Final CTA / Checkout embed
+
+### Order Bump Setup
+In your GHL order form settings:
+- Enable Order Bump
+- Title: "Add My Atlanta Seat — $795 (Early Bird)"
+- Copy from: `AtlantaAIBI_StarterKit_SalesPage_OrderBump.md` → ORDER BUMP COPY section
+- Product: Atlanta AI Business Intensive General Admission ($795)
+
+### Post-Purchase Upsell (One-Time Offer)
+Set redirect after Starter Kit purchase (if order bump NOT taken) to:
+- A simple OTO page built from the POST-PURCHASE UPSELL PAGE copy in `AtlantaAIBI_StarterKit_SalesPage_OrderBump.md`
+- Two buttons: "Yes — $795" (to intensive checkout) and "No thanks" (to PDF delivery page)
+
+---
+
+## PART 7 — LAUNCH CHECKLIST
+
+Before you hit send on Email 1, confirm all of these:
+
+- [ ] All 7 tags created in GHL
+- [ ] Facebook Pixel installed and firing on AtlantaAIBusiness.com
+- [ ] Page Visit workflow live and tested
+- [ ] Main Launch Drip campaign loaded with all 16 emails
+- [ ] Non-Buyer Follow-Up campaign ready (triggered by page visit)
+- [ ] Seat Purchase confirmation workflow live
+- [ ] Starter Kit order form live with PDF delivery
+- [ ] Starter Kit order bump configured ($795 upgrade)
+- [ ] Starter Kit Purchase workflow live
+- [ ] Webinar registration page ready (needs to be live by April 22)
+- [ ] Starter Kit checkout page live at your chosen URL
+- [ ] Test purchase completed end-to-end (buy the kit, confirm you get the PDF, confirm tags fire, confirm you get the upgrade sequence)
+
+---
+
+## QUICK REFERENCE — CAMPAIGN MAP
+
+```
+COLD TRAFFIC (Ads / Organic)
+        ↓
+STARTER KIT PAGE ($17)
+    ├── ORDER BUMP → Atlanta Seat ($795) ── DONE
+    └── NO BUMP → OTO PAGE → Atlanta Seat ($795)
+        ↓ (if no purchase)
+        Starter Kit Upgrade Sequence (3 emails)
+
+EMAIL LIST (Existing)
+        ↓
+MAIN LAUNCH DRIP (16 emails, April 12 – May 11)
+        ↓
+SALES PAGE VISIT (AtlantaAIBusiness.com)
+        ↓ (if no purchase)
+        Non-Buyer Follow-Up (3 emails)
+
+WEBINAR REGISTRANT
+        ↓
+WEBINAR REMINDER SEQUENCE (3 emails)
+        ↓ (attended, no purchase)
+        Replay email → Objection email → VIP email
+
+ALL PATHS
+        ↓ (on purchase)
+        Tag: atlaabi-seat-purchased
+        EXIT all sequences immediately
+        Confirmation email + internal notification
+```
+
+---
+
+*People + AI = Power Moves. Now go load it.*

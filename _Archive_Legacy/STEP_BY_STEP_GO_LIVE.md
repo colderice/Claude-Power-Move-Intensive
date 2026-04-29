@@ -1,0 +1,376 @@
+# Step-by-Step: Go Live Today
+## Claude Power Move Intensive — Full Setup in Order
+
+Do these in sequence. Don't skip ahead.
+Estimated total time: 3 hours.
+
+---
+
+## STEP 1 — MARBLISM AFFILIATE LINK (10 min)
+
+This has to be active before you promote the Starter Kit, because your link is the whole point.
+
+1. Open your browser and go to **Marblism.link/john**
+2. Confirm the link works and your affiliate account is active
+3. Confirm that the discount code **JOHN** is live and applies at checkout
+4. Drop the link into your phone's notes so it's handy
+
+> If your affiliate link or code isn't set up yet, contact the Marblism team now before anything else. Everything downstream depends on this being active.
+
+---
+
+## STEP 2 — GHL TAGS (15 min)
+
+These 7 tags control who gets what. Build them first or the automations break.
+
+1. Log into **GoHighLevel**
+2. Left sidebar → **Contacts**
+3. Top right → click **Tags**
+4. Hit **+ Add Tag** and create each one below — copy/paste the names exactly:
+
+| Create this tag | Purpose |
+|-----------------|---------|
+| `atlaabi-email-opened` | Opened a campaign email |
+| `atlaabi-page-visited` | Visited the sales page |
+| `atlaabi-seat-purchased` | Bought an event seat — exits all drips |
+| `atlaabi-webinar-registered` | Signed up for April 28 webinar |
+| `atlaabi-webinar-attended` | Attended the live webinar |
+| `atlaabi-starter-kit-buyer` | Purchased the $17 Starter Kit |
+| `atlaabi-vip-interest` | Clicked VIP content or link |
+
+5. Confirm all 7 appear in your tag list before moving on
+
+---
+
+## STEP 3 — STARTER KIT PRODUCT (20 min)
+
+1. In GHL, go to **Payments → Products**
+2. Click **+ New Product**
+3. Fill in:
+   - **Name:** Claude Power Move Intensive Starter Kit
+   - **Price:** $17
+   - **Type:** One-time
+   - **Description:** "Your step-by-step guide to building Eva, Penny, Sonny, and Stan on Marblism. Instant PDF download."
+4. Upload your PDF: `Atlanta_AI_Business_Intensive_StarterKit.pdf` (in your Claude Power Move Intensive folder)
+5. Set delivery: **Digital file** → attach the PDF
+6. Save product
+
+---
+
+## STEP 4 — INTENSIVE SEAT PRODUCT (10 min)
+
+1. Still in **Payments → Products**
+2. Click **+ New Product**
+3. Fill in:
+   - **Name:** Claude Power Move Intensive — General Admission
+   - **Price:** $795
+   - **Type:** One-time
+4. Save product
+
+Then do the same for VIP:
+   - **Name:** Claude Power Move Intensive — VIP Strategy Weekend
+   - **Price:** $1,295
+   - **Type:** One-time
+5. Save both
+
+---
+
+## STEP 5 — STARTER KIT ORDER FORM (20 min)
+
+1. Go to **Payments → Order Forms**
+2. Click **+ New Order Form**
+3. Name it: `Starter Kit — $17`
+4. Add product: **Claude Power Move Intensive Starter Kit ($17)**
+5. Enable **Order Bump:**
+   - Product: **Claude Power Move Intensive — General Admission ($795)**
+   - Bump title: `⚡ YES — Add My Atlanta Seat (Early Bird $795)`
+   - Bump description:
+
+```
+You just grabbed the blueprint. Come build it live.
+
+One day in Atlanta on May 23. Walk out with all 4 AI employees
+running before you hit the parking lot. 40 seats. No replay.
+Early bird ends May 1 — $795 becomes $995 on May 2.
+
+✓ Add my Atlanta seat for $795
+```
+
+6. Set **Thank You / Redirect URL:** Point to your PDF delivery page or a simple GHL confirmation page
+7. Copy the **Order Form embed code** — you'll need this in Step 7
+8. Save
+
+---
+
+## STEP 6 — STARTER KIT PURCHASE AUTOMATION (15 min)
+
+This fires the moment someone buys the $17 kit.
+
+1. Go to **Automation → Workflows → + New Workflow**
+2. Name it: `ATLAABI — Starter Kit Purchase`
+3. Trigger: **Order Form Submission** → select `Starter Kit — $17`
+4. Add these actions in order:
+   - **Add Tag:** `atlaabi-starter-kit-buyer`
+   - **Send Email:** Subject: "Here's your Starter Kit — and your first move" — Body:
+
+```
+You're in.
+
+Your Claude Power Move Intensive Starter Kit is attached below.
+
+Start with Page 2 — it walks you through Marblism, the platform
+where you'll build your AI team.
+
+Sign up here: Marblism.link/john
+Use code JOHN at checkout for your discount.
+
+Once you're in Marblism, follow the employee setup pages
+for Eva, Penny, Sonny, and Stan — in that order.
+
+See you in Atlanta on May 23.
+
+— John
+```
+
+   - **Attach:** Your PDF (upload it as an email attachment or link to a hosted version)
+   - **Wait:** 10 minutes
+   - **Add to Campaign:** `ATLAABI — Starter Kit Upgrade` (you'll create this in Step 10)
+
+5. Save and **Publish**
+
+---
+
+## STEP 7 — STARTER KIT CHECKOUT PAGE LIVE (20 min)
+
+1. Go to **Sites → Funnels → + New Funnel**
+2. Name it: `Starter Kit — $17`
+3. Add a new step → choose **Blank Page** or import custom HTML
+4. **If using HTML option:**
+   - Open the file `starter_kit_checkout.html` from your Claude Power Move Intensive folder
+   - Copy all the HTML
+   - Paste into the GHL custom HTML/code block
+   - Find this comment in the code: `<!-- Replace this button with your GHL order form embed code -->`
+   - Replace the `<a href="#">` button with your order form embed code from Step 5
+5. **If building natively in GHL funnel builder:**
+   - Use the copy from `AtlantaAIBI_StarterKit_SalesPage_OrderBump.md`
+   - Build each section: Hero → Problem → Employee Cards → What's Inside → Guarantee → About → CTA
+   - Drop the Order Form element at the bottom
+6. Set your funnel URL (example: `yoursite.com/starter-kit`)
+7. Publish the page
+8. **Test it:** Open the page in a private browser window, go through checkout, confirm you receive the PDF and get tagged correctly
+
+---
+
+## STEP 8 — SEAT PURCHASE AUTOMATION (10 min)
+
+This is the kill switch — pulls buyers out of all sequences the moment they purchase.
+
+1. Go to **Automation → Workflows → + New Workflow**
+2. Name it: `ATLAABI — Seat Purchase`
+3. Trigger: **Order Form Submission** → select both seat order forms (GA and VIP)
+4. Actions in order:
+   - **Add Tag:** `atlaabi-seat-purchased`
+   - **Remove from all campaigns** (remove from: Main Launch Drip, Non-Buyer Follow-Up, Starter Kit Upgrade)
+   - **Send Email:** Subject: "You're in. See you in Atlanta." — Body:
+
+```
+You're confirmed.
+
+Claude Power Move Intensive
+May 23, 2025 — Masterly Studios, Atlanta GA
+
+Check your inbox over the next few days for logistics,
+what to bring, and how to prep.
+
+If you have any questions before then, reply here.
+
+— John Lawson
+ColderICE Media
+```
+
+   - **Internal Notification to yourself:** "New seat sold — {{contact.full_name}} — {{contact.email}}"
+5. Save and **Publish**
+
+---
+
+## STEP 9 — MAIN EMAIL CAMPAIGN (45 min)
+
+1. Go to **Email Marketing → Campaigns → + New Campaign**
+2. Name it: `ATLAABI — Main Launch Drip`
+3. Add emails one at a time using the **+ Add Email** button
+4. For each email, paste the content from `Email_Nurture_Sequence_30Day.md`
+
+**Load in this order with these delays:**
+
+| # | Subject Line | Delay from Start |
+|---|-------------|-----------------|
+| 1 | They're not smarter than you. | Send immediately |
+| 2 | Meet Eva, Penny, Sonny, and Stan. | 3 days |
+| 3 | "I'm not techy enough for this." | 6 days |
+| 4 | I'll give you your money back. | 8 days |
+| 5 | She was losing 3-5 deals a year to slow follow-up. | 10 days |
+| 6 | Free live demo — I'm building an AI employee on camera. | 13 days |
+| 7 | 15 VIP seats. Here's what that room looks like. | 14 days |
+| 10 | 6 days left at $795. | 15 days |
+| 11 | 3 days. Then the price goes up. | 18 days |
+| 13 | The price went up. Here's what's left. | 21 days |
+| 14 | What $5,000/month in replaced costs looks like. | 23 days |
+| 15 | I want to say something to you directly. | 29 days |
+| 16 | Registration closes tomorrow. | 30 days |
+
+5. On **every email except Email 6 (webinar invite)**, add a condition:
+   - Click the email settings → **Add Condition**
+   - Condition: **Tag does NOT contain** `atlaabi-seat-purchased`
+   - This stops the drip the moment someone buys
+
+6. Save the campaign — do NOT send yet
+
+---
+
+## STEP 10 — STARTER KIT UPGRADE CAMPAIGN (15 min)
+
+1. **Email Marketing → Campaigns → + New Campaign**
+2. Name it: `ATLAABI — Starter Kit Upgrade`
+3. Add 3 emails:
+
+**Email 1 — Send immediately after kit purchase:**
+- Subject: `You already took the first step.`
+- Body:
+```
+You bought the Starter Kit, which means you already know
+who Eva, Penny, Sonny, and Stan are.
+
+The only thing left is to build them live.
+
+That happens in Atlanta on May 23 — one day, one room,
+all 4 employees running before you leave.
+
+Early bird is still available: AtlantaAIBusiness.com
+```
+
+**Email 2 — 3 days later:**
+- Subject: `A quick question before you decide.`
+- Body:
+```
+What's the one thing that would make showing up in Atlanta
+a no-brainer for you?
+
+Hit reply and tell me. I read these.
+
+— John
+```
+
+**Email 3 — 7 days later:**
+- Subject: `Last push before early bird ends.`
+- Body:
+```
+You already understand the framework. You set up Marblism.
+You've seen how the system works.
+
+The last piece is building it with me in the room — so it
+actually runs the way it's supposed to.
+
+Atlanta. May 23. Early bird ends May 1.
+
+AtlantaAIBusiness.com
+```
+
+4. Stop condition on all 3: Tag = `atlaabi-seat-purchased`
+5. Save campaign
+
+---
+
+## STEP 11 — PAGE VISIT AUTOMATION (10 min)
+
+Tags anyone who hits your sales page but doesn't buy, and drops them into the follow-up sequence.
+
+1. **Automation → Workflows → + New Workflow**
+2. Name it: `ATLAABI — Page Visit Tag`
+3. Trigger: **Page / Funnel Page Visit** → select AtlantaAIBusiness.com (or your GHL funnel URL)
+4. Actions:
+   - **Add Tag:** `atlaabi-page-visited`
+   - **If/Else:** Does contact have tag `atlaabi-seat-purchased`?
+     - **If YES:** Do nothing (end branch)
+     - **If NO:** Send Email:
+       - Subject: `You stopped. Here's why most people do.`
+       - Body:
+       ```
+       You clicked through to the Atlanta page. Something made you stop.
+
+       Usually it's one of three things: price, timing, or "I'm not
+       sure if this is for me."
+
+       Which one is it? Hit reply. I'm not going to pitch you —
+       I genuinely want to know.
+
+       — John
+       ```
+5. Save and **Publish**
+
+---
+
+## STEP 12 — SEND EMAIL 1 (2 min)
+
+You're live. Time to fire.
+
+1. Go to **Email Marketing → Campaigns → ATLAABI — Main Launch Drip**
+2. Set the start date: **Today**
+3. Select your full list (or the segment you're launching to)
+4. Hit **Start Campaign**
+
+That's it. Email 1 goes out. The sequence runs itself.
+
+---
+
+## STEP 13 — LAUNCH STARTER KIT TRAFFIC (10 min)
+
+1. Post the Starter Kit announcement on **Facebook and LinkedIn** right now:
+
+```
+Just dropped: The Claude Power Move Intensive Starter Kit.
+
+$17. Meet your AI team — Eva, Penny, Sonny, and Stan.
+See exactly how they run your business while you sleep.
+
+Then come build them live with me in Atlanta on May 23.
+
+[YOUR STARTER KIT URL]
+```
+
+2. Go to **Facebook Ads Manager → + Create Campaign**
+   - Objective: **Traffic** or **Conversions**
+   - Audience: Business owners, coaches, consultants — Atlanta + 200 miles
+   - Creative: Use the text above as your ad copy
+   - Budget: $15/day
+   - Destination: Your Starter Kit checkout page URL
+3. Launch
+
+---
+
+## STEP 14 — VERIFY EVERYTHING WORKS (15 min)
+
+Before you call it done, run a full test.
+
+- [ ] Open your Starter Kit page in a private browser window
+- [ ] Complete a test purchase (use a test card or comp yourself)
+- [ ] Confirm you receive the PDF delivery email
+- [ ] Confirm the `atlaabi-starter-kit-buyer` tag was applied to your contact
+- [ ] Confirm the Starter Kit Upgrade campaign started
+- [ ] Confirm the seat purchase automation fires correctly by simulating a purchase
+- [ ] Confirm the `atlaabi-seat-purchased` tag removes contacts from all sequences
+- [ ] Send a test email from the Main Launch Drip to your own address — confirm it renders correctly on mobile
+
+If any of these fail, fix before you send to your full list.
+
+---
+
+## YOU'RE LIVE. HERE'S YOUR DAILY CHECKLIST FROM HERE:
+
+Every morning, check three numbers:
+1. **Seats sold** — updated in your GHL order dashboard
+2. **Email open rate** — anything under 25% means test a new subject line
+3. **Ad CTR** — anything under 1% means new creative
+
+Everything else runs automatically.
+
+People + AI = Power Moves. Go get those 40 seats.

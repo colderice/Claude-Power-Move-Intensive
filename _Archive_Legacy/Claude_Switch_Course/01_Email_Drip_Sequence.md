@@ -1,0 +1,209 @@
+# The Claude Switch — Email Drip Sequence
+*6 emails. One per session. Opt-in trigger: joined FB group + submitted email on GHL landing page.*
+*Tag on opt-in: `switched-to-claude` + `free-training`*
+*Exit sequence on: clicks any Atlanta purchase link*
+
+---
+
+## Email 1 — Session 1 Delivery
+**Send:** Immediately after opt-in (or on Session 1 go-live date if pre-registered)
+**Subject:** Your first Claude session is live
+**Preview text:** You made the right call. Here's what's waiting for you.
+
+---
+
+You switched. Good.
+
+A lot of people are still sitting on the fence, running the same tired prompts in the same tired tool, wondering why they're getting mediocre results. You decided to move. That puts you ahead.
+
+Now let's make sure that move actually pays off.
+
+Session 1 of The Claude Switch is live right now:
+
+**[Watch Session 1: "Why You Switched (And Why You're Not Going Back)"]**
+
+In this one, I'm doing something most Claude content doesn't do — I'm showing you the honest side-by-side. Same prompt. Both tools. Let the output speak.
+
+By the end, you'll know exactly what you're working with and why this switch is different from the last tool you tried.
+
+Six sessions. No fluff. Real business application.
+
+Session 2 drops in two days.
+
+— John
+
+*P.S. Drop into the Facebook group and tell us — what finally made you switch? The replies in there are wild.*
+
+---
+
+## Email 2 — Session 2 Delivery
+**Send:** 2 days after Email 1
+**Subject:** Most people set Claude up wrong from day one
+**Preview text:** There's a feature that changes everything. Most people skip it.
+
+---
+
+Quick question before you watch Session 2:
+
+Did you set up a Claude Project yet?
+
+If not — that's the most common mistake switchers make. They open Claude, type a prompt, get a decent result, and think that's all there is. They never set context. So every session, Claude starts cold. No memory of their business, their voice, their goals.
+
+It's like hiring a genius who forgets everything overnight.
+
+Session 2 fixes that.
+
+**[Watch Session 2: "How Claude Actually Thinks"]**
+
+I'm walking you through the Projects feature live — setting it up, loading it with your business context, and showing you what the output looks like before and after. The difference is significant.
+
+By the end of this one, Claude will know your business every time you open it.
+
+Do this before Session 3. Trust me.
+
+— John
+
+---
+
+## Email 3 — Session 3 Delivery + Prompt Library
+**Send:** 2 days after Email 2
+**Subject:** Your ChatGPT prompts won't work here
+**Preview text:** There's a reason your results feel "almost right." Here's the fix.
+
+---
+
+Here's something nobody tells you when you switch from ChatGPT:
+
+The prompts don't transfer.
+
+Not because Claude is worse. Because Claude is different. It doesn't respond well to command-style prompts. It doesn't need you to bark orders. It needs context, conversation, and clarity — and when you give it that, the output quality jumps.
+
+Session 3 breaks this down in real time.
+
+**[Watch Session 3: "Prompting Claude the Right Way"]**
+
+I take actual prompts people submitted from the group and rebuild them live. You'll see exactly what changes, why it matters, and how to apply it to your own work today.
+
+I also put together a Starter Prompt Library — 20 ready-to-use prompts across the most common business use cases — and you can grab it free right here:
+
+**[Download the Starter Prompt Library]** ← *[GHL secondary opt-in or direct download link]*
+
+Save it. Use it. Modify it to fit your business.
+
+Session 4 is where it gets interesting. I'm showing you the features most Claude users never find.
+
+— John
+
+---
+
+## Email 4 — Session 4 Delivery
+**Send:** 2 days after Email 3
+**Subject:** The Claude features nobody talks about
+**Preview text:** Artifacts. Extended thinking. Document analysis. Most people miss all of it.
+
+---
+
+Real talk — most Claude users are using about 30% of what this tool can actually do.
+
+The other 70%? That's where the advantage is.
+
+Session 4 is a features deep-dive into the stuff that doesn't show up in the comparison articles:
+
+**[Watch Session 4: "Claude's Secret Weapons"]**
+
+What I'm covering:
+
+Artifacts — what they are and why they matter if you're producing any kind of content, strategy doc, or deliverable for clients. Extended thinking — when to use it and when to skip it. Long document handling — I'm dropping a full PDF into Claude live and showing you how to have a real business conversation with it. Voice calibration — how to get Claude writing in your voice, not a generic AI voice.
+
+This is where people start going "okay, I get it now."
+
+Session 5 is the one I get the most questions about. We're building something from scratch — a complete Claude workflow for a real business. Bring a use case. You might end up on screen.
+
+— John
+
+---
+
+## Email 5 — Session 5 Delivery + Atlanta Tease
+**Send:** 2 days after Email 4
+**Subject:** Build this in 20 minutes (and never do it manually again)
+**Preview text:** This is what "AI employee" actually means in practice.
+
+---
+
+Knowing Claude is one thing. Building a workflow with it is something else.
+
+That's what Session 5 is about.
+
+**[Watch Session 5: "Build Your First Claude Workflow"]**
+
+We're going start to finish — intake, analysis, output, delivery — on a real business use case. You'll see exactly how a workflow gets built and how it keeps running without you babysitting it.
+
+I'm also introducing something in this session that goes beyond Claude alone. If Claude is your best thinker, the question becomes: who does the rest?
+
+I use a platform called Marblism. $39/month. Full team of AI employees — email management, social media, content writing, lead follow-up. Code JOHN gets you 25% off. Not a pitch, just what I use. If it's relevant to you, grab it. If not, the workflow session stands on its own.
+
+---
+
+Here's why I'm telling you this now:
+
+In Atlanta on May 23, I'm bringing a room of 40 people together to build this entire stack from scratch. Not just Claude. Not just one tool. The full system — Claude thinking, Marblism executing, real business results coming out the other end.
+
+There are 40 seats. A chunk of them belong to people in this group.
+
+Session 6 is the last one. It's also where I show you the full picture.
+
+— John
+
+*P.S. The early bird price on the Atlanta event is $795. That goes away April 7. Just putting that on your radar.*
+
+---
+
+## Email 6 — Session 6 Delivery + Atlanta Hard Close
+**Send:** 2 days after Email 5
+**Subject:** This is what the finish line looks like
+**Preview text:** Session 6 is live. And I have something to ask you.
+
+---
+
+Six sessions in. Let me ask you something.
+
+When you joined the "I Switched to Claude" group, what were you actually looking for? Better outputs? More time back? A way to run your business without hiring a full team?
+
+Whatever it was — you've now got the foundation. You know how Claude thinks, how to prompt it right, what features to actually use, and how to build something with it that runs.
+
+That's the switch. That's what this whole training was about.
+
+**[Watch Session 6: "What's Next — From Switched to Unstoppable"]**
+
+In this final session, I'm showing you what happens when you stop using Claude as a tool and start running it as part of a system. Full stack. Real outputs. The kind of thing that changes what your business can actually do.
+
+---
+
+Now here's what I want to ask you directly:
+
+There's an event in Atlanta on May 23 called the Claude Power Move Intensive. 40 people. One day. We're building the full thing in the room — the Claude workflows, the Marblism team, the integration, the whole system. You leave with a working AI workforce, not just notes from a seminar.
+
+The early bird ticket is $795. It expires April 7.
+
+If you've gone through all six sessions and you want to actually build this — not just learn it, but build it — Atlanta is the next step.
+
+**[Secure your seat — General Admission $795 (Early Bird)]**
+**[Upgrade to VIP — $1,295 (Early Bird, 12 seats only)]**
+
+VIP includes Sunday with a small group — hot seats, custom buildouts, 90-day roadmap. Hard cap at 12.
+
+If you've got questions about what's right for you, reply to this email. I read these.
+
+— John
+
+*Early bird pricing expires April 7, 2026. After that, GA goes to $1,000 and VIP goes to $1,500.*
+
+---
+
+## Sequence Notes
+
+- All emails deploy from GHL automation triggered by `free-training` tag
+- Exit condition: any Atlanta order link click triggers removal from this sequence and adds `atlanta-purchased` tag
+- Course completers (tracked by link click on all 6 session emails) get `course-completer` tag and enter a separate 3-email sequence inviting them to a private live Q&A (soft close for Atlanta)
+- Marblism affiliate link goes in Email 5 only — not repeated
+- Atlanta link appears first in Email 5 (soft), hard close in Email 6

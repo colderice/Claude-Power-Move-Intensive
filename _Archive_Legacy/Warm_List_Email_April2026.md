@@ -1,0 +1,67 @@
+# Claude Power Move Intensive — Warm List Email
+**Purpose:** Announce the event to the existing list and drive early bird registrations before May 1 deadline
+**URL:** AtlantaAIBusiness.com
+**Early Bird Ends:** May 1, 2026
+
+---
+
+## Subject Line Options (A/B Test)
+
+A. Your competition just hired 4 employees for $39/month
+B. I'm doing something in Atlanta on May 23
+C. 19 days left at this price (then it goes up)
+
+**Recommended:** Lead with Option A for cold-ish segments of the list. Option B for the warmest contacts who already know you well. Option C for a re-send to non-openers 5 days before the deadline.
+
+---
+
+## Email Body
+
+Subject: Your competition just hired 4 employees for $39/month
+
+---
+
+Real talk.
+
+While you were handling everything yourself last week, a real estate agent across town set up an AI employee that follows up on every lead within 3 minutes. Around the clock. No sick days. No attitude.
+
+A contractor just deployed an AI that chases every open estimate until it gets a yes.
+
+A coach just put an AI content writer to work that posts on-brand content every single day without being asked.
+
+They're not smarter than you. They just stopped doing $20/hr work with $200/hr brainpower.
+
+I'm fixing that in Atlanta on May 23.
+
+One day. One room. You walk in with a laptop and walk out with a 4-person AI team running your business. Not a plan. Not a framework. Not homework. A live, running AI operation before you hit the parking lot.
+
+This is the Claude Power Move Intensive.
+
+We build it in the room. Together. Using three tools that become one complete operating system: Claude as the business brain, Genspark for content and assets, and Marblism for the workforce that runs 24 hours a day while you do something else.
+
+Early bird pricing ends May 1.
+
+General Admission: $795 (goes to $995 on May 2)
+VIP Strategy Weekend: $1,295 (goes to $1,495 on May 2)
+
+VIP gets you Saturday plus a private Sunday strategy session with a small group. If you want direct access and hot seat time, that's the room to be in.
+
+Only 40 seats total. No virtual option. No replay. When it's full, it's full.
+
+Grab your seat here: AtlantaAIBusiness.com
+
+People + AI = Power Moves. Come build yours.
+
+John
+
+---
+
+P.S. Every attendee leaves with a 90-day custom AI roadmap built specifically for their business. Not a generic checklist. Yours. Built in the room on May 23.
+
+---
+
+## Resend Strategy
+
+**5 days before May 1 deadline:** Resend to non-openers with Subject Line C ("19 days left at this price" updated to "5 days left at this price"). Change the P.S. to: "P.S. After May 1, GA goes to $995 and VIP goes to $1,495. The event doesn't change. Just the price."
+
+**Day before deadline (April 30):** One final short email. Subject: "Last call — price goes up tomorrow." Three sentences max. One link.
