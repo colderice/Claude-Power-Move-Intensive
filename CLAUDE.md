@@ -1,0 +1,1 @@
+This folder contains all of the webinar sessions or Zoom sessions. If I say "session one", I'm talking about the session one folder, session two folder, etc. The resources folder has all the resources for all of the sessions, and the same with the marketing folder, which has marketing content for all the sessions. 

@@ -1,0 +1,43 @@
+You're registered — Session 4: Build Your Claude Business Operating System
+
+Hey {{contact.first_name}},
+
+You're locked in. Here are your details:
+
+WHAT: Session 4 — Build Your Claude Business Operating System
+WHEN: Thursday, May 14, 2026 at 7:00 PM ET
+WHERE: Free Live Zoom (link below)
+COST: Free to attend
+REPLAY: Available to all registrants after the session
+
+Zoom Link: {{zoom_link}}
+
+---
+
+WHAT TO EXPECT THURSDAY NIGHT:
+
+This is the synthesis session — where everything from the series comes together. Four layers. One system. All demonstrated live on my actual business.
+
+→ Layer 1 — Voice: your brand loaded so everything sounds like you
+→ Layer 2 — Content: a week of content from one 15-minute Monday session
+→ Layer 3 — Follow-Up: the revenue protection layer, running your pipeline
+→ Layer 4 — Operations: research, prep, decision support — Claude as your executive assistant
+→ Live Hotseats: bring your biggest bottleneck, I'll map it to a Claude solution in real time
+
+No tech background required. No Claude experience needed. Just show up.
+
+---
+
+See you Thursday at 7.
+
+— John 🤜
+
+P.S. The Claude Power Move Intensive is May 23rd — nine days after Thursday. The room is filling. If you want the full system built for your business, Thursday night will make that decision clear. Details: AtlantaAIBusiness.com
+
+---
+
+The Claude Power Move | ColderICE Media
+People + AI = Power Moves
+ClaudePowerMove.com
+
+To unsubscribe or manage your preferences, visit: {{unsubscribe_link}}

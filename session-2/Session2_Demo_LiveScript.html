@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head><meta charset="utf-8">
+    
+    
+    <title>Session 2 Live Demo — The Monday Morning Brief</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+      :root {
+        --bg-color: #f7f3ec;
+        --text-color: #444444;
+        --card-bg: #ffffff;
+        --primary: #e8732a;
+        --primary-hover: #cf631f;
+        --accent: #6a9bcc;
+        --prompt-bg: #faf6f1;
+        --prompt-text: #444444;
+        --border: rgba(17, 17, 17, 0.08);
+        --nav-bg: rgba(255, 253, 249, 0.94);
+        --subtle-bg: #fffaf3;
+        --mid-gray: #7a746c;
+        --dark-bg: #111111;
+        --dark-text: #f7f1e8;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Inter', Arial, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.7;
+        font-size: 18px;
+        padding-bottom: 60px;
+      }
+
+      header {
+        background: radial-gradient(circle at top right, rgba(232, 115, 42, 0.24), transparent 34%),
+          linear-gradient(180deg, #171717 0%, #111111 100%);
+        padding: 32px 20px 42px;
+        text-align: center;
+        border-bottom: 1px solid rgba(232, 115, 42, 0.3);
+      }
+
+      h1 {
+        font-family: 'Inter', Arial, sans-serif;
+        font-size: 2.8rem;
+        margin-bottom: 10px;
+        color: var(--dark-text);
+        letter-spacing: -0.03em;
+        font-weight: 800;
+      }
+      h2 {
+        font-family: 'Inter', Arial, sans-serif;
+        font-size: 1.9rem;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        color: #222222;
+        letter-spacing: -0.02em;
+        font-weight: 800;
+      }
+      h3 {
+        font-family: 'Inter', Arial, sans-serif;
+        font-size: 1.4rem;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        color: var(--accent);
+        font-weight: 700;
+      }
+      .subtitle {
+        font-size: 1.05rem;
+        color: rgba(247, 241, 232, 0.78);
+        font-weight: 500;
+      }
+
+      .header-badge-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 18px;
+      }
+
+      .header-badge,
+      .header-series {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        padding: 8px 14px;
+        font-size: 0.88rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .header-badge {
+        background: var(--primary);
+        color: #ffffff;
+      }
+
+      .header-series {
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--dark-text);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .tagline {
+        margin-top: 14px;
+        font-size: 0.95rem;
+        color: rgba(247, 241, 232, 0.7);
+        font-weight: 600;
+        letter-spacing: 0.01em;
+      }
+
+      .format-note {
+        display: inline-block;
+        background: rgba(232, 115, 42, 0.12);
+        color: var(--dark-text);
+        border: 1px solid rgba(232, 115, 42, 0.28);
+        padding: 10px 16px;
+        border-radius: 999px;
+        font-size: 0.92rem;
+        margin-top: 20px;
+        font-weight: 500;
+      }
+
+      nav {
+        position: sticky;
+        top: 0;
+        background-color: var(--nav-bg);
+        backdrop-filter: blur(8px);
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(106, 155, 204, 0.18);
+        z-index: 100;
+        text-align: center;
+        box-shadow: 0 8px 24px rgba(42, 37, 33, 0.08);
+      }
+
+      nav a {
+        color: var(--accent);
+        text-decoration: none;
+        margin: 0 10px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        font-family: 'Poppins', Arial, sans-serif;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .global-actions {
+        display: flex;
+        justify-content: flex-end;
+        margin: 20px 0;
+      }
+
+      button {
+        background-color: var(--primary);
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 0.98rem;
+        font-weight: 700;
+        font-family: 'Inter', Arial, sans-serif;
+        cursor: pointer;
+        transition:
+          background-color 0.2s,
+          transform 0.2s,
+          box-shadow 0.2s;
+        box-shadow: 0 6px 18px rgba(232, 115, 42, 0.2);
+      }
+
+      button:hover {
+        background-color: var(--primary-hover);
+        transform: translateY(-1px);
+      }
+      button.success {
+        background-color: var(--accent);
+      }
+
+      .card {
+        background: var(--card-bg);
+        border-radius: 16px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow:
+          0 18px 36px rgba(17, 17, 17, 0.06),
+          inset 0 1px 0 rgba(255, 255, 255, 0.65);
+        border: 1px solid var(--border);
+      }
+
+      .say-this {
+        background-color: rgba(217, 119, 87, 0.08);
+        border-left: 5px solid var(--primary);
+        padding: 20px;
+        border-radius: 0 10px 10px 0;
+        margin: 15px 0;
+        font-size: 1.1rem;
+      }
+
+      .say-this::before {
+        content: '🗣️ SAY THIS LIVE:';
+        display: block;
+        font-weight: bold;
+        color: var(--primary);
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+        letter-spacing: 0.05em;
+        font-family: 'Poppins', Arial, sans-serif;
+      }
+
+      .prompt-container {
+        background-color: var(--prompt-bg);
+        border-radius: 12px;
+        margin: 20px 0;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid rgba(232, 115, 42, 0.16);
+      }
+
+      .prompt-header {
+        background-color: #f2e8dd;
+        padding: 10px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(232, 115, 42, 0.16);
+      }
+
+      .prompt-header span {
+        color: var(--mid-gray);
+        font-size: 0.85rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-family: 'Poppins', Arial, sans-serif;
+      }
+
+      .prompt-container pre {
+        margin: 0;
+        padding: 20px;
+        color: var(--prompt-text);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 1rem;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+
+      .system-prompt-block {
+        background-color: #f6f1ea;
+        border: 1px solid rgba(106, 155, 204, 0.18);
+        padding: 20px;
+        border-radius: 10px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.95rem;
+        white-space: pre-wrap;
+        color: var(--text-color);
+      }
+
+      .tip {
+        background-color: rgba(106, 155, 204, 0.1);
+        border: 1px solid rgba(106, 155, 204, 0.28);
+        color: var(--text-color);
+        padding: 12px 16px;
+        border-radius: 8px;
+        margin: 15px 0;
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .tip::before {
+        content: '💡 Tip:';
+        font-weight: bold;
+        color: var(--accent);
+        font-family: 'Inter', Arial, sans-serif;
+      }
+
+      .action-block {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px dashed var(--border);
+      }
+
+      .action-label {
+        font-weight: bold;
+        color: var(--primary);
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        margin-bottom: 5px;
+        display: block;
+        font-family: 'Inter', Arial, sans-serif;
+        letter-spacing: 0.04em;
+      }
+
+      .copy-toast {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        background: var(--text-color);
+        color: var(--subtle-bg);
+        padding: 12px 16px;
+        border-radius: 10px;
+        box-shadow: 0 16px 30px rgba(42, 37, 33, 0.18);
+        border: 1px solid rgba(106, 155, 204, 0.18);
+        font-family: 'Poppins', Arial, sans-serif;
+        font-size: 0.92rem;
+        opacity: 0;
+        transform: translateY(12px);
+        pointer-events: none;
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease;
+        z-index: 999;
+      }
+
+      .copy-toast.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      footer {
+        text-align: center;
+        padding: 32px 20px;
+        color: rgba(247, 241, 232, 0.82);
+        font-size: 0.95rem;
+        border-top: 1px solid rgba(232, 115, 42, 0.2);
+        margin-top: 40px;
+        background: var(--dark-bg);
+        border-radius: 16px;
+      }
+
+      .footer-brand {
+        font-weight: 800;
+        color: #ffffff;
+        margin-bottom: 6px;
+      }
+
+      .footer-tagline {
+        color: rgba(247, 241, 232, 0.74);
+        margin-bottom: 10px;
+      }
+
+      .footer-links {
+        font-size: 0.86rem;
+        color: rgba(247, 241, 232, 0.66);
+      }
+
+      hr {
+        border: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(217, 119, 87, 0.5), transparent);
+        margin: 30px 0;
+      }
+
+      /* Paragraph spacing & prompt alignment fixes */
+      p {
+        margin-bottom: 14px;
+      }
+      p:last-child {
+        margin-bottom: 0;
+      }
+      .card p {
+        margin-bottom: 16px;
+      }
+      .card p:last-child {
+        margin-bottom: 0;
+      }
+      li {
+        margin-bottom: 8px;
+        line-height: 1.7;
+      }
+      .prompt-container pre {
+        text-align: left;
+      }
+      .say-this p {
+        margin-bottom: 12px;
+      }
+        </style>
+  </head>
+  <body style="">
+    <header>
+      <div class="header-badge-row">
+        <div class="header-badge">Session 2 · April 30</div>
+        <div class="header-series">The Claude Power Move Series</div>
+      </div>
+      <h1>Session 2 Live Demo — The Monday Morning Brief</h1>
+      <div class="subtitle">Presenter notes, prompt stack, and live demo flow</div>
+      <div class="subtitle" style="margin-top: 5px">Thursday, April 30, 2026 | 7:00 PM ET</div>
+      <div class="tagline">People + AI = Power Moves · ColderICE Media</div>
+      <div class="format-note">
+        This version inherits the CPM email template feel: Inter type, locked brand tagline, orange accents, and dark brand framing with live-copy utility built in.
+      </div>
+    </header>
+
+    <nav>
+      <a href="#philosophy">Philosophy</a> | <a href="#setup">Setup</a> | <a href="#system-prompt">System Prompt</a> |
+      <a href="#scene">Scene</a> | <a href="#topic">Demo Topic</a> | <a href="#step1">Step 1</a> |
+      <a href="#step2">Step 2</a> | <a href="#step3">Step 3</a> | <a href="#step4">Step 4</a> |
+      <a href="#step5">Step 5</a> | <a href="#close">Close</a> | <a href="#pitch">Pitch</a> |
+      <a href="#troubleshooting">Troubleshooting</a>
+    </nav>
+
+    <div class="container">
+      <div class="global-actions">
+        <button id="copyAllBtn">📄 Copy All Live Prompts (Steps 1-5)</button>
+      </div>
+
+      <section class="card" aria-label="Brand template note">
+        <h2>CPM Email Template DNA, Applied to These Notes</h2>
+        <p>
+          This notes page now inherits the ColderICE CPM email system instead of feeling like a generic document. Same
+          brand posture. Same orange accent. Same locked tagline. Same cleaner, sharper reading experience.
+        </p>
+        <p>
+          Translation: your live notes now look like they came from the same machine as the emails, not a side file that
+          wandered in from somewhere else.
+        </p>
+      </section>
+
+      <section id="philosophy" class="card">
+        <h2>The Philosophy Behind This Demo</h2>
+        <p>
+          Most people watching tonight are using Claude like a better Google. Type a question. Get an answer. Close the
+          tab. That's a shortcut. Not a system.
+        </p>
+        <p>
+          Tonight's demo is not about how to make content. It's about showing them what Monday morning looks like when
+          Claude is already running.
+        </p>
+        <p><strong>The shift you're demonstrating: from creating to deciding.</strong></p>
+        <p>
+          You're not going to sit down and generate content from scratch. You're going to show up — the way you show up
+          every Monday — and Claude already has the context. Your business. Your voice. Your priorities. Your audience.
+          It's ready. You review. You make calls. You move.
+        </p>
+        <p>That's the power move.</p>
+      </section>
+
+      <section id="setup" class="card">
+        <h2>Setup Before the Session</h2>
+        <ul>
+          <li>
+            <strong>Claude Project is open</strong> with the system prompt already loaded — do NOT start a new chat.
+          </li>
+          <li>
+            <strong>Share your screen</strong> showing the Project — let them see the instructions are already there.
+          </li>
+          <li><strong>Have your demo topic picked</strong> but don't reveal it until you go live.</li>
+          <li><strong>Second window or monitor:</strong> keep this file open for reference.</li>
+        </ul>
+      </section>
+
+      <section id="system-prompt" class="card">
+        <h2>The System Prompt</h2>
+        <p><em>Already loaded in your Claude Project. Do not copy this live.</em></p>
+        <div class="system-prompt-block">
+          You are a business content assistant for John Lawson, CEO of ColderICE Media. **Who John is:** John is an AI
+          strategy consultant, keynote speaker, and 3x Amazon bestselling author. He helps coaches, consultants, and
+          small business owners implement AI as a real business system — not a novelty. His core framework is "People +
+          AI = Power Moves." He has $32M+ in career sales, built and exited an e-commerce business, and has been running
+          ColderICE Media since 2007. **Primary audience:** Small business owners, coaches, and consultants who are
+          action-oriented and results-focused. They run real businesses, they're done being sold hype, and they want
+          practical implementation — not theory. **Current offers:** - The Claude Power Move Intensive — full-day
+          in-person workshop, Atlanta, May 23, 2026. Attendees leave with their Claude environment fully built. Register
+          at AtlantaAIBusiness.com. Early bird: $495. Regular: $995. Early bird ends May 9. - The Claude Power Move
+          Webinar Series — free weekly Zoom sessions every Thursday at 7pm. Register at ClaudePowerMove.com. - AI Profit
+          Lab — John's paid community on GoHighLevel. - TSP Mastermind — coaching program for established business
+          owners. **John's voice:** Direct. Street-smart. No corporate softness. Short punchy sentences. Leads with the
+          point, never with a wind-up. Sounds like someone who has built businesses, not just advised them. Think
+          boardroom strategy meets barbershop realness. **Voice rules:** - Short sentences hit harder than long ones -
+          Skip the wind-up — lead with the point - No jargon, no buzzwords, no fluff - Plain language always beats
+          vocabulary - Never use em dashes - No excessive bolding or bullet soup - Warmth comes through directness, not
+          softness **Words and phrases John never uses:** - "Straightforward" / "It's worth noting" / "Certainly" /
+          "Great question" - "Leverage" (as a verb) / "Game-changer" / "Dive into" / "Unpack" / "Delve" - Corporate
+          filler of any kind **Platforms John posts on:** Facebook (primary), LinkedIn, Instagram, X **Content standing
+          instructions:** - Social posts always lead with a scroll-stopping hook — first line does the work - Emails are
+          short, punchy, and personal — 150 words max unless specified - Blog outlines are structured and scannable — 5
+          clear points - Every piece ends with a clear next step or call to action - Reference "People + AI = Power
+          Moves" where it fits naturally — never forced - Use emojis only where they add meaning — never back to back,
+          never decorative
+        </div>
+      </section>
+
+      <section id="scene" class="card">
+        <h2>Setting the Scene</h2>
+        <div class="tip">Say this BEFORE you share your screen. Establish eye contact with the camera.</div>
+        <div class="say-this">
+          All right. Before I switch over, let me tell you what you're about to watch.<br><br>
+          Monday used to start with a pile for me. Check email. Handle something. Make a list I wouldn't finish. By 10am
+          I'd done a lot of things and moved nothing forward.<br><br>
+          Now Monday starts with a brief. I open Claude. It already knows my business, my voice, my priorities, my
+          offers. I'm not starting from scratch. I'm reviewing what it already drafted and making calls.<br><br>
+          That shift — from creating to deciding — changed everything about how my week runs. I'm not smarter. I'm not
+          working harder. I'm just not doing $20-an-hour work with $200-an-hour brainpower anymore.<br><br>
+          That's what I'm going to show you right now. Not a tutorial. What Monday morning actually looks like. Let's
+          go.
+        </div>
+
+        <div class="tip">Now share your screen showing the Claude Project with instructions visible.</div>
+
+        <div class="say-this">
+          See this? This is the Project. These instructions are already loaded. Every time I open this, Claude knows who
+          I am, who I serve, how I talk, and what I'm selling. I didn't type any of that today. I built it once. Now
+          it's just running.
+        </div>
+      </section>
+
+      <section id="topic" class="card">
+        <h2>The Demo Topic</h2>
+        <p>
+          <strong>Topic locked in — reveal it live:</strong><br>
+          "Why most business owners stay invisible online even when they're posting every day"
+        </p>
+        <div class="say-this">
+          This is something I actually want to put out this week. You're watching a real Monday morning session — not a
+          demo I staged.
+        </div>
+      </section>
+
+      <h2 style="text-align: center; margin-top: 50px">THE 4-STEP PROMPT STACK</h2>
+      <p style="text-align: center; color: var(--mid-gray)">(Actually 5 steps including script conversion)</p>
+
+      <section id="step1" class="card">
+        <h2>Step 1 — The Monday Brief</h2>
+
+        <div class="say-this">
+          First thing I do Monday morning — I don't open email. I open Claude. I tell it what's on my mind for the week.
+          And it helps me shape the idea before I build anything.
+        </div>
+
+        <div class="prompt-container">
+          <div class="prompt-header">
+            <span>Prompt to Paste Live</span>
+            <button class="copy-btn" id="btn-p1">Copy Prompt</button>
+          </div>
+          <pre id="p1">Here's what's on my mind for content this week.
+
+Topic: Why most business owners stay invisible online even when they're posting every day.
+
+My take: it's not about posting more. It's about posting with a point of view. Most people are creating content but not communicating anything. There's a difference between being active and being present.
+
+Before we build anything — sharpen that idea. Give me the core point of view in 2-3 sentences. The version that cuts through.</pre>
+        </div>
+
+        <div class="action-block">
+          <span class="action-label">What you should see</span>
+          <p>A sharp, opinionated core idea. Not a list of tips. Something you'd actually say on a Facebook Live.</p>
+        </div>
+
+        <div class="action-block">
+          <span class="action-label">What to say after</span>
+          <div class="say-this">
+            I'm not generating yet. I'm deciding. Is this the right angle? Does this land? Now I approve it and we
+            build. Watch.
+          </div>
+        </div>
+      </section>
+
+      <section id="step2" class="card">
+        <h2>Step 2 — Social Posts</h2>
+
+        <div class="say-this">
+          Five posts. Different hooks, same core idea. And here's the key — I'm not writing these. I'm reviewing them.
+          Claude generates. I decide which ones go out.
+        </div>
+
+        <div class="prompt-container">
+          <div class="prompt-header">
+            <span>Prompt to Paste Live</span>
+            <button class="copy-btn" id="btn-p2">Copy Prompt</button>
+          </div>
+          <pre id="p2">Good. Let's build from that.
+
+Write 5 Facebook posts from this core idea. Each one needs a different hook — a different way into the same point.
+
+Match my voice. Lead with the hook. No wind-up. Under 150 words each. End with a question or CTA that earns engagement.</pre>
+        </div>
+
+        <div class="action-block">
+          <span class="action-label">What you should see</span>
+          <p>
+            Five distinct posts. Five different openings. All landing on the same idea. Sounds like John, not an agency.
+          </p>
+        </div>
+
+        <div class="action-block">
+          <span class="action-label">What to say after</span>
+          <div class="say-this">
+            I'm not writing. I'm reading. Which two go out this week? Which one do I tweak? Which one do I save? That's
+            the shift. Creator to editor. Drop in the chat — which one would you post?
+          </div>
+          <div class="tip">
+            Pause. Read 2-3 out loud. React naturally. If one needs fixing, fix it live — that's the editing lesson.
+          </div>
+        </div>
+      </section>
+
+      <section id="step3" class="card">
+        <h2>Step 3 — Email</h2>
+
+        <div class="say-this">
+          Same idea, different format. One email to my list. Short. Personal. Sounds like I sat down and wrote it. Watch
+          the difference from generic AI output.
+        </div>
+
+        <div class="prompt-container">
+          <div class="prompt-header">
+            <span>Prompt to Paste Live</span>
+            <button class="copy-btn" id="btn-p3">Copy Prompt</button>
+          </div>
+          <pre id="p3">Turn this core idea into one short email to my list.
+
+150 words max. Sounds like I wrote it personally — not a broadcast, not a newsletter. Warm but direct.
+
+End with a soft call to action toward the Claude Power Move Intensive on May 23rd in Atlanta. AtlantaAIBusiness.com. Early bird $495, ends May 9th.
+
+Give me 3 subject line options.</pre>
+        </div>
+
+        <div class="action-block">
+          <span class="action-label">What you should see</span>
+          <p>
+            Short, punchy email that sounds like John. Real opening line — not "I hope this finds you well." Three
+            subject lines worth clicking.
+          </p>
+        </div>
+
+        <div class="action-block">
+          <span class="action-label">What to say after</span>
+          <div class="say-this">
+            Does that sound like AI wrote it? No. Does it sound like a marketing agency? No. I'm not editing AI copy —
+            I'm reviewing my own draft that Claude produced. That's the difference between a shortcut and a system.
+          </div>
+          <div class="tip">
+            Did an em dash appear? Call it out. "Fix it — no em dashes." Let it self-correct. "The system knows the
+            rules. I just enforced them. Still me deciding."
+          </div>
+        </div>
+      </section>
+
+      <section id="step4" class="card">
+        <h2>Step 4 — Content Outline</h2>
+
+        <div class="say-this">
+          Last piece. One outline. Same idea, different format. LinkedIn article, YouTube script, podcast episode — I
+          pick the format and Claude builds it. Watch.
+        </div>
+
+        <div class="prompt-container">
+          <div class="prompt-header">
+            <span>Prompt to Paste Live</span>
+            <button class="copy-btn" id="btn-p4">Copy Prompt</button>
+          </div>
+          <pre id="p4">Give me a 5-point blog post outline from this topic.
+
+Each point is a specific standalone claim — not a vague category. Someone should read just the outline and already get value.
+
+3 title options. Specific, not cute.</pre>
+        </div>
+
+        <div class="action-block">
+          <span class="action-label">What you should see</span>
+          <p>Five real points — each a complete idea. Three titles that are direct and specific, not clickbait.</p>
+        </div>
+
+        <div class="action-block">
+          <span class="action-label">What to say after</span>
+          <div class="say-this">
+            I didn't write that — I'm deciding if I agree with it. I'd move point three up. Sharpen point five. But the
+            structure is there.<br><br>Now watch this. I said LinkedIn article, YouTube script, podcast episode — I
+            pick the format. Tonight I'm picking YouTube. Same outline. Let's turn it into a script.
+          </div>
+        </div>
+      </section>
+
+      <section id="step5" class="card">
+        <h2>Step 5 — YouTube Script</h2>
+
+        <div class="say-this">
+          This is the one-to-many model in full. One topic. One outline. Now a complete YouTube script. I'm not writing
+          anything — I'm directing.
+        </div>
+
+        <div class="prompt-container">
+          <div class="prompt-header">
+            <span>Prompt to Paste Live</span>
+            <button class="copy-btn" id="btn-p5">Copy Prompt</button>
+          </div>
+          <pre id="p5">Now turn this outline into a YouTube video script.
+
+Format:
+- Hook (first 30 seconds — stops the scroll, makes them stay)
+- Intro (who this is for and what they'll get — 30 seconds max)
+- 5 main points from the outline — each one tight, conversational, with a real example or analogy
+- CTA at the end pointing toward the Claude Power Move Intensive on May 23rd in Atlanta — AtlantaAIBusiness.com
+
+Tone: sounds like I'm talking directly to camera. Conversational, not scripted-sounding. My voice — direct, no fluff, no wind-up.
+
+Target length: 7-10 minutes when spoken at normal pace.</pre>
+        </div>
+
+        <div class="action-block">
+          <span class="action-label">What you should see</span>
+          <p>
+            A full YouTube script — hook, intro, five sections, CTA. Conversational. Sounds like John talking.
+            Structured enough to follow, loose enough to feel real.
+          </p>
+        </div>
+
+        <div class="action-block">
+          <span class="action-label">What to say after</span>
+          <div class="say-this">
+            That's a YouTube video. Ready to record. I didn't write a word of it — I made decisions. Is this the right
+            hook? Does this section land? That's my job now.<br><br>One topic. Five posts. One email. One outline.
+            One YouTube script. One conversation with Claude.<br><br>That's the content machine. That's what Monday
+            morning looks like when the system is running.
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Demo Close</h2>
+        <div class="say-this">
+          Here's what just happened.<br><br>
+          I didn't start from scratch. I showed up and Claude was already running — loaded with who I am, what I sell,
+          how I talk, who I'm talking to.<br><br>
+          I didn't create. I decided.<br><br>
+          Most people use Claude like a better Google. Type a question, get an answer, close the tab. That's a shortcut.
+          What you just watched is a system.<br><br>
+          A system doesn't wait for you to show up and ask. It's ready when you are.<br><br>
+          People plus AI equals Power Moves.
+        </div>
+      </section>
+
+      <section id="pitch" class="card">
+        <h2>Pitch Transition</h2>
+        <div class="tip">No pause — go straight from demo close into this.</div>
+        <div class="say-this">
+          What I just showed you is one piece. Content. One workflow.<br><br>
+          I've got the same thing running for follow-up. For operations. For client communication. For research. All of
+          it on the same foundation.<br><br>
+          On May 23rd in Atlanta, I'm going to show you how to build yours. In the room. That day. On your actual
+          business.<br><br>
+          You don't leave with notes. You leave with a running system — built for your business, with me in the room.<br><br>
+          That's the Claude Power Move Intensive. Early bird is $495. That ends May 9th.<br><br>
+          AtlantaAIBusiness.com. Link is in the chat.
+        </div>
+      </section>
+
+      <section id="troubleshooting" class="card">
+        <h2>If Things Go Sideways...</h2>
+        <ul>
+          <li style="margin-bottom: 10px">
+            <strong>Generic output:</strong> Say "That's what happens without the system loaded." Switch to the Project.
+            Re-run. The contrast is the lesson.
+          </li>
+          <li style="margin-bottom: 10px">
+            <strong>Output too long:</strong> Type: <em>"Cut this in half. Keep the best lines."</em> Audience watches
+            you direct it — that's the editing lesson live.
+          </li>
+          <li style="margin-bottom: 10px">
+            <strong>Em dash appears:</strong> Call it out. Fix it. "The system knows the rules. I just reminded it."
+          </li>
+          <li style="margin-bottom: 10px">
+            <strong>Running long:</strong> Cut Step 4. Steps 1–3 are the full demo. The outline is the bonus.
+          </li>
+        </ul>
+      </section>
+
+      <footer>
+        <div class="footer-brand">ColderICE Media</div>
+        <div class="footer-tagline">People + AI = Power Moves · ColderICE Media</div>
+        <div class="footer-links">Presenter notes version of the CPM brand email system</div>
+      </footer>
+    </div>
+
+    <div id="copyToast" class="copy-toast" aria-live="polite">Copied to clipboard</div>
+
+    
+  
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+
+<script>
+  // ── Copy individual prompts ──
+  document.querySelectorAll('.copy-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var promptId = btn.id.replace('btn-', '');
+      var pre = document.getElementById(promptId);
+      if (!pre) return;
+      var text = pre.innerText || pre.textContent;
+      navigator.clipboard.writeText(text).then(function() {
+        btn.textContent = '✅ Copied!';
+        btn.classList.add('success');
+        showToast('Prompt copied to clipboard');
+        setTimeout(function() {
+          btn.textContent = 'Copy Prompt';
+          btn.classList.remove('success');
+        }, 2000);
+      }).catch(function() {
+        // Fallback for browsers that block clipboard without user gesture context
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = '✅ Copied!';
+        btn.classList.add('success');
+        showToast('Prompt copied to clipboard');
+        setTimeout(function() {
+          btn.textContent = 'Copy Prompt';
+          btn.classList.remove('success');
+        }, 2000);
+      });
+    });
+  });
+
+  // ── Copy All button ──
+  var copyAllBtn = document.getElementById('copyAllBtn');
+  if (copyAllBtn) {
+    copyAllBtn.addEventListener('click', function() {
+      var ids = ['p1', 'p2', 'p3', 'p4', 'p5'];
+      var labels = [
+        'STEP 1 — THE MONDAY BRIEF',
+        'STEP 2 — SOCIAL POSTS',
+        'STEP 3 — EMAIL',
+        'STEP 4 — CONTENT OUTLINE',
+        'STEP 5 — YOUTUBE SCRIPT'
+      ];
+      var allText = ids.map(function(id, i) {
+        var el = document.getElementById(id);
+        return el ? ('--- ' + labels[i] + ' ---\n' + (el.innerText || el.textContent)) : '';
+      }).filter(Boolean).join('\n\n');
+
+      navigator.clipboard.writeText(allText).then(function() {
+        copyAllBtn.textContent = '✅ All Prompts Copied!';
+        copyAllBtn.classList.add('success');
+        showToast('All 5 prompts copied to clipboard');
+        setTimeout(function() {
+          copyAllBtn.textContent = '📄 Copy All Live Prompts (Steps 1-5)';
+          copyAllBtn.classList.remove('success');
+        }, 2500);
+      }).catch(function() {
+        var ta = document.createElement('textarea');
+        ta.value = allText;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        copyAllBtn.textContent = '✅ All Prompts Copied!';
+        copyAllBtn.classList.add('success');
+        showToast('All 5 prompts copied to clipboard');
+        setTimeout(function() {
+          copyAllBtn.textContent = '📄 Copy All Live Prompts (Steps 1-5)';
+          copyAllBtn.classList.remove('success');
+        }, 2500);
+      });
+    });
+  }
+
+  // ── Toast helper ──
+  function showToast(msg) {
+    var toast = document.getElementById('copyToast');
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(function() { toast.classList.remove('show'); }, 2200);
+  }
+</script>
+
+</body></html>

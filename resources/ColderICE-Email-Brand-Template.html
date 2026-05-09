@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!--
+  ═══════════════════════════════════════════════════════════════════
+  COLDERICE MEDIA — BRAND EMAIL TEMPLATE
+  People + AI = Power Moves · ColderICE Media
+  ───────────────────────────────────────────────────────────────────
+  HOW TO USE THIS TEMPLATE
+  ───────────────────────────────────────────────────────────────────
+  1. Update the <title> tag with your email subject line
+  2. Fill every {{PLACEHOLDER}} with your campaign-specific content
+  3. GHL merge tags like {{contact.first_name}} work as-is
+  4. Sections marked [OPTIONAL] can be deleted if not needed
+  5. Never change the CSS — colors, fonts, and spacing are locked
+
+  BRAND COLORS
+  ─────────────
+  Orange (primary accent) : #e8732a
+  Dark bg (hero/footer)   : #111111
+  Hero gradient end        : #2d1200
+  White body bg            : #ffffff
+  Body text                : #444444
+  Muted text               : #999999
+
+  CTA BUTTON URL   → update href on every .cta-button anchor
+  UNSUBSCRIBE URL  → update href in the footer
+  ═══════════════════════════════════════════════════════════════════
+  -->
+
+  <title>{{EMAIL_SUBJECT_LINE}}</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      font-family: 'Inter', Arial, sans-serif;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    .email-wrapper {
+      background-color: #f0f0f0;
+      padding: 30px 16px;
+    }
+
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.12);
+    }
+
+    /* ── DARK HEADER ── */
+    .header {
+      background-color: #111111;
+      padding: 26px 40px;
+    }
+
+    .header-badge {
+      display: inline-block;
+      background-color: #e8732a;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 11px;
+      border-radius: 20px;
+    }
+
+    .header-series-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #888888;
+      letter-spacing: 0.5px;
+      margin-left: 10px;
+    }
+
+    .header-tagline {
+      font-size: 10px;
+      color: #444444;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    /* ── DARK HERO ── */
+    .hero-band {
+      background: linear-gradient(160deg, #1a1a1a 0%, #2d1200 100%);
+      padding: 40px 40px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-band::after {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(232,115,42,0.18) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .session-pill {
+      display: inline-block;
+      background-color: rgba(232,115,42,0.15);
+      border: 1px solid rgba(232,115,42,0.4);
+      color: #e8732a;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-size: 44px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.0;
+      margin: 0 0 8px 0;
+      letter-spacing: -1px;
+    }
+
+    .hero-title span {
+      color: #e8732a;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: #aaaaaa;
+      margin: 14px 0 0 0;
+      line-height: 1.5;
+    }
+
+    /* ── ORANGE ALERT STRIP [OPTIONAL] ── */
+    .alert-strip {
+      background-color: #e8732a;
+      padding: 14px 40px;
+      text-align: center;
+    }
+
+    .alert-strip p {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    /* ── LIGHT BODY ── */
+    .body-content {
+      background-color: #ffffff;
+      padding: 38px 40px;
+    }
+
+    .greeting {
+      font-size: 17px;
+      color: #1a1a1a;
+      font-weight: 600;
+      margin: 0 0 16px 0;
+    }
+
+    .body-text {
+      font-size: 15px;
+      color: #444444;
+      line-height: 1.8;
+      margin: 0 0 18px 0;
+    }
+
+    .body-text strong {
+      color: #111111;
+      font-weight: 700;
+    }
+
+    .body-text a {
+      color: #e8732a;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* ── CTA ── */
+    .cta-block {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #e8732a;
+      color: #ffffff !important;
+      font-size: 15px;
+      font-weight: 800;
+      text-decoration: none;
+      padding: 16px 42px;
+      border-radius: 8px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .cta-sub {
+      font-size: 12px;
+      color: #999999;
+      margin-top: 10px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #eeeeee;
+      margin: 30px 0;
+    }
+
+    /* ── DARK FEATURE SECTION ── */
+    .dark-section {
+      background-color: #111111;
+      margin: 0 -40px;
+      padding: 34px 40px;
+    }
+
+    .dark-section .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #e8732a;
+      margin-bottom: 10px;
+    }
+
+    .dark-section .section-headline {
+      font-size: 24px;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0 0 14px 0;
+      line-height: 1.2;
+    }
+
+    .dark-section .section-intro {
+      font-size: 14px;
+      color: #999999;
+      line-height: 1.7;
+      margin: 0 0 22px 0;
+    }
+
+    /* ── POWER LIST (inside dark section) ── */
+    .power-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .power-list li {
+      font-size: 14px;
+      color: #cccccc;
+      padding: 12px 0 12px 26px;
+      position: relative;
+      border-bottom: 1px solid #1e1e1e;
+      line-height: 1.5;
+    }
+
+    .power-list li:last-child {
+      border-bottom: none;
+    }
+
+    .power-list li::before {
+      content: "→";
+      color: #e8732a;
+      font-weight: 700;
+      position: absolute;
+      left: 0;
+    }
+
+    .power-list li strong {
+      color: #ffffff;
+    }
+
+    /* ── EVENT BOX [OPTIONAL] ── */
+    .event-box {
+      background-color: #fafafa;
+      border: 1px solid #eeeeee;
+      border-left: 4px solid #e8732a;
+      border-radius: 8px;
+      padding: 22px 26px;
+      margin: 28px 0;
+    }
+
+    .event-box .event-date {
+      font-size: 19px;
+      font-weight: 800;
+      color: #111111;
+      margin: 0 0 4px 0;
+    }
+
+    .event-box .event-date span {
+      color: #e8732a;
+    }
+
+    .event-box .event-detail {
+      font-size: 12px;
+      color: #999999;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin: 0 0 12px 0;
+    }
+
+    .event-box .event-url {
+      font-size: 14px;
+      color: #e8732a;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* ── CALLOUT/PREP BLOCK [OPTIONAL] ── */
+    .homework-block {
+      background-color: #fff8f3;
+      border: 1px solid #fde0c8;
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin: 0 0 28px 0;
+    }
+
+    .homework-block p {
+      font-size: 14px;
+      color: #444444;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .homework-block p strong {
+      color: #111111;
+    }
+
+    .homework-block p a {
+      color: #e8732a;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* ── SIGN OFF ── */
+    .signoff {
+      font-size: 15px;
+      color: #444444;
+      margin: 28px 0 0 0;
+      line-height: 1.8;
+    }
+
+    .signoff .name {
+      font-size: 18px;
+      font-weight: 800;
+      color: #111111;
+      display: block;
+      margin-top: 10px;
+    }
+
+    /* ── PS BLOCK [OPTIONAL] ── */
+    .ps-block {
+      background-color: #f7f7f7;
+      border-left: 3px solid #dddddd;
+      padding: 14px 18px;
+      margin-top: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .ps-block p {
+      font-size: 13px;
+      color: #777777;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .ps-block p a {
+      color: #e8732a;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* ── DARK FOOTER ── */
+    .footer {
+      background-color: #111111;
+      padding: 26px 40px;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-size: 12px;
+      font-weight: 700;
+      color: #555555;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .footer-tagline {
+      font-size: 10px;
+      color: #333333;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      font-size: 11px;
+      color: #333333;
+    }
+
+    .footer-links a {
+      color: #555555;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    /* ── MOBILE ── */
+    @media only screen and (max-width: 600px) {
+      .email-wrapper { padding: 0; }
+      .email-container { border-radius: 0; box-shadow: none; }
+      .header { padding: 20px 24px; }
+      .hero-band { padding: 30px 24px; }
+      .hero-title { font-size: 34px; }
+      .alert-strip { padding: 12px 24px; }
+      .body-content { padding: 28px 24px; }
+      .dark-section { margin: 0 -24px; padding: 28px 24px; }
+      .footer { padding: 24px; }
+      .cta-button { padding: 14px 28px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <table class="email-container" cellpadding="0" cellspacing="0" width="100%">
+
+
+      <!-- ═══════════════════════════════════════════════════════
+           SECTION 1 · DARK HEADER
+           ───────────────────────────────────────────────────────
+           {{HEADER_BADGE}}    → short label, e.g. "Session 2 · April 30"
+                                  or campaign name, e.g. "New · May Drop"
+           {{HEADER_SERIES}}   → series/program name, e.g. "The Claude Power Move Series"
+                                  or leave as "ColderICE Media" for standalone sends
+           The tagline line is locked brand copy — do not change.
+           ═══════════════════════════════════════════════════════ -->
+      <tr>
+        <td class="header">
+          <span class="header-badge">{{HEADER_BADGE}}</span>&nbsp;&nbsp;<span class="header-series-name">{{HEADER_SERIES}}</span>
+          <p class="header-tagline">People + AI = Power Moves &nbsp;·&nbsp; ColderICE Media</p>
+        </td>
+      </tr>
+
+
+      <!-- ═══════════════════════════════════════════════════════
+           SECTION 2 · DARK HERO BAND
+           ───────────────────────────────────────────────────────
+           {{HERO_PILL}}         → small pill tag, e.g. "Live Thursdays · 7 PM ET"
+           {{HERO_TITLE_PLAIN}}  → first word(s) of the headline (white)
+           {{HERO_TITLE_ACCENT}} → the power word in orange, e.g. "Content"
+           {{HERO_TITLE_REST}}   → remaining words after the accent (white)
+                                   delete the <br> and this span if not needed
+           {{HERO_SUBTITLE}}     → one punchy supporting line, ~10 words max
+           ═══════════════════════════════════════════════════════ -->
+      <tr>
+        <td class="hero-band">
+          <div class="session-pill">{{HERO_PILL}}</div>
+          <h1 class="hero-title">{{HERO_TITLE_PLAIN}} <span>{{HERO_TITLE_ACCENT}}</span><br>{{HERO_TITLE_REST}}</h1>
+          <p class="hero-subtitle">{{HERO_SUBTITLE}}</p>
+        </td>
+      </tr>
+
+
+      <!-- ═══════════════════════════════════════════════════════
+           SECTION 3 · ALERT STRIP  [OPTIONAL — DELETE IF NOT NEEDED]
+           ───────────────────────────────────────────────────────
+           Use for urgency, platform changes, deadline notices.
+           One sentence. Punchy. No more.
+           {{ALERT_TEXT}} → e.g. "⚠️ Deadline tonight at midnight."
+           ═══════════════════════════════════════════════════════ -->
+      <tr>
+        <td class="alert-strip">
+          <p>{{ALERT_TEXT}}</p>
+        </td>
+      </tr>
+
+
+      <!-- ═══════════════════════════════════════════════════════
+           SECTION 4 · BODY CONTENT
+           ───────────────────────────────────────────────────────
+           · Keep paragraphs short — 2 to 4 sentences max each
+           · Bold the key takeaway in each paragraph
+           · Use {{contact.first_name}} for GHL personalization
+           · CTA blocks can appear 1–3 times depending on email length
+           · The divider <hr> separates the intro from the deep content
+           ═══════════════════════════════════════════════════════ -->
+      <tr>
+        <td class="body-content">
+
+          <p class="greeting">Hey {{contact.first_name}},</p>
+
+          <!-- OPENING PARAGRAPH — hook, context, or re-engage -->
+          <p class="body-text">{{OPENING_PARAGRAPH}}</p>
+
+          <!-- BODY PARAGRAPH 2 — build the case or tension -->
+          <p class="body-text">{{BODY_PARAGRAPH_2}}</p>
+
+          <!-- BODY PARAGRAPH 3 — bridge to the CTA -->
+          <p class="body-text">{{BODY_PARAGRAPH_3}}</p>
+
+
+          <!-- ─── CTA BLOCK 1 ───────────────────────────────────
+               {{CTA_URL_1}}    → full URL
+               {{CTA_LABEL_1}}  → button text, e.g. "Get My Session 2 Link →"
+               {{CTA_SUB_1}}    → small text below button, e.g. "Free · Thursday 7PM ET"
+               ──────────────────────────────────────────────────── -->
+          <div class="cta-block">
+            <a href="{{CTA_URL_1}}" class="cta-button">{{CTA_LABEL_1}}</a>
+            <p class="cta-sub">{{CTA_SUB_1}}</p>
+          </div>
+
+          <hr class="divider">
+
+
+          <!-- ═══════════════════════════════════════════════════
+               SECTION 5 · DARK FEATURE BLOCK
+               ─────────────────────────────────────────────────
+               Use for: what's covered, what they'll learn,
+               what they'll get, key features, results breakdown.
+
+               {{DARK_SECTION_LABEL}}    → small orange eyebrow label
+               {{DARK_SECTION_HEADLINE}} → bold section headline
+               {{DARK_SECTION_INTRO}}    → 1–2 sentence framing before the list
+
+               Each <li>: <strong>Bold Label</strong> — description.
+               Add or remove <li> items as needed. Min 2, max 6.
+               ═══════════════════════════════════════════════════ -->
+          <div class="dark-section">
+            <p class="section-label">{{DARK_SECTION_LABEL}}</p>
+            <h2 class="section-headline">{{DARK_SECTION_HEADLINE}}</h2>
+            <p class="section-intro">{{DARK_SECTION_INTRO}}</p>
+
+            <ul class="power-list">
+              <li><strong>{{FEATURE_1_TITLE}}</strong> — {{FEATURE_1_DESCRIPTION}}</li>
+              <li><strong>{{FEATURE_2_TITLE}}</strong> — {{FEATURE_2_DESCRIPTION}}</li>
+              <li><strong>{{FEATURE_3_TITLE}}</strong> — {{FEATURE_3_DESCRIPTION}}</li>
+              <li><strong>{{FEATURE_4_TITLE}}</strong> — {{FEATURE_4_DESCRIPTION}}</li>
+              <!-- ADD OR REMOVE <li> ITEMS AS NEEDED -->
+            </ul>
+          </div>
+
+
+          <!-- ═══════════════════════════════════════════════════
+               SECTION 6 · EVENT BOX  [OPTIONAL — DELETE IF NOT NEEDED]
+               ─────────────────────────────────────────────────
+               Use for live events, webinars, session dates, deadlines.
+
+               {{EVENT_DATE_LABEL}}  → e.g. "Thursday,"
+               {{EVENT_DATE_ACCENT}} → the highlighted date, e.g. "April 30"
+               {{EVENT_TIME}}        → e.g. "7:00 PM ET"
+               {{EVENT_DETAIL}}      → e.g. "Free Live Zoom · Series Name"
+               {{EVENT_URL}}         → full URL
+               {{EVENT_URL_LABEL}}   → e.g. "→ ClaudePowerMove.com"
+               ═══════════════════════════════════════════════════ -->
+          <div class="event-box">
+            <p class="event-date">{{EVENT_DATE_LABEL}} <span>{{EVENT_DATE_ACCENT}}</span> &nbsp;·&nbsp; {{EVENT_TIME}}</p>
+            <p class="event-detail">{{EVENT_DETAIL}}</p>
+            <a href="{{EVENT_URL}}" class="event-url">{{EVENT_URL_LABEL}}</a>
+          </div>
+
+
+          <!-- ═══════════════════════════════════════════════════
+               SECTION 7 · CALLOUT / PREP BLOCK  [OPTIONAL — DELETE IF NOT NEEDED]
+               ─────────────────────────────────────────────────
+               Use for pre-work, action items, resource links,
+               or any "before you show up" instruction.
+               Keep it to 1–2 sentences max.
+
+               {{CALLOUT_EMOJI}}  → e.g. 📌 or 🔥 or ✅
+               {{CALLOUT_LABEL}}  → e.g. "Before Thursday:" or "Action Item:"
+               {{CALLOUT_BODY}}   → the instruction, can include <a href=""> links
+               ═══════════════════════════════════════════════════ -->
+          <div class="homework-block">
+            <p>{{CALLOUT_EMOJI}} &nbsp;<strong>{{CALLOUT_LABEL}}</strong> {{CALLOUT_BODY}}</p>
+          </div>
+
+
+          <!-- ─── CTA BLOCK 2 ───────────────────────────────────
+               Repeat CTA near the bottom of the body.
+               Can mirror CTA 1, or use a variation.
+               ──────────────────────────────────────────────────── -->
+          <div class="cta-block">
+            <a href="{{CTA_URL_2}}" class="cta-button">{{CTA_LABEL_2}}</a>
+            <p class="cta-sub">{{CTA_SUB_2}}</p>
+          </div>
+
+
+          <!-- ─── SIGN OFF ──────────────────────────────────────
+               {{SIGNOFF_LINE}}  → closing line, e.g. "See you Thursday at 7."
+               {{SIGNOFF_NAME}}  → e.g. "— John 🤜"
+               ──────────────────────────────────────────────────── -->
+          <p class="signoff">
+            {{SIGNOFF_LINE}}
+            <span class="name">{{SIGNOFF_NAME}}</span>
+          </p>
+
+
+          <!-- ═══════════════════════════════════════════════════
+               SECTION 8 · PS BLOCK  [OPTIONAL — DELETE IF NOT NEEDED]
+               ─────────────────────────────────────────────────
+               Use for referral nudge, bonus offer, or secondary CTA.
+               One to two sentences max.
+               {{PS_TEXT}} → can include <a href=""> links
+               ═══════════════════════════════════════════════════ -->
+          <div class="ps-block">
+            <p><strong>P.S.</strong> {{PS_TEXT}}</p>
+          </div>
+
+        </td>
+      </tr>
+
+
+      <!-- ═══════════════════════════════════════════════════════
+           SECTION 9 · DARK FOOTER  [LOCKED — BRAND REQUIRED]
+           ───────────────────────────────────────────────────────
+           Brand name and tagline are locked. Do not change.
+           Update the three footer link hrefs for each campaign.
+           {{UNSUBSCRIBE_URL}}     → GHL unsubscribe link
+           {{PREFERENCES_URL}}     → GHL manage preferences link
+           {{FOOTER_LINK_3_URL}}   → optional third link (e.g. your main site or offer URL)
+           {{FOOTER_LINK_3_LABEL}} → display text for the third link
+           ═══════════════════════════════════════════════════════ -->
+      <tr>
+        <td class="footer">
+          <p class="footer-brand">ColderICE Media</p>
+          <p class="footer-tagline">People + AI = Power Moves</p>
+          <p class="footer-links">
+            <a href="{{UNSUBSCRIBE_URL}}">Unsubscribe</a> &nbsp;·&nbsp;
+            <a href="{{PREFERENCES_URL}}">Manage Preferences</a> &nbsp;·&nbsp;
+            <a href="{{FOOTER_LINK_3_URL}}">{{FOOTER_LINK_3_LABEL}}</a>
+          </p>
+        </td>
+      </tr>
+
+
+    </table>
+  </div>
+</body>
+</html>

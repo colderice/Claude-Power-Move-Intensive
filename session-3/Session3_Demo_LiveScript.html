@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Session 3 Live Demo — The Follow-Up Machine</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --bg-color: #f7f3ec;
+      --text-color: #444444;
+      --card-bg: #ffffff;
+      --primary: #e8732a;
+      --primary-hover: #cf631f;
+      --accent: #6a9bcc;
+      --border: rgba(17,17,17,0.08);
+      --nav-bg: rgba(255,253,249,0.94);
+      --mid-gray: #7a746c;
+      --dark-bg: #111111;
+      --dark-text: #f7f1e8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.7;
+      font-size: 18px;
+      padding-bottom: 60px;
+    }
+
+    header {
+      background: radial-gradient(circle at top right, rgba(232,115,42,0.24), transparent 34%),
+        linear-gradient(180deg, #171717 0%, #111111 100%);
+      padding: 32px 20px 42px;
+      text-align: center;
+      border-bottom: 1px solid rgba(232,115,42,0.3);
+    }
+
+    .header-badge-row {
+      display: flex; justify-content: center; align-items: center;
+      gap: 12px; flex-wrap: wrap; margin-bottom: 18px;
+    }
+    .header-badge {
+      display: inline-flex; align-items: center; border-radius: 999px;
+      padding: 8px 14px; font-size: 0.88rem; font-weight: 700;
+      letter-spacing: 0.02em; background: var(--primary); color: #fff;
+    }
+    .header-series {
+      display: inline-flex; align-items: center; border-radius: 999px;
+      padding: 8px 14px; font-size: 0.88rem; font-weight: 700;
+      background: rgba(255,255,255,0.08); color: var(--dark-text);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    h1 {
+      font-size: 2.8rem; margin-bottom: 10px; color: var(--dark-text);
+      letter-spacing: -0.03em; font-weight: 800;
+    }
+    .subtitle { font-size: 1.05rem; color: rgba(247,241,232,0.78); font-weight: 500; }
+    .tagline { margin-top: 14px; font-size: 0.95rem; color: rgba(247,241,232,0.7); font-weight: 600; }
+    .format-note {
+      display: inline-block; background: rgba(232,115,42,0.12); color: var(--dark-text);
+      border: 1px solid rgba(232,115,42,0.28); padding: 10px 16px;
+      border-radius: 999px; font-size: 0.92rem; margin-top: 20px; font-weight: 500;
+    }
+
+    nav {
+      position: sticky; top: 0; background-color: var(--nav-bg);
+      backdrop-filter: blur(8px); padding: 15px 20px;
+      border-bottom: 1px solid rgba(106,155,204,0.18);
+      z-index: 100; text-align: center;
+      box-shadow: 0 8px 24px rgba(42,37,33,0.08);
+    }
+    nav a {
+      color: var(--accent); text-decoration: none; margin: 0 8px;
+      font-weight: 600; font-size: 0.9rem;
+    }
+    nav a:hover { text-decoration: underline; }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+    .global-actions { display: flex; justify-content: flex-end; margin: 20px 0; }
+
+    button {
+      background-color: var(--primary); color: #ffffff; border: none;
+      padding: 10px 20px; border-radius: 8px; font-size: 0.98rem;
+      font-weight: 700; font-family: 'Inter', Arial, sans-serif;
+      cursor: pointer; transition: background-color 0.2s, transform 0.2s;
+      box-shadow: 0 6px 18px rgba(232,115,42,0.2);
+    }
+    button:hover { background-color: var(--primary-hover); transform: translateY(-1px); }
+    button.success { background-color: var(--accent); }
+
+    .card {
+      background: var(--card-bg); border-radius: 16px; padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 18px 36px rgba(17,17,17,0.06), inset 0 1px 0 rgba(255,255,255,0.65);
+    }
+
+    h2 {
+      font-size: 1.9rem; margin-top: 0; margin-bottom: 15px; color: #222;
+      letter-spacing: -0.02em; font-weight: 800;
+    }
+    h3 { font-size: 1.3rem; margin: 20px 0 10px; color: var(--accent); font-weight: 700; }
+
+    .section-label {
+      display: inline-block; background: var(--primary); color: #fff;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; padding: 4px 12px; border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    /* Say-this blocks — word for word script */
+    .say-this {
+      background: #fffaf3; border-left: 4px solid var(--primary);
+      border-radius: 0 10px 10px 0; padding: 20px 24px; margin: 16px 0;
+      font-size: 1.05rem; line-height: 1.85; color: #222;
+    }
+
+    /* Stage direction / tip */
+    .tip {
+      background: rgba(106,155,204,0.10); border: 1px solid rgba(106,155,204,0.25);
+      border-radius: 8px; padding: 12px 18px; margin: 14px 0;
+      font-size: 0.95rem; color: #2a4a6a; font-style: italic;
+    }
+
+    /* Action blocks */
+    .action-block {
+      background: #f9f9f9; border: 1px solid #eeeeee;
+      border-radius: 10px; padding: 18px 22px; margin: 16px 0;
+    }
+    .action-label {
+      display: inline-block; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid-gray);
+      margin-bottom: 8px;
+    }
+
+    /* Prompt boxes */
+    .prompt-container {
+      background: #1a1a1a; border-radius: 12px; overflow: hidden; margin: 20px 0;
+    }
+    .prompt-header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 20px; background: rgba(232,115,42,0.15);
+      border-bottom: 1px solid rgba(232,115,42,0.2);
+    }
+    .prompt-header span {
+      font-size: 0.85rem; font-weight: 700; color: var(--primary);
+      letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .prompt-container pre {
+      padding: 22px; color: #e8e0d4; font-family: 'Courier New', monospace;
+      font-size: 0.95rem; line-height: 1.7; white-space: pre-wrap; word-break: break-word;
+      margin: 0;
+    }
+
+    /* Previous email display */
+    .email-mock {
+      background: #fff; border: 1px solid #e0e0e0; border-radius: 12px;
+      overflow: hidden; margin: 20px 0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    .email-mock-header {
+      background: #f5f5f5; padding: 16px 22px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .email-mock-header .email-row {
+      font-size: 0.92rem; color: #555; margin-bottom: 4px; display: flex; gap: 8px;
+    }
+    .email-mock-header .email-row strong { color: #111; min-width: 50px; }
+    .email-mock-header .email-row.subject strong { font-size: 1rem; color: #111; }
+    .email-mock-body { padding: 22px 24px; font-size: 0.98rem; color: #333; line-height: 1.8; }
+    .email-sent-tag {
+      display: inline-block; background: #fef3e2; border: 1px solid #f5c97a;
+      color: #a0620a; font-size: 0.78rem; font-weight: 700; padding: 3px 10px;
+      border-radius: 999px; margin-left: 10px; vertical-align: middle;
+    }
+
+    /* Philosophy dark card */
+    .dark-card {
+      background: var(--dark-bg); color: var(--dark-text); border-radius: 16px;
+      padding: 30px; margin-bottom: 30px;
+      box-shadow: 0 18px 36px rgba(17,17,17,0.14);
+    }
+    .dark-card h2 { color: #fff; }
+    .dark-card p { color: rgba(247,241,232,0.82); margin-bottom: 14px; }
+    .dark-card .shift-line {
+      border-left: 4px solid var(--primary); padding: 14px 20px;
+      background: rgba(232,115,42,0.08); border-radius: 0 8px 8px 0;
+      font-size: 1.05rem; color: #fff; margin-top: 20px;
+    }
+
+    /* Troubleshooting table */
+    table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    th {
+      background: var(--dark-bg); color: var(--primary); font-size: 0.82rem;
+      letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 16px;
+      text-align: left;
+    }
+    td { padding: 14px 16px; border-bottom: 1px solid #eee; font-size: 0.97rem; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: #fafafa; }
+    td code {
+      background: #f0ece4; padding: 2px 8px; border-radius: 4px;
+      font-family: 'Courier New', monospace; font-size: 0.9rem; color: #333;
+    }
+
+    /* Toast */
+    .copy-toast {
+      position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+      background: var(--dark-bg); color: #fff; padding: 12px 24px;
+      border-radius: 999px; font-size: 0.92rem; font-weight: 600;
+      opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 999;
+    }
+    .copy-toast.show { opacity: 1; }
+
+    footer {
+      background: var(--dark-bg); padding: 28px; text-align: center; margin-top: 20px;
+    }
+    .footer-brand { font-size: 0.85rem; font-weight: 700; color: #555; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+    .footer-tagline { font-size: 0.78rem; color: #333; letter-spacing: 0.15em; text-transform: uppercase; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-badge-row">
+    <span class="header-badge">Session 3</span>
+    <span class="header-series">The Claude Power Move Series</span>
+  </div>
+  <h1>The Follow-Up Machine</h1>
+  <p class="subtitle">Live Demo Script — Word for Word</p>
+  <p class="tagline">Thursday, May 7, 2026 &nbsp;·&nbsp; 7:00 PM ET</p>
+  <span class="format-note">Presenter notes · Say-This blocks · 3-Prompt stack · Copyable live prompts</span>
+</header>
+
+<nav>
+  <a href="#philosophy">Philosophy</a>
+  <a href="#setup">Setup</a>
+  <a href="#prev-email">Previous Email</a>
+  <a href="#system-prompt">System Prompt</a>
+  <a href="#scene">Scene</a>
+  <a href="#scenario">Scenario</a>
+  <a href="#p1">Prompt 1</a>
+  <a href="#p2">Prompt 2</a>
+  <a href="#p3">Prompt 3</a>
+  <a href="#close">Close</a>
+  <a href="#pitch">Pitch</a>
+  <a href="#troubleshooting">Troubleshooting</a>
+</nav>
+
+<div class="container">
+
+  <div class="global-actions">
+    <button id="copyAllBtn">📋 Copy All Live Prompts (1–3)</button>
+  </div>
+
+  <!-- PHILOSOPHY -->
+  <div class="dark-card" id="philosophy">
+    <span class="section-label">Philosophy</span>
+    <h2>The Shift Behind This Session</h2>
+    <p>Most business owners aren't losing money because they can't close. They're losing it because they stop showing up after the first message.</p>
+    <p>The problem isn't the lead. It's the silence after the proposal. And the silence happens because there's no system — every follow-up is a brand-new creative task that competes with everything else in the day. So it just doesn't happen.</p>
+    <p>Claude doesn't get awkward on the third follow-up. It doesn't forget. It doesn't feel like it's bothering someone. It executes on command, every time, in your voice.</p>
+    <div class="shift-line">
+      The shift you're demonstrating: from <em>hoping they'll respond</em> — to having a system that follows up whether you feel like it or not.
+    </div>
+  </div>
+
+  <!-- SETUP -->
+  <section class="card" id="setup">
+    <span class="section-label">Setup Before the Session</span>
+    <h2>Before You Go Live</h2>
+    <ul style="margin-left: 22px; margin-top: 10px; line-height: 2;">
+      <li>Claude Project open with <strong>voice profile already loaded</strong> — do NOT start a new chat</li>
+      <li>Demo scenario locked in advance — Marcus Williams, marketing consultant, $3,500 proposal, 3 days of silence</li>
+      <li>Second monitor or window: <strong>keep this script open for reference</strong></li>
+      <li>Have the previous email visible in a second window or tab — show it before Prompt 1</li>
+      <li>Have all 3 prompts ready to paste — know what's coming even though you're typing live</li>
+      <li>Links ready for chat: <strong>ClaudePowerMove.com</strong> / <strong>AtlantaAIBusiness.com</strong></li>
+    </ul>
+  </section>
+
+  <!-- PREVIOUS EMAIL -->
+  <section class="card" id="prev-email">
+    <span class="section-label">The Previous Email</span>
+    <h2>Show This First</h2>
+    <p style="margin-bottom: 16px;">Before a single prompt goes in, the audience needs to see what was sent. Pull this up in a second window or tab and share your screen showing it. This is the email that went out Monday with no response. The follow-up has no weight without it.</p>
+
+    <div class="email-mock">
+      <div class="email-mock-header">
+        <div class="email-row"><strong>To:</strong> Marcus Williams &lt;marcus@williamsbranding.co&gt;</div>
+        <div class="email-row"><strong>From:</strong> You</div>
+        <div class="email-row subject"><strong>Subject:</strong> Marketing Strategy Proposal — 90-Day Engagement <span class="email-sent-tag">Sent 3 days ago</span></div>
+        <div class="email-row"><strong>Date:</strong> Monday, May 4, 2026</div>
+      </div>
+      <div class="email-mock-body">
+        <p>Marcus,</p>
+        <br>
+        <p>Really enjoyed our conversation last Thursday. You've built something solid — and I can see exactly where focused marketing strategy would accelerate it.</p>
+        <br>
+        <p>Attached is my proposal for a 90-day marketing strategy engagement. The scope covers what we discussed: positioning clarity, content direction, and a lead generation framework built around what you're already doing well.</p>
+        <br>
+        <p>Investment: $3,500.</p>
+        <br>
+        <p>Happy to jump on a quick call if you have questions before you decide. Otherwise, I'll follow your lead.</p>
+        <br>
+        <p>Looking forward to working together.</p>
+        <br>
+        <p>— [Your name]</p>
+      </div>
+    </div>
+
+    <div class="tip">Show this on screen before opening Claude. Let the audience read it. Then say:</div>
+
+    <div class="say-this">
+      This email went out Monday. It is now Thursday. No response. Not a no — just silence.<br><br>
+      What do you send now?<br><br>
+      Most people do one of two things. They send nothing and hope the lead comes back on their own. Or they fire off a "just checking in" message that practically has a neon sign over it that says <em>I'm nervous and I need this deal.</em><br><br>
+      Tonight we do neither.
+    </div>
+  </section>
+
+  <!-- SYSTEM PROMPT -->
+  <section class="card" id="system-prompt">
+    <span class="section-label">System Prompt</span>
+    <h2>Already Loaded — Don't Re-Read It Live</h2>
+    <p>Same voice profile from Sessions 1 and 2. It's already in the Claude Project. The audience needs to <em>see</em> it's there — that's the point. Switch to the Project, scroll up slightly so the instructions are visible, and say:</p>
+
+    <div class="say-this">
+      See this? These instructions are already loaded. Every time I open this Project, Claude knows who I am, who I serve, how I talk, what I sell, and what I never say. I built this once. Now it just runs.<br><br>
+      This is what makes the output sound like me instead of like a template. Watch what happens when everything already knows the context before I type a single word.
+    </div>
+
+    <div class="tip">Now navigate to a new conversation within the Project. Do not start a fresh chat outside the Project.</div>
+  </section>
+
+  <!-- SETTING THE SCENE -->
+  <section class="card" id="scene">
+    <span class="section-label">Setting the Scene</span>
+    <h2>Say This Before You Share Your Screen</h2>
+    <div class="tip">Camera only. No screen share yet. Direct eye contact. No notes visible.</div>
+
+    <h3>Beat 1 — The Universal Moment</h3>
+    <div class="say-this">
+      Let me ask you something before I pull up the screen.<br><br>
+      Think about the last proposal you sent that never got a response. Or the lead that had a great first conversation with you — seemed genuinely interested — and then just disappeared. Or the past client you've been meaning to reach back out to for three months and still haven't.<br><br>
+      What happened?<br><br>
+      You got busy. Life moved. You told yourself you'd follow up when the moment was right. The moment never came. And now that opportunity is gone — either to a competitor, or just into the void.
+    </div>
+
+    <h3>Beat 2 — The Three Real Reasons</h3>
+    <div class="say-this">
+      Here's the thing. It wasn't because you didn't care. It wasn't because the lead was bad. It comes down to three reasons — and I've seen them pull money out of business owners' pockets over and over.<br><br>
+      One: you forgot. There was no system to remind you, so it fell off the list.<br><br>
+      Two: you didn't know what to say. The first message felt natural. The second one felt awkward. By the third, you were convinced you were annoying them.<br><br>
+      Three: every follow-up was a brand-new creative task. You had to decide what to say, how to say it, when to send it — from scratch — every single time. That's exhausting. So you just didn't do it.
+    </div>
+
+    <h3>Beat 3 — What Tonight Fixes</h3>
+    <div class="say-this">
+      Claude removes all three problems.<br><br>
+      You tell Claude who you're following up with, where the conversation left off, and what you want them to do next. Claude builds the sequence. You review it. You send it.<br><br>
+      No more blank screen. No more "I don't know what to say." No more warm leads going cold because you ran out of bandwidth.<br><br>
+      That's what I'm about to show you. Let me pull up the screen.
+    </div>
+
+    <div class="tip">Switch to screen share. Show the previous email first (already open in a second window). Then transition to the Claude Project.</div>
+  </section>
+
+  <!-- DEMO SCENARIO -->
+  <section class="card" id="scenario">
+    <span class="section-label">Demo Scenario</span>
+    <h2>Set the Stage — Reveal It Live</h2>
+    <div class="tip">Say this while the previous email is on screen. Walk them through the situation before the first prompt.</div>
+
+    <div class="say-this">
+      Here's the situation. You're a marketing consultant. Last week you had a solid discovery call with a small business owner — Marcus Williams, who runs a branding company. He needs help getting his marketing strategy locked in. The call went well. He was engaged, asked good questions, said he'd review the proposal and get back to you.<br><br>
+      You sent the proposal three days ago. $3,500 for a 90-day engagement. That's the email you just saw.<br><br>
+      It's now Thursday. No response. Not a no. Just silence.<br><br>
+      The question is: what do you send now?<br><br>
+      And here's where most people make the mistake. They either do nothing — or they write something so vague and non-committal that it barely registers. "Hey, just wanted to follow up..." Nothing. That email has no job. It doesn't move anything.<br><br>
+      Tonight we build something that actually works. And the first thing we do is give Claude the full picture — before we ask it to write a single word.
+    </div>
+  </section>
+
+  <!-- PROMPT 1 -->
+  <section class="card" id="p1-section">
+    <span class="section-label">Prompt 1 of 3</span>
+    <h2 id="p1-head">The Context Brief — Strategy First</h2>
+
+    <div class="say-this">
+      Before I ask Claude to write anything, I want to see its strategy. I'm going to give it the full context — including the original email Marcus received — and ask it to tell me the approach before we build a single message. Watch.
+    </div>
+
+    <div class="prompt-container">
+      <div class="prompt-header">
+        <span>Prompt to Paste Live</span>
+        <button class="copy-btn" id="btn-p1">Copy Prompt</button>
+      </div>
+      <pre id="p1">I need help building a follow-up sequence.
+
+Here's the full context.
+
+I'm a marketing consultant. Last week I had a solid discovery call with a small business owner — Marcus Williams, who runs a branding company. He needs help with his overall marketing strategy. After the call I sent a $3,500 proposal for a 90-day marketing strategy engagement.
+
+Here's the email I sent three days ago:
+
+---
+Marcus,
+
+Really enjoyed our conversation last Thursday. You've built something solid — and I can see exactly where focused marketing strategy would accelerate it.
+
+Attached is my proposal for a 90-day marketing strategy engagement. The scope covers what we discussed: positioning clarity, content direction, and a lead generation framework built around what you're already doing well.
+
+Investment: $3,500.
+
+Happy to jump on a quick call if you have questions before you decide. Otherwise, I'll follow your lead.
+
+Looking forward to working together.
+---
+
+No response. Three days of silence. He was warm on the call — engaged, asked good questions, said he'd review and get back to me. Temperature: warm. Interested, just quiet.
+
+Before you write anything — give me your recommended approach for a 3-touch follow-up sequence over the next 7 days. For each touch: the timing, the tone, and the angle. Do not write the messages yet.</pre>
+    </div>
+
+    <div class="action-block">
+      <span class="action-label">What You Should See</span>
+      <p>A strategic breakdown — not a list of generic tips. Touch 1 should be a light, friendly check-in. Touch 2 should add a value piece. Touch 3 should be an honest close with an easy out. If it's vague, push back: <code>"Be more specific about the angle for each touch."</code></p>
+    </div>
+
+    <div class="action-block">
+      <span class="action-label">What to Say After</span>
+      <div class="say-this">
+        See what just happened. Before I write anything, I know the plan. I know what each message is trying to do and why. That's not a small thing.<br><br>
+        Most people skip this step. They ask AI to write follow-up emails and wonder why it sounds generic. It sounds generic because there was no strategy behind it — just execution.<br><br>
+        Now I'm looking at this approach and making a call. Do I agree with Touch 2? Does Touch 3 land the way I want it to? I'm approving the strategy before I approve a single word. That's the difference between directing and just prompting.<br><br>
+        Let's build the messages.
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMPT 2 -->
+  <section class="card" id="p2-section">
+    <span class="section-label">Prompt 2 of 3</span>
+    <h2 id="p2-head">Write the 3-Touch Sequence</h2>
+
+    <div class="say-this">
+      Claude has the full context. It's seen the original email Marcus received. We've agreed on the strategy. Now we build the actual messages.
+    </div>
+
+    <div class="prompt-container">
+      <div class="prompt-header">
+        <span>Prompt to Paste Live</span>
+        <button class="copy-btn" id="btn-p2">Copy Prompt</button>
+      </div>
+      <pre id="p2">Good. That approach works. Now write all three messages.
+
+Message 1 (today): Light check-in. Friendly. Not pushy. Make it easy to respond. One clear ask.
+
+Message 2 (3 days from now): A little more direct. Include one specific observation or insight relevant to his business — something that shows I was paying attention on our call. Soft CTA to jump on a quick 15-minute call.
+
+Message 3 (7 days from now): The honest close. Acknowledge the silence directly. Give him an easy out — if the timing is off or it's not the right fit, say so. Keep the door open.
+
+Rules for all three:
+- Under 100 words each
+- No "just checking in"
+- No "I hope this finds you well"
+- No em dashes
+- Sounds like I wrote it personally at the right moment — not like a drip sequence</pre>
+    </div>
+
+    <div class="action-block">
+      <span class="action-label">What You Should See</span>
+      <p>Three distinct messages that each have a different job. Message 1 is light. Message 2 earns the reply with value. Message 3 is honest and confident. None of them should open with a generic line. If one does, fix it live — that's the directing lesson.</p>
+    </div>
+
+    <div class="action-block">
+      <span class="action-label">What to Say After — Read Message 1 Out Loud</span>
+      <div class="say-this">
+        Read that first message with me.<br><br>
+        [Read it out loud. Pause.]<br><br>
+        That opening line — that's what makes it not feel like a template. It connects back to a real conversation. It doesn't lead with "I" and it doesn't lead with a reminder that you sent something. It leads with them.<br><br>
+        I might adjust a word here. But the bones are there. That's the decision I'm making — not "what do I write" but "do I send this as-is or sharpen one thing." That's a $200-an-hour call. Not a $20-an-hour task.<br><br>
+        Three messages. Written. Ready to review, adapt, and send. I didn't write a single word of them — I set up the context, approved the strategy, and let Claude execute.
+      </div>
+      <div class="tip">If an em dash appears in any message, call it out and fix it: <code>"Fix it — no em dashes in any of these."</code> Let it self-correct. "The system knows the rules. I just enforced them."</div>
+    </div>
+  </section>
+
+  <!-- PROMPT 3 -->
+  <section class="card" id="p3-section">
+    <span class="section-label">Prompt 3 of 3</span>
+    <h2 id="p3-head">Adapt for a Different Scenario</h2>
+
+    <div class="say-this">
+      Now watch how fast the framework moves to a completely different situation.<br><br>
+      Same service. Same consultant. But this isn't a warm proposal that went quiet. This is a past client. Someone I worked with before — we wrapped up about eight months ago, ended on great terms. I've been meaning to reconnect but haven't.<br><br>
+      I want to send one message that opens the conversation back up. But it cannot feel like a sales call. No pitch energy. No "I'd love to explore working together again." They know me. This needs to feel like reaching back out to someone I genuinely want to catch up with.<br><br>
+      Different scenario. Different temperature. Same framework. Watch.
+    </div>
+
+    <div class="prompt-container">
+      <div class="prompt-header">
+        <span>Prompt to Paste Live</span>
+        <button class="copy-btn" id="btn-p3">Copy Prompt</button>
+      </div>
+      <pre id="p3">Now adapt for a completely different scenario.
+
+Same service — marketing strategy consulting. But this is a past client, not a new prospect. We worked together about 8 months ago. The engagement went well, we ended on great terms, and I've been meaning to reconnect.
+
+I want to send one message that reopens the conversation — but it cannot feel like a sales call. No pitch energy. No "I'd love to explore working together again." They know me. This should feel like reaching back out to someone I genuinely want to catch up with.
+
+One message. Personal. Warm. Opens the door without pushing through it. Under 100 words. No em dashes.</pre>
+    </div>
+
+    <div class="action-block">
+      <span class="action-label">What You Should See</span>
+      <p>A message that feels personal and warm — no pitch tone. It should reference something real about the past relationship, not just say "we worked together." If it sounds like a sales email, redirect: <code>"Pull the pitch energy out completely. This person knows me. Just reach out like a human."</code></p>
+    </div>
+
+    <div class="action-block">
+      <span class="action-label">What to Say After</span>
+      <div class="say-this">
+        Same framework. Different temperature. Completely different message.<br><br>
+        I didn't start over. I didn't open a new chat. I gave Claude the new context — past client, warm relationship, eight months of silence — and it shifted. No pitch. No "let's reconnect and explore synergies." Just a real, human message that opens a door without demanding someone walk through it.<br><br>
+        Now I've got a 3-touch follow-up for the warm proposal, and a re-engagement message for the past client. Two completely different revenue problems. One conversation with Claude.<br><br>
+        That's the system.
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO CLOSE -->
+  <section class="card" id="close">
+    <span class="section-label">Demo Close</span>
+    <h2>Here's What Just Happened</h2>
+    <div class="say-this">
+      Here's what just happened.<br><br>
+      I walked into this session with a real problem — leads going cold, a proposal sitting in my outbox with no response, and a past client I hadn't touched in eight months.<br><br>
+      I walked out with three ready-to-send follow-up messages and a re-engagement email. In fifteen minutes.<br><br>
+      I didn't write them. I directed them. Temperature, context, ask — Claude handled the execution. I made the decisions. Is this the right approach? Does this message do its job? Is the tone right for where this lead is? That's my work now.<br><br>
+      You have leads in your inbox right now that could turn into revenue this week. Not next month. This week. The proposals are already out there. The relationships already exist. All you need is the system to work them.
+    </div>
+  </section>
+
+  <!-- PITCH -->
+  <section class="card" id="pitch">
+    <span class="section-label">Pitch Transition</span>
+    <h2>Into the Intensive — No Pause</h2>
+    <div class="tip">Go straight from demo close. No break. No "okay so..." Just flow directly into this.</div>
+    <div class="say-this">
+      If you've been letting leads go cold because follow-up fell through the cracks — that's a revenue problem. Not a time problem. Not a technology problem. A system problem.<br><br>
+      May 23rd in Atlanta, we fix it. In the room that day, you build this system for your actual business. Your voice. Your follow-up scenarios. Your clients. Your pipeline — not a demo scenario. Yours.<br><br>
+      You don't leave with a template you'll adapt someday. You leave with a working system you tested on your real pipeline before you walked out the door.<br><br>
+      That's the Claude Power Move Intensive.<br><br>
+      Early bird is $495. That ends May 9th — this Friday. Two days from now.<br><br>
+      If tonight made you think "I need this for my business" — that feeling is information. Act on it.<br><br>
+      AtlantaAIBusiness.com. Link is in the chat right now.
+    </div>
+  </section>
+
+  <!-- TROUBLESHOOTING -->
+  <section class="card" id="troubleshooting">
+    <span class="section-label">Troubleshooting</span>
+    <h2>If Things Go Sideways</h2>
+    <table>
+      <tr>
+        <th>Problem</th>
+        <th>What to Do</th>
+      </tr>
+      <tr>
+        <td><strong>Output sounds generic</strong></td>
+        <td>Say: "That's what happens without the system loaded." Switch to the Project. Re-run. The contrast is the lesson.</td>
+      </tr>
+      <tr>
+        <td><strong>Messages too long</strong></td>
+        <td>Type: <code>"Cut each message to under 80 words. One idea per message."</code> Let them watch you direct it — that's the editing lesson live.</td>
+      </tr>
+      <tr>
+        <td><strong>Em dash appears</strong></td>
+        <td>Call it out. Fix it live: <code>"No em dashes. Rewrite any sentence that uses one."</code> Then say: "The system knows the rules. I just enforced them."</td>
+      </tr>
+      <tr>
+        <td><strong>Running long</strong></td>
+        <td>Cut Prompt 3 (past client). Prompts 1 and 2 are the complete demo. The past client is the bonus.</td>
+      </tr>
+      <tr>
+        <td><strong>Technical issue / Claude lag</strong></td>
+        <td>Have all 3 prompts pre-typed somewhere you can copy. The demo works even if you paste — the output and your commentary are what teach.</td>
+      </tr>
+      <tr>
+        <td><strong>Output opens with "I hope..."</strong></td>
+        <td><code>"Rewrite the opening of each message. None of them start with 'I.' Lead with them, not with me."</code></td>
+      </tr>
+    </table>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-brand">ColderICE Media</div>
+  <div class="footer-tagline">People + AI = Power Moves &nbsp;·&nbsp; The Claude Power Move Series</div>
+</footer>
+
+<div id="copyToast" class="copy-toast" aria-live="polite">Copied to clipboard</div>
+
+<script>
+  document.querySelectorAll('.copy-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var promptId = btn.id.replace('btn-', '');
+      var pre = document.getElementById(promptId);
+      if (!pre) return;
+      var text = pre.innerText || pre.textContent;
+      navigator.clipboard.writeText(text).then(function() {
+        btn.textContent = '✅ Copied!';
+        btn.classList.add('success');
+        showToast('Prompt copied to clipboard');
+        setTimeout(function() { btn.textContent = 'Copy Prompt'; btn.classList.remove('success'); }, 2000);
+      }).catch(function() {
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.focus(); ta.select();
+        document.execCommand('copy'); document.body.removeChild(ta);
+        btn.textContent = '✅ Copied!'; btn.classList.add('success');
+        showToast('Prompt copied to clipboard');
+        setTimeout(function() { btn.textContent = 'Copy Prompt'; btn.classList.remove('success'); }, 2000);
+      });
+    });
+  });
+
+  document.getElementById('copyAllBtn').addEventListener('click', function() {
+    var ids = ['p1','p2','p3'];
+    var labels = ['PROMPT 1 — CONTEXT BRIEF (STRATEGY FIRST)','PROMPT 2 — WRITE THE 3-TOUCH SEQUENCE','PROMPT 3 — PAST CLIENT ADAPTATION'];
+    var allText = ids.map(function(id, i) {
+      var el = document.getElementById(id);
+      return el ? ('=== ' + labels[i] + ' ===\n\n' + (el.innerText || el.textContent)) : '';
+    }).filter(Boolean).join('\n\n\n');
+    navigator.clipboard.writeText(allText).then(function() {
+      document.getElementById('copyAllBtn').textContent = '✅ All Prompts Copied!';
+      document.getElementById('copyAllBtn').classList.add('success');
+      showToast('All 3 prompts copied to clipboard');
+      setTimeout(function() {
+        document.getElementById('copyAllBtn').textContent = '📋 Copy All Live Prompts (1–3)';
+        document.getElementById('copyAllBtn').classList.remove('success');
+      }, 2500);
+    });
+  });
+
+  function showToast(msg) {
+    var toast = document.getElementById('copyToast');
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(function() { toast.classList.remove('show'); }, 2200);
+  }
+</script>
+
+</body>
+</html>

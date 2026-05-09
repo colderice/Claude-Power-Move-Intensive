@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>You're registered — Session 4 is Thursday at 7PM</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    body, html { margin: 0; padding: 0; background-color: #f0f0f0; font-family: 'Inter', Arial, sans-serif; -webkit-text-size-adjust: 100%; }
+    .email-wrapper { background-color: #f0f0f0; padding: 30px 16px; }
+    .email-container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 30px rgba(0,0,0,0.12); }
+
+    .header { background-color: #111111; padding: 26px 40px; }
+    .header-badge { display: inline-block; background-color: #e8732a; color: #ffffff; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 11px; border-radius: 20px; }
+    .header-series-name { font-size: 13px; font-weight: 700; color: #888888; letter-spacing: 0.5px; margin-left: 10px; }
+    .header-tagline { font-size: 10px; color: #444444; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 8px; }
+
+    .hero-band { background: linear-gradient(160deg, #0d2010 0%, #1a1a1a 100%); padding: 40px 40px 36px; }
+    .confirm-pill { display: inline-block; background-color: #27ae60; color: #ffffff; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; }
+    .hero-title { font-size: 36px; font-weight: 900; color: #ffffff; line-height: 1.1; margin: 0 0 8px 0; letter-spacing: -0.5px; }
+    .hero-title span { color: #e8732a; }
+    .hero-subtitle { font-size: 15px; color: #aaaaaa; margin: 14px 0 0 0; line-height: 1.5; }
+
+    .body-content { background-color: #ffffff; padding: 38px 40px; }
+    .greeting { font-size: 17px; color: #1a1a1a; font-weight: 600; margin: 0 0 16px 0; }
+    .body-text { font-size: 15px; color: #444444; line-height: 1.8; margin: 0 0 18px 0; }
+    .body-text strong { color: #111111; font-weight: 700; }
+    .body-text a { color: #e8732a; text-decoration: none; font-weight: 600; }
+
+    .details-box { background-color: #f9f9f9; border: 1px solid #eeeeee; border-left: 4px solid #e8732a; border-radius: 8px; padding: 24px 28px; margin: 28px 0; }
+    .details-box .db-row { display: flex; margin-bottom: 12px; font-size: 14px; line-height: 1.5; }
+    .details-box .db-row:last-child { margin-bottom: 0; }
+    .details-box .db-label { font-weight: 700; color: #111111; min-width: 80px; margin-right: 12px; }
+    .details-box .db-value { color: #444444; }
+    .details-box .db-value a { color: #e8732a; text-decoration: none; font-weight: 600; }
+
+    .cta-block { text-align: center; margin: 30px 0; }
+    .cta-button { display: inline-block; background-color: #e8732a; color: #ffffff !important; font-size: 15px; font-weight: 800; text-decoration: none; padding: 16px 42px; border-radius: 8px; letter-spacing: 0.5px; text-transform: uppercase; }
+    .cta-sub { font-size: 12px; color: #999999; margin-top: 10px; }
+
+    .divider { border: none; border-top: 1px solid #eeeeee; margin: 30px 0; }
+
+    .preview-box { background-color: #111111; border-radius: 10px; padding: 28px 30px; margin: 28px 0; }
+    .preview-box .pb-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #e8732a; margin: 0 0 8px 0; }
+    .preview-box .pb-headline { font-size: 18px; font-weight: 800; color: #ffffff; margin: 0 0 16px 0; }
+    .preview-box ul { list-style: none; padding: 0; margin: 0; }
+    .preview-box ul li { font-size: 14px; color: #cccccc; padding: 8px 0 8px 22px; position: relative; border-bottom: 1px solid #1e1e1e; line-height: 1.5; }
+    .preview-box ul li:last-child { border-bottom: none; }
+    .preview-box ul li::before { content: "→"; color: #e8732a; font-weight: 700; position: absolute; left: 0; }
+    .preview-box ul li strong { color: #ffffff; }
+
+    .signoff { font-size: 15px; color: #444444; margin: 28px 0 0 0; line-height: 1.8; }
+    .signoff .name { font-size: 18px; font-weight: 800; color: #111111; display: block; margin-top: 10px; }
+
+    .ps-block { background-color: #f7f7f7; border-left: 3px solid #dddddd; padding: 14px 18px; margin-top: 24px; border-radius: 0 6px 6px 0; }
+    .ps-block p { font-size: 13px; color: #777777; margin: 0; line-height: 1.7; }
+    .ps-block p a { color: #e8732a; text-decoration: none; font-weight: 600; }
+
+    .footer { background-color: #111111; padding: 26px 40px; text-align: center; }
+    .footer-brand { font-size: 12px; font-weight: 700; color: #555555; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+    .footer-tagline { font-size: 10px; color: #333333; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+    .footer-links { font-size: 11px; color: #333333; }
+    .footer-links a { color: #555555; text-decoration: none; margin: 0 8px; }
+
+    @media only screen and (max-width: 600px) {
+      .email-wrapper { padding: 0; }
+      .email-container { border-radius: 0; box-shadow: none; }
+      .header { padding: 20px 24px; }
+      .hero-band { padding: 30px 24px; }
+      .hero-title { font-size: 28px; }
+      .body-content { padding: 28px 24px; }
+      .preview-box { padding: 22px 20px; }
+      .footer { padding: 24px; }
+      .cta-button { padding: 14px 28px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <table class="email-container" cellpadding="0" cellspacing="0" width="100%">
+
+      <tr>
+        <td class="header">
+          <span class="header-badge">You're In · Session 4</span>&nbsp;&nbsp;<span class="header-series-name">The Claude Power Move Series</span>
+          <p class="header-tagline">People + AI = Power Moves &nbsp;·&nbsp; ColderICE Media</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="hero-band">
+          <div class="confirm-pill">✓ Registration Confirmed</div>
+          <h1 class="hero-title">You're registered for<br><span>Session 4.</span></h1>
+          <p class="hero-subtitle">Thursday, May 14 at 7:00 PM ET — see you there.</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="body-content">
+
+          <p class="greeting">Hey {{contact.first_name}},</p>
+
+          <p class="body-text">You're locked in for Session 4: <strong>Build Your Claude Business Operating System.</strong></p>
+
+          <p class="body-text">This is the synthesis session — where everything from the series comes together into one working system, demoed live on a real business. You'll leave with a complete picture of what your Claude Business OS can look like and exactly what it takes to build it.</p>
+
+          <div class="details-box">
+            <div class="db-row"><span class="db-label">What:</span><span class="db-value">Build Your Claude Business Operating System</span></div>
+            <div class="db-row"><span class="db-label">When:</span><span class="db-value">Thursday, May 14 · 7:00 PM ET</span></div>
+            <div class="db-row"><span class="db-label">Where:</span><span class="db-value">Free Live Zoom — link in your confirmation</span></div>
+            <div class="db-row"><span class="db-label">Cost:</span><span class="db-value">Free to attend</span></div>
+            <div class="db-row"><span class="db-label">Replay:</span><span class="db-value">Available to all registrants after the session</span></div>
+          </div>
+
+          <div class="cta-block">
+            <a href="https://ClaudePowerMove.com" class="cta-button">View Session Details →</a>
+            <p class="cta-sub">ClaudePowerMove.com</p>
+          </div>
+
+          <hr class="divider">
+
+          <div class="preview-box">
+            <p class="pb-label">What's happening Thursday</p>
+            <p class="pb-headline">The 4-Layer Claude Business OS — live on screen</p>
+            <ul>
+              <li><strong>Layer 1 — Voice</strong> — your brand context loaded so everything sounds like you.</li>
+              <li><strong>Layer 2 — Content</strong> — a week of content from one 15-minute Monday session. Live demo.</li>
+              <li><strong>Layer 3 — Follow-Up</strong> — the revenue protection layer, running your pipeline automatically.</li>
+              <li><strong>Layer 4 — Operations</strong> — research, prep, decision support. Your executive assistant, always on.</li>
+              <li><strong>Live Hotseats</strong> — bring your bottleneck. I'll map it to a Claude solution in real time.</li>
+            </ul>
+          </div>
+
+          <p class="body-text">No tech background required. No Claude experience needed. Just show up ready to see the full system.</p>
+
+          <p class="signoff">
+            See you Thursday at 7.
+            <span class="name">— John 🤜</span>
+          </p>
+
+          <div class="ps-block">
+            <p><strong>P.S.</strong> The Claude Power Move Intensive is May 23rd — nine days after this session. Thursday night you'll get the full picture. If you want the system built for your business, you'll know exactly what to do next. &nbsp;<a href="https://AtlantaAIBusiness.com">AtlantaAIBusiness.com</a></p>
+          </div>
+
+        </td>
+      </tr>
+
+      <tr>
+        <td class="footer">
+          <p class="footer-brand">ColderICE Media</p>
+          <p class="footer-tagline">People + AI = Power Moves</p>
+          <p class="footer-links">
+            <a href="#">Unsubscribe</a> &nbsp;·&nbsp;
+            <a href="#">Manage Preferences</a> &nbsp;·&nbsp;
+            <a href="https://ClaudePowerMove.com">ClaudePowerMove.com</a>
+          </p>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+</body>
+</html>

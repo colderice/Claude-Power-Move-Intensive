@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 4: Build Your Claude Business Operating System — Claude Power Move</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:   #141413;
+  --dark:    #1a1a1a;
+  --dark2:   #222222;
+  --white:   #faf9f5;
+  --offwhite:#e8e6dc;
+  --gray:    #b0aea5;
+  --orange:  #d97757;
+  --od:      #b55f41;
+  --blue:    #6a9bcc;
+}
+
+body { font-family: Georgia, 'Times New Roman', serif; background: var(--black); color: var(--white); line-height: 1.6; }
+
+/* TOP BAR */
+.topbar { background: var(--od); padding: 10px 20px; text-align: center; font-family: Arial, sans-serif; font-size: 14px; font-weight: 700; color: var(--white); }
+.topbar a { color: var(--white); text-decoration: underline; }
+
+/* NAV */
+nav { background: var(--black); border-bottom: 2px solid var(--orange); padding: 0 24px; display: flex; justify-content: space-between; align-items: center; height: 60px; }
+.nav-tag { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: .08em; }
+
+/* HERO */
+.hero { background: var(--black); padding: 72px 20px 80px; text-align: center; position: relative; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #0d1a2a 0%, #141413 50%, #1a0d00 100%); opacity: 0.9; }
+.hero-inner { position: relative; z-index: 1; max-width: 820px; margin: 0 auto; }
+
+.session-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(217,119,87,0.12); color: var(--orange); border: 1px solid rgba(217,119,87,0.25); font-family: Arial, sans-serif; font-size: 12px; font-weight: 700; padding: 7px 20px; border-radius: 30px; margin-bottom: 28px; letter-spacing: .04em; text-transform: uppercase; }
+.session-badge .dot { width: 7px; height: 7px; background: var(--orange); border-radius: 50%; animation: pulse 1.5s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
+
+.eyebrow { font-family: Arial, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; }
+
+h1 { font-family: Arial, sans-serif; font-size: clamp(36px, 6vw, 68px); font-weight: 900; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 10px; }
+h1 .accent { color: var(--orange); }
+.session-title { font-family: Arial, sans-serif; font-size: clamp(18px, 3vw, 28px); font-weight: 800; color: var(--orange); margin-bottom: 24px; }
+.hero-sub { font-size: clamp(16px, 2vw, 21px); color: var(--gray); max-width: 700px; margin: 0 auto 36px; line-height: 1.75; font-style: italic; }
+
+.meta-row { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
+.meta-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.meta-label { font-family: Arial, sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--blue); }
+.meta-value { font-family: Arial, sans-serif; font-size: 17px; font-weight: 800; color: var(--white); }
+
+/* REGISTER BOX */
+.reg-box { background: var(--dark2); border: 2px solid var(--orange); border-radius: 14px; padding: 36px 32px; max-width: 520px; margin: 0 auto; text-align: left; }
+.reg-box h3 { font-family: Arial, sans-serif; font-size: 22px; font-weight: 900; color: var(--white); margin-bottom: 6px; }
+.reg-box .sub { font-size: 14px; color: var(--gray); margin-bottom: 24px; }
+.reg-note { font-size: 12px; color: var(--gray); text-align: center; margin-top: 14px; line-height: 1.5; }
+
+/* What's Included Box */
+.included-box { background: rgba(106,155,204,0.06); border: 1px solid rgba(106,155,204,0.2); border-radius: 10px; padding: 20px 22px; margin: 18px 0 22px; }
+.included-box .ib-label { font-family: Arial, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+.included-list { list-style: none; padding: 0; margin: 0; }
+.included-list li { font-size: 14px; color: var(--gray); padding: 7px 0 7px 22px; position: relative; border-bottom: 1px solid rgba(106,155,204,0.1); line-height: 1.5; }
+.included-list li:last-child { border-bottom: none; }
+.included-list li::before { content: "✓"; color: var(--orange); font-weight: 700; position: absolute; left: 0; }
+.included-list li strong { color: var(--white); }
+
+.btn-cta { width: 100%; background: var(--orange); color: var(--white); font-family: Arial, sans-serif; font-size: 17px; font-weight: 800; padding: 17px; border-radius: 6px; border: none; cursor: pointer; transition: background .2s, transform .15s; margin-top: 6px; }
+.btn-cta:hover { background: var(--od); transform: translateY(-2px); }
+
+/* SECTIONS */
+.section-dark { background: var(--dark); padding: 70px 20px; }
+.section-darker { background: var(--black); padding: 70px 20px; }
+.container { max-width: 860px; margin: 0 auto; }
+
+h2 { font-family: Arial, sans-serif; font-size: clamp(26px, 4vw, 46px); font-weight: 900; line-height: 1.15; letter-spacing: -.02em; margin-bottom: 16px; color: var(--orange); }
+
+/* LEARN GRID */
+.learn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 36px; }
+.learn-card { background: var(--dark2); border: 1px solid #333; border-radius: 10px; padding: 24px 22px; }
+.learn-num { font-family: Arial, sans-serif; font-size: 36px; font-weight: 900; color: var(--orange); opacity: .3; line-height: 1; margin-bottom: 10px; }
+.learn-title { font-family: Arial, sans-serif; font-size: 16px; font-weight: 800; color: var(--white); margin-bottom: 8px; }
+.learn-body { font-size: 14px; color: var(--gray); line-height: 1.65; }
+
+/* LAYERS */
+.layers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
+@media (max-width: 580px) { .layers-grid { grid-template-columns: 1fr; } }
+.layer-card { background: var(--dark2); border: 1px solid #333; border-radius: 10px; padding: 22px 20px; }
+.layer-num { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; color: var(--orange); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+.layer-name { font-family: Arial, sans-serif; font-size: 18px; font-weight: 900; color: var(--white); margin-bottom: 8px; }
+.layer-desc { font-size: 14px; color: var(--gray); line-height: 1.65; }
+
+/* AUDIENCE LIST */
+.audience-list { list-style: none; padding: 0; margin-top: 28px; }
+.audience-list li { padding: 14px 0 14px 28px; border-bottom: 1px solid #2a2a2a; position: relative; font-size: 19px; color: var(--gray); line-height: 1.6; }
+.audience-list li:last-child { border-bottom: none; }
+.audience-list li::before { content: '→'; color: var(--orange); position: absolute; left: 0; font-weight: 700; }
+.audience-list li strong { color: var(--white); }
+
+/* SESSION 3 RECAP */
+.recap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
+@media (max-width: 580px) { .recap-grid { grid-template-columns: 1fr; } }
+.recap-item { background: rgba(106,155,204,0.06); border: 1px solid rgba(106,155,204,0.2); border-radius: 8px; padding: 16px 18px; font-size: 14px; color: var(--gray); line-height: 1.5; }
+.recap-item strong { color: var(--white); font-family: Arial, sans-serif; font-size: 13px; display: block; margin-bottom: 4px; }
+
+/* INTENSIVE PROMO */
+.intensive-bar { background: var(--od); padding: 36px 20px; text-align: center; }
+.intensive-bar h3 { font-family: Arial, sans-serif; font-size: clamp(22px,3vw,36px); font-weight: 900; color: var(--white); margin-bottom: 10px; letter-spacing: -.01em; }
+.intensive-bar p { font-size: 18px; color: rgba(255,255,255,0.85); max-width: 640px; margin: 0 auto 24px; line-height: 1.65; }
+.btn-white { display: inline-block; background: var(--white); color: var(--od); font-family: Arial, sans-serif; font-size: 16px; font-weight: 800; padding: 15px 36px; border-radius: 6px; text-decoration: none; transition: opacity .2s; }
+.btn-white:hover { opacity: .88; }
+.price-note { font-family: Arial, sans-serif; font-size: 13px; color: rgba(255,255,255,0.65); margin-top: 14px; }
+
+/* DIVIDER */
+.divider { height: 4px; background: linear-gradient(90deg, var(--od), var(--orange), var(--blue)); }
+
+/* FOOTER */
+footer { background: var(--black); padding: 36px 20px; text-align: center; border-top: 1px solid #222; }
+footer p { font-size: 13px; color: var(--gray); margin-bottom: 6px; }
+footer a { color: var(--blue); text-decoration: none; }
+
+/* UPSELL MODAL */
+#upsell-modal { display: none; position: fixed; inset: 0; background: rgba(20,20,19,0.92); z-index: 9999; align-items: center; justify-content: center; padding: 20px; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">⚡ 9 Days Away — Claude Power Move Intensive · May 23, Atlanta · Seats Filling Fast &nbsp;<a href="https://www.AtlantaAIBusiness.com">AtlantaAIBusiness.com →</a></div>
+
+<!-- NAV -->
+<nav>
+  <a href="https://ClaudePowerMove.com" style="text-decoration:none;"><span style="font-family:Arial,sans-serif; font-size:15px; font-weight:900; color:#faf9f5; letter-spacing:-.01em; white-space:nowrap;">CLAUDE <span style="color:#d97757;">POWER MOVE</span></span></a>
+  <div class="nav-tag">Thursdays 7 PM ET · Free Zoom Series</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="session-badge"><span class="dot"></span>Session 4 · Thursday, May 14 · 7:00 PM ET</div>
+    <div class="eyebrow">The Claude Power Move Series</div>
+    <h1>Your Claude <span class="accent">Business OS</span></h1>
+    <div class="session-title">Build Your Claude Business Operating System</div>
+    <p class="hero-sub">"What does it look like when Claude is running your content, your follow-up, and your operations — all at once?" Tonight you find out.</p>
+    <div class="meta-row">
+      <div class="meta-item"><div class="meta-label">Date</div><div class="meta-value">Thursday, May 14</div></div>
+      <div class="meta-item"><div class="meta-label">Time</div><div class="meta-value">7:00 PM ET</div></div>
+      <div class="meta-item"><div class="meta-label">Format</div><div class="meta-value">Live Zoom</div></div>
+      <div class="meta-item"><div class="meta-label">Cost</div><div class="meta-value" style="color:var(--orange);">Free</div></div>
+    </div>
+
+    <!-- REGISTER BOX -->
+    <div class="reg-box">
+      <h3>Save Your Seat — Get Everything</h3>
+      <p class="sub">Register once. Get Session 4 access plus every replay, file, and freebie from the full series.</p>
+
+      <div class="included-box">
+        <div class="ib-label">What's included with your registration</div>
+        <ul class="included-list">
+          <li><strong>Session 4 live access</strong> — Thursday, May 14 at 7PM ET</li>
+          <li><strong>Session 3 replay</strong> — The Follow-Up Machine, full recording</li>
+          <li><strong>Sessions 1 &amp; 2 replays</strong> — Your First Power Move + The Content Machine</li>
+          <li><strong>All session files &amp; resources</strong> — prompts, frameworks, and templates</li>
+          <li><strong>Giveaways &amp; freebies</strong> — everything handed out across the series</li>
+        </ul>
+      </div>
+
+      <!-- WebinarJam Registration Embed -->
+      <div style="text-align:center;">
+        <button type="button" class="wj-embed-button" data-webinarHash="8py9rinw" style="border: 2px solid rgba(0, 0, 0, 0.5); background: rgba(246, 120, 41, 0.95); color: rgb(255, 255, 255); font-size: 24px; padding: 18px 80px; box-shadow: none; border-radius: 4px; white-space: normal; font-weight: 700; line-height: 1.3; cursor: pointer; font-family: Roboto, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif; word-break: break-word; margin: auto;">Register</button>
+        <script src="https://event.webinarjam.com/register/8py9rinw/embed-button?formTemplate=2&formColor=4&buttonText=Register"></script>
+      </div>
+
+      <p class="reg-note">Free to join. Zoom link sent immediately. Replay available after the session.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- THE 4 LAYERS -->
+<section class="section-dark">
+  <div class="container">
+    <div class="eyebrow" style="color:var(--blue);">The Framework</div>
+    <h2>The Claude Business OS — 4 Layers</h2>
+    <p style="font-size:19px; color:var(--gray); line-height:1.75; max-width:700px;">Every business needs all four. Most people have one, maybe two. Tonight I'm showing you what it looks like when they're all running — on my real business, live on screen.</p>
+
+    <div class="layers-grid">
+      <div class="layer-card">
+        <div class="layer-num">Layer 1</div>
+        <div class="layer-name">Voice</div>
+        <div class="layer-desc">Your brand, your context, your offers loaded into a Claude Project. Without it, everything is generic. With it, everything Claude produces sounds exactly like you.</div>
+      </div>
+      <div class="layer-card">
+        <div class="layer-num">Layer 2</div>
+        <div class="layer-name">Content</div>
+        <div class="layer-desc">Social posts, emails, scripts, blog outlines — all flowing from one 15-minute session every Monday. Content is never a blank screen problem when this layer is running.</div>
+      </div>
+      <div class="layer-card">
+        <div class="layer-num">Layer 3</div>
+        <div class="layer-name">Follow-Up</div>
+        <div class="layer-desc">The revenue protection layer. Proposals, warm leads, past clients — all being worked. Nothing falls through the cracks whether you feel like following up or not.</div>
+      </div>
+      <div class="layer-card">
+        <div class="layer-num">Layer 4</div>
+        <div class="layer-name">Operations</div>
+        <div class="layer-desc">Research, client prep, decision support, intel, planning — Claude as your executive assistant who never sleeps, never forgets, and never drops the ball.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE'RE DOING TONIGHT -->
+<section class="section-darker">
+  <div class="container">
+    <div class="eyebrow" style="color:var(--blue);">This Session</div>
+    <h2>What's Happening Thursday Night</h2>
+    <p style="font-size:19px; color:var(--gray); line-height:1.75; max-width:700px;">Sessions 1 through 3 each taught one skill. Session 4 connects all of them into one working system.</p>
+
+    <div class="learn-grid">
+      <div class="learn-card">
+        <div class="learn-num">01</div>
+        <div class="learn-title">The Full System, Live</div>
+        <div class="learn-body">All four layers demonstrated in one session using my actual ColderICE business. Content batch, follow-up sequence, operations query — not a demo company. My real setup, on screen.</div>
+      </div>
+      <div class="learn-card">
+        <div class="learn-num">02</div>
+        <div class="learn-title">John's Personal Stack</div>
+        <div class="learn-body">The exact Claude setup I run ColderICE on — how the Project is built, what's in the system prompt, and how I move through the four layers every week in under an hour.</div>
+      </div>
+      <div class="learn-card">
+        <div class="learn-num">03</div>
+        <div class="learn-title">Where to Start</div>
+        <div class="learn-body">How to prioritize which workflows to build first based on where your time and money are actually going. Not every layer is equally urgent. We'll figure out yours.</div>
+      </div>
+      <div class="learn-card">
+        <div class="learn-num">04</div>
+        <div class="learn-title">Live Hotseats</div>
+        <div class="learn-body">Bring your biggest operational pain point — the thing eating your time or falling through the cracks. I'll map it to a Claude solution live on the call. Real business. Real answer.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="section-dark">
+  <div class="container">
+    <div class="eyebrow" style="color:var(--blue);">Who Shows Up</div>
+    <h2>This Session Is for You If…</h2>
+    <ul class="audience-list">
+      <li>You've been using Claude for <strong>one thing at a time</strong> and you're ready to see the full system</li>
+      <li>You're spending too many hours on tasks that <strong>Claude should be handling</strong> but you don't have a workflow built</li>
+      <li>You tried AI before, got generic results, and <strong>didn't know why</strong> — tonight you'll see exactly why and how to fix it</li>
+      <li>You've watched sessions 1, 2, or 3 and want to see <strong>how all the pieces connect</strong></li>
+      <li>You're new — this session <strong>works standalone</strong>; no prior attendance required</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SESSION 3 RECAP -->
+<section class="section-darker">
+  <div class="container">
+    <div class="eyebrow" style="color:var(--blue);">Last Week</div>
+    <h2>Session 3 Recap — The Follow-Up Machine</h2>
+    <p style="font-size:18px; color:var(--gray); line-height:1.75;">Missed it? Here's what we built in Session 3 — and remember, your registration for Session 4 includes the full replay.</p>
+    <div class="recap-grid">
+      <div class="recap-item"><strong>Why Follow-Up Fails</strong>The three specific reasons business owners stop following up — and how Claude eliminates all three at the root.</div>
+      <div class="recap-item"><strong>The Temperature Framework</strong>How to match your follow-up message to exactly where the lead is in the conversation — warm lead, cold prospect, past client.</div>
+      <div class="recap-item"><strong>Live 3-Touch Sequence</strong>Proposal sent, no response. A complete 3-touch follow-up sequence built live on screen — ready to send in under 10 minutes.</div>
+      <div class="recap-item"><strong>Past Client Re-Engagement</strong>The easiest revenue most businesses are leaving on the table. Built live, adapted live, sent the same night.</div>
+    </div>
+    <div style="text-align:center; margin-top:28px;">
+      <a href="https://ClaudePowerMove.com" style="display:inline-block; background:transparent; border:2px solid var(--orange); color:var(--orange); font-family:Arial,sans-serif; font-size:15px; font-weight:700; padding:13px 32px; border-radius:6px; text-decoration:none;">Get the Replay — Register for Session 4 →</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INTENSIVE PROMO -->
+<div class="intensive-bar">
+  <h3>Nine Days. Then the Room Closes.</h3>
+  <p>The Claude Power Move Intensive is May 23rd in Atlanta. One full day where you build your complete Claude Business Operating System — content, follow-up, and operations — configured to your business before you leave the room.</p>
+  <a href="https://www.AtlantaAIBusiness.com" class="btn-white">Get My Seat — AtlantaAIBusiness.com →</a>
+  <p class="price-note">Saturday, May 23, 2026 &nbsp;·&nbsp; Masterly Studios, Atlanta, GA &nbsp;·&nbsp; Limited Seats</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div style="font-family:Arial,sans-serif; font-size:17px; font-weight:900; color:#faf9f5; letter-spacing:-.01em; margin-bottom:14px;">CLAUDE <span style="color:#d97757;">POWER MOVE</span></div>
+  <p>The Claude Power Move is presented by ColderICE Media.</p>
+  <p><a href="mailto:john@colderice.com">john@colderice.com</a></p>
+  <p style="margin-top:20px; font-size:11px; color:#555;">© 2026 ColderICE Media. All Rights Reserved.</p>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   GHL WEBHOOK — fires on WebinarJam registration complete.
+   ⚠️ UPDATE: Paste your GHL webhook URL below.
+   ═══════════════════════════════════════════════════════════ */
+var GHL_WEBHOOK_URL = 'YOUR_GHL_WEBHOOK_URL_HERE';
+
+function sendToGHL(name, email) {
+  if (!GHL_WEBHOOK_URL || GHL_WEBHOOK_URL === 'YOUR_GHL_WEBHOOK_URL_HERE') return;
+  fetch(GHL_WEBHOOK_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      firstName: name.split(' ')[0] || name,
+      lastName:  name.split(' ').slice(1).join(' ') || '',
+      email:     email,
+      tags:      ['Claude Power Move', 'Session 4', 'Zoom Registrant'],
+      source:    'Session 4 Landing Page'
+    })
+  }).catch(function(){});
+}
+
+window.addEventListener('message', function(e) {
+  if (e.data && (e.data.type === 'wj:registration_complete' || e.data.registered)) {
+    var name  = e.data.name  || e.data.first_name || '';
+    var email = e.data.email || '';
+    sendToGHL(name, email);
+    showUpsell();
+  }
+});
+
+(function() {
+  if (window.location.search.indexOf('registered=1') > -1 ||
+      window.location.hash.indexOf('registered') > -1) {
+    showUpsell();
+  }
+})();
+
+function showUpsell() {
+  var u = document.getElementById('upsell-modal');
+  if (u) { u.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+}
+function closeUpsell() {
+  var u = document.getElementById('upsell-modal');
+  if (u) { u.style.display = 'none'; document.body.style.overflow = ''; }
+}
+</script>
+
+<!-- UPSELL MODAL -->
+<div id="upsell-modal" style="display:none; position:fixed; inset:0; background:rgba(20,20,19,0.92); z-index:9999; align-items:center; justify-content:center; padding:20px;">
+  <div style="background:#1a1a1a; border:2px solid #d97757; border-radius:16px; max-width:600px; width:100%; padding:48px 44px; text-align:center; position:relative;">
+    <button onclick="closeUpsell()" style="position:absolute; top:16px; right:20px; background:none; border:none; color:#b0aea5; font-size:24px; cursor:pointer; font-family:Arial,sans-serif;">✕</button>
+    <div style="font-family:Arial,sans-serif; font-size:18px; font-weight:900; color:#faf9f5; letter-spacing:-.01em; margin-bottom:28px;">CLAUDE <span style="color:#d97757;">POWER MOVE</span></div>
+    <div style="font-family:Arial,sans-serif; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#6a9bcc; margin-bottom:12px;">You're registered for Session 4 ✓</div>
+    <h2 style="font-family:Arial,sans-serif; font-size:34px; font-weight:900; color:#faf9f5; margin-bottom:10px; letter-spacing:-.02em; line-height:1.1;">Ready to build it<br><span style="color:#d97757;">for your business?</span></h2>
+    <p style="font-size:17px; color:#b0aea5; line-height:1.7; margin-bottom:16px;">The Claude Power Move Intensive — May 23, Atlanta. One full day where you build your complete Claude Business Operating System. Built. Tested. Working before you leave the room.</p>
+    <p style="font-family:Arial,sans-serif; font-size:14px; color:#d97757; font-weight:700; margin-bottom:20px;">⚡ Nine days away. Seats are limited.</p>
+    <a href="https://www.AtlantaAIBusiness.com" style="display:block; background:#d97757; color:#faf9f5; font-family:Arial,sans-serif; font-size:18px; font-weight:800; padding:18px; border-radius:8px; text-decoration:none; margin-bottom:14px;">Claim My Intensive Seat →</a>
+    <button onclick="closeUpsell()" style="background:none; border:none; font-size:14px; color:#666; cursor:pointer;">No thanks, I'll just join Thursday's session</button>
+  </div>
+</div>
+
+</body>
+</html>

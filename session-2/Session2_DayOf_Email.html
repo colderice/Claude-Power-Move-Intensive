@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tonight. 7pm. Let me show you something.</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      font-family: 'Inter', Arial, sans-serif;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    .email-wrapper {
+      background-color: #f0f0f0;
+      padding: 30px 16px;
+    }
+
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.12);
+    }
+
+    /* DARK HEADER */
+    .header {
+      background-color: #111111;
+      padding: 26px 40px;
+    }
+
+    .header-badge {
+      display: inline-block;
+      background-color: #e8732a;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 11px;
+      border-radius: 20px;
+    }
+
+    .header-series-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #888888;
+      letter-spacing: 0.5px;
+      margin-left: 10px;
+    }
+
+    .header-tagline {
+      font-size: 10px;
+      color: #444444;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    /* DARK HERO */
+    .hero-band {
+      background: linear-gradient(160deg, #1a1a1a 0%, #2d1200 100%);
+      padding: 40px 40px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-band::after {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(232,115,42,0.18) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .session-pill {
+      display: inline-block;
+      background-color: rgba(232,115,42,0.15);
+      border: 1px solid rgba(232,115,42,0.4);
+      color: #e8732a;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-size: 44px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.0;
+      margin: 0 0 8px 0;
+      letter-spacing: -1px;
+    }
+
+    .hero-title span {
+      color: #e8732a;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: #aaaaaa;
+      margin: 14px 0 0 0;
+      line-height: 1.5;
+    }
+
+    /* ORANGE ALERT STRIP */
+    .alert-strip {
+      background-color: #e8732a;
+      padding: 14px 40px;
+      text-align: center;
+    }
+
+    .alert-strip p {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    /* LIGHT BODY */
+    .body-content {
+      background-color: #ffffff;
+      padding: 38px 40px;
+    }
+
+    .greeting {
+      font-size: 17px;
+      color: #1a1a1a;
+      font-weight: 600;
+      margin: 0 0 16px 0;
+    }
+
+    .body-text {
+      font-size: 15px;
+      color: #444444;
+      line-height: 1.8;
+      margin: 0 0 18px 0;
+    }
+
+    .body-text strong {
+      color: #111111;
+      font-weight: 700;
+    }
+
+    .body-text a {
+      color: #e8732a;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* CTA */
+    .cta-block {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #e8732a;
+      color: #ffffff !important;
+      font-size: 15px;
+      font-weight: 800;
+      text-decoration: none;
+      padding: 16px 42px;
+      border-radius: 8px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .cta-sub {
+      font-size: 12px;
+      color: #999999;
+      margin-top: 10px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #eeeeee;
+      margin: 30px 0;
+    }
+
+    /* DARK WHAT'S COMING BLOCK */
+    .dark-section {
+      background-color: #111111;
+      margin: 0 -40px;
+      padding: 34px 40px;
+    }
+
+    .dark-section .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #e8732a;
+      margin-bottom: 10px;
+    }
+
+    .dark-section .section-headline {
+      font-size: 24px;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0 0 14px 0;
+      line-height: 1.2;
+    }
+
+    .dark-section .section-intro {
+      font-size: 14px;
+      color: #999999;
+      line-height: 1.7;
+      margin: 0 0 22px 0;
+    }
+
+    /* POWER LIST */
+    .power-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .power-list li {
+      font-size: 14px;
+      color: #cccccc;
+      padding: 12px 0 12px 26px;
+      position: relative;
+      border-bottom: 1px solid #1e1e1e;
+      line-height: 1.5;
+    }
+
+    .power-list li:last-child {
+      border-bottom: none;
+    }
+
+    .power-list li::before {
+      content: "→";
+      color: #e8732a;
+      font-weight: 700;
+      position: absolute;
+      left: 0;
+    }
+
+    .power-list li strong {
+      color: #ffffff;
+    }
+
+    /* EVENT BOX */
+    .event-box {
+      background-color: #fafafa;
+      border: 1px solid #eeeeee;
+      border-left: 4px solid #e8732a;
+      border-radius: 8px;
+      padding: 22px 26px;
+      margin: 28px 0;
+    }
+
+    .event-box .event-date {
+      font-size: 19px;
+      font-weight: 800;
+      color: #111111;
+      margin: 0 0 4px 0;
+    }
+
+    .event-box .event-date span {
+      color: #e8732a;
+    }
+
+    .event-box .event-detail {
+      font-size: 12px;
+      color: #999999;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin: 0 0 12px 0;
+    }
+
+    .event-box .event-url {
+      font-size: 14px;
+      color: #e8732a;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* SIGN OFF */
+    .signoff {
+      font-size: 15px;
+      color: #444444;
+      margin: 28px 0 0 0;
+      line-height: 1.8;
+    }
+
+    .signoff .name {
+      font-size: 18px;
+      font-weight: 800;
+      color: #111111;
+      display: block;
+      margin-top: 10px;
+    }
+
+    /* PS */
+    .ps-block {
+      background-color: #f7f7f7;
+      border-left: 3px solid #dddddd;
+      padding: 14px 18px;
+      margin-top: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .ps-block p {
+      font-size: 13px;
+      color: #777777;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .ps-block p a {
+      color: #e8732a;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* DARK FOOTER */
+    .footer {
+      background-color: #111111;
+      padding: 26px 40px;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-size: 12px;
+      font-weight: 700;
+      color: #555555;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .footer-tagline {
+      font-size: 10px;
+      color: #333333;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      font-size: 11px;
+      color: #333333;
+    }
+
+    .footer-links a {
+      color: #555555;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    /* MOBILE */
+    @media only screen and (max-width: 600px) {
+      .email-wrapper { padding: 0; }
+      .email-container { border-radius: 0; box-shadow: none; }
+      .header { padding: 20px 24px; }
+      .hero-band { padding: 30px 24px; }
+      .hero-title { font-size: 34px; }
+      .alert-strip { padding: 12px 24px; }
+      .body-content { padding: 28px 24px; }
+      .dark-section { margin: 0 -24px; padding: 28px 24px; }
+      .footer { padding: 24px; }
+      .cta-button { padding: 14px 28px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <table class="email-container" cellpadding="0" cellspacing="0" width="100%">
+
+      <!-- DARK HEADER -->
+      <tr>
+        <td class="header">
+          <span class="header-badge">Tonight · April 30</span>&nbsp;&nbsp;<span class="header-series-name">The Claude Power Move Series</span>
+          <p class="header-tagline">People + AI = Power Moves &nbsp;·&nbsp; ColderICE Media</p>
+        </td>
+      </tr>
+
+      <!-- DARK HERO -->
+      <tr>
+        <td class="hero-band">
+          <div class="session-pill">Live Tonight · 7 PM ET</div>
+          <h1 class="hero-title">No More<br><span>Blank Pages.</span></h1>
+          <p class="hero-subtitle">The content problem isn't what you think. Tonight I fix it — live on screen.</p>
+        </td>
+      </tr>
+
+      <!-- ORANGE ALERT STRIP -->
+      <tr>
+        <td class="alert-strip">
+          <p>🔴 &nbsp;Tonight at 7PM ET — Free Live Session — Register now at ClaudePowerMove.com</p>
+        </td>
+      </tr>
+
+      <!-- LIGHT BODY -->
+      <tr>
+        <td class="body-content">
+
+          <p class="greeting">Hey {{contact.first_name}},</p>
+
+          <p class="body-text">Real talk.</p>
+
+          <p class="body-text">Most business owners don't have a content problem. They have a <strong>starting problem.</strong></p>
+
+          <p class="body-text">You sit down to post something and the blank page just stares back at you. So you either put out something generic to fill the space, or you skip it and tell yourself you'll do it tomorrow. Tomorrow turns into next week. Next week turns into "I really need to get consistent."</p>
+
+          <p class="body-text">Sound familiar?</p>
+
+          <p class="body-text">That's what tonight is about. I'm going live at 7pm ET and I'm going to show you what Monday morning looks like when that blank page problem is <strong>gone for good.</strong></p>
+
+          <!-- CTA 1 -->
+          <div class="cta-block">
+            <a href="https://ClaudePowerMove.com" class="cta-button">Reserve My Spot Tonight →</a>
+            <p class="cta-sub">ClaudePowerMove.com &nbsp;·&nbsp; Free &nbsp;·&nbsp; Tonight 7PM ET</p>
+          </div>
+
+          <hr class="divider">
+
+          <!-- DARK SECTION — WHAT'S HAPPENING TONIGHT -->
+          <div class="dark-section">
+            <p class="section-label">Tonight · April 30 · 7PM ET</p>
+            <h2 class="section-headline">Claude as Your Content Machine</h2>
+            <p class="section-intro">One idea goes in. A full week of content comes out. I'm building it live on screen so you can run the same system yourself tonight.</p>
+
+            <ul class="power-list">
+              <li><strong>The Monday Morning Brief</strong> — how to show up and start deciding instead of creating from scratch every single week.</li>
+              <li><strong>The one-to-many prompt stack</strong> — one topic turns into social posts, an email, a blog outline, and a YouTube script. One conversation with Claude.</li>
+              <li><strong>Live demo, real time</strong> — not a slideshow, not theory. Watch me do it on screen. Watch the clock when I do it.</li>
+              <li><strong>You leave with the system</strong> — not notes about the system. The actual prompts, the actual process, ready to run Monday morning.</li>
+            </ul>
+          </div>
+
+          <!-- EVENT BOX -->
+          <div class="event-box">
+            <p class="event-date">Tonight, <span>April 30</span> &nbsp;·&nbsp; 7:00 PM ET</p>
+            <p class="event-detail">Free Live Zoom &nbsp;·&nbsp; The Claude Power Move Series</p>
+            <a href="https://ClaudePowerMove.com" class="event-url">→ ClaudePowerMove.com</a>
+          </div>
+
+          <!-- CTA 2 -->
+          <div class="cta-block">
+            <a href="https://ClaudePowerMove.com" class="cta-button">Get My Free Spot →</a>
+            <p class="cta-sub">It's free &nbsp;·&nbsp; It's tonight &nbsp;·&nbsp; It's going to change how you think about content</p>
+          </div>
+
+          <!-- SIGN OFF -->
+          <p class="signoff">
+            See you tonight at 7.
+            <span class="name">— John 🤜</span>
+          </p>
+
+          <!-- PS -->
+          <div class="ps-block">
+            <p><strong>P.S.</strong> Know a business owner who keeps saying they need to "get better at content"? Forward this. The series is free and the results are real. &nbsp;<a href="https://ClaudePowerMove.com">ClaudePowerMove.com</a></p>
+          </div>
+
+        </td>
+      </tr>
+
+      <!-- DARK FOOTER -->
+      <tr>
+        <td class="footer">
+          <p class="footer-brand">ColderICE Media</p>
+          <p class="footer-tagline">People + AI = Power Moves</p>
+          <p class="footer-links">
+            <a href="{{unsubscribe_link}}">Unsubscribe</a> &nbsp;·&nbsp;
+            <a href="{{manage_preferences_link}}">Manage Preferences</a> &nbsp;·&nbsp;
+            <a href="https://ClaudePowerMove.com">ClaudePowerMove.com</a>
+          </p>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+</body>
+</html>

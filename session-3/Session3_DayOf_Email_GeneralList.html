@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tonight. 7PM. The Follow-Up Machine.</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    body, html { margin: 0; padding: 0; background-color: #f0f0f0; font-family: 'Inter', Arial, sans-serif; -webkit-text-size-adjust: 100%; }
+    .email-wrapper { background-color: #f0f0f0; padding: 30px 16px; }
+    .email-container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 30px rgba(0,0,0,0.12); }
+
+    .header { background-color: #111111; padding: 26px 40px; }
+    .header-badge { display: inline-block; background-color: #e8732a; color: #ffffff; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 11px; border-radius: 20px; }
+    .header-series-name { font-size: 13px; font-weight: 700; color: #888888; letter-spacing: 0.5px; margin-left: 10px; }
+    .header-tagline { font-size: 10px; color: #444444; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 8px; }
+
+    .hero-band { background: linear-gradient(160deg, #1a1a1a 0%, #0d1f2d 100%); padding: 40px 40px 36px; position: relative; overflow: hidden; }
+    .hero-band::after { content: ""; position: absolute; top: -40px; right: -40px; width: 220px; height: 220px; background: radial-gradient(circle, rgba(232,115,42,0.18) 0%, transparent 70%); border-radius: 50%; }
+    .tonight-pill { display: inline-block; background-color: #e8732a; color: #ffffff; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; }
+    .hero-title { font-size: 40px; font-weight: 900; color: #ffffff; line-height: 1.05; margin: 0 0 8px 0; letter-spacing: -1px; }
+    .hero-title span { color: #e8732a; }
+    .hero-time { font-size: 22px; font-weight: 800; color: #e8732a; margin: 14px 0 4px 0; letter-spacing: -0.5px; }
+    .hero-subtitle { font-size: 14px; color: #aaaaaa; margin: 6px 0 0 0; line-height: 1.5; }
+
+    .body-content { background-color: #ffffff; padding: 38px 40px; }
+    .greeting { font-size: 17px; color: #1a1a1a; font-weight: 600; margin: 0 0 16px 0; }
+    .body-text { font-size: 15px; color: #444444; line-height: 1.8; margin: 0 0 18px 0; }
+    .body-text strong { color: #111111; font-weight: 700; }
+    .body-text a { color: #e8732a; text-decoration: none; font-weight: 600; }
+
+    .cta-block { text-align: center; margin: 30px 0; }
+    .cta-button { display: inline-block; background-color: #e8732a; color: #ffffff !important; font-size: 15px; font-weight: 800; text-decoration: none; padding: 16px 42px; border-radius: 8px; letter-spacing: 0.5px; text-transform: uppercase; }
+    .cta-sub { font-size: 12px; color: #999999; margin-top: 10px; }
+
+    .divider { border: none; border-top: 1px solid #eeeeee; margin: 30px 0; }
+
+    .tonight-box { background-color: #111111; border-radius: 10px; padding: 28px 30px; margin: 28px 0; }
+    .tonight-box .tb-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #e8732a; margin: 0 0 8px 0; }
+    .tonight-box .tb-headline { font-size: 20px; font-weight: 800; color: #ffffff; margin: 0 0 18px 0; line-height: 1.25; }
+    .tonight-box ul { list-style: none; padding: 0; margin: 0; }
+    .tonight-box ul li { font-size: 14px; color: #cccccc; padding: 9px 0 9px 24px; position: relative; border-bottom: 1px solid #1e1e1e; line-height: 1.5; }
+    .tonight-box ul li:last-child { border-bottom: none; }
+    .tonight-box ul li::before { content: "→"; color: #e8732a; font-weight: 700; position: absolute; left: 0; }
+    .tonight-box ul li strong { color: #ffffff; }
+
+    .event-strip { background-color: #fff8f3; border: 1px solid #f5dcc8; border-left: 4px solid #e8732a; border-radius: 8px; padding: 18px 22px; margin: 28px 0; }
+    .event-strip-time { font-size: 26px; font-weight: 900; color: #e8732a; line-height: 1; margin-bottom: 6px; }
+    .event-strip-details { font-size: 13px; color: #555555; line-height: 1.6; }
+    .event-strip-details strong { color: #111111; font-size: 14px; font-weight: 700; }
+    .event-strip-details a { color: #e8732a; font-weight: 700; text-decoration: none; }
+
+    .signoff { font-size: 15px; color: #444444; margin: 28px 0 0 0; line-height: 1.8; }
+    .signoff .name { font-size: 18px; font-weight: 800; color: #111111; display: block; margin-top: 10px; }
+
+    .ps-block { background-color: #f7f7f7; border-left: 3px solid #dddddd; padding: 14px 18px; margin-top: 24px; border-radius: 0 6px 6px 0; }
+    .ps-block p { font-size: 13px; color: #777777; margin: 0; line-height: 1.7; }
+    .ps-block p a { color: #e8732a; text-decoration: none; font-weight: 600; }
+
+    .footer { background-color: #111111; padding: 26px 40px; text-align: center; }
+    .footer-brand { font-size: 12px; font-weight: 700; color: #555555; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+    .footer-tagline { font-size: 10px; color: #333333; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+    .footer-links { font-size: 11px; color: #333333; }
+    .footer-links a { color: #555555; text-decoration: none; margin: 0 8px; }
+
+    @media only screen and (max-width: 600px) {
+      .email-wrapper { padding: 0; }
+      .email-container { border-radius: 0; box-shadow: none; }
+      .header { padding: 20px 24px; }
+      .hero-band { padding: 30px 24px; }
+      .hero-title { font-size: 32px; }
+      .hero-time { font-size: 18px; }
+      .body-content { padding: 28px 24px; }
+      .tonight-box { padding: 22px 20px; }
+      .footer { padding: 24px; }
+      .cta-button { padding: 14px 28px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <table class="email-container" cellpadding="0" cellspacing="0" width="100%">
+
+      <tr>
+        <td class="header">
+          <span class="header-badge">Tonight · May 7</span>&nbsp;&nbsp;<span class="header-series-name">The Claude Power Move Series</span>
+          <p class="header-tagline">People + AI = Power Moves &nbsp;·&nbsp; ColderICE Media</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="hero-band">
+          <div class="tonight-pill">🔴 Tonight — Free Live Training</div>
+          <h1 class="hero-title">The <span>Follow-Up</span><br>Machine.</h1>
+          <p class="hero-time">7:00 PM ET</p>
+          <p class="hero-subtitle">Tonight I'm showing you how to build it live with Claude.</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="body-content">
+
+          <p class="greeting">Hey {{contact.first_name}},</p>
+
+          <p class="body-text">Quick reminder — tonight at 7pm I'm live and showing you how to turn Claude into a follow-up system for your business.</p>
+
+          <p class="body-text">We're talking proposals that went silent. Warm leads that went cold. Past clients you haven't touched in months. <strong>Tonight you'll see exactly how to write follow-up that actually sounds like you</strong> — and watch it built from scratch on screen.</p>
+
+          <p class="body-text">Free. One hour. No tech required.</p>
+
+          <div class="cta-block">
+            <a href="https://ClaudePowerMove.com" class="cta-button">Register Now — It's Free →</a>
+            <p class="cta-sub">ClaudePowerMove.com &nbsp;·&nbsp; Starts at 7:00 PM ET</p>
+          </div>
+
+          <hr class="divider">
+
+          <div class="tonight-box">
+            <p class="tb-label">On the agenda tonight</p>
+            <h2 class="tb-headline">What you'll build in the next 60 minutes</h2>
+            <ul>
+              <li><strong>Why follow-up breaks down</strong> — the real reason, and how Claude fixes it at the root.</li>
+              <li><strong>The temperature framework</strong> — matching your message to where the lead is, not where you want them to be.</li>
+              <li><strong>Live 3-touch sequence</strong> — built on screen for a proposal with no response. Ready to send in under 10 minutes.</li>
+              <li><strong>Past client re-engagement</strong> — the easiest money you're leaving on the table, built live tonight.</li>
+            </ul>
+          </div>
+
+          <div class="event-strip">
+            <div class="event-strip-time">7 PM ET</div>
+            <div class="event-strip-details">
+              <strong>Tonight · Thursday, May 7</strong><br>
+              Free Live Zoom &nbsp;·&nbsp; The Claude Power Move Series<br>
+              <a href="https://ClaudePowerMove.com">ClaudePowerMove.com</a>
+            </div>
+          </div>
+
+          <p class="body-text">No experience with Claude required. Just a laptop and the leads you already have.</p>
+
+          <div class="cta-block">
+            <a href="https://ClaudePowerMove.com" class="cta-button">Save My Spot →</a>
+            <p class="cta-sub">Free to attend &nbsp;·&nbsp; Replay available to registrants</p>
+          </div>
+
+          <p class="signoff">
+            See you at 7.
+            <span class="name">— John 🤜</span>
+          </p>
+
+          <div class="ps-block">
+            <p><strong>P.S.</strong> Register and you also get access to the replays from Sessions 1 and 2. You're not behind — you're right on time. &nbsp;<a href="https://ClaudePowerMove.com">ClaudePowerMove.com</a></p>
+          </div>
+
+        </td>
+      </tr>
+
+      <tr>
+        <td class="footer">
+          <p class="footer-brand">ColderICE Media</p>
+          <p class="footer-tagline">People + AI = Power Moves</p>
+          <p class="footer-links">
+            <a href="#">Unsubscribe</a> &nbsp;·&nbsp;
+            <a href="#">Manage Preferences</a> &nbsp;·&nbsp;
+            <a href="https://ClaudePowerMove.com">ClaudePowerMove.com</a>
+          </p>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+</body>
+</html>

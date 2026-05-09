@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>You're in — See you Thursday at 7PM</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    body, html { margin: 0; padding: 0; background-color: #f0f0f0; font-family: 'Inter', Arial, sans-serif; -webkit-text-size-adjust: 100%; }
+    .email-wrapper { background-color: #f0f0f0; padding: 30px 16px; }
+    .email-container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 30px rgba(0,0,0,0.12); }
+
+    .header { background-color: #111111; padding: 26px 40px; }
+    .header-badge { display: inline-block; background-color: #e8732a; color: #ffffff; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 11px; border-radius: 20px; }
+    .header-series-name { font-size: 13px; font-weight: 700; color: #888888; letter-spacing: 0.5px; margin-left: 10px; }
+    .header-tagline { font-size: 10px; color: #444444; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 8px; }
+
+    .hero-band { background: linear-gradient(160deg, #1a1a1a 0%, #0d1f2d 100%); padding: 40px 40px 36px; position: relative; overflow: hidden; }
+    .hero-band::after { content: ""; position: absolute; top: -40px; right: -40px; width: 220px; height: 220px; background: radial-gradient(circle, rgba(232,115,42,0.18) 0%, transparent 70%); border-radius: 50%; }
+    .confirm-pill { display: inline-block; background-color: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #ffffff; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 16px; }
+    .hero-title { font-size: 36px; font-weight: 900; color: #ffffff; line-height: 1.1; margin: 0 0 8px 0; letter-spacing: -1px; }
+    .hero-title span { color: #e8732a; }
+    .hero-subtitle { font-size: 15px; color: #aaaaaa; margin: 14px 0 0 0; line-height: 1.5; }
+
+    .confirm-bar { background-color: #e8732a; padding: 16px 40px; text-align: center; }
+    .confirm-bar p { margin: 0; font-size: 14px; font-weight: 700; color: #ffffff; letter-spacing: 0.3px; }
+    .confirm-bar span { opacity: 0.85; font-weight: 500; }
+
+    .body-content { background-color: #ffffff; padding: 38px 40px; }
+    .greeting { font-size: 17px; color: #1a1a1a; font-weight: 600; margin: 0 0 16px 0; }
+    .body-text { font-size: 15px; color: #444444; line-height: 1.8; margin: 0 0 18px 0; }
+    .body-text strong { color: #111111; font-weight: 700; }
+    .body-text a { color: #e8732a; text-decoration: none; font-weight: 600; }
+
+    .divider { border: none; border-top: 1px solid #eeeeee; margin: 30px 0; }
+
+    .session-details-box { background-color: #fafafa; border: 1px solid #eeeeee; border-left: 4px solid #e8732a; border-radius: 8px; padding: 22px 26px; margin: 24px 0; }
+    .session-details-box .sdl { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #e8732a; margin: 0 0 8px 0; }
+    .session-details-box .sd-title { font-size: 22px; font-weight: 900; color: #111111; margin: 0 0 6px 0; letter-spacing: -0.5px; }
+    .session-details-box .sd-meta { font-size: 13px; color: #777777; margin: 0; line-height: 1.8; }
+
+    .replay-section { background-color: #111111; border-radius: 10px; padding: 30px; margin: 28px 0; }
+    .replay-section .rs-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #e8732a; margin: 0 0 6px 0; }
+    .replay-section .rs-headline { font-size: 20px; font-weight: 800; color: #ffffff; margin: 0 0 6px 0; line-height: 1.25; }
+    .replay-section .rs-sub { font-size: 13px; color: #888888; margin: 0 0 22px 0; }
+
+    .replay-card { background-color: #1a1a1a; border-radius: 8px; padding: 18px 20px; margin-bottom: 12px; }
+    .replay-card:last-of-type { margin-bottom: 0; }
+    .replay-card .rc-session { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #e8732a; margin: 0 0 4px 0; }
+    .replay-card .rc-title { font-size: 16px; font-weight: 800; color: #ffffff; margin: 0 0 8px 0; }
+    .replay-card .rc-desc { font-size: 13px; color: #aaaaaa; line-height: 1.6; margin: 0; }
+
+    .replay-cta-block { text-align: center; margin-top: 22px; }
+    .replay-cta-button { display: inline-block; background-color: #e8732a; color: #ffffff !important; font-size: 14px; font-weight: 800; text-decoration: none; padding: 14px 36px; border-radius: 8px; letter-spacing: 0.5px; text-transform: uppercase; }
+
+    .intensive-bar { background-color: #fff8f3; border: 1px solid #f5dcc8; border-radius: 8px; padding: 20px 24px; margin: 28px 0; text-align: center; }
+    .intensive-bar .ib-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #e8732a; margin: 0 0 6px 0; }
+    .intensive-bar .ib-headline { font-size: 16px; font-weight: 800; color: #111111; margin: 0 0 6px 0; }
+    .intensive-bar .ib-sub { font-size: 13px; color: #777777; margin: 0 0 14px 0; }
+    .intensive-bar a { display: inline-block; font-size: 13px; font-weight: 700; color: #e8732a; text-decoration: none; }
+
+    .signoff { font-size: 15px; color: #444444; margin: 28px 0 0 0; line-height: 1.8; }
+    .signoff .name { font-size: 18px; font-weight: 800; color: #111111; display: block; margin-top: 10px; }
+
+    .ps-block { background-color: #f7f7f7; border-left: 3px solid #dddddd; padding: 14px 18px; margin-top: 24px; border-radius: 0 6px 6px 0; }
+    .ps-block p { font-size: 13px; color: #777777; margin: 0; line-height: 1.7; }
+    .ps-block p a { color: #e8732a; text-decoration: none; font-weight: 600; }
+
+    .footer { background-color: #111111; padding: 26px 40px; text-align: center; }
+    .footer-brand { font-size: 12px; font-weight: 700; color: #555555; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+    .footer-tagline { font-size: 10px; color: #333333; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+    .footer-links { font-size: 11px; color: #333333; }
+    .footer-links a { color: #555555; text-decoration: none; margin: 0 8px; }
+
+    @media only screen and (max-width: 600px) {
+      .email-wrapper { padding: 0; }
+      .email-container { border-radius: 0; box-shadow: none; }
+      .header { padding: 20px 24px; }
+      .hero-band { padding: 30px 24px; }
+      .hero-title { font-size: 30px; }
+      .confirm-bar { padding: 14px 24px; }
+      .body-content { padding: 28px 24px; }
+      .replay-section { padding: 22px 20px; }
+      .footer { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <table class="email-container" cellpadding="0" cellspacing="0" width="100%">
+
+      <tr>
+        <td class="header">
+          <span class="header-badge">You're Registered · Session 3</span>&nbsp;&nbsp;<span class="header-series-name">The Claude Power Move Series</span>
+          <p class="header-tagline">People + AI = Power Moves &nbsp;·&nbsp; ColderICE Media</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="hero-band">
+          <div class="confirm-pill">✓ Registration Confirmed</div>
+          <h1 class="hero-title">You're in for<br><span>The Follow-Up</span><br>Machine.</h1>
+          <p class="hero-subtitle">Thursday, May 7 at 7:00 PM ET — Free live training with John Lawson.</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="confirm-bar">
+          <p>Thursday, May 7 &nbsp;·&nbsp; 7:00 PM ET &nbsp;·&nbsp; <span>Check your email for the Zoom link closer to showtime</span></p>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="body-content">
+
+          <p class="greeting">Hey {{contact.first_name}},</p>
+
+          <p class="body-text">You're registered for Session 3 of The Claude Power Move series. Thursday at 7pm, I'm showing you how to build a follow-up system with Claude that works proposals, warm leads, and past clients — all of it, live on screen.</p>
+
+          <p class="body-text">Keep an eye out for the Zoom link — I'll send it before we go live.</p>
+
+          <div class="session-details-box">
+            <p class="sdl">Session 3 · May 7 · 7PM ET</p>
+            <p class="sd-title">The Follow-Up Machine</p>
+            <p class="sd-meta">
+              The leads you already have are worth more than you think.<br>
+              Thursday night, I'll show you how to write follow-up that sounds like you — and actually gets responses.
+            </p>
+          </div>
+
+          <hr class="divider">
+
+          <div class="replay-section">
+            <p class="rs-label">Bonus Access — Included with Your Registration</p>
+            <h2 class="rs-headline">Catch Up on Sessions 1 &amp; 2</h2>
+            <p class="rs-sub">Both replays are waiting for you right now.</p>
+
+            <div class="replay-card">
+              <p class="rc-session">Session 1</p>
+              <p class="rc-title">Your First Claude Power Move</p>
+              <p class="rc-desc">Why most people are using Claude at 5% of what it can do — and how to fix that. How to set Claude up so it actually knows your business: voice, context, and workflow basics. Includes a live demo comparing a cold prompt vs. a properly configured Claude on a real business task.</p>
+            </div>
+
+            <div class="replay-card">
+              <p class="rc-session">Session 2</p>
+              <p class="rc-title">The Content Machine</p>
+              <p class="rc-desc">How to build a Claude voice profile so your output doesn't sound generic. The workflow for producing a full week of social posts, email copy, and blog outlines from a single input — live on screen. If you've ever spent two hours on content you could've done in twenty minutes, this one will change how you work.</p>
+            </div>
+
+            <div class="replay-cta-block">
+              <a href="https://drive.google.com/drive/folders/1c4csAz5wycqPQUKOCajeTjAju1P89Yes?usp=drive_link" class="replay-cta-button">Watch Sessions 1 &amp; 2 →</a>
+            </div>
+          </div>
+
+          <div class="intensive-bar">
+            <p class="ib-label">Coming Up · May 23 · Atlanta</p>
+            <p class="ib-headline">The Claude Power Move Intensive</p>
+            <p class="ib-sub">One full day. Build your complete Claude business system from scratch — content, follow-up, operations. Early bird pricing in effect now.</p>
+            <a href="https://AtlantaAIBusiness.com">Learn more → AtlantaAIBusiness.com</a>
+          </div>
+
+          <p class="signoff">
+            See you Thursday at 7.
+            <span class="name">— John 🤜</span>
+          </p>
+
+          <div class="ps-block">
+            <p><strong>P.S.</strong> The replay folder has both sessions ready to go. Watch at your own pace before Thursday — or come in fresh and let Session 3 stand on its own. Either way works. &nbsp;<a href="https://drive.google.com/drive/folders/1c4csAz5wycqPQUKOCajeTjAju1P89Yes?usp=drive_link">Access the replays here.</a></p>
+          </div>
+
+        </td>
+      </tr>
+
+      <tr>
+        <td class="footer">
+          <p class="footer-brand">ColderICE Media</p>
+          <p class="footer-tagline">People + AI = Power Moves</p>
+          <p class="footer-links">
+            <a href="#">Unsubscribe</a> &nbsp;·&nbsp;
+            <a href="#">Manage Preferences</a> &nbsp;·&nbsp;
+            <a href="https://ClaudePowerMove.com">ClaudePowerMove.com</a>
+          </p>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+</body>
+</html>

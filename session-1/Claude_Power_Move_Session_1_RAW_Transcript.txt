@@ -1,0 +1,356 @@
+John Lawson [00:08:13]:
+What's up? What's up? What's up? All right. My voice is kind of crazy right now. Welcome, welcome, welcome. We start about in a minute. Should I let recorders in? Yeah. No, I don't want recorders taking up space. You'll get the replay, so don't worry about that part. You will get it.
+
+John Lawson [00:08:44]:
+Cool. So you're here. I'm here. Where are you from? You know, tell me where you're from. That way I can see if you hear me and I can know if my chat is working. So let's make sure I see my chat and San Diego. Susan. What's up, Sharon? Chicago.
+
+John Lawson [00:09:08]:
+Hey, how are you, friend? Aruba. All right, Anthony, that's what I'm talking about. Love that. Aruba. Aruba. And folks are still popping up in here. So if you hear the little ding dong, that's what you're hearing. People are jumping in.
+
+John Lawson [00:09:30]:
+We are just about ready to begin. So I want to give just two minutes for anybody else that wants to get in here on time. So we'll start at two minutes after because like I said, I promised you that we were only going to go like 40 minutes. Right. And that I was going to give you value in that 40 minutes. So I will do that. Barry, what's up from atl. Yes.
+
+John Lawson [00:10:03]:
+Got to push it up for that Charlotte, Georgia audio is fine. Thank you, Alex. Yeah, cool, cool. All right. Welcome, welcome, welcome. Hawaii is in the house. Showstopper right there. You know the drill.
+
+John Lawson [00:10:24]:
+Hawaii. That is one place I've never been, believe it or not. You know, that's incredible that I haven't been there, but I need to go. But also at the same time, my spouse always tells me he doesn't want to go. He's like, it's a tourist trap. I'm like, yeah, but they got volcanoes. Okay. And they got really beautiful beaches and all the other stuff.
+
+John Lawson [00:10:48]:
+The great wildlife. I've got to go. Awesome. Awesome. Okay. Yeah. So all the while I am doing this, I will be letting people in. I'm gonna try to watch the.
+
+John Lawson [00:11:10]:
+What's so brutal about the flight, Susan? Oh, wow. It can't be that bad, you know, because I go to Australia all the time and we have to fly over Hawaii to get there. So, you know, I'll go from LA and they fly over the Hawaiian Islands just in case, you know, and all the other. Any other land area that they will pass between here and there, they fly over them. So, you know, hours cramped up, small seats. Yeah, yeah, yeah, absolutely. You know what I am A, I don't know, I, I am, I am a well seasoned flyer. Just because of my job and just doing so much speaking around the world then everywhere around the world in both, you know, coach, coach plus, coach plus plus and first class.
+
+John Lawson [00:12:08]:
+So I mean it was, it's been a lot, you know, poly was easier. Yeah. Interesting. Interesting. All right guys, we're ready to get going. So welcome in everybody. You know, I wanted to give everybody a little bit of time to land and most of you have landed and you're here on time but you're here because you actually heard that there is a smarter way to use Claude. And guess what, you're right.
+
+John Lawson [00:12:41]:
+You know, what you've heard is true. And over the next 40 minutes or so, I don't know why anybody would be calling me right now, but we'll turn that off. Over the next morning, 40 minutes or so, I'm going to show you how to stop treating Claude like a fancy Google and really start running it like a team member. So by the end of tonight you will have made your first power move. And there's a series here, we're going to be doing this every Thursday for the next couple of weeks, next few weeks, and we're going to make some power moves. So of course one of the first power moves you got to do is, you know, stick to the promise. So that for me is my power move and that's sticking to this promise. All right.
+
+John Lawson [00:13:34]:
+And so a little bit about me, so you know who's talking. I'm John Lawson and I am a huge Prince fan, as you can tell by the shirt. And this has been actually, oops, didn't want to move forward. This has been 10 years since his passing, so this is a special week. He passed on April 19th, so I'm still in my phase of that 10 year morning. You know, you never really get over that hole in your heart for your big artist and he was that for me for most of my life. So that's something about me. But I have also spent the last 20 years building small businesses.
+
+John Lawson [00:14:27]:
+I've spent 10 of those years, half of that time teaching other owners how to use technology to really punch above their weight. I'm a three time Amazon bestseller and I teach AI for Verizon's digital ready program. So if you're a part of that, you can probably see me in some of their trainings. But honestly, the credential that matters most to me tonight is that I've sat in your chair. You know, I know exactly how it feels when you're drowning in 15 different tabs, and most, you know, 15 is light for. For me, and for most people, you know, I'll be like, let me see your screen or share your screen. And they'll share their screen, and it's full of tabs, you know, more than 15. And they're drowning in doing a little bit of everything.
+
+John Lawson [00:15:24]:
+So everything I'm about to show you tonight, I use every day in my own business. And really, that's kind of. It's not the hype. It's about what I have found that have saved me time and saved me a lot of headache and. And I just want to share that with you guys. So here's how tonight is going to flow. Four quick beats, four heartbeats. Great movie.
+
+John Lawson [00:15:53]:
+Okay, we'll start with the problem. That's why most owners are losing or about 15, maybe 20 hours a week that they don't have to lose. And then will go into why Claude is a different kind of tool, because this is a different tool. Then the number one mistake, and I promise you, almost everyone in this room is possibly making it. And then I'm going to show you live how to set up Claude and make sure you set it up right. Right. That's what we're going to do as our first power move tonight. And then we will end with a little live demo.
+
+John Lawson [00:16:37]:
+I will take your questions, and like I said, this will run about 40, 45 minutes. So let's make our time together count. Okay, cool. We're going forward. All right, now, I will tell you one thing about me. I'm not great at watching the chat while I'm talking and teaching, but that doesn't mean I can't go backwards. So if I lose you, I try to look up every once in a while, but if I lose you or something, definitely stop ask that question in the chat, and then I will get to it either in the Q and A section or when I take a short break. All right, so let me start with the number 15, and I mentioned that before.
+
+John Lawson [00:17:21]:
+15 hours. That's the average I see when I audit a small business owner's week. 15 hours on average is spent on tasks that Claude could be handling. And most of us as business owners, service providers, you know, our time is, you know, our billable hours are way more than $15 an hour stuff, right? Yet we spend 15 hours doing $15 an hour work, which is crazy when you're billing, you know, $300 an hour, $1,000 an hour, 500 bucks an hour, a hundred Bucks an hour, whatever it is, then you're losing, you know, money when you're doing $15 an hour work for 15 hours of your week that Claude could actually be handling. And what are those things? It's usually like writing emails or rewriting the emails, drafting proposals, sorting your inbox, because it's in total chaos, right? Reformatting the same document for the third time, you know, that's almost two full work days. If you're eight hour day, eight, eight, 16 hours. So, you know, 15 hours every week, two full work days gone to doing, you know, tasks that are, you know, oftentimes the painful part of the day. Because it's not just your time, it's that you're doing the work that keeps you out of the work that actually grows your business.
+
+John Lawson [00:19:01]:
+So a lot of these things we, I mean, at this point, man, in, in the world of AI, we just should not be doing. So let's talk about why Claude is different. So most people think of AI as a chatbot, and that's what it started out as. You know, it came out three years ago and 20. 23. Was it the end of 23? Yeah, 23. You know, that's crazy. It's only been three years.
+
+John Lawson [00:19:32]:
+But it came out, you know, three years ago and it was a chatbot and that was chatgpt. And most of you don't know, but Claude is not. The founders of Claude were actually at OpenAI, which are the people that do ChatGPT. They were at OpenAI in the beginning and they saw the direction that OpenAI was going. I mean, if you remember, you know, part of the name Open, you know, they had shifted from a lot of different founding principles. And so two of the founding members of OpenAI had decided to exit the company and start their own competitive company. And that's what Claude ended up being. Well, it's, it's.
+
+John Lawson [00:20:28]:
+And it's anthropic. That's what anthropic ended up being, an anthropic art of creators of Claude. So Claude is not a chatbot. Claude is a reasoning engine. And I'm not going to use a whole lot of, you know, terms that you don't understand, but you know what reasoning is, right? So Claude is not just a chatbot, but it is a reasoning engine. And in that, it, it thinks, it follows complex layered instructions. So as you give it instructions, it will follow those instructions and it remembers context when you set it up, right? And this is the part owners often sleep on. It learns over time, it learns your voice it learns what you are meaning.
+
+John Lawson [00:21:25]:
+And with the right setup, Claude doesn't sound like AI, it sounds just like you. But it's dependent on how it's set up. But also it's cleaner, it's faster, and when it does speak like you, it can do you over and over again. So it's scalable. Now something just came out today and, and I want to share that with you. Let me see if I can pull it up because it was like, oh man. I want to share that with the folks that I'm on this call with because it's another differentiator, you know, from of Claude versus the other large language models that are out there, you know, and there are several and we get that, you know, there's always more, always more. So let me pull this in and then you tell me if you can see this.
+
+John Lawson [00:22:29]:
+I think you should be able to see this. Do you guys see the chart? I just pulled a chart in. Tell me. Yes. Okay, thank you, Susan. All right, so this is interesting. And this just came out. It's from Epoch AI and it's like Claude users skew towards higher income households and then meta users are the lower income households.
+
+John Lawson [00:22:57]:
+But it's a, by a pretty big margin when you look at it. It's like 80% of the users are at 100,000 and up in terms of income. Whereas like if you look at the most popular out there is chat GPT, it's only 60% for chat GPT. Right. And then you go all the way down to Meta. It's only 37% are actually, you know, doing 100k or more. And then the percentages of users for like a meta that are making under 25k, you know, that's the lower income, it's like 17%. That's some crazy numbers.
+
+John Lawson [00:23:43]:
+But what does that mean? Well, what it does mean is that, you know, that the knowledge base and its training comes from the user base. You know, part of the user base goes back in to the knowledge base every time they reformulate their knowledge base. So having a higher percentage of users in the higher income brackets brings you, I'm not going to say better data, but it definitely brings you higher income focused data. Right. So I thought that was a good differentiator. That wasn't part of the slides. Like I said, it just came up today and I was like, man, I wanted. Or it came out today and I really wanted to put that in to tonight's presentation.
+
+John Lawson [00:24:42]:
+All right, so with that, back to the slides. So like I said, you know, People make mistakes when it comes to using claude. So here's the mistake. Almost everyone I coach walks in doing this. They open Claude, they type a question, they get a generic answer, and they shrug, and then they close the tab, you know, so that's like, for them, using Claude, but really what's happening is they're using Claude like a search engine. It's the single biggest reason why people say, and I quote, AI doesn't work for me, you know, or, you know, AI. It's just. It's just average.
+
+John Lawson [00:25:33]:
+Of course it is. Because what we need is a shift. And this is the whole power move is this. CLAUDE is not your search bar. It's a configured system. Once you frame it that way, a configured system, everything is going to change for you. All right, so what does setting up CLAUDE actually look like? And we're going to go deep into this, but three pieces. First, a voice profile.
+
+John Lawson [00:26:04]:
+You teach Claude how you sound, what you say, what you never say. And then second, you give it context. Who your customer actually is, what your offers are, what your business actually does. And then third, you want to get it to give you a workflow that's the specific repeatable jobs that you want it to do. Okay. Somebody said, can you remove yourself from the screen? No offense. I'm totally offended. You want me to move? Hello? Sure.
+
+John Lawson [00:26:45]:
+Absolutely. Let's see if I can do that. I definitely wanted to do that up front. I'll do that when I go into the session. Okay. And that's just going to be in a couple of seconds. But, yeah, and you'll get these slides if you want them, or anything like that. So the third is the workflow.
+
+John Lawson [00:27:06]:
+It's a repeat. Oh, wait a minute. Actually, I can do it right here. Bam. I'm out. All right, I'm out. All right. Third is the workflow.
+
+John Lawson [00:27:18]:
+That's a specific repeatable job that you want Claude to run. So three things. Voice context, workflow. Voice context, workflow. These three things turn Claude from being a chat toy to into an operator. All right, cool. So enough of these slides. Let me show you with the over the shoulder kind of view, and I'm going to switch over and walk you through exactly what a configured CLAUDE looks like.
+
+John Lawson [00:27:57]:
+All right? And pay attention to the difference between how I prompt it and how a lot of people end up prompting it. Most people prompt it, like I said, wrong, and I'm not going to say it's wrong, but they prompt it like it's a chatbot, and it's no longer that. When you're dealing with Claude. What we're dealing with is an intelligence engine. All right, so what I'm going to do is I want to put my screen up and this is the part that you really came for. So drop any questions into the chat as we go and I'll catch all of those questions, you know, when I look up and also when I go to Q and A section. All right, so this is Claude, and you get to it by going to Claude AI. And I've got a really good.
+
+John Lawson [00:29:08]:
+Thing I'm gonna see if I can bring up, because this really shows off Claude. And. Yeah, there we go. I'm going to try to bring this up. Let's see how it loads. So this loads, but I'm. I'm going to go over all of this. But what I want you to.
+
+John Lawson [00:29:36]:
+Yeah, See, it won't get big enough to really give you all the drama. So I will make this available to you too at the end, but I will tell you right now what the different sections are so we can go over the Claude window first. So first, of course is the upper left hand corner. That's the Claude logo. And if you're anywhere in Claude, it will take you back to this home screen. Right. If you click on that, also here is this rectangle. This rectangle is the collapsible sidebar.
+
+John Lawson [00:30:13]:
+So if I hit it, it collapses. The sidebar gives us a full view of the window. It's still got some shortcut emojis, but if you want to open and close the sidebar, that's what this is for. Now the next part right here is the new chat. The new chat starts a fresh conversation from scratch. Pretty obvious, that's what that does. Number three. And I'm got these numbered in my guide, so that's why I just said number three.
+
+John Lawson [00:30:47]:
+You don't see the three. I see the three is the search. And the search can find past conversations by keyword or topic. Right? So I don't spend a lot of time organizing a lot of my searches. I spend more time kind of making sure they're named properly so I can find them right by a keyword or whatever. So but that's where you can find those just by pulling up search. It'll show you most recent and then you can use that to use a keyword to find it. The next section is the chat.
+
+John Lawson [00:31:24]:
+This will list all your conversation history in one place. So, uh, it's pretty much similar to the recents over here in this section that you're probably used to in other LLMs. So that's pretty much the same area there. That's the chats. Then you have projects. Projects are a very unique tool, but projects group related conversations together by the topic or the project or the client or things like that. So every client has a different project or everything I'm working on I put into a totally different project. And that's where projects really come into play.
+
+John Lawson [00:32:17]:
+I'm going to demonstrate those a little bit tonight and then as we go forward and it's going to be really apparent how powerful projects are. The next thing is customize, right? And I noticed something is missing from here. Yeah. Okay. They move code. I used to have code there. I think I pulled the code out, but we'll talk about that in just a second. So Projects is next.
+
+John Lawson [00:32:47]:
+I'm sorry, not Projects next. Customize is next. This is where you set up your name, your response preferences, your personalized instructions. You do all that in this section right here. All right, so that's customized on the toolbar, right? And then this is brand new. This is design. This is where you create and make visual content. It's a workspace that's very design focused.
+
+John Lawson [00:33:27]:
+That's why it's called design. Duh. But those slides that you saw at the beginning, all those were created in cloud design. I will have a whole session on cloud design coming up in the coming weeks because it is a very. I can't even, I can't even accent the word. Very, very powerful tool. Very powerful tool. So that's design.
+
+John Lawson [00:33:58]:
+And then you got the more button and under more you've got code, which is Claude code. You might have heard that spoken about in many other instances. You know, that's a big talk of the town. Claude code for coding. I will do some coverage on that as we move forward in this series. And then you've got artifacts. Artifacts are, is a gallery of everything that Claude has created for you in your sessions. So those are called artifacts.
+
+John Lawson [00:34:29]:
+And that can be things like docs code that you've done, visuals that you've done. Anything that you've done inside of Claude can put it will put it out in an artifact, you know, so all those documents and things like that, they're all in here and they're in your artifacts folder. So that is the first part of the home page. All right, can you see how I just push Claude and it takes me back to the home? That's what we were talking about. I just put. That's what the purpose of the logo and name up here is for. Just takes you back to the home. All right, so also under that more, you had to customize the sidebar, right.
+
+John Lawson [00:35:25]:
+And so with that, like I said, I take a code out, but I can put it back in. And now you see code is under projects. Right. So you can customize the sidebar a little bit right in here and you can add and remove things. If I want the artifacts to show up, it will show up, but I'm gonna remove those two for me. That's just what I prefer. But you can customize your sidebar and any way you liked, liked, like. All right, after that are starred conversations.
+
+John Lawson [00:36:00]:
+So these are conversations that might be in your recent conversations, but you might want to keep them at the top. So if you hit star, then that conversation becomes one of the starred conversations. It's easier to find. It's always there once you're done. Maybe with that project you can unstar it and that will remove it from the shortcut menu here, here on the left hand side. So they're basically pinned conversations. Got it. Awesome.
+
+John Lawson [00:36:31]:
+All right, next part is the ghost in the upper right hand corner right here. That is the incognito mode. That's when you want to go ghost. And that way it won't show up in any of your previous conversations or any of the things that it uses to know who the user is. And it won't save that conversation ever in your usage. Right. So it won't become part of the memory in your threads. So that incognito conversation is, is a one off and it stays in that incognito window, similar to, you know, incognito in, in your browser, things like that.
+
+John Lawson [00:37:25]:
+Okay, now let's get to these shortcut buttons right here. These shortcut buttons are under the input area. And I'm going to get back to the input area shortly. But let's look at these shortcut buttons. So this is the right button. It opens up a prompt window. So it's got a couple of examples of prompts that you might be able or might use, you know, because they're just shortcuts. So if you're right, like right now it's saying write a grant proposal, develop it content templates.
+
+John Lawson [00:38:05]:
+So, you know, I don't know if that changes or not because I've never used it, but I want to let you know that it's there. This is an interesting concept here. Learn. This is similar to the right shortcuts, but this has learning pre prompts. So like you can create a study plan, develop learning framework based on, you know, personal heroes or something like this. But this gives you an idea of some of the things that, that you can do with the learning of the Claude environment. Right. And then these right here, these are actual programs that I've given my Claude access to and I will show you that in later, or I'll go deeper into that with later on with connectors.
+
+John Lawson [00:39:03]:
+Right. But that's what these are. These are connections to my Google Drive, my calendar, my Gmail. It's automatically connected to those. So literally I can ask it, you know, a question. It'll go out to my Gmail and search through the Gmail and give me a response. Or it can create a email and put it into the drive, the drive, the folder for draft for me right from here. So I can literally, if I wanted to probably manage all of my email right from here.
+
+John Lawson [00:39:45]:
+Now that's got to connect it. I don't do that. I still, of course, go to my emails. But I mean, you can do a lot and you're going to see that as we go forward as well. All right, now let's go to the main input area. This is where you're going to spend most of your time in the input area. Right. So it says, john returns.
+
+John Lawson [00:40:08]:
+Yes. It's going to make me feel good, you know, oh, you can't see me anymore. Okay, well, I'm raising my hand because I'm a champion in Claude's eyes. So that's the home screen header, you know, and the asterisk there is the brand logo. That's the Claude brand logo. So that's what this area is. Then you've got the chat input area. Similar to every other large language model, you gotta have a chat area now.
+
+John Lawson [00:40:41]:
+Then after that you got the plus button. The plus button allows you to add files, photos. It could take a screenshot right from here. Very powerful. Right. I don't have to do anything else. I can just hit screenshot. It takes the screenshot, which is great, right? Once you allow it.
+
+John Lawson [00:41:00]:
+Because the deal is when you take a screenshot or if you're working on something and you get a response and it doesn't look right or, you know, especially when I'm doing like some of the designs, I'll take screenshots and put those in and say, hey, these texts are overlapping. Fix it and it'll fix it. So I use screenshots a lot as input. Okay. But yeah, it's got a shortcut for that. You can add the conversation that you're into a project. So these are all my projects again. So I can, it's a shortcut to add this conversation to the project I can add to GitHub.
+
+John Lawson [00:41:41]:
+I don't know if I'm going to talk to you that much about GitHub because that's a very, I'm not going to say it's very advanced, but the understanding is really when it comes to coding. So GitHub is a repository in the cloud. So you can add these conversations to the GitHub from here. All right, skills. I'm going to really talk about skills. So skills are pre programmed workflows that you can create or you can, somebody can share with you, you can share it with your team. These workflows are automatically called into different commands when you're running different prompts. It'll automatically determine do I need to use one of these workflows? And if it figures that it does it, it'll automatically bring that workflow in and it will follow the directions just like you wrote them.
+
+John Lawson [00:42:41]:
+And that's one of the powerful benefits in my opinion of this large language model over the other ones. It's really good at following instructions. It's really good at that. All right, connectors, like I said, there's a bunch of different connectors that you can get to. You can manage those connectors here and it's got a separate menu for managing connectors. It's got some other ones. Canva notion zapier. These are pre determined connectors that you can connect to.
+
+John Lawson [00:43:14]:
+And then you can also add custom connectors. We will get deeper into that. That's a little bit more advanced in the later sessions, but just know that that is here. And what else do we got? Research. That's to do deep research, right? And here's the thing, you guys might not know, you know, I don't know how to put this, but let's list it. So, so it's like how much time do I got? Okay, I got about 10 minutes. All right, so here's this. You know when I say if I ask Claude, when was your training data end date? All right.
+
+John Lawson [00:44:10]:
+And you do this on all of the LLMs. All of the LLMs have a training data and that is pre trained data that you know. I mean you got to train the large language model, right? And you ask it when is your cutoff date for pre training? So the deal is this is August 2025 and this is the latest version. This is freaking, you know, Sonic 4 6, it's the latest version, right. I could go up to 4 7, but the cutoff day for this is August 2025. You ask any of your large language models what is your cutoff date? It'll give you a date. The date will be sometime in the past, it can't be today because they train it, then they release it. So here's the deal that the only thing this thing really knows is up until August 2025, everything after that date it has to look up.
+
+John Lawson [00:45:11]:
+So it goes out to the web pretty much and does a research to, to find the answer to any question after that. I bet you didn't know that. Most people don't know that, you know. So the deal is a lot of the data that we might ask that might be recent data, it's not been pre trained data, it hasn't been validated, it's been looked up. But other than that, it could actually be completely wrong. So understand that, right? And that is one of the reasons why you should know about, you know, having this option for web search. So you turn web search on and off right here or research, I'm sorry, research. And under research you turn on the web search.
+
+John Lawson [00:45:58]:
+So anything that's not in the cutoff data, it can go out and do a web research on. All right? And then it's got some style settings. Back in the day this was really like top level, top notch. I haven't really used it very much anymore. But I mean it can give you an area to use different style of tone and voice and you can save those styles in here. So that is the overview of the cloud interface. All right? And now just because, you know, you guys sat through the webinar and hopefully you got some value today. Like I said, we're only going to do 40 minutes, but I want to take a moment to show you a workflow and basically this is a workflow that I'm going to do as soon as I leave this session.
+
+John Lawson [00:47:00]:
+Right? So basically you guys sat through this, you got some value. But let's say after I show you what I'm going to show you, you don't sign up for it, all right? I'm going to show you about an intensive I've got coming up here in Atlanta, right? Let's say you don't show up for it, you don't sign up for it. Of course, that font, that's fine, that happens, right? But the question is, what do I do next, right? Do I just let it go or you know, do I send a follow up? Obviously this is business, we're going to send follow ups, right? So I Got to send a follow up and I'm going to build that follow up right here, right now so you can see exactly how I work with this system. So there's going to be two scenarios and I want you to watch. Right? So the first scenario is that someone was on the call tonight. They engaged, they stayed even to the end, but they didn't click the link. So here's what I type in my Claude. So first I'm going to type this in as a live prompt and what I'm going to use is I'm going to use the incognito window so it doesn't take into account anything prior.
+
+John Lawson [00:48:19]:
+Right. Remember I said that's what the incognito is for. So we're just going to make it. It's going to be a dry run. Let's say you've never used Chat GPT Chat GPT Claude before, right? You've been in Chat GPT world, treating it like a chatbot, you know. So he would come in here and this is a good prompt, it's a live prompt, it's got really good content in it. So I'm telling it someone attended my free cloud Claude Plower Move webinar tonight. They stayed the whole time, seemed engaged.
+
+John Lawson [00:48:53]:
+Based on the chat, they did not sign up for the Claude Power Move Intensive in Atlanta on May 23rd. Write a short personal follow up email I can send tomorrow morning. The goal is to reopen the conversation. Not to hard sell, but I want to keep it tight and I want it to sound like me. So that's what I'm putting in. It's a good prompt. It's got some, you know, background. Remember I told you about skills? It's actually pulling up an email sales skill in the background.
+
+John Lawson [00:49:31]:
+So it's keeping it even tighter than it would be if it wasn't, you know, if there was no skills in there. But here it, here it is. It's like, hey, first name. You were in the room last night all night. That tells me something landed. I'm not going to assume I know why you didn't grab a spot for the Atlanta intensive. Could be the timing, could be budget, could be you're just not sure it's the right next step yet. All valid.
+
+John Lawson [00:50:00]:
+I'd rather just ask what would have made a yes for you. No pitch. I'm genuinely curious. Then it's like John, so that subject line is going to do a lot of the work, right? He stayed the whole time. This is actually a very good first shot and literally when I Compare this LLM versus other LLMs. I'm like, yo, man, this thing gets it. It understands what I want from, you know, a business email and it gives that to me. Now I'm going to keep this window open, or at least so I can get back to it.
+
+John Lawson [00:50:43]:
+And I'm going to go and open another Claude window. And now I'm going to use the same prompt, but I'm going to go into a project. All right? And like I said, this is showing off the project, but we'll go deeper into how to set these up on our next call. All right? But in the project, I get to give it some instructions and that instructions will be automatically pulled in before it writes anything in terms of a response. Right? So here's the instructions in this project. I'm going to hit edit, show you my instructions. I'm telling it you are business assistant for me, who I am, who I work with. All right? Cold or ice? John is a AI strategy consultant, keynote speaker, three time Amazon business selling author.
+
+John Lawson [00:51:41]:
+He helps coaches, consultants, small business owners implement AI as a real business system, not a novelty. His core framework is people plus AI equals power moves. He has amassed 32 million in career sales, built and exited an E commerce business and has been running Colder ice Media since 2007. I didn't write that. I used, you know, Claude to help me write this just to tell you I'm not that, you know, I'm pretty, but my words aren't. Anyway, you can't see me, so don't worry about that. All right? So anyway, guys, I'm playing as his jokes, you know, don't be too offended if that offends you if we're going to have problems because I'm always joking. Anyway, the primary audience, small business owners, coaches and consultants who are action oriented and results focus.
+
+John Lawson [00:52:37]:
+They are not beginners. They run real businesses and are done being sold to hype. They want practical implementation, not theory. This is important for later, but this is what's going in every time I open this project. All right? So the current offers that I have, I've got the Cloud Power Move Intensive. The full day in person workshop in Atlanta, May 23. Attendees leave with their cloud environment fully configured for their business. Registration is at this location.
+
+John Lawson [00:53:09]:
+Early bird, regular price, right? The Cloud Power Move webinar series which we're on right now. The free weekly Zoom sessions. Right? And then I've got the AI Profit Lab, which is a paid community on Go High level. Cool. Then my voice. This is where it gets good. How I write and how I speak and notice how I'm doing this. This is all broken up into different sections and that's because Claude is really good at following directions in this kind of a manner.
+
+John Lawson [00:53:39]:
+So John's voice, direct, street smart. Oh everybody, it's 7:45 so you're good to leave. Going over by just a minute and somebody else is just getting here. Isn't that crazy? But all right, but I just want you to know. But the stuff that we you miss is going to be in the video. You'll get a replay link of this video. Okay? So I appreciate you being here. We're just going to go a little over.
+
+John Lawson [00:54:11]:
+All right. My voice, it's direct, street smart, no corporate softness. I like punchy sentences. I want it to land with the point, never with a wind up, right. I want it to sound like someone who has actually built their business, not just advises them. I'm not trying to sound like a coach. I'm trying to sound like a guy that actually built a business, exited a business and is building more and helping others. Right? So think boardroom strategy makes barbershop realness.
+
+John Lawson [00:54:43]:
+That is my voice. Then some rules for my voice. And I'm not going to go through all of these rules. There's a lot of them. Short sentences, skip the wind up, no jargon, plain language, never use EM dashes. Let's see if it catches that. I'm going to tell you all a secret about EM dashes that you don't know. All right, maybe you don't know, but the reason why there's so many EM dashes and AI and you won't believe this, but it's true, is because when they were putting these systems together, they used humans to check the responses to make sure the responses are good.
+
+John Lawson [00:55:19]:
+It's called human reference. I can't even remember the words for it. Somebody else might remember it, put it in the chat. But it's human reinforced learning. Hrlf Human reinforced something learning. But anyway, the way that they did this is they used people in Africa because of the low cost and, and the good English speaking countries. So they use people in the continent of Africa, they found the English as a second language countries and they use them for doing the human reinforced learning. And here's the funny part.
+
+John Lawson [00:55:58]:
+In Africa they use EM dashes a lot. So when they were making the changes to make sure that it was getting a human input, they would put the EM dashes because that's what the Africans use and that's how EM dashes got into the AI at the base level of EM dashes. So it's not the AI that did that, it's Africans, just like everything else, psychometees. But actually, yes, Africans were big in building the language models because it was low cost and they could do that in Africa for lower cost than in an English speaking country. And that's why there's so many EM dashes. Boom. All right, fun fact, right? No excessive bolding or bullet soup. So I don't want a whole bunch of bullets.
+
+John Lawson [00:56:52]:
+And then make sure the warmth comes through words and phrases that I never use. This, this is the one. If you haven't put one into yours, you should definitely do that. So put words you never use. Straightforwarding. It's worth noting. Certainly great question. Leverage all those things that feel disingenuous or feel robotic.
+
+John Lawson [00:57:14]:
+I put a list of those in here. All right. Platforms that I post on, I added that. Some standing instructions with that. One thing I want to make sure that I, I put in is emojis. I like emojis. Other people don't like emoji. Some people feel like emojis, feel like AI, you know, I was, I was an emoji king way before it was an AI thing, you know.
+
+John Lawson [00:57:44]:
+So I've always been an emoji guy. I like emojis, right? So I say use emojis only when they add meeting, not decoration. Emojis must clarify tone, highlight, structure, or emphasize key point where emoji should be used. I put that section headers, transitions, places that are good. And then I say places where you should never put emojis. Never do it in every sentence. Never use multiple emojis in the same row. I hate, man, you have no idea.
+
+John Lawson [00:58:13]:
+I don't like emojis back to back. Never use emojis just to replace the word. I really want the emoji and the word. So anyway, I give them those kind of rules. These are my style rules. So all of these are in my instruction in this project. And also you can add the files in there. You can add things that are for memory only for you stuff.
+
+John Lawson [00:58:41]:
+So you put that in. Once you put that in, then if I'm in this project, that gets brought in to the conversation. So now I'm going to use the same prompt that I used in the other prompt, right? So we did it once already in incognito, and now we're doing it in the project. Let's see what the difference is. I don't expect it to be hugely different, but I expect it to adhere to my Working rules as it's doing this. So now it's using the same email template skill, you know, and I could turn that off if I wanted to. I might, I might actually do that just to see if there's a difference. But we'll, we'll get there.
+
+John Lawson [00:59:26]:
+So here's the subject matter. You stayed the whole time. Pretty much the same one that we had for the subject. But here, do you stay the whole time? Absolutely. You can tell there's a little bit of, of difference in the structure here just by looking at it overall. But here's what this one says. Hey, first name. You were in the room last night from start to finish.
+
+John Lawson [00:59:46]:
+That tells me something. Most people drop off after 20 minutes. You're in. You didn't. So I'm just curious, what's holding you back from the Atlanta intensive on May 23rd? Not a pitch. Genuinely asking. Sometimes it's timing, sometimes it's a question but nobody answered. Sometimes it's just that it, it just needs a bigger conversation or.
+
+John Lawson [01:00:08]:
+Well, I said bigger, but it needs a conversation. Hit reply and tell me what's on your mind. I read these John P.S. if you're still on the fence, Atlanta AI business.com has all the details. Early bird pricing is still live. See, that has the john tone. Right? So I'm just curious. That is a very much how I would speak and you get that from my thing.
+
+John Lawson [01:00:40]:
+One thing I notice, there's no emojis. Why is there no emojis? Let me ask why. Oops. Let me ask why are there no emojis? Peace. Why does it say peace? Okay, why are there no emojis? I didn't get the why. I'm talking to it. It's cutting stuff off and it's probably because I'm on here. Why are there no emojis? Let make sure.
+
+John Lawson [01:01:12]:
+So let's see if it answers why it decided and it said two reasons. First, the skill you have set up says no emojis is in serious, sensitive or formal content. And a one to one sales email falls into that category. Emojis in a personal follow up email can kill the tone fast. It stops feeling like a real person wrote it. Second, your own voice rules say warmth comes through indirectness, not softness. An emoji in that email would undercut exactly what makes it work. So the line I read these emails hits differently without a mailbox next to it.
+
+John Lawson [01:01:55]:
+So the emoji rules you set are built for social posts, structured content and educational material. Okay, let's try that. So someone could say write a Facebook post about this event and I'll just leave it like that. I'm just curious if that if it sticks to what it's talking about. So I want to talk about the webinar series. It's asking me do I want the webinar or the upcoming thing. So it's going to ask me a couple of questions to get the relevancy. So I'm just going to say build awareness.
+
+John Lawson [01:02:39]:
+This Thursday's upcoming session, answer those real fast and then it's going to give me its output for a Facebook post. And what do we see in the Facebook post? An emoji. So there you go. That was my only point in putting that in there. All right. But you've seen the difference between good output and great output. All right. And all that took me was a few seconds, right? And it takes all of that that I've created with those letters and I'm going to take those letters and put it into my high level and send out the email.
+
+John Lawson [01:03:23]:
+So you'll probably get that email, you know, tonight or in the morning, right? But it's the difference between good output and great output. So different scenarios, different prompts, different emails. Right. Now the second scenario, I'm gonna do this one real quick just cause I said I was gonna do two scenarios, right? And I'm doing this right now in the regular cloud, in the incognito. So let's do this. And I'm going to turn off the skills so it doesn't pick up any skills. So turn off any skills. Do that first.
+
+John Lawson [01:04:13]:
+Says it doesn't have the ability to turn. That said, if you just want me to respond without consulting and skills, just tell me that at the start of a request. All right, so I'm going to tell you that do this without consulting skills. Great. And then I'm going to put the prompt. Someone registered for my Claude Power Move webinar tonight but never showed up. So these are the people that signed up but didn't show up. They're on my list.
+
+John Lawson [01:04:44]:
+Write a straight a short re engagement email I can send tomorrow. Don't guilt them, trip them, just bring them back into the conversation and point them towards next week's session at the or the Atlanta Intensive. Keep it personal and punchy. I figured because it said either or it might ask me here which one? But we'll see. Nope, it just gave me the email. Life happens. No worries. You know, hey, first name.
+
+John Lawson [01:05:13]:
+You know you signed up. Oh, subject you signed up for. Hey, first name. Life happens. No Worries. But you registered tonight for a reason. Something made you right raise your hand. That doesn't just disappear because you missed the live session.
+
+John Lawson [01:05:31]:
+I've got another session coming up and the Atlanta Intensive on May 23rd is still open if you're ready to go deeper. All right, reply and I'll get those details to you. Takes 30 seconds. That's in incognito. All right. And it didn't consult any skills. I don't know if there was going to be skills, but I didn't want it to consult one of those at this time. And now I'm going over here and I'm putting that same prompt into the session that has a project associated with it.
+
+John Lawson [01:06:08]:
+So it should give it. Take it from good to great. Let me see. I totally have also lost the chat. I don't want to make sure I'm not totally losing you guys in chat. Somewhere there's chat. All right, all right, I'll come back to your question shortly. Oh, wow.
+
+John Lawson [01:06:35]:
+Okay. Y' all had a lot of questions. Yeah, yeah, yeah. I see these, I see these. I'm going all the way back in the questions that I'm going to ask me. Okay, answer. All right, cool. So here we go.
+
+John Lawson [01:06:50]:
+For a lot of you guys, here is what we got. It's like, hey, first name. So it's like you registered. Dash. Life happens. It put a M dash in there. I see a couple of EM dashes in here. You know what I'm gonna do? I'm gonna be like, no EM dashes.
+
+John Lawson [01:07:10]:
+But anyway, you know, it's just, that's why you can't get rid of EM dashes. They are in the lowest level of the understanding. All right, so you registered. Life happens. Hey, first name. You signed up last night. Something came up. It happens.
+
+John Lawson [01:07:27]:
+Here's the good news. This isn't a one time thing. I run these Every Thursday at 7pm Free, live, real implementation, not a pinch fest. Next one is this Thursday and you're already on the list. If you're ready to stop dabbing with AI and start running it like a system in your business, just show up. It's got the link. It's got a nice little emoji here, right? And it's. If you want to go deeper, I've got a fully a full day intensive on in Atlanta on May 23rd where you leave with your environment fully deployed and built for your business.
+
+John Lawson [01:08:02]:
+I put deployed in there in my head. All right, early bird is still open and it gives you the link. Big difference between a partially Formatted understanding to a full understanding. That one. I really see the big difference. Okay. All right, so hopefully that helps you guys. Right.
+
+John Lawson [01:08:31]:
+And let me take this back, because we did the configuration. I think there's one more slide I want to go to. Oh, of course. That's what it is. I've been talking about it, you know. So this is the intensive, because if tonight opened the door, this is where you get to really. If it opened the door now, you get to walk through it. All right, Saturday, May 23rd, I'm running the cloud Power Move Intensive.
+
+John Lawson [01:09:05]:
+It's a full day. Give me, you know, nine hours of your time. One of the hours, I'm going to feed you lunch. Okay. You know, and then I'll probably have some donuts and coffee in the morning. But give me one full day. One full day. Right.
+
+John Lawson [01:09:20]:
+It's going to be a small group. There's Early Bird pricing right now for only $495. That's for the full day, your lunch time with me, all of those things. And that's actually half off the regular pricing for Early Bird. But that ends at the first of May. All right, so if you just scan this QR code or head to Atlanta AI business.com Atlanta AI business.com Scan the code. We will build your voice profile live. We'll build all of your content, all your content, all the stuff you're spending all your time, 12 hours a week, you know, 15 hours a week, 20 hours a week doing 15 an hour stuff.
+
+John Lawson [01:10:08]:
+All right? Or if you've got a team member that's doing that for you, we're going to make them 10 times better. All right, so we'll build all of that code and we'll build your context or all of that content and build the context, and we'll build your first three workflows right there together. So they run automatically on. On schedule, hands off for you. And you walk out with it all working. And I want you to bring your laptop, because this is not about getting a notepad full of notes. Screw that crap. This is actual working stuff.
+
+John Lawson [01:10:48]:
+So if you thought tonight was useful, the intensive is where everything compounds. It goes up. Not one level, two levels, maybe three levels. I don't know. I just made that up, but it goes up. Okay, so, all right, now it's time for the Q and A stuff. All right, so I'm going back through. Can you move chats into projects? Yes, Susan, you can move chats into project.
+
+John Lawson [01:11:15]:
+I showed you that in the plus, under the plus sign where you could Move a chat into a project or, or in the left hand column. Once you are in here, if you see the recent chats and I push under here, then I can add it to a project. This one's already in a project because I started in a project. But there you go, add to project. So yes, you can add it. Projects are saved in memory and. Absolutely. And they do save you on memory.
+
+John Lawson [01:11:52]:
+Yes, you are right. Because some people are like, hey man, every time I get in there I get two prompts in and then all of a sudden I'm out of memory and I got to wait six hours. That's why. Because you're not utilizing this properly and projects is part of how you can save that memory. We'll do the design section. Create images like Nano Banana. No, that's not what this does. It doesn't create images like Nano Bananas.
+
+John Lawson [01:12:21]:
+Nano Banana is an image generator. This is a design creator. Totally different things, you know, but there are some overlaps. I'll go into that at a later time when I do my session on plot design. How does cloud design compare to Notebook lm? I don't know. I'm not sitting around going. But one of the, I don't know. I really.
+
+John Lawson [01:12:51]:
+They're two totally different tools. I mean I, I don't even know how to answer that question because they're so different. That's almost like what you're asking me is like to me, to me this, to me, I'm sure somebody else will give you some bullshit answer. To me. What you're asking me is how does English compare to Spanish? Well, they've got no in common, you know, so no in English is the same as no in Spanish. But that's, that's not giving me any value. I don't, I don't, there's, there are two different tools that I would use for two different applications. So I wouldn't even go down that road.
+
+John Lawson [01:13:31]:
+You know, Notebook LM is for deep research and utilizing that deep research as a basis for all your follow up answers. Unfortunately, that's what it's really created for. And the fact that it ended up allowing people to do images on that data. Then so called AI experts started popping off be like, you should use this as making your images. You know, that's so stupid. But I mean that's just the way I feel and I'm, I'm just that kind of guy, you know, I, I really think it's a bunch of hype and it's actually not even correct in my opinion. In my Opinion. All right, good.
+
+John Lawson [01:14:26]:
+I have to go to another thing. See, Eugene. Thank you. ChatGPT is also August 25th. Yes, it sure is. Chat GPT, when you check its date, it's then the same date as August 25th. You are awesome, John. Oh, thank you.
+
+John Lawson [01:14:41]:
+Tips to customize your voice brand, etc. Oh, that's a great question. I have some tips. Well, you know what I'll do? Here's what I'll do. I will send you the prompt that I use to make that prompt in your follow up email. I'll send you the prompt. All right? I'll tell you how I made that prompt in that email. So look for that email, check your junk mail, because somebody's telling me a lot of my stuff.
+
+John Lawson [01:15:17]:
+Going to junk check your junk mail, find that follow up. It'll be there tomorrow morning. All right? And grab that. And that will show you exactly how I made that. You'll have to try harder than that. I'm guessing he's talking about me talking crap. Somebody asked, what's an EM dash? Somebody answered that it's a long dash in the middle of a sentence. That's what that is.
+
+John Lawson [01:15:46]:
+Great advice. Great, great. Do you have to put these instructions in each project? Not really. Not really. I just showed that off as a. But. Well, here's the deal. Yes.
+
+John Lawson [01:16:01]:
+And when you want specifics of that, then you put it in there. You could actually put it in another area where, where it'll be your overall instructions, you know, for all your content. And then also the more you work with Claude, it's going to also pick up and do some instructions as well. So into the, in that settings area where we were, where I showed you the settings, the customize, that's where you can put some of that stuff too. All right, so. So sometimes. So let's say here's the deal, I've got clients that I might do content for, right? So I don't want to put my voice on everything. I want to make sure that for that client, it speaks in that client voice.
+
+John Lawson [01:16:52]:
+So we'll put that there. You know what I'm saying? You want to figure out how you set up your hierarchy and then that's how you'll do it. All right. John, do you know who they use to learn programming skills? What country? Just curious. I'm not really sure. And it's probably all over Africa. I'm not really sure, but that's something. I might go down that rabbit hole.
+
+John Lawson [01:17:19]:
+I never told people that before about EM dashes, but I was looking up why EM dashes won't go away. And that's the answer I found out. Thank you for the prompts. Thank you for this. Looking forward to next week's Great. Have you dabbled with keeping it local and utilizing Olama for testing different LLMs on setups and responses for each sub agent? I've done that. I haven't used Olama for that. I've used other wraparounds.
+
+John Lawson [01:17:55]:
+I'm trying to think there was one. Yeah, and I've talked about this before. It's called and it does the similar thing. Figure out what I'm talking about. It's all genspark. And inside of genspark it does that. It's got this scenario where you can put in one prompt and it'll show you all of the different responses. You know, yeah, I've done that.
+
+John Lawson [01:18:21]:
+But here's the deal. You know, once I'm the. I'm this kind of guy, this is me, you know, once I find the pond with the big fish, I'm not going around and checking the little fish ponds every once in a while to see if it'll get a big fish. I figured it out. I figured it out that for the way that I work and for the responses that I want and for the least amount of time to get the consistent business stuff that I want, this is the pond that I'm fishing in. So my thing is not about going broad and surface. My thing is about going deep. So when I talk to you, I'm going to talk all clawed because I know so much about Claude, because I've spent all my time in Claude.
+
+John Lawson [01:19:19]:
+I mean, I go to Chat GPT and I'm gonna say gamma Google's Gemini to make it images. That's about the only time I ever go there. I don't go to Chat GPT at all anymore. You know, I don't. I don't. It's not going to do something for me because all of everything that I've put into going deep on this, I know how to get the output I need. So that's just the way I am, man. You know? Is Claude better than Chat GPT? No, it's not better than Chat GPT.
+
+John Lawson [01:20:01]:
+Just like English is not better than Spanish. Get it? It's the language I speak, man. You know, it's the language I speak. Now having said that, I'll give you some background on right now. They just found out that the United States military is still using Claude. Matter of fact, they found out, even though that they have on the Front end said that we're not using any anthropic. Anybody that uses anthropic is going to be labeled, you know, not valid for government contracts or military contract. That's what they said on the surface.
+
+John Lawson [01:20:51]:
+Now they just found out on the back end they're still using it. And the reason why they're still using because it works. It works better than anything out there for what they're trying to do. So that's the thing the application determines, you know, in my opinion, the LLM that you choose. And for what I'm doing, this is just where I've landed, you know, and I'll probably show you some things that will make your head spin. I know I will. You know, because most people are using quad like they use Chat GPT and they're different. If you use Claude like you use Gemini, you're going to miss out on some of the uniquenesses of Claude.
+
+John Lawson [01:21:36]:
+Or if you use Gemini like you use Chat GPT, you're going to miss out on the uniquenesses of, you know, Gemini. The deal is though, I'm not going to learn French, Spanish and English right now. I don't have that much time to be multilingual. You know, I, and I know a lot of you guys, if you're deep and want to go deep into, you know, one of the other language model, do that. That's what you should do as opposed to jumping all around. If you learn deep, you're going to get much more results. You know, that's, you know, my tool thing. And I like that you can butter a piece of bread with a chainsaw.
+
+John Lawson [01:22:18]:
+You can, absolutely. But is it the most, you know, best way? So Anyway, guys, it's 8:13. I've went over my 40 minutes. I appreciate you. I notice a lot of you are still here, you know, and I had a great time. We're going to be here till next week. We're here next week. All right, next week, 7pm Every Thursday, guys.
+
+John Lawson [01:22:43]:
+We're going to be here come time, you know, Mark, good night. I know you're over there overseas. Go get you some rest. The other thing I want to say is don't forget that we are doing the Claude power move intensive May 23rd. If you want more information on that, you need to go to Atlanta. AI business, AtlantaAI business.com and I will talk to you guys soon. It's your boy, John. I'm out of here.
+
+John Lawson [01:23:18]:
+Peace.
