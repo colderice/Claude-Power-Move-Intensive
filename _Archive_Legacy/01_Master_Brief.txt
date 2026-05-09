@@ -1,0 +1,424 @@
+MASTER PROJECT BRIEF
+Claude Power Move Intensive
+Saturday, May 23, 2026  |  Atlanta, GA
+ColderICE Media  |  John Lawson  |  aiemployeeintensive.com
+
+This document is the single source of truth for the Claude Power Move Intensive event and all associated marketing campaigns. It contains every decision made, every asset status, every pricing detail, and the full 78-day execution plan. Drop this into any working environment to pick up exactly where we left off.
+
+
+
+1. The Big Picture
+
+The Goal
+$2.5M in 12 months across three revenue streams: AI Launch Blueprint program sales, done-for-you consulting, and a Business AI Trainer Certification program. Current monthly revenue: $10K–$30K/mo. Target: $208K/mo by month 12.
+
+The 3-Stream Revenue Architecture
+Revenue Stream
+Price Point
+Volume @ Month 12
+Monthly Revenue
+AI Launch Blueprint
+$997–$1,997
+50–100 sales/mo
+~$75K
+DFY Consulting
+$5K–$15K
+8–10 clients/mo
+~$83K
+Certification Program
+$3K–$5K
+10–12 trainers/mo
+~$50K
+TOTAL
+
+
+~$208K/mo
+
+
+
+2. The Event — All Locked Decisions
+
+Event Name
+Claude Power Move Intensive
+
+Event URL
+aiemployeeintensive.com
+
+Date
+Saturday, May 23, 2026
+
+VIP Day
+Sunday, May 24, 2026
+
+Location
+Atlanta, GA (venue TBD)
+
+General Capacity
+40 seats maximum
+
+VIP Capacity
+12 seats maximum
+
+Format
+In-person only. No virtual option. No replay.
+
+Hours
+9:00 AM – 5:30 PM (Saturday) | 9:00 AM – 12:00 PM (Sunday VIP)
+
+
+
+3. Ticket Pricing — All Locked
+
+Tier
+Early Bird
+Full Price
+Notes
+General Admission
+$795
+$1,000
+Early bird expires 14 days after Webinar 1
+VIP Strategy Weekend
+$1,295
+$1,500
+Sat + Sun — 12 VIP seats max
+
+Full Sellout Revenue Potential: $47,340+
+Before a single Blueprint sale or consulting package is offered in the room.
+
+
+
+4. Positioning & Messaging — All Locked
+
+The Core Tagline
+"Everyone's selling you agents. I'm giving you employees."
+
+AI vs. Agents — The Positioning Strategy
+Use 'agents' as the hook (for search traffic and scroll-stop in ads), then pivot to 'AI employees' as the differentiator that makes the sale. The Marblism webinar attracts cold traffic. The Blueprint webinar and live event close it.
+
+	•	Webinar headlines / ad hooks: use 'AI Agents' — trending, gets the click
+	•	Webinar body / event copy: use 'AI Employees' — relatable, closes the sale
+	•	Event name: Claude Power Move Intensive — timeless, no trend dependency
+	•	Cold email subject lines: lead with 'AI Agents' — higher open rates
+
+Headline — Locked
+Your Competition — Every Agent, Contractor, Coach, and Advisor in Your Market — Just Hired Four Employees For $39/Month.
+
+Target Audience — Final Four Industries
+In this exact order throughout all copy:
+
+1
+Real Estate
+Agents, brokers — losing deals to slow follow-up and inconsistent marketing
+2
+Speaker / Author / Coach
+Your warmest existing audience — billing high, stuck doing low-value tasks
+3
+Trade Contractors
+Roofing, plumbing, HVAC, electrical — chasing estimates, invisible between jobs
+4
+Insurance / Financial
+Advisors, producers, mortgage brokers — losing book to inconsistent communication
+
+Restaurants — Deliberately Excluded
+Decision: Restaurants were considered and removed. Their pain (foot traffic, reviews, margins) doesn't map cleanly to the AI employee stack — Stan and Eva don't have strong use cases. A future restaurant-specific event could be built separately if desired.
+
+
+
+5. The Tool Stack — The AI Operating System
+
+Three tools. Taught as one integrated system — not separate demos.
+
+Layer
+Tool
+Role
+Strategy & Thinking
+Claude
+Business brain — copy, strategy, decision-making, and system prompt building
+Production & Creation
+Genspark
+Graphics, video, docs, sheets — full branded asset production suite
+Autonomous Workforce
+Marblism
+AI employees running daily operations: Eva, Sonny, Penny, Stan, Linda
+
+Marblism AI Employees
+Name
+Role
+Key Function
+Eva
+Executive Assistant
+Email management, inbox organization, draft replies, calendar — PRIMARY FOCUS
+Sonny
+Social Media Manager
+Multi-platform posting, content creation, trend-based suggestions — PRIMARY FOCUS
+Penny
+Content Writer
+SEO blog posts, newsletters, long-form content — PRIMARY FOCUS
+Stan
+Sales Associate
+Lead generation, outreach, follow-up — capped at 50 emails/day currently
+Inquiry handling, sentiment analysis, issue resolution
+Linda
+Legal Assistant
+Document handling, contract management
+Rachel
+AI Receptionist
+Phone answering, appointment booking — BETA, not yet public
+
+Affiliate Details
+	•	Affiliate link: Marblism.link/john
+	•	Community URL: https://portal.johnlawson.com/communities/groups/ai-profit-lab
+	•	Discount code: JOHN — 25% off for attendees and webinar viewers
+	•	Order Form: https://go.johnlawson.com/order-form-checkout
+	•	Commission: 40% lifetime recurring
+	•	Platform price: $39/month for all AI employees
+
+
+
+6. Saturday Curriculum — Locked
+
+Theme: Three tools. One complete AI operating system. Built in one day.
+Attendee level: Using AI tools but not getting results. Not beginners — frustrated intermediates.
+Primary transformation: A complete AI strategy for their business — not just tool setup.
+
+Time
+Session
+Key Outcome
+9:00 AM
+Welcome & The Real Problem
+Mindset shift from tools to workforce
+9:30 AM
+AI Business Audit
+Personal implementation map completed
+10:15 AM
+The Architecture Session
+Claude + Genspark + Marblism framework understood
+10:45 AM
+BREAK
+
+11:00 AM
+Think With Claude
+Personalized Claude system prompt built
+11:45 AM
+Create With Genspark
+One real branded asset created in the room
+12:15 PM
+VIP Lunch (VIPs only)
+Personal conversation with John
+1:30 PM
+Eva — Email Setup
+Inbox running autonomously before 2:15 PM
+2:15 PM
+Sonny & Penny — Content
+Social + blog AI employees configured
+3:00 PM
+BREAK
+
+3:15 PM
+Stan — Sales Outreach
+Lead generation system live
+4:00 PM
+90-Day AI Roadmap
+Written implementation plan completed
+4:45 PM
+Hot Seats & Q&A
+Live problem-solving for 4–5 attendees
+5:15 PM
+Closing & Next Steps
+Certification seeded, Blueprint pitched
+5:30 PM
+DONE
+Every attendee leaves with a running AI team
+
+Genspark Block — Important Note
+Originally designed as two exercises (asset creation + custom agent build). Decision: simplified to ONE exercise only — create one branded asset. Reasons: time constraints, audience skill level, and the bigger ROI comes from Marblism setup in the afternoon. Do not add the custom agent exercise back without redesigning the afternoon schedule.
+
+
+
+7. The 78-Day Execution Plan
+
+Event date: May 23. Today: March 8. Days remaining: 76.
+
+Timeframe
+Phase
+Key Actions
+Days 1–7
+THIS WEEK
+Foundation
+Lock event name ✓, set up registration page + payment links in GoHighLevel, create early bird offer ($795 General / $1,295 VIP), write event one-pager
+Days 8–21
+Weeks 2–3
+Webinar 1
+Run first Blueprint webinar to warm list. Primary: early bird seats. Secondary: Blueprint program. Goal: 10–12 seats sold, early bird closes.
+Days 22–35
+Weeks 4–5
+Webinar 2
+Open to cold traffic from Instantly list. Full price begins. Announce seats remaining publicly. Goal: 15–18 total seats filled.
+Days 36–49
+Weeks 6–7
+Webinar 3
+Last chance framing. Sell out remaining seats. Blueprint as only alternative for those who can't attend. Goal: sold out or within 5 seats.
+Days 50–70
+Weeks 8–10
+Fill & Prepare
+Personal outreach to fence-sitters. Behind-the-scenes content for FOMO. Finalize curriculum and materials. Confirm venue logistics.
+Days 71–78
+Final Week
+Last Call
+Daily last call posts and emails. Waitlist for missed registrations (seed next event). Pre-event communication to registered attendees.
+
+
+
+8. Webinar Strategy
+
+The Dual CTA Structure
+Every Blueprint webinar presents two offers simultaneously — not either/or but a natural ascension:
+
+	•	CTA 1 — AI Launch Blueprint (~$997): Start implementing AI in your business right now
+	•	CTA 2 — Live Event Upgrade: Come do this with me in person for one full day — seats limited to 40
+
+The live event creates urgency that helps sell the Blueprint. People who aren't ready to travel buy the digital version instead of leaving empty-handed.
+
+Webinar Pitch Script — Presenting Both Offers
+"There are two ways to be in the room.
+The first is the full Saturday experience — 40 seats, one day, you leave with everything running.
+The second is the full weekend VIP experience — you get Saturday plus a private strategy day Sunday with me and a small group of serious operators. Only 12 of those exist.
+If you know you want VIP, grab it first because those will go before the general seats do."
+
+The Marblism Webinar vs. Blueprint Webinar
+	•	Marblism webinar: Good for list building, positioning, and Marblism affiliate commissions. NOT the primary vehicle to $2.5M.
+	•	Blueprint webinar: The primary revenue driver. Sells Blueprint program AND live event seats. Must run on rotation separate from Marblism.
+
+
+
+9. Assets Status Tracker
+
+Asset
+Status
+Notes
+Event name
+LOCKED
+Claude Power Move Intensive
+Event URL
+LOCKED
+aiemployeeintensive.com
+Event date
+LOCKED
+Saturday May 23, 2026 — Atlanta, GA
+Ticket pricing
+LOCKED
+All four tiers confirmed
+Saturday curriculum
+LOCKED
+Full day schedule finalized — see Section 6
+Sunday VIP outline
+LOCKED
+Hot seats, custom agent workshop, 90-day roadmap review
+Registration page copy
+LOCKED
+Full Hormozi-style copy written — file: Registration_Page.docx
+Registration page (live)
+PENDING
+Needs to be built in GoHighLevel
+Payment links
+PENDING
+Two needed — General ($795) and VIP ($1,295)
+Webinar 1 script
+PENDING
+Next item to build
+Webinar 1 date
+PENDING
+Scheduled: Tuesday, March 24, 2026
+Email nurture sequence
+PENDING
+To be built after Webinar 1 outline
+Cold email campaign
+IN PROGRESS
+Running via Instantly — 3-step sequence, 500–750 leads
+Facebook/social promo post
+LOCKED
+Two versions written — see facebook_post_for_it
+Promo reel / video concept
+PENDING
+Cinematic concept drafted — awaiting approval to produce
+John bio
+LOCKED
+25 yrs experience, Accenture trained, ColderICE Media founder
+
+
+
+10. Immediate Next Actions
+
+#
+Action
+Priority
+1
+Build registration page in GoHighLevel using Registration_Page.docx
+DO TODAY
+2
+Create two payment links — General ($795 early bird) and VIP ($1,295 early bird)
+DO TODAY
+3
+Webinar 1 date LOCKED: Tuesday, March 24, 2026
+DO TODAY
+4
+Build Webinar 1 script (dual CTA — Blueprint + live event)
+THIS WEEK
+5
+Set early bird expiration date (14 days after Webinar 1) — update all [DATE] placeholders in reg page
+THIS WEEK
+6
+Begin promoting Webinar 1 to warm list
+WEEK 2
+7
+Build email nurture sequence (3–5 emails)
+WEEK 2
+8
+Scale cold email outreach via Instantly
+ONGOING
+
+
+
+11. Key Decisions Log
+
+A record of every major decision made during planning — so nothing gets relitigated.
+
+Event name
+Claude Power Move Intensive (no 'The')
+
+Event format
+In-person only. No virtual. No replay. Creates scarcity and urgency.
+
+VIP structure
+Saturday (priority seating + VIP lunch) + Sunday (small group strategy day). Hard cap at 12 VIP seats.
+
+Restaurants excluded
+Pain doesn't map to AI employee stack. Stan/Eva have weak use cases. Future separate event possible.
+
+Industry order
+Real estate → Speaker/Author/Coach → Trade contractors → Insurance/financial. Coaches moved to 2nd (warmest audience).
+
+Genspark curriculum
+Simplified from two exercises to one — branded asset creation only. Custom agent build removed due to time constraints.
+
+Headline decision
+Added industry qualifiers directly in headline: 'Every Agent, Contractor, Coach, and Advisor'
+
+AI vs. Agents positioning
+Use 'agents' as hook for traffic. Use 'AI employees' as closer. Never abandon 'AI employee' language as core brand.
+
+Guarantee
+10x ticket price in 90 days or full refund. Bold but defensible given the implementation-day format.
+
+Webinar structure
+Dual CTA every webinar: Blueprint program + live event upgrade. Live event creates urgency that helps Blueprint sales.
+
+Certification program
+VIP Sunday room is the primary seeding ground for certification prospects. They're the warmest candidates.
+
+Marblism affiliate code
+JOHN — 25% off. Always present during webinars. Separate from Blueprint/event pitch.
+
+
+78 days. 52 seats. One event that seeds a $2.5M year.
+Next step: Registration page live. Payment links active. Webinar 1 date locked.

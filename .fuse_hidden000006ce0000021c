@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Claude Power Move Intensive – John Lawson</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple: #d97757;
+      --purple-light: #6a9bcc;
+      --purple-dark: #b55f41;
+      --purple-glow: rgba(217, 119, 87, 0.25);
+      --black: #141413;
+      --dark: #1A1A1A;
+      --dark2: #222222;
+      --dark3: #2D2D2D;
+      --white: #faf9f5;
+      --off-white: #e8e6dc;
+      --gray: #b0aea5;
+      --light-gray: #e8e6dc;
+      --text: #faf9f5;
+    }
+
+    body {
+      font-family: 'Lora', serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      padding-bottom: 72px;
+    }
+
+    h1, h2, h3, h4, h5, h6, .btn-primary, .eyebrow-light, .pre-headline, .product-name {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* COUNTDOWN BAR */
+    .countdown-bar {
+      background: var(--black);
+      border-bottom: 2px solid var(--purple);
+      color: var(--white);
+      text-align: center;
+      padding: 16px 20px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .countdown-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 10px;
+    }
+    .countdown-digits {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .countdown-unit { text-align: center; min-width: 60px; }
+    .countdown-number {
+      font-size: clamp(30px, 5vw, 44px);
+      font-weight: 900;
+      color: var(--purple);
+      line-height: 1;
+      display: block;
+    }
+    .countdown-unit-label {
+      font-size: 10px;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+      display: block;
+    }
+    .countdown-sep {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--gray);
+      opacity: 0.3;
+      line-height: 1;
+      padding-top: 4px;
+    }
+    .countdown-event-name {
+      font-size: 13px;
+      color: var(--gray);
+      margin-top: 10px;
+    }
+    .countdown-event-name strong { color: var(--white); }
+
+    /* STICKY CTA */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(20,20,19,0.97);
+      border-top: 2px solid var(--purple);
+      padding: 12px 20px;
+      text-align: center;
+      z-index: 1000;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .sticky-cta.visible { transform: translateY(0); }
+    .sticky-cta-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .sticky-cta-text span { color: var(--purple); }
+    .sticky-cta a {
+      display: inline-block;
+      background: var(--purple);
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      padding: 11px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .sticky-cta a:hover { background: var(--purple-dark); }
+
+    .hero {
+      background: var(--black);
+      color: var(--white);
+      padding: 70px 20px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('hero-bg.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      opacity: 0.38;
+      z-index: 0;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(20,20,19,0.85) 0%, rgba(20,20,19,0.4) 50%, rgba(20,20,19,0.75) 100%),
+                  linear-gradient(to bottom, rgba(20,20,19,0.3) 0%, rgba(20,20,19,0.7) 100%);
+    }
+    .hero > .container { position: relative; z-index: 1; }
+    .hero .pre-headline {
+      display: inline-block;
+      background: rgba(217, 119, 87, 0.1);
+      color: var(--purple);
+      border: 1px solid rgba(217, 119, 87, 0.2);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 24px;
+      border-radius: 30px;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 76px);
+      font-weight: 900;
+      line-height: 1.15;
+      max-width: 900px;
+      margin: 0 auto 28px;
+      letter-spacing: -0.02em;
+    }
+    .hero-sub {
+      font-size: clamp(22px, 3vw, 28px);
+      color: var(--gray);
+      max-width: 860px;
+      margin: 0 auto 16px;
+      line-height: 1.55;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--purple);
+      color: var(--white);
+      font-size: 18px;
+      font-weight: 800;
+      padding: 18px 44px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      line-height: 1.3;
+      text-align: center;
+    }
+    .btn-primary:hover { background: var(--purple-dark); transform: translateY(-2px); }
+    .btn-primary .btn-sub {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      opacity: 0.85;
+      margin-top: 4px;
+      font-family: 'Lora', serif;
+    }
+
+    .section-dark { background: var(--dark); padding: 70px 20px; color: var(--white); }
+    .section-darker { background: var(--black); padding: 70px 20px; color: var(--white); }
+    .section-mid { background: var(--dark2); padding: 70px 20px; color: var(--white); }
+    .section-light { background: var(--off-white); padding: 70px 20px; color: var(--black); }
+    .section-light .eyebrow-light { color: var(--purple-dark); }
+    .section-light h3, .section-light h4 { color: var(--black); }
+    .section-light p, .section-light ul.bullet-list li { color: #333333; }
+    .section-light .testi-card { background: var(--white); border-color: var(--gray); color: var(--black); }
+    .section-light .testi-card p { color: #333; }
+    .section-light strong { color: var(--black); }
+
+    .container { max-width: 860px; margin: 0 auto; }
+
+    .eyebrow-light {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 12px;
+    }
+
+    h2 { font-size: clamp(32px, 5vw, 54px); font-weight: 900; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 16px; color: var(--purple); }
+    h3 { font-size: clamp(24px, 4vw, 36px); font-weight: 800; line-height: 1.25; margin-bottom: 12px; }
+    p { font-size: 20px; line-height: 1.75; color: var(--gray); }
+    p + p { margin-top: 20px; }
+    strong { color: var(--white); }
+
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+    @media (max-width: 600px) { .compare-grid { grid-template-columns: 1fr; } }
+    .compare-col { border-radius: 10px; padding: 28px; background: var(--dark2); border: 1px solid #333; }
+    .compare-col.good { background: rgba(106, 155, 204, 0.05); border-color: var(--purple-light); }
+    .compare-col .col-title { font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #333; font-family: 'Poppins', sans-serif; }
+    .compare-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; font-size: 15px; color: var(--gray); }
+
+    .included-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 40px; }
+    .included-card { background: var(--dark2); border: 1px solid #333; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; }
+    .included-card h4 { font-size: 17px; font-weight: 800; color: var(--white); margin-bottom: 8px; }
+
+    .order-box {
+      background: var(--dark2);
+      border: 2px solid var(--purple);
+      border-radius: 14px;
+      padding: 40px;
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .order-box .product-name { font-size: 36px; font-weight: 900; color: var(--white); margin-bottom: 8px; }
+
+    /* TICKET GRID */
+    .ticket-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 860px; margin: 0 auto; }
+    @media (max-width: 680px) { .ticket-grid { grid-template-columns: 1fr; } }
+    .ticket-card {
+      background: var(--dark2);
+      border: 2px solid #333;
+      border-radius: 14px;
+      padding: 32px 28px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+    .ticket-card.vip {
+      border-color: var(--purple-light);
+      background: linear-gradient(160deg, var(--purple) 0%, var(--purple-dark) 100%);
+      position: relative;
+    }
+    .ticket-card.vip .ticket-name { color: var(--white); }
+    .ticket-card.vip .ticket-price-now { color: var(--purple-light); }
+    .ticket-card.vip .ticket-price-was { color: rgba(255,255,255,0.5); }
+    .ticket-card.vip .ticket-features li { color: rgba(255,255,255,0.9); border-bottom-color: rgba(255,255,255,0.15); }
+    .ticket-card.vip p { color: rgba(255,255,255,0.75); }
+    .vip-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--purple-light);
+      color: var(--black);
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 16px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .ticket-tier {
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--purple);
+      margin-bottom: 6px;
+    }
+    .ticket-card.vip .ticket-tier { color: var(--purple-light); }
+    .ticket-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .ticket-price-now {
+      font-family: 'Poppins', sans-serif;
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+    }
+    .ticket-card.vip .ticket-price-now { color: var(--purple-light); }
+    .ticket-price-was {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      color: #666;
+      text-decoration: line-through;
+      margin-top: 4px;
+      margin-bottom: 20px;
+    }
+    .ticket-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+      text-align: left;
+      flex: 1;
+    }
+    .ticket-features li {
+      font-size: 15px;
+      color: var(--gray);
+      padding: 8px 0;
+      border-bottom: 1px solid #2a2a2a;
+      padding-left: 22px;
+      position: relative;
+      line-height: 1.4;
+    }
+    .ticket-features li:last-child { border-bottom: none; }
+    .ticket-features li::before { content: '✓'; color: var(--purple); position: absolute; left: 0; font-weight: bold; }
+    .ticket-card.vip .ticket-features li::before { color: var(--purple-light); }
+
+    .urgency-bar { background: var(--purple-dark); color: var(--white); text-align: center; padding: 14px 20px; font-size: 15px; font-weight: 700; font-family: 'Poppins', sans-serif; }
+
+    .hero-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 30px; text-align: left; margin-top: 40px; }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
+
+    .sticky-panel { background: var(--dark2); border-radius: 12px; padding: 32px 24px; border: 1px solid var(--purple-light); }
+    .sticky-panel .price-line { font-family: 'Poppins', sans-serif; margin-bottom: 6px; }
+    .sticky-panel .price-now { font-size: 42px; font-weight: 900; color: var(--purple-light); line-height: 1; }
+    .sticky-panel .price-was { font-size: 18px; color: #777; text-decoration: line-through; font-weight: 600; }
+    .sticky-panel .price-label { font-size: 13px; color: var(--purple); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+
+    .testi-card {
+      background: var(--dark2);
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 24px;
+      margin-top: 20px;
+    }
+
+    .footer { background: var(--black); padding: 36px 20px; text-align: center; font-size: 13px; color: var(--gray); border-top: 1px solid #222; }
+    .divider-purple { height: 4px; background: linear-gradient(90deg, var(--purple-dark), var(--purple), var(--purple-light)); }
+
+    ul.bullet-list { list-style: none; padding: 0; margin-top: 20px; }
+    ul.bullet-list li { padding-left: 24px; position: relative; margin-bottom: 18px; color: var(--gray); font-size: 20px; line-height: 1.6; }
+    ul.bullet-list li::before { content: '→'; color: var(--purple); position: absolute; left: 0; top: 0; font-weight: bold; }
+
+    /* FAQ */
+    .faq-item { border-bottom: 1px solid #333; padding: 20px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-q .faq-icon { color: var(--purple); font-size: 22px; flex-shrink: 0; transition: transform 0.2s; }
+    .faq-q.open .faq-icon { transform: rotate(45deg); }
+    .faq-a { font-size: 18px; color: var(--gray); line-height: 1.7; margin-top: 12px; display: none; }
+    .faq-a.open { display: block; }
+
+    /* GUARANTEE */
+    .guarantee-box {
+      background: rgba(106, 155, 204, 0.06);
+      border: 1px solid var(--purple-light);
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin-top: 28px;
+      text-align: center;
+    }
+    .guarantee-box .guarantee-headline {
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--purple-light);
+      margin-bottom: 10px;
+    }
+    .guarantee-box p { font-size: 16px; color: var(--gray); margin: 0; }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <div class="sticky-cta-text">
+      GA from <span>$495</span> &nbsp;|&nbsp; VIP Weekend from <span>$850</span> &nbsp;|&nbsp; May 23&ndash;24 &mdash; Atlanta
+    </div>
+    <a href="#tickets">Choose My Seat &#x27A4;</a>
+  </div>
+
+  <!-- COUNTDOWN BAR -->
+  <div class="countdown-bar">
+    <div class="countdown-label">Event Starts In</div>
+    <div class="countdown-digits">
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cd-days">--</span>
+        <span class="countdown-unit-label">Days</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cd-hours">--</span>
+        <span class="countdown-unit-label">Hours</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cd-mins">--</span>
+        <span class="countdown-unit-label">Minutes</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cd-secs">--</span>
+        <span class="countdown-unit-label">Seconds</span>
+      </div>
+    </div>
+    <div class="countdown-event-name">
+      <strong>The Claude Power Move Intensive</strong> &mdash; Saturday, May 23, 2026 &mdash; Atlanta, GA
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="container" style="max-width: 1100px;">
+      <div class="pre-headline">
+        <span style="color: var(--purple); margin-right: 6px;">&#9679;</span> A Full-Day Intensive for Anyone Running a Business
+      </div>
+
+      <p style="font-size: 26px; color: var(--purple); font-weight: 700; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; font-family: 'Poppins', sans-serif;">
+        Walk In Doing Everything Yourself.<br>Walk Out With Claude Running Your Content, Follow-Up, and Operations.
+      </p>
+
+      <h1>
+        The Claude <span style="color: var(--purple);">Power Move</span>
+      </h1>
+      <p class="hero-sub">
+        One Saturday. Most attendees get 10+ hours back in their first week &mdash; without hiring anyone, building complicated funnels, or figuring it out on your own.
+      </p>
+
+      <div class="hero-grid">
+        <div class="hero-left" style="border-radius:12px; overflow:hidden; position:relative; min-height:320px; border: 1px solid rgba(217,119,87,0.2);">
+          <img src="hero-bg.jpg" alt="John Lawson teaching at The Claude Power Move Intensive" style="width:100%; height:100%; object-fit:cover; object-position:left center; display:block; border-radius:12px;">
+          <div style="position:absolute; inset:0; background:linear-gradient(to right, rgba(20,20,19,0.05) 0%, rgba(20,20,19,0.5) 100%); border-radius:12px;"></div>
+        </div>
+
+        <div class="hero-right">
+          <div class="sticky-panel" style="text-align: center;">
+            <div style="font-size: 18px; color: var(--white); font-weight: 600; margin-bottom: 16px; font-family: 'Poppins', sans-serif;">
+              Saturday, May 23, 2026<br>
+              <span style="font-size:14px; color:var(--purple-light);">9:00 AM &ndash; 5:00 PM</span>
+            </div>
+
+            <div class="price-label">Early Bird Price</div>
+            <div class="price-line">
+              <span class="price-now">$495</span>
+            </div>
+            <div class="price-line" style="margin-bottom:16px;">
+              <span class="price-was">Regular $995</span>
+            </div>
+
+            <div style="text-align: center; font-size: 15px; margin-bottom: 20px;">
+              <a href="https://maps.google.com/?q=2135+Liddell+Dr+NE,+Atlanta,+GA" target="_blank" style="color: var(--gray); text-decoration: none;">
+                <span style="border-bottom: 1px dotted var(--gray);">&#128205; Masterly Studios</span><br>
+                <span style="border-bottom: 1px dotted var(--gray);">2135 Liddell Dr NE, Atlanta, GA</span>
+              </a>
+            </div>
+
+            <a href="#tickets" class="btn-primary" style="width: 100%;">
+              Choose My Seat &#x27A4;
+              <span class="btn-sub">GA or VIP &mdash; seats are limited</span>
+            </a>
+
+            <div style="background: var(--black); border-radius: 8px; padding: 14px; margin-top: 20px; font-size: 13px; color: var(--gray); line-height: 1.5; border: 1px solid #333; text-align: left;">
+              <strong style="color:var(--white);">Bring a laptop.</strong> This is a working session, not a watch-and-nod.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-purple"></div>
+
+  <!-- INTRO SECTION -->
+  <section class="section-light">
+    <div class="container">
+      <h2>You didn't start a business to spend your days writing emails, chasing leads, and posting on social media.</h2>
+      <p style="color:var(--purple-dark); font-weight:bold; font-size:28px;">But here you are.</p>
+
+      <p>If you're spending 10, 15, 20+ hours a week on marketing and operations tasks you wish someone else would handle &mdash; and you still can't seem to get ahead &mdash; this day will change how you run your business.</p>
+
+      <p>The business owners who are pulling ahead right now aren't working harder. They've built systems that work for them. And the tool at the center of those systems isn't what most people expect.</p>
+
+      <p style="font-size:38px; font-weight:bold; margin-top:30px; font-family:'Poppins', sans-serif;">It's Claude.</p>
+      <p>And after this intensive, it'll be yours.</p>
+    </div>
+  </section>
+
+  <!-- PAIN SECTION -->
+  <section class="section-darker">
+    <div class="container">
+      <div class="eyebrow-light">The Shift</div>
+      <h2>What's Actually Happening in Business Right Now</h2>
+      <p>There's a shift happening, and the owners paying attention are pulling ahead fast. The gap between these two groups is growing every single month.</p>
+
+      <div class="compare-grid">
+        <div class="compare-col">
+          <div class="col-title">The Ones Falling Behind</div>
+          <div class="compare-item">Still trying to do everything themselves.</div>
+          <div class="compare-item">Paying people to do things that a well-configured AI could handle in minutes.</div>
+          <div class="compare-item">Using AI casually without real systems &mdash; getting poor output and giving up.</div>
+        </div>
+        <div class="compare-col good">
+          <div class="col-title">The Ones Winning</div>
+          <div class="compare-item">Figured out that Claude isn't just a chatbot.</div>
+          <div class="compare-item">Using AI to think through problems and follow complex instructions.</div>
+          <div class="compare-item">Creating content that sounds authentic and handling workflows that used to take hours.</div>
+        </div>
+      </div>
+
+      <p style="margin-top:30px; font-weight: bold; color:var(--white);">This intensive puts you on the right side of that gap. Fast.</p>
+    </div>
+  </section>
+
+  <!-- WHAT IT IS -->
+  <section class="section-light" style="position:relative; overflow:hidden;">
+    <div style="position:absolute; inset:0; background-image:url('masterlystudios.jpg'); background-size:cover; background-position:center; opacity:0.45; z-index:0;"></div>
+    <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(235,233,225,0.72) 0%, rgba(235,233,225,0.65) 100%); z-index:1;"></div>
+    <div class="container" style="position:relative; z-index:2;">
+      <div class="eyebrow-light">The Experience</div>
+      <h2>What This Day Is</h2>
+
+      <p>The Claude Power Move is a full-day, hands-on working session where business owners, service providers, and consultants build their Claude-powered business system from the ground up.</p>
+
+      <ul class="bullet-list" style="margin-bottom:30px;">
+        <li>Not a lecture.</li>
+        <li>Not a highlight reel of AI demos.</li>
+        <li>Not homework you'll never finish.</li>
+      </ul>
+
+      <div style="background:rgba(106, 155, 204, 0.1); border-left:4px solid var(--purple-dark); padding:24px; border-radius:4px; margin-bottom:30px;">
+        <p style="margin:0; color:var(--black); font-weight:bold; font-size:26px;">
+          You walk in with a laptop. You walk out with Claude set up, configured to your business, and handling real work before you hit the parking lot.
+        </p>
+      </div>
+
+      <p><strong>John Lawson</strong> &mdash; AI Strategy Consultant, Verizon Digital Ready AI Instructor, and one of America's Top 100 Small Business Influencers &mdash; pulls back the curtain on exactly how he built his own business operations around Claude. Then he walks you through building yours.</p>
+
+      <div class="testi-card" style="margin-top: 40px; border-color:var(--gray);">
+        <p style="font-style: italic; color: var(--black); font-size: 24px; margin-bottom: 12px; font-family:'Lora',serif;">"John is a very dynamic and entertaining speaker. His presentations are packed with usable, actionable information and his delivery is simply unforgettable."</p>
+        <p style="color: var(--purple-dark); font-size: 16px; font-weight:bold; margin-bottom: 0;">&mdash; Phil Leahy, Retail Global</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU WALK AWAY WITH -->
+  <section class="section-darker">
+    <div class="container">
+      <div class="eyebrow-light">The Takeaways</div>
+      <h2>What You'll Walk Away With</h2>
+
+      <div class="included-grid">
+        <div class="included-card">
+          <h4>Claude vs. everything else</h4>
+          <p>Why Claude is the right tool for anyone running a service business &mdash; and what you're leaving on the table if you haven't made it part of your stack.</p>
+        </div>
+        <div class="included-card">
+          <h4>Your Claude business setup</h4>
+          <p>A fully configured Claude environment built around your business, your voice, and your workflows.</p>
+        </div>
+        <div class="included-card">
+          <h4>Content that sounds like you</h4>
+          <p>Learn how to use Claude to produce social content, email copy, and marketing assets that don't sound like a robot &mdash; because they're built on your voice, not a generic prompt.</p>
+        </div>
+        <div class="included-card">
+          <h4>Workflow automation that actually works</h4>
+          <p>The exact frameworks John uses to hand off repetitive tasks to Claude and get time back in his week.</p>
+        </div>
+        <div class="included-card">
+          <h4>Prompting that produces results</h4>
+          <p>The difference between output that's good enough and output that converts &mdash; and how to get there consistently.</p>
+        </div>
+        <div class="included-card">
+          <h4>Your Claude Starter Kit &mdash; 502 Done-for-You Prompts</h4>
+          <p>502 ready-to-deploy prompts, 5 workflow templates, and John's personal Claude setup guide &mdash; yours to take home and put to work the same day.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:40px; padding: 24px; background: rgba(106, 155, 204, 0.1); border: 1px solid var(--purple-light); border-radius: 8px; text-align:center;">
+        <h4 style="color:var(--white); margin-bottom:10px;">A Note on Other Tools</h4>
+        <p style="margin:0;">Claude is the focus. Claude is the engine. Other tools may come up in context &mdash; because the real world uses more than one tool. But you won't leave here with a fragmented list of apps to figure out on your own. You'll leave with Claude working, and a clear picture of how it connects to everything else.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT IS FOR -->
+  <section class="section-light">
+    <div class="container">
+      <div class="eyebrow-light">The Audience</div>
+      <h2>Who This Day Is Built For</h2>
+
+      <ul class="bullet-list">
+        <li>A business owner spending 10+ hours weekly on tasks you know Claude could handle</li>
+        <li>A solopreneur or service provider struggling to stay consistent on content without burning out</li>
+        <li>A coach, consultant, or agency owner who needs to produce great work but dreads the process of getting it done</li>
+        <li>Anyone who gets paid to deliver results for clients and knows they're leaving time and money on the table</li>
+        <li>Anyone who has tried AI tools before, didn't get much out of them, and wants to finally understand how to use them right</li>
+      </ul>
+
+      <div style="margin-top:30px; font-weight:bold; color:var(--black); font-size:26px;">
+        <p style="margin-bottom:8px;">If you've heard about Claude but never really set it up &mdash; <span style="color:var(--purple-dark);">this is the day.</span></p>
+        <p style="margin-bottom:8px;">If you've been using Claude casually but know you're not getting 10% of what it can do &mdash; <span style="color:var(--purple-dark);">this is the day.</span></p>
+        <p>If you're still doing everything yourself and running out of runway to keep that up &mdash; <span style="color:var(--purple-dark);">this is definitely the day.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTRUCTOR -->
+  <section class="section-darker">
+    <div class="container">
+      <div class="eyebrow-light">Your Instructor</div>
+      <h2>About John Lawson</h2>
+      <div style="display:flex; gap:48px; align-items:flex-start; flex-wrap:wrap; margin-top:32px;">
+        <div style="flex:0 0 auto;">
+          <img src="about_john.jpg" alt="John Lawson" style="width:260px; border-radius:12px; border:2px solid rgba(217,119,87,0.3); display:block; object-fit:cover;">
+        </div>
+        <div style="flex:1; min-width:260px;">
+          <p>John Lawson built a multi-million dollar e-commerce business from the ground up, generated $32M+ in career sales, and has spoken in front of tens of thousands of business owners across more than two dozen countries.</p>
+
+          <p style="margin-top:16px;">He is Verizon's Digital Ready AI Instructor, a 3x Amazon bestselling author, a recognized IBM eCommerce Futurist, and one of America's Top 100 Small Business Influencers &mdash; named "Savviest in Social Media" by StartUp Nation.</p>
+
+          <div style="margin-top:24px; padding:24px; border-left:4px solid var(--purple-light); background:var(--dark2); border-radius:4px;">
+            <p style="margin:0; color:var(--white); font-size:16px;">
+              His framework &mdash; <strong>People + AI = Power Moves</strong> &mdash; is built around one core idea: AI doesn't replace you. It multiplies you. This day is what that looks like in practice.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-darker" style="border-top: 1px solid #2a2a2a;">
+    <div class="container">
+      <div class="eyebrow-light">Got Questions</div>
+      <h2>FAQ</h2>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What do I need to bring?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Just a laptop with Claude access. If you don't have a Claude account, we'll get you set up at the door. No prior AI experience required &mdash; just bring your business and be ready to work.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Is this recorded? Can I get a replay?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">This is a live, in-person working session. There is no virtual option and no replay. The value is in building your system in real time, in the room, with hands-on help. That can't be replicated on a screen.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          I'm a complete beginner with AI. Is this for me?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Yes. The day is designed for people who haven't fully figured out Claude yet &mdash; whether you've never opened it or you've been dabbling without real results. You don't need any technical background. You need to show up and be willing to follow along.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What industry is this for?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">If you run a business or get paid to deliver results for clients, this is for you. Coaches, consultants, agencies, service providers, solopreneurs &mdash; the framework works across industries because Claude works across industries. We'll make it specific to your business in the room.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What's the refund policy?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Seats are non-refundable but transferable. If you can't make it, you can send someone in your place. Contact john@3rdpoweroutlet.com with any questions.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What if I already use Claude regularly?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Most people who "use Claude" are getting about 10% of what it can do. This day is about setting up systems &mdash; not just prompting. If you've never built a custom system prompt, automated a workflow, or built out a prompt library, there's significant upside here for you.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="urgency-bar" id="get-access">
+    &#9203; Seats are limited. This is a working session, not a webinar &mdash; room size is intentional.
+  </div>
+
+  <section class="section-light" id="tickets">
+    <div class="container">
+
+      <div style="text-align:center; margin-bottom:40px;">
+        <div class="eyebrow-light" style="color:var(--purple-dark);">Choose Your Seat</div>
+        <h2 style="color:var(--black);">Saturday, May 23, 2026 &mdash; Atlanta, GA</h2>
+        <p style="color:#555; font-size:18px;">&#128205; Masterly Studios, 2135 Liddell Dr NE &nbsp;|&nbsp; 9:00 AM &ndash; 5:00 PM</p>
+      </div>
+
+      <div class="ticket-grid">
+
+        <!-- GENERAL ADMISSION -->
+        <div class="ticket-card">
+          <div class="ticket-tier">General Admission</div>
+          <div class="ticket-name">The Claude Power Move Intensive</div>
+          <div class="ticket-price-now">$495</div>
+          <div class="ticket-price-was">Regular $995</div>
+          <ul class="ticket-features">
+            <li>Full-day hands-on working session (9 AM &ndash; 5 PM)</li>
+            <li>Your Claude business setup built in the room</li>
+            <li>Content, workflow, and prompting frameworks</li>
+            <li>502 done-for-you prompts</li>
+            <li>5 workflow templates</li>
+            <li>John's personal Claude setup guide</li>
+          </ul>
+          <a href="https://go.johnlawson.com/order-form-checkout" class="btn-primary" style="width:100%; font-size:16px; padding:16px 20px;">
+            Claim My Seat &#x27A4;
+            <span class="btn-sub">Early bird &mdash; limited seats</span>
+          </a>
+        </div>
+
+        <!-- VIP -->
+        <div class="ticket-card vip">
+          <div class="vip-badge">Most Valuable</div>
+          <div class="ticket-tier">VIP &mdash; Two Full Days</div>
+          <div class="ticket-name">The Claude Power Move Weekend</div>
+          <div class="ticket-price-now">$850</div>
+          <div class="ticket-price-was">Regular $1,995</div>
+          <ul class="ticket-features">
+            <li>Everything in General Admission &mdash; Saturday, May 23</li>
+            <li>Full second day &mdash; Sunday, May 24, go deeper and build more</li>
+            <li>Personal hot seat with John &mdash; your business, your bottlenecks, live in the room</li>
+            <li>1:1 time with John &mdash; go deeper on your setup, strategy, or anything you didn't cover</li>
+            <li>Priority seating &mdash; front of the room both days</li>
+          </ul>
+          <a href="https://go.johnlawson.com/order-form-checkout" class="btn-primary" style="width:100%; font-size:16px; padding:16px 20px; background:var(--purple-light);">
+            Claim My Weekend Seat &#x27A4;
+            <span class="btn-sub">Extremely limited &mdash; don't wait</span>
+          </a>
+          <p style="font-size:13px; margin-top:12px; margin-bottom:0;">General Admission gives you the system. The Weekend gives you John's eyes on your business &mdash; for two full days.</p>
+        </div>
+
+      </div>
+
+      <div class="guarantee-box" style="max-width:680px; margin:36px auto 0;">
+        <div class="guarantee-headline">&#10003; The Power Move Promise</div>
+        <p>If you leave this day without Claude set up and running in your business, I'll work with you personally until it is. You don't leave empty-handed. That's a promise.</p>
+      </div>
+
+      <p style="font-size:16px; color:#666; margin-top:24px; text-align:center;">Bring your laptop, your biggest operational headache, and walk out with an AI system that handles it.</p>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div style="margin-bottom:16px; font-family:'Poppins', sans-serif; font-weight:800; font-size:18px; color:var(--white);">
+      The Claude <span style="color:var(--purple);">Power Move</span>
+    </div>
+    <p style="margin-bottom:16px;">The Claude Power Move Intensive is presented by ColderICE Media.</p>
+    <p>Questions? Contact <a href="mailto:john@3rdpoweroutlet.com" style="color:var(--purple-light);">john@3rdpoweroutlet.com</a></p>
+    <p style="margin-top:30px; font-size:11px;">&copy; 2026 ColderICE Media. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // COUNTDOWN TIMER
+    (function() {
+      var eventDate = new Date('2026-05-23T09:00:00-04:00');
+      function pad(n) { return n < 10 ? '0' + n : n; }
+      function tick() {
+        var now = new Date();
+        var diff = eventDate - now;
+        if (diff <= 0) {
+          document.getElementById('cd-days').textContent = '00';
+          document.getElementById('cd-hours').textContent = '00';
+          document.getElementById('cd-mins').textContent = '00';
+          document.getElementById('cd-secs').textContent = '00';
+          return;
+        }
+        var days  = Math.floor(diff / 86400000);
+        var hours = Math.floor((diff % 86400000) / 3600000);
+        var mins  = Math.floor((diff % 3600000) / 60000);
+        var secs  = Math.floor((diff % 60000) / 1000);
+        document.getElementById('cd-days').textContent  = pad(days);
+        document.getElementById('cd-hours').textContent = pad(hours);
+        document.getElementById('cd-mins').textContent  = pad(mins);
+        document.getElementById('cd-secs').textContent  = pad(secs);
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+
+    // STICKY CTA
+    (function() {
+      var hero = document.getElementById('hero');
+      var cta  = document.getElementById('stickyCta');
+      function onScroll() {
+        var heroBottom = hero.getBoundingClientRect().bottom;
+        if (heroBottom < 0) {
+          cta.classList.add('visible');
+        } else {
+          cta.classList.remove('visible');
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+
+    // FAQ TOGGLE
+    function toggleFaq(el) {
+      var answer = el.nextElementSibling;
+      var isOpen = el.classList.contains('open');
+      document.querySelectorAll('.faq-q.open').forEach(function(q) {
+        q.classList.remove('open');
+        q.nextElementSibling.classList.remove('open');
+      });
+      if (!isOpen) {
+        el.classList.add('open');
+        answer.classList.add('open');
+      }
+    }
+  </script>
+
+</body>
+</html>

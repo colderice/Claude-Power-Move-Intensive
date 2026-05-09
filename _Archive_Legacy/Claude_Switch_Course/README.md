@@ -1,0 +1,55 @@
+# The Claude Switch — Course Folder
+*Free 6-session training for the "I Switched to Claude" Facebook group.*
+*Feeds the email list. Bridges to the Claude Power Move Intensive in Atlanta.*
+
+---
+
+## File Index
+
+| File | What It Is |
+|---|---|
+| `00_Course_Blueprint.md` | Master strategy doc — course concept, funnel design, GHL tagging, Atlanta bridge |
+| `01_Email_Drip_Sequence.md` | 6-email sequence delivered after opt-in (one per session) |
+| `02_FB_Group_Pinned_Post.md` | Pinned post copy (launch version + evergreen version) + welcome DM |
+| `03_GHL_Optin_Landing_Page.md` | Full landing page copy + GHL build notes |
+| `04_Starter_Prompt_Library.md` | 20 Claude prompts — lead magnet for Session 3 (build as PDF) |
+| `05_Session_Scripts.md` | Full scripts for all 6 live sessions |
+
+---
+
+## Launch Sequence
+
+1. Set up GHL opt-in page using `03_GHL_Optin_Landing_Page.md`
+2. Configure email automation using `01_Email_Drip_Sequence.md`
+3. Set up GHL tags: `switched-to-claude`, `free-training`, `prompt-library-download`, `atlanta-interested`, `marblism-warm`, `course-completer`
+4. Build Starter Prompt Library as PDF from `04_Starter_Prompt_Library.md`
+5. Pin launch post in FB group using `02_FB_Group_Pinned_Post.md`
+6. Set welcome DM automation using the DM copy in `02_FB_Group_Pinned_Post.md`
+7. Go live with Session 1
+
+---
+
+## Session Cadence
+
+| Session | Title | Live Date |
+|---|---|---|
+| Session 1 | Why You Switched (And Why You're Not Going Back) | TBD |
+| Session 2 | How Claude Actually Thinks | +2 days |
+| Session 3 | Prompting Claude the Right Way | +4 days |
+| Session 4 | Claude's Secret Weapons | +6 days |
+| Session 5 | Build Your First Claude Workflow | +8 days |
+| Session 6 | What's Next — From Switched to Unstoppable | +10 days |
+
+---
+
+## Key Links to Plug In Before Launch
+
+- GHL opt-in page URL
+- Atlanta General Admission ticket link ($795 early bird)
+- Atlanta VIP ticket link ($1,295 early bird)
+- Marblism affiliate link: Marblism.link/john (code JOHN — 25% off)
+- Starter Prompt Library download URL
+
+---
+
+*Last updated: March 10, 2026*

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Employee Intensive | May 23, Atlanta</title>
+    <meta name="description" content="Hire your AI team in a single day. In-person implementation event in Atlanta.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="urgency-banner">
+        <div class="wrap">
+            <span>🔥 <strong>EARLY BIRD PRICING ACTIVE:</strong> Save $200 per seat. Offer expires in <span
+                    id="countdown">47h 59m 59s</span></span>
+        </div>
+    </div>
+    <div class="topbar">
+        <div class="wrap">
+            <div class="inner">
+                <div class="brand">
+                    <span class="logo-text">AI Employee Intensive</span>
+                </div>
+                <div class="nav">
+                    <a href="#about">The Event</a>
+                    <a href="#curriculum">Curriculum</a>
+                    <a href="#pricing">Tickets</a>
+                </div>
+                <a href="https://go.johnlawson.com/order-form-checkout" class="btn primary small">Claim Your Seat</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="hero">
+        <div class="wrap">
+            <div class="hero-content">
+                <div class="pill">May 23rd | Atlanta, GA</div>
+                <h1><span class="highlight">Build</span> & Deploy Your AI Team In One Day</h1>
+                <p class="sub">You show up. You open your laptop. You leave with a <strong>complete AI operating
+                        system</strong> — built by you, configured specifically for your business workflows.</p>
+                <div class="hero-actions">
+                    <a href="https://go.johnlawson.com/order-form-checkout" class="btn primary large">Register Now —
+                        Early Bird Ends April 7</a>
+                    <p class="limit">Only 40 Seats Available (12 VIP)</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="transformation">
+        <div class="wrap">
+            <div class="section-title">
+                <div class="pill">The Opportunity</div>
+                <h2>The Transformation</h2>
+                <p class="lead">From stuck in the day-to-day to scaling with an automated workforce.</p>
+                <p></p>
+                </p>
+            </div>
+
+            <div class="transform-container">
+                <div class="transform-box before">
+                    <div class="t-badge">The Old Way</div>
+                    <div class="t-icon">🐌</div>
+                    <h3>Manual Burnout</h3>
+                    <ul>
+                        <li>Sub-par lead follow-up</li>
+                        <li>Inbox overwhelm</li>
+                        <li>Inconsistent marketing</li>
+                        <li>"The Bottle Neck" is YOU</li>
+                    </ul>
+                </div>
+
+                <div class="transform-arrow">
+                    <div class="arrow-body"></div>
+                    <div class="arrow-head"></div>
+                    <div class="arrow-text">ONE DAY</div>
+                </div>
+
+                <div class="transform-box after">
+                    <div class="t-badge primary">The AI Way</div>
+                    <div class="t-icon">⚡</div>
+                    <h3>Automated Freedom</h3>
+                    <ul>
+                        <li>Instant AI lead response</li>
+                        <li>Clean, prioritized inbox</li>
+                        <li>24/7 Content engine</li>
+                        <li>Systems scale, YOU lead</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="pricing" class="pricing">
+        <div class="wrap">
+            <div class="section-title">
+                <h2>Choose Your Experience</h2>
+            </div>
+            <div class="grid-2">
+                <div class="card pricing-card">
+                    <div class="badge">Most Popular</div>
+                    <h3>General Admission</h3>
+                    <div class="price-container">
+                        <span class="was-price">$1,000</span>
+                        <span class="price">$795</span>
+                    </div>
+                    <div class="save-tag">SAVE $205 (20% OFF)</div>
+                    <ul>
+                        <li>Full Day Implementation Session</li>
+                        <li>Custom AI Agents Configured</li>
+                        <li>90-Day Implementation Roadmap</li>
+                        <li>Atlanta, May 23rd</li>
+                    </ul>
+                    <a href="https://go.johnlawson.com/order-form-checkout" class="btn primary">Secure General Seat</a>
+                </div>
+                <div class="card pricing-card vip">
+                    <div class="badge">Limited (12 Seats)</div>
+                    <h3>VIP Strategy Weekend</h3>
+                    <div class="price-container">
+                        <span class="was-price">$1,500</span>
+                        <span class="price">$1,295</span>
+                    </div>
+                    <div class="save-tag">SAVE $205 (EARLY BIRD)</div>
+                    <p class="vip-note">Includes Saturday Intensive + Sunday Strategy Day</p>
+                    <ul>
+                        <li>Everything in General Tier</li>
+                        <li><strong>6 Month Membership:</strong> AI Profit Lab Community</li>
+                        <li><strong>Sunday Bonus:</strong> Personalized Deep-Dive</li>
+                        <li>Hot Seat Coaching with John Lawson</li>
+                        <li>Customized 90-Day Blueprint</li>
+                    </ul>
+                    <a href="https://go.johnlawson.com/order-form-checkout" class="btn secondary">Secure VIP Seat</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech-stack" class="tech-stack">
+        <div class="wrap">
+            <div class="section-title">
+                <h2>The AI Operating System Stack</h2>
+                <p class="lead">We don't just use tools. We build integrated systems using the world's most powerful AI
+                    tech.</p>
+            </div>
+            <div class="grid-3">
+                <div class="tool-card">
+                    <div class="tool-icon">🧠</div>
+                    <h3>Claude 3.5 Sonnet</h3>
+                    <p><strong>The Strategic Brain.</strong> We build your "Business Brain" prompt that acts as your
+                        partner for every major decision and creative task.</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">👷</div>
+                    <h3>Marblism</h3>
+                    <p><strong>The Autonomous Workforce.</strong> We deploy your custom AI agents to handle your inbox,
+                        content, and outreach while you sleep.</p>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🎨</div>
+                    <h3>Genspark</h3>
+                    <p><strong>The Production Studio.</strong> We build your branded assets, graphics, and video intros
+                        in seconds, not hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="curriculum" class="curriculum">
+        <div class="wrap">
+            <div class="section-title">
+                <h2>The Saturday Curriculum</h2>
+                <p class="lead">Three tools. Three roles. One complete AI business built in one day.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time">09:00 AM</div>
+                    <div class="content">
+                        <h3>Strategy: The AI Operating System</h3>
+                        <p>Mapping your business time drains and defining your AI agent priority order.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">10:30 AM</div>
+                    <div class="content">
+                        <h3>Claude: The Strategic Brain</h3>
+                        <p>Building a personalization prompt that knows your business inside out.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">01:00 PM</div>
+                    <div class="content">
+                        <h3>The Core 5: Deploying Your AI Workforce</h3>
+                        <p>Live setup and deployment of all 5 AI employees (Eva, Sonny, Penny, and Stan)
+                            specifically for your business.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">04:00 PM</div>
+                    <div class="content">
+                        <h3>90-Day AI Roadmap & Implementation</h3>
+                        <p>Creating your personal step-by-step plan to scale your new automated workforce long after the
+                            event ends.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="who-this-is-for">
+        <div class="wrap">
+            <div class="section-title">
+                <div class="pill">Alignment</div>
+                <h2>Who This Is Exactly For</h2>
+            </div>
+            <div class="grid-2">
+                <div class="who-box">
+                    <div class="icon">🏘️</div>
+                    <h3>Real Estate Professionals</h3>
+                    <p>Agents and brokers losing deals to slow follow-up and inconsistent marketing who want to automate
+                        their lead nurture.</p>
+                </div>
+                <div class="who-box">
+                    <div class="icon">🎤</div>
+                    <h3>Speakers & Coaches</h3>
+                    <p>Experts doing $75K–$500K/year who are the current bottleneck and need to reclaim 20+ hours per
+                        week.</p>
+                </div>
+                <div class="who-box">
+                    <div class="icon">🔨</div>
+                    <h3>Trade Contractors</h3>
+                    <p>Roofing, plumbing, HVAC, or electrical pros leaving estimates on the table and struggling to stay
+                        visible between jobs.</p>
+                </div>
+                <div class="who-box">
+                    <div class="icon">📈</div>
+                    <h3>Financial & Insurance</h3>
+                    <p>Advisors losing book to competitors because of inconsistent communication who need a reliable
+                        renewal pipeline.</p>
+                </div>
+            </div>
+
+            <div class="not-for">
+                <div class="section-title" style="margin-top: 80px; margin-bottom: 40px;">
+                    <h3>Who This Is <span class="highlight">NOT</span> For</h3>
+                </div>
+                <ul class="not-list">
+                    <li>You're still debating whether AI is real — this room will frustrate you.</li>
+                    <li>You want to watch and observe instead of build and implement — wrong event.</li>
+                    <li>You're making under $75K/year — the ROI math doesn't hit the same at this stage.</li>
+                    <li>You think a virtual replay is equivalent to being in the room — it isn't.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="wrap">
+            <div class="section-title">
+                <div class="pill">Details</div>
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>Do I need to be technical?</h4>
+                    <p>No. If you've sent an email this week, you're qualified. We handle the technical setup together
+                        in the room.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Will this work for my industry?</h4>
+                    <p>Yes. We've built AI systems for real estate, speakers, coaches, contractors, insurance, and
+                        financial professionals. The application is customized to your business in real-time.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What do I bring?</h4>
+                    <p>Just your laptop and login credentials for your email and social accounts. We provide everything
+                        else.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is there a virtual option?</h4>
+                    <p>No. Implementation and momentum happen in the room. This is a "get it done" day, not a "watch a
+                        replay later" event.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>I already use some AI tools. Is this for me?</h4>
+                    <p>Especially for you. Disconnected tools are like employees who don't talk to each other. We're
+                        building an integrated system.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Never used these tools before?</h4>
+                    <p>That's exactly who this was designed for. Zero experience required — we build it all from scratch
+                        in one day.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What is the refund policy?</h4>
+                    <p>Tickets are transferable but non-refundable within 30 days of the event. A full refund is
+                        available outside that window, no questions asked.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="registration" class="registration-form">
+        <div class="wrap">
+            <div class="card form-card">
+                <div class="section-title">
+                    <h2>Claim Your Seat</h2>
+                    <p>Early bird pricing ends April 7th. 40 total seats available.</p>
+                </div>
+                <form id="intensive-form" action="https://go.johnlawson.com/order-form-checkout">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="John Doe" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Email Address</label>
+                            <input type="email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Industry</label>
+                            <select required>
+                                <option value="">Select your industry...</option>
+                                <option>Real Estate</option>
+                                <option>Speaker/Author/Coach</option>
+                                <option>Trade Contractor</option>
+                                <option>Insurance/Financial Services</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Ticket Tier</label>
+                            <select id="tier-select" required>
+                                <option value="general">General Admission — EARLY BIRD ($795)</option>
+                                <option value="vip">VIP Strategy Weekend — EARLY BIRD ($1,295)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn primary large w-100">Proceed to Checkout</button>
+                    <p class="secure-note">🔒 Secure SSL Checkout. You will be redirected to the payment gateway.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="trainer" class="trainer-section">
+        <div class="wrap">
+            <div class="trainer-grid">
+                <div class="trainer-image">
+                    <img src="john-lawson.jpg" alt="John Lawson">
+                </div>
+                <div class="trainer-content">
+                    <div class="pill">About the Trainer</div>
+                    <h2>Meet John Lawson</h2>
+                    <p class="lead">CEO of ColderICE Media and Founder of AI Profit Lab</p>
+
+                    <p>John Lawson is an Amazon #1 best-selling author, IBM eCommerce Futurist, and internationally
+                        recognized keynote speaker who has generated tens of millions in online sales. He's been
+                        featured in <strong>Inc., Forbes, The Wall Street Journal, and Business Insider</strong>.</p>
+
+                    <p>He's shared stages with <strong>Gary Vaynerchuk, Kevin Harrington, Les Brown, and Lamar
+                            Tyler</strong>. He's been named one of America's Top 100 Small Business Influencers and has
+                        trained thousands of entrepreneurs across the globe.</p>
+
+                    <div class="quote-block">
+                        <p>But here's what NONE of those credentials will tell you... John's real gift isn't what he
+                            knows. It's what he builds. He has a rare ability to take technology that intimidates most
+                            people — and turn it into a system that works for you while you sleep.</p>
+                    </div>
+
+                    <p>After watching brilliant experts stay stuck — too busy doing the work to ever build the business
+                        — John asked one question that changed everything:</p>
+
+                    <h3 class="highlight-q">"What if the work could just... run itself?"</h3>
+
+                    <p>Today he's going to show you exactly how. Not theory. Not inspiration. A live, working AI team —
+                        built for YOUR business — before you walk out that door.</p>
+
+                    <p class="cta-line">If you're an expert who's been too busy to scale, you didn't end up in this room
+                        by accident. <strong>Let's get to work.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrap">
+            <p>&copy; 2026 AI Employee Intensive. Early bird ends April 7.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple countdown logic
+        function updateCountdown() {
+            const now = new Date();
+            const target = new Date();
+            target.setHours(23, 59, 59, 0); // End of day for demo purposes
+
+            let diff = target - now;
+            if (diff < 0) diff = 0;
+
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerText =
+                `${hours}h ${mins}m ${secs}s`;
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+
+</html>

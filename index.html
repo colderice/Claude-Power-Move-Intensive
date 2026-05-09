@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Claude Power Move Intensive – John Lawson</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple: #d97757;
+      --purple-light: #6a9bcc;
+      --purple-dark: #b55f41;
+      --purple-glow: rgba(217, 119, 87, 0.25);
+      --black: #141413;
+      --dark: #1A1A1A;
+      --dark2: #222222;
+      --dark3: #2D2D2D;
+      --white: #faf9f5;
+      --off-white: #e8e6dc;
+      --gray: #b0aea5;
+      --light-gray: #e8e6dc;
+      --text: #faf9f5;
+    }
+
+    body {
+      font-family: 'Lora', serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      padding-bottom: 72px;
+    }
+
+    h1, h2, h3, h4, h5, h6, .btn-primary, .eyebrow-light, .pre-headline, .product-name {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* COUNTDOWN BAR */
+    .countdown-bar {
+      background: var(--black);
+      border-bottom: 2px solid var(--purple);
+      color: var(--white);
+      text-align: center;
+      padding: 16px 20px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .countdown-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 10px;
+    }
+    .countdown-digits {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .countdown-unit { text-align: center; min-width: 60px; }
+    .countdown-number {
+      font-size: clamp(30px, 5vw, 44px);
+      font-weight: 900;
+      color: var(--purple);
+      line-height: 1;
+      display: block;
+    }
+    .countdown-unit-label {
+      font-size: 10px;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+      display: block;
+    }
+    .countdown-sep {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--gray);
+      opacity: 0.3;
+      line-height: 1;
+      padding-top: 4px;
+    }
+    .countdown-event-name {
+      font-size: 13px;
+      color: var(--gray);
+      margin-top: 10px;
+    }
+    .countdown-event-name strong { color: var(--white); }
+
+    /* STICKY CTA */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(20,20,19,0.97);
+      border-top: 2px solid var(--purple);
+      padding: 12px 20px;
+      text-align: center;
+      z-index: 1000;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .sticky-cta.visible { transform: translateY(0); }
+    .sticky-cta-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .sticky-cta-text span { color: var(--purple); }
+    .sticky-cta a {
+      display: inline-block;
+      background: var(--purple);
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      padding: 11px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .sticky-cta a:hover { background: var(--purple-dark); }
+
+    .hero {
+      background: var(--black);
+      color: var(--white);
+      padding: 70px 20px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/hero-bg.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      opacity: 0.38;
+      z-index: 0;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(20,20,19,0.85) 0%, rgba(20,20,19,0.4) 50%, rgba(20,20,19,0.75) 100%),
+                  linear-gradient(to bottom, rgba(20,20,19,0.3) 0%, rgba(20,20,19,0.7) 100%);
+    }
+    .hero > .container { position: relative; z-index: 1; }
+    .hero .pre-headline {
+      display: inline-block;
+      background: rgba(217, 119, 87, 0.1);
+      color: var(--purple);
+      border: 1px solid rgba(217, 119, 87, 0.2);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 24px;
+      border-radius: 30px;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 76px);
+      font-weight: 900;
+      line-height: 1.15;
+      max-width: 900px;
+      margin: 0 auto 28px;
+      letter-spacing: -0.02em;
+    }
+    .hero-sub {
+      font-size: clamp(20px, 2.5vw, 26px);
+      color: var(--gray);
+      max-width: 860px;
+      margin: 0 auto 16px;
+      line-height: 1.6;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--purple);
+      color: var(--white);
+      font-size: 18px;
+      font-weight: 800;
+      padding: 18px 44px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      line-height: 1.3;
+      text-align: center;
+    }
+    .btn-primary:hover { background: var(--purple-dark); transform: translateY(-2px); }
+    .btn-primary .btn-sub {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      opacity: 0.85;
+      margin-top: 4px;
+      font-family: 'Lora', serif;
+    }
+
+    .section-dark { background: var(--dark); padding: 70px 20px; color: var(--white); }
+    .section-darker { background: var(--black); padding: 70px 20px; color: var(--white); }
+    .section-mid { background: var(--dark2); padding: 70px 20px; color: var(--white); }
+    .section-light { background: var(--off-white); padding: 70px 20px; color: var(--black); }
+    .section-light .eyebrow-light { color: var(--purple-dark); }
+    .section-light h3, .section-light h4 { color: var(--black); }
+    .section-light p, .section-light ul.bullet-list li { color: #333333; }
+    .section-light .testi-card { background: var(--white); border-color: var(--gray); color: var(--black); }
+    .section-light .testi-card p { color: #333; }
+    .section-light strong { color: var(--black); }
+    .section-light .value-row { border-bottom-color: #ccc; }
+    .section-light .value-row .item-name { color: var(--black); }
+    .section-light .value-row .item-value { color: #555 !important; }
+    .section-light .value-total .total-label { color: #666 !important; }
+    .section-light .value-total .total-amount { color: #999 !important; }
+    .section-light .vip-callout { background: rgba(217, 119, 87, 0.06); border-color: var(--purple); }
+
+    .container { max-width: 860px; margin: 0 auto; }
+
+    .eyebrow-light {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 12px;
+    }
+
+    h2 { font-size: clamp(32px, 5vw, 54px); font-weight: 900; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 16px; color: var(--purple); }
+    h3 { font-size: clamp(24px, 4vw, 36px); font-weight: 800; line-height: 1.25; margin-bottom: 12px; }
+    p { font-size: 20px; line-height: 1.75; color: var(--gray); }
+    p + p { margin-top: 20px; }
+    strong { color: var(--white); }
+
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+    @media (max-width: 600px) { .compare-grid { grid-template-columns: 1fr; } }
+    .compare-col { border-radius: 10px; padding: 28px; background: var(--dark2); border: 1px solid #333; }
+    .compare-col.good { background: rgba(106, 155, 204, 0.05); border-color: var(--purple-light); }
+    .compare-col .col-title { font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #333; font-family: 'Poppins', sans-serif; }
+    .compare-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; font-size: 15px; color: var(--gray); }
+
+    .included-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 40px; }
+    .included-card { background: var(--dark2); border: 1px solid #333; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; }
+    .included-card h4 { font-size: 17px; font-weight: 800; color: var(--white); margin-bottom: 8px; }
+
+    .order-box {
+      background: var(--dark2);
+      border: 2px solid var(--purple);
+      border-radius: 14px;
+      padding: 40px;
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .order-box .product-name { font-size: 36px; font-weight: 900; color: var(--white); margin-bottom: 8px; }
+
+    /* TICKET GRID */
+    .ticket-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 860px; margin: 0 auto; }
+    @media (max-width: 680px) { .ticket-grid { grid-template-columns: 1fr; } }
+    .ticket-card {
+      background: var(--dark2);
+      border: 2px solid #333;
+      border-radius: 14px;
+      padding: 32px 28px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+    .ticket-card.vip {
+      border-color: var(--purple-light);
+      background: linear-gradient(160deg, var(--purple) 0%, var(--purple-dark) 100%);
+      position: relative;
+    }
+    .ticket-card.vip .ticket-name { color: var(--white); }
+    .ticket-card.vip .ticket-price-now { color: var(--purple-light); }
+    .ticket-card.vip .ticket-price-was { color: rgba(255,255,255,0.5); }
+    .ticket-card.vip .ticket-features li { color: rgba(255,255,255,0.9); border-bottom-color: rgba(255,255,255,0.15); }
+    .ticket-card.vip p { color: rgba(255,255,255,0.75); }
+    .vip-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--purple-light);
+      color: var(--black);
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 16px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .ticket-tier {
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--purple);
+      margin-bottom: 6px;
+    }
+    .ticket-card.vip .ticket-tier { color: var(--purple-light); }
+    .ticket-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .ticket-price-now {
+      font-family: 'Poppins', sans-serif;
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+    }
+    .ticket-card.vip .ticket-price-now { color: var(--purple-light); }
+    .ticket-price-was {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      color: #666;
+      text-decoration: line-through;
+      margin-top: 4px;
+      margin-bottom: 20px;
+    }
+    .ticket-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+      text-align: left;
+      flex: 1;
+    }
+    .ticket-features li {
+      font-size: 15px;
+      color: var(--gray);
+      padding: 8px 0;
+      border-bottom: 1px solid #2a2a2a;
+      padding-left: 22px;
+      position: relative;
+      line-height: 1.4;
+    }
+    .ticket-features li:last-child { border-bottom: none; }
+    .ticket-features li::before { content: '✓'; color: var(--purple); position: absolute; left: 0; font-weight: bold; }
+    .ticket-card.vip .ticket-features li::before { color: var(--purple-light); }
+
+    .urgency-bar { background: var(--purple-dark); color: var(--white); text-align: center; padding: 14px 20px; font-size: 15px; font-weight: 700; font-family: 'Poppins', sans-serif; }
+
+    .hero-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 30px; text-align: left; margin-top: 40px; }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
+
+    .sticky-panel { background: var(--dark2); border-radius: 12px; padding: 32px 24px; border: 1px solid var(--purple-light); }
+    .sticky-panel .price-line { font-family: 'Poppins', sans-serif; margin-bottom: 6px; }
+    .sticky-panel .price-now { font-size: 42px; font-weight: 900; color: var(--purple-light); line-height: 1; }
+    .sticky-panel .price-was { font-size: 18px; color: #777; text-decoration: line-through; font-weight: 600; }
+    .sticky-panel .price-label { font-size: 13px; color: var(--purple); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+
+    .testi-card {
+      background: var(--dark2);
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 24px;
+      margin-top: 20px;
+    }
+
+    /* TESTIMONIAL PLACEHOLDER STYLES — remove border/note when real quotes are added */
+    .testi-placeholder {
+      border: 2px dashed var(--purple) !important;
+      background: rgba(217, 119, 87, 0.04) !important;
+    }
+    .testi-placeholder-note {
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 13px !important;
+      font-style: normal !important;
+      color: var(--purple) !important;
+      line-height: 1.5 !important;
+    }
+
+    /* VALUE STACK */
+    .value-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 10px 0;
+      border-bottom: 1px solid #333;
+      font-size: 16px;
+    }
+    .value-row:last-child { border-bottom: none; }
+    .value-row .item-name { color: var(--white); flex: 1; padding-right: 16px; }
+    .value-row .item-value { color: var(--gray); font-family: 'Poppins', sans-serif; font-weight: 700; white-space: nowrap; }
+    .value-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 16px 0 0;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+    }
+    .value-total .total-label { font-size: 16px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.08em; }
+    .value-total .total-amount { font-size: 24px; color: var(--white); text-decoration: line-through; opacity: 0.5; }
+    .value-today {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 8px 0;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+    }
+    .value-today .today-label { font-size: 16px; color: var(--purple); text-transform: uppercase; letter-spacing: 0.08em; }
+    .value-today .today-amount { font-size: 36px; color: var(--purple); }
+
+    /* VIP SECTION */
+    .vip-section {
+      background: linear-gradient(160deg, rgba(217,119,87,0.08) 0%, rgba(20,20,19,1) 60%);
+      border-top: 1px solid rgba(217,119,87,0.3);
+      border-bottom: 1px solid rgba(217,119,87,0.3);
+      padding: 70px 20px;
+    }
+    .vip-callout {
+      background: rgba(217, 119, 87, 0.08);
+      border: 2px solid var(--purple);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-top: 32px;
+    }
+
+    /* GUARANTEE BOX */
+    .guarantee-box {
+      background: rgba(106, 155, 204, 0.06);
+      border: 1px solid var(--purple-light);
+      border-radius: 10px;
+      padding: 36px 40px;
+      text-align: center;
+    }
+    .guarantee-box .guarantee-headline {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--purple-light);
+      margin-bottom: 14px;
+    }
+    .guarantee-box p { font-size: 18px; color: var(--gray); margin: 0; line-height: 1.7; }
+    .guarantee-box strong { color: var(--white); }
+
+    .footer { background: var(--black); padding: 36px 20px; text-align: center; font-size: 13px; color: var(--gray); border-top: 1px solid #222; }
+
+    /* STAT BLOCKS */
+    .stat-blocks {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 36px 0;
+    }
+    @media (max-width: 600px) { .stat-blocks { grid-template-columns: 1fr; } }
+    .stat-block {
+      background: var(--dark2);
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 28px 20px;
+      text-align: center;
+    }
+    .stat-block .stat-num {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(36px, 5vw, 54px);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-block .stat-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+    .stat-block .stat-sub {
+      font-size: 13px;
+      color: var(--gray);
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    /* BAR CHART */
+    .bar-chart { margin: 8px 0 4px; }
+    .bar-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .bar-label {
+      font-size: 13px;
+      color: var(--gray);
+      min-width: 140px;
+      flex-shrink: 0;
+    }
+    .bar-track {
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      border-radius: 4px;
+      height: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      padding-left: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+      transition: width 1s ease;
+    }
+    .bar-fill.bad  { background: linear-gradient(90deg, rgba(220,80,80,0.7), rgba(220,80,80,0.4)); color: #ffaaaa; }
+    .bar-fill.good { background: linear-gradient(90deg, rgba(106,155,204,0.8), rgba(106,155,204,0.4)); color: #c8e0f5; }
+    .bar-chart-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    /* ROI TIMELINE */
+    .roi-timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 36px 0;
+    }
+    @media (max-width: 640px) { .roi-timeline { grid-template-columns: repeat(2, 1fr); } }
+    .roi-step {
+      background: var(--dark2);
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 28px 20px;
+      text-align: center;
+      position: relative;
+    }
+    .roi-step.highlight { border-color: var(--purple-light); background: rgba(106,155,204,0.06); }
+    .roi-step .roi-period {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+    .roi-step .roi-amount {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .roi-step .roi-desc {
+      font-size: 12px;
+      color: var(--gray);
+      line-height: 1.4;
+    }
+    .roi-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray);
+      font-size: 20px;
+      padding-top: 24px;
+    }
+    @media (max-width: 640px) { .roi-arrow { display: none; } }
+
+    /* PROMPT BREAKDOWN */
+    .prompt-breakdown {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin: 28px 0;
+    }
+    .prompt-cat {
+      background: var(--dark2);
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 18px 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .prompt-cat .cat-count {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--purple);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 48px;
+    }
+    .prompt-cat .cat-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+    }
+    .prompt-cat .cat-desc {
+      font-size: 12px;
+      color: var(--gray);
+      margin-top: 2px;
+      line-height: 1.3;
+    }
+    .prompt-total {
+      background: rgba(217,119,87,0.08);
+      border: 1px solid var(--purple);
+      border-radius: 10px;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 4px;
+    }
+    .prompt-total .pt-label { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: 0.08em; }
+    .prompt-total .pt-num { font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 900; color: var(--purple); }
+
+    /* BEFORE / AFTER VISUAL */
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 44px 0;
+    }
+    @media (max-width: 580px) { .before-after { grid-template-columns: 1fr; } }
+    .ba-col {
+      border-radius: 12px;
+      padding: 28px 24px;
+      border: 1px solid #333;
+    }
+    .ba-col.ba-before { background: rgba(255,80,80,0.05); border-color: rgba(255,100,100,0.2); }
+    .ba-col.ba-after  { background: rgba(106,155,204,0.06); border-color: var(--purple-light); }
+    .ba-header {
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #333;
+    }
+    .ba-before .ba-header { color: #e07070; }
+    .ba-after  .ba-header { color: var(--purple-light); }
+    .ba-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      gap: 12px;
+    }
+    .ba-row:last-of-type { border-bottom: none; }
+    .ba-task { font-size: 15px; color: var(--gray); flex: 1; }
+    .ba-hours {
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      white-space: nowrap;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .ba-hours.bad  { background: rgba(255,80,80,0.12); color: #e07070; }
+    .ba-hours.good { background: rgba(106,155,204,0.15); color: var(--purple-light); }
+    .ba-total {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid #333;
+      text-align: center;
+    }
+    .ba-total.bad  { color: #e07070; }
+    .ba-total.good { color: var(--purple-light); }
+    .ba-savings-bar {
+      background: rgba(106,155,204,0.08);
+      border: 1px solid rgba(106,155,204,0.25);
+      border-radius: 10px;
+      padding: 18px 24px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .ba-savings-bar .savings-number {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900;
+      color: var(--purple-light);
+      line-height: 1;
+    }
+    .ba-savings-bar .savings-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 6px;
+    }
+
+    /* SATURDAY TIMELINE */
+    .day-timeline {
+      margin-top: 40px;
+      position: relative;
+    }
+    .day-timeline::before {
+      content: '';
+      position: absolute;
+      left: 72px;
+      top: 20px;
+      bottom: 20px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--purple-dark), var(--purple), var(--purple-light));
+      border-radius: 2px;
+    }
+    @media (max-width: 560px) {
+      .day-timeline::before { left: 52px; }
+    }
+    .tl-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      margin-bottom: 32px;
+      position: relative;
+    }
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-time {
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--purple);
+      min-width: 60px;
+      text-align: right;
+      padding-top: 14px;
+      letter-spacing: 0.04em;
+    }
+    .tl-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--purple);
+      border: 3px solid var(--black);
+      flex-shrink: 0;
+      margin-top: 12px;
+      box-shadow: 0 0 0 2px var(--purple);
+      position: relative;
+      z-index: 1;
+    }
+    .tl-item:last-child .tl-dot { background: var(--purple-light); box-shadow: 0 0 0 2px var(--purple-light); }
+    .tl-content {
+      background: var(--dark2);
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 16px 20px;
+      flex: 1;
+    }
+    .tl-item:last-child .tl-content { border-color: var(--purple-light); background: rgba(106,155,204,0.06); }
+    .tl-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .tl-desc { font-size: 14px; color: var(--gray); line-height: 1.5; margin: 0; }
+    .divider-purple { height: 4px; background: linear-gradient(90deg, var(--purple-dark), var(--purple), var(--purple-light)); }
+
+    ul.bullet-list { list-style: none; padding: 0; margin-top: 20px; }
+    ul.bullet-list li { padding-left: 24px; position: relative; margin-bottom: 18px; color: var(--gray); font-size: 20px; line-height: 1.6; }
+    ul.bullet-list li::before { content: '→'; color: var(--purple); position: absolute; left: 0; top: 0; font-weight: bold; }
+
+    /* FAQ */
+    .faq-item { border-bottom: 1px solid #333; padding: 20px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-q .faq-icon { color: var(--purple); font-size: 22px; flex-shrink: 0; transition: transform 0.2s; }
+    .faq-q.open .faq-icon { transform: rotate(45deg); }
+    .faq-a { font-size: 18px; color: var(--gray); line-height: 1.7; margin-top: 12px; display: none; }
+    .faq-a.open { display: block; }
+
+    /* TESTI GRID */
+    .testi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+    @media (max-width: 640px) { .testi-grid { grid-template-columns: 1fr; } }
+    .testi-grid .testi-card { margin-top: 0; }
+
+    /* BONUS BOX */
+    .bonus-box {
+      background: rgba(106, 155, 204, 0.07);
+      border: 1px solid var(--purple-light);
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin-top: 28px;
+    }
+    .bonus-box .bonus-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 8px;
+    }
+    .bonus-box h4 { color: var(--white); font-size: 18px; margin-bottom: 8px; }
+    .bonus-box p { font-size: 16px; margin: 0; color: var(--gray); }
+
+    /* SEAT COUNTER */
+    .seat-counter {
+      display: inline-block;
+      background: var(--dark2);
+      border: 1px solid var(--purple);
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--purple);
+      margin-top: 16px;
+    }
+    .seat-counter span { color: var(--white); }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <div class="sticky-cta-text">
+      May 23 &mdash; Atlanta &nbsp;|&nbsp; 36 seats left &nbsp;|&nbsp; GA <span>$495</span> &nbsp;&middot;&nbsp; VIP <span>$850</span>
+    </div>
+    <a href="#tickets">Lock In My Seat &#x27A4;</a>
+  </div>
+
+  <!-- COUNTDOWN BAR -->
+  <div class="countdown-bar">
+    <div class="countdown-label">Event Starts In</div>
+    <div class="countdown-digits">
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cd-days">--</span>
+        <span class="countdown-unit-label">Days</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cd-hours">--</span>
+        <span class="countdown-unit-label">Hours</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cd-mins">--</span>
+        <span class="countdown-unit-label">Minutes</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cd-secs">--</span>
+        <span class="countdown-unit-label">Seconds</span>
+      </div>
+    </div>
+    <div class="countdown-event-name">
+      <strong>The Claude Power Move Intensive</strong> &mdash; Saturday, May 23, 2026 &mdash; Atlanta, GA
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="container" style="max-width: 1100px;">
+      <div class="pre-headline">
+        <span style="color: var(--purple); margin-right: 6px;">&#9679;</span> One Saturday in Atlanta &mdash; May 23, 2026
+      </div>
+
+      <h1 style="font-size: clamp(38px, 6vw, 82px); margin-bottom: 12px;">
+        10 Hours Back.<br><span style="color: var(--purple);">Week One.</span>
+      </h1>
+
+      <div style="font-family: 'Poppins', sans-serif; font-size: clamp(13px, 1.5vw, 16px); font-weight: 700; color: var(--gray); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px;">
+        Or Your Money Back &mdash; The Claude Power Move Intensive
+      </div>
+
+      <p style="font-size: clamp(20px, 2.6vw, 27px); color: var(--white); font-weight: 700; max-width: 860px; margin: 0 auto 24px; line-height: 1.45; font-family: 'Poppins', sans-serif;">
+        By 5 PM Saturday, you leave Atlanta with Claude writing your content, running your follow-ups, and handling your 5 most-hated weekly tasks &mdash; built in the room, around your voice, your business. Most attendees get 10+ hours back in week one.
+      </p>
+
+      <div style="display: inline-block; background: rgba(217,119,87,0.12); border: 1px solid rgba(217,119,87,0.3); border-radius: 8px; padding: 12px 24px; margin: 4px 0 32px; font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 600; color: var(--white);">
+        Not another AI talk. This is the build day &mdash; your system, in the room, done before you leave.
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-left" style="border-radius:12px; overflow:hidden; position:relative; min-height:320px; border: 1px solid rgba(217,119,87,0.2);">
+          <img src="assets/johns-class.png" alt="John Lawson teaching at The Claude Power Move Intensive" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block; border-radius:12px;">
+          <div style="position:absolute; inset:0; background:linear-gradient(to right, rgba(20,20,19,0.05) 0%, rgba(20,20,19,0.5) 100%); border-radius:12px;"></div>
+        </div>
+
+        <div class="hero-right">
+          <div class="sticky-panel" style="text-align: center;">
+            <div style="font-size: 18px; color: var(--white); font-weight: 600; margin-bottom: 16px; font-family: 'Poppins', sans-serif;">
+              Saturday, May 23, 2026<br>
+              <span style="font-size:14px; color:var(--purple-light);">9:00 AM &ndash; 5:00 PM</span>
+            </div>
+
+            <div class="price-label">Early Bird Price</div>
+            <div class="price-line">
+              <span class="price-now">$495</span>
+            </div>
+            <div class="price-line" style="margin-bottom:16px;">
+              <span class="price-was">Regular $995</span>
+            </div>
+
+            <div style="text-align: center; font-size: 15px; margin-bottom: 20px;">
+              <a href="https://maps.google.com/?q=2135+Liddell+Dr+NE,+Atlanta,+GA" target="_blank" style="color: var(--gray); text-decoration: none;">
+                <span style="border-bottom: 1px dotted var(--gray);">&#128205; Masterly Studios</span><br>
+                <span style="border-bottom: 1px dotted var(--gray);">2135 Liddell Dr NE, Atlanta, GA</span>
+              </a>
+            </div>
+
+            <a href="#tickets" class="btn-primary" style="width: 100%;">
+              Lock In My Seat &mdash; $495
+              <span class="btn-sub">36 seats left &mdash; register to hold yours</span>
+            </a>
+
+            <div style="background: var(--black); border-radius: 8px; padding: 14px; margin-top: 20px; font-size: 13px; color: var(--gray); line-height: 1.5; border: 1px solid #333; text-align: left;">
+              <strong style="color:var(--white);">Bring a laptop.</strong> This is a working session, not a watch-and-nod. You build your Claude system in real time.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-purple"></div>
+
+  <!-- PAIN / STAKES -->
+  <section class="section-darker">
+    <div class="container">
+      <div class="eyebrow-light">The Real Cost</div>
+      <h2>Let's Talk About What Doing It Yourself Is Actually Costing You</h2>
+
+      <p>Ten hours a week. That's conservative. Most business owners in my world are putting 12, 15, sometimes 20 hours a week into content, follow-ups, proposals, and operations busywork. Work they know could be handled. Work they keep meaning to hand off.</p>
+
+      <div class="stat-blocks">
+        <div class="stat-block">
+          <div class="stat-num" style="color: #e07070;">10 hrs</div>
+          <div class="stat-label">Per Week</div>
+          <div class="stat-sub">doing tasks Claude could handle right now</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num" style="color: #e07070;">520 hrs</div>
+          <div class="stat-label">Per Year</div>
+          <div class="stat-sub">of your own time on autopilot busywork</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num" style="color: var(--purple);">$78K</div>
+          <div class="stat-label">Annual Cost</div>
+          <div class="stat-sub">at $150/hr — that's a salary you're paying yourself to do the wrong work</div>
+        </div>
+      </div>
+
+      <p>And the real cost isn't just the hours. It's the content you never got out. The follow-ups that fell through the cracks. The offers you didn't launch because the marketing runway never cleared.</p>
+
+      <!-- BEFORE / AFTER VISUAL -->
+      <div class="before-after">
+        <div class="ba-col ba-before">
+          <div class="ba-header">Your Week Right Now</div>
+          <div class="bar-chart">
+            <div class="bar-row">
+              <span class="bar-label">Social content</span>
+              <div class="bar-track"><div class="bar-fill bad" style="width:90%">4–6 hrs</div></div>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Client follow-ups</span>
+              <div class="bar-track"><div class="bar-fill bad" style="width:55%">2–3 hrs</div></div>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Proposals &amp; emails</span>
+              <div class="bar-track"><div class="bar-fill bad" style="width:55%">2–3 hrs</div></div>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Operations &amp; admin</span>
+              <div class="bar-track"><div class="bar-fill bad" style="width:70%">2–4 hrs</div></div>
+            </div>
+          </div>
+          <div class="ba-total bad">10–16 hrs of your time, every week</div>
+        </div>
+        <div class="ba-col ba-after">
+          <div class="ba-header">After Saturday</div>
+          <div class="bar-chart">
+            <div class="bar-row">
+              <span class="bar-label">Social content</span>
+              <div class="bar-track"><div class="bar-fill good" style="width:12%">40 min</div></div>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Client follow-ups</span>
+              <div class="bar-track"><div class="bar-fill good" style="width:6%">Auto</div></div>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Proposals &amp; emails</span>
+              <div class="bar-track"><div class="bar-fill good" style="width:8%">20 min</div></div>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Operations &amp; admin</span>
+              <div class="bar-track"><div class="bar-fill good" style="width:10%">Handled</div></div>
+            </div>
+          </div>
+          <div class="ba-total good">~2 hrs/week. Claude handles the rest.</div>
+        </div>
+      </div>
+      <div class="ba-savings-bar">
+        <div class="savings-number">10+ hrs</div>
+        <div class="savings-label">back in your first week &mdash; that's $1,000+ of your own time at $100/hr</div>
+      </div>
+
+      <div style="background: var(--dark2); border-left: 4px solid var(--purple); padding: 28px 32px; border-radius: 4px; margin: 40px 0;">
+        <p style="margin: 0; color: var(--white); font-size: 22px; font-weight: 700; font-family: 'Poppins', sans-serif; line-height: 1.45;">
+          Picture your business 90 days after Atlanta. Your Sunday content batch takes 40 minutes instead of 4 hours. Your follow-up doesn't fall through the cracks because Claude is running the cadence. You stop opening your laptop at 9 PM. The offers you've been meaning to launch actually launch &mdash; because the work to market them is handled.
+        </p>
+      </div>
+
+      <p>Now picture the other version. The one where you don't show up Saturday. You're still hand-cranking your content in September. Still saying you'll get systems in place this quarter. Still meaning to.</p>
+
+      <p>The gap between those two versions isn't talent. It isn't budget. It's one Saturday in Atlanta.</p>
+
+    </div>
+  </section>
+
+  <!-- THIS IS DIFFERENT SECTION -->
+  <section class="section-light">
+    <div class="container">
+      <div class="eyebrow-light">For My People Specifically</div>
+      <h2 style="color: var(--black);">You've Heard Me Talk About AI. This Is Different.</h2>
+
+      <p>If you've been in my Facebook group, watched one of my talks, or sat in my trainings &mdash; you already know what AI can do. You've taken the notes. You've said "I need to implement this." You meant it every time.</p>
+
+      <p>The problem isn't motivation. It's that the gap between "I know Claude is the answer" and "Claude is actually running in my business" feels like a research project. You open it, stare at the blank prompt box, and then close it because you don't know where to start for <em>your</em> specific business, your voice, your workflows.</p>
+
+      <p>That gap is exactly what this day closes. Not with more theory. With hands-on building. My setup. Your business. Done in the room.</p>
+
+      <p>And here's what makes this different from everything I've taught before: <strong>this is the first time I've built a full-day intensive around Claude specifically</strong> &mdash; the tool that just had its biggest moment in AI history. Not a bonus module. Not a 90-minute webinar. A full build day. If you've already heard me teach, you haven't seen this version yet.</p>
+    </div>
+  </section>
+
+  <!-- WHAT IT IS -->
+  <section class="section-darker" style="position:relative; overflow:hidden;">
+    <div class="container">
+      <div class="eyebrow-light">The Experience</div>
+      <h2>What This Day Is</h2>
+
+      <p>The Claude Power Move is a full-day, in-person working session where you build your Claude-powered business system from scratch. Only 36 seats so every person in the room gets real attention.</p>
+
+      <ul class="bullet-list" style="margin-bottom:30px;">
+        <li>Not a lecture about what's possible.</li>
+        <li>Not a highlight reel of AI demos.</li>
+        <li>Not homework you'll take home and never finish.</li>
+      </ul>
+
+      <div style="background: rgba(217, 119, 87, 0.08); border-left: 4px solid var(--purple); padding: 24px 32px; border-radius: 4px; margin-bottom:30px;">
+        <p style="margin:0; color: var(--white); font-weight: bold; font-size: 24px; line-height: 1.45;">
+          You walk in with a laptop. You walk out with Claude set up, configured to your business, and doing real work before you hit the parking lot.
+        </p>
+      </div>
+
+      <p>I walk you through the exact setup I use to run my own business. Then we adapt it to yours. By the time you leave, you won't be thinking about AI implementation anymore &mdash; because it'll already be running.</p>
+
+      <!-- SATURDAY TIMELINE -->
+      <div class="eyebrow-light" style="margin-top: 48px;">Your Saturday, Hour by Hour</div>
+      <div class="day-timeline">
+        <div class="tl-item">
+          <div class="tl-time">9:00 AM</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="tl-title">Foundation &amp; Setup</div>
+            <p class="tl-desc">Claude configured to your business. Account structure built. Your voice training begins.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">10:30 AM</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="tl-title">Voice &amp; Content Engine</div>
+            <p class="tl-desc">Claude learns to sound like you. Content framework installed. First real outputs produced in the room.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">12:00 PM</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="tl-title">Workflow Build</div>
+            <p class="tl-desc">Your 5 workflow templates installed and customized. Follow-up cadence and operations brief running.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">2:00 PM</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="tl-title">Prompts &amp; Systems Deployed</div>
+            <p class="tl-desc">502 prompts organized and live. Proposal generator tested. You run your first full workflow end-to-end.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">3:30 PM</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="tl-title">Advanced Builds &amp; Q&amp;A</div>
+            <p class="tl-desc">Edge cases, advanced prompting, integrating Claude into your existing stack. Every question answered.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">5:00 PM</div>
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <div class="tl-title">You Leave with Claude Running</div>
+            <p class="tl-desc">Not "set up to be set up later." Running. Before you hit the parking lot.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU WALK AWAY WITH + VALUE STACK -->
+  <section class="section-mid">
+    <div class="container">
+      <div class="eyebrow-light">What You Get</div>
+      <h2>Everything You Walk Out With</h2>
+
+      <div class="included-grid">
+        <div class="included-card">
+          <h4>Your Claude Business Setup &mdash; Built in the Room</h4>
+          <p>A fully configured Claude environment built around your business, your voice, and your specific workflows. Not a template. Yours.</p>
+        </div>
+        <div class="included-card" style="grid-column: 1 / -1;">
+          <h4 style="margin-bottom: 20px;">502 Done-for-You Prompts — What's Inside</h4>
+          <div class="prompt-breakdown">
+            <div class="prompt-cat">
+              <div class="cat-count">128</div>
+              <div><div class="cat-name">Content &amp; Social</div><div class="cat-desc">Posts, captions, newsletters, video scripts</div></div>
+            </div>
+            <div class="prompt-cat">
+              <div class="cat-count">96</div>
+              <div><div class="cat-name">Sales &amp; Offers</div><div class="cat-desc">Pitches, proposals, follow-up sequences</div></div>
+            </div>
+            <div class="prompt-cat">
+              <div class="cat-count">84</div>
+              <div><div class="cat-name">Client Communication</div><div class="cat-desc">Onboarding, updates, difficult conversations</div></div>
+            </div>
+            <div class="prompt-cat">
+              <div class="cat-count">72</div>
+              <div><div class="cat-name">Operations &amp; Admin</div><div class="cat-desc">SOPs, briefs, meeting summaries, reports</div></div>
+            </div>
+            <div class="prompt-cat">
+              <div class="cat-count">68</div>
+              <div><div class="cat-name">Strategy &amp; Planning</div><div class="cat-desc">Offers, launches, quarterly planning</div></div>
+            </div>
+            <div class="prompt-cat">
+              <div class="cat-count">54</div>
+              <div><div class="cat-name">Research &amp; Analysis</div><div class="cat-desc">Competitor research, audience insights, trends</div></div>
+            </div>
+          </div>
+          <div class="prompt-total">
+            <span class="pt-label">Total prompts, organized by use case</span>
+            <span class="pt-num">502</span>
+          </div>
+        </div>
+        <div class="included-card">
+          <h4>5 Named Workflow Templates</h4>
+          <p>Weekly Content Engine, Client Follow-Up Cadence, Proposal &amp; Offer Generator, Lead Nurture Sequence Builder, and Monday Morning Operations Brief. Plug in your business details and they run.</p>
+        </div>
+        <div class="included-card">
+          <h4>John's Personal Claude Setup Guide</h4>
+          <p>The exact system I use every day to run my business. Prompts, project structure, voice training, the works. You get the full thing.</p>
+        </div>
+        <div class="included-card">
+          <h4>Content Framework: Your Voice, Not a Robot's</h4>
+          <p>Learn how to train Claude on your voice so the output sounds like you wrote it &mdash; not like someone asked ChatGPT to "write a LinkedIn post."</p>
+        </div>
+        <div class="included-card">
+          <h4>Claude vs. Everything Else &mdash; The Full Picture</h4>
+          <p>Why Claude is the right engine for service businesses right now, and how it connects to the rest of your stack. Leave with clarity, not a fragmented tool list.</p>
+        </div>
+      </div>
+
+      <!-- VALUE STACK -->
+      <div style="background: var(--dark2); border: 1px solid #333; border-radius: 12px; padding: 32px; margin-top: 48px; max-width: 620px; margin-left: auto; margin-right: auto;">
+        <div style="font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 20px;">General Admission Value Breakdown</div>
+
+        <div class="value-row">
+          <span class="item-name">Full-Day Intensive with John (AI consultant day rate)</span>
+          <span class="item-value">$1,500</span>
+        </div>
+        <div class="value-row">
+          <span class="item-name">Custom Claude Business Setup, Built Live</span>
+          <span class="item-value">$750</span>
+        </div>
+        <div class="value-row">
+          <span class="item-name">5 Named Workflow Templates ($97 each)</span>
+          <span class="item-value">$485</span>
+        </div>
+        <div class="value-row">
+          <span class="item-name">502 Done-for-You Prompts (market rate for prompt libraries)</span>
+          <span class="item-value">$297</span>
+        </div>
+        <div class="value-row">
+          <span class="item-name">John's Personal Claude Setup Guide</span>
+          <span class="item-value">$197</span>
+        </div>
+        <div class="value-row">
+          <span class="item-name">Voice &amp; Content Prompting Framework</span>
+          <span class="item-value">$197</span>
+        </div>
+
+        <div class="value-total">
+          <span class="total-label">Total Value</span>
+          <span class="total-amount">$3,426</span>
+        </div>
+        <div class="value-today">
+          <span class="today-label">Your Early Bird Price</span>
+          <span class="today-amount">$495</span>
+        </div>
+      </div>
+
+      <!-- ROI TIMELINE -->
+      <div style="margin: 40px 0 0;">
+        <div style="font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 4px; text-align: center;">Your Return on $495</div>
+        <div style="font-size: 14px; color: var(--gray); text-align: center; margin-bottom: 24px;">Based on 10 hrs/week recovered @ $100/hr</div>
+        <div class="roi-timeline">
+          <div class="roi-step">
+            <div class="roi-period">Day 1</div>
+            <div class="roi-amount" style="color: #e07070;">−$495</div>
+            <div class="roi-desc">Ticket cost. The only money you spend.</div>
+          </div>
+          <div class="roi-step">
+            <div class="roi-period">Week 1</div>
+            <div class="roi-amount" style="color: var(--purple);">+$505</div>
+            <div class="roi-desc">10 hrs back × $100 = $1,000 − ticket = net positive</div>
+          </div>
+          <div class="roi-step">
+            <div class="roi-period">Month 1</div>
+            <div class="roi-amount" style="color: var(--purple-light);">+$3,505</div>
+            <div class="roi-desc">40 hrs/month recovered. Compounds every week.</div>
+          </div>
+          <div class="roi-step highlight">
+            <div class="roi-period">Year 1</div>
+            <div class="roi-amount" style="color: var(--purple-light);">+$51,505</div>
+            <div class="roi-desc">520 hrs reclaimed. From one Saturday.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EARLY BIRD BONUS -->
+      <div class="bonus-box" style="max-width: 620px; margin: 0 auto; margin-top: 24px;">
+        <div class="bonus-label">&#9733; Early Bird Bonus &mdash; Register by May 9</div>
+        <h4>30-Minute Pre-Event Strategy Call with John ($300 value)</h4>
+        <p>Book before May 9 and you get a private 30-minute call with me before the event. We'll map out your top three automation priorities so you walk into Saturday knowing exactly what we're building for your business. This bonus disappears when the deadline passes or seats fill &mdash; whichever comes first.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VIP SECTION (its own section) -->
+  <section class="section-light">
+    <div class="container">
+      <div class="eyebrow-light">For Serious Operators</div>
+      <h2>The Full Build &mdash; Two Days, Your Business Completely Overhauled</h2>
+
+      <p>GA gives you the foundation. The Full Build gives you the complete overhaul &mdash; and my eyes on your specific business for two full days.</p>
+
+      <p>Saturday you build the system with everyone else. Sunday is yours. Advanced workflows, complex automations, the stuff it took me months to figure out &mdash; compressed into one day. And you get a live hot seat: your business on the board, your bottlenecks diagnosed, solutions built on the spot in front of the room.</p>
+
+      <p>Most consultants charge $1,500–$3,000 for a single strategy day. You're getting two days plus a full build weekend for $850. If you know what an hour of focused strategy is worth to your business, the math here isn't complicated.</p>
+
+      <div class="vip-callout">
+        <div style="font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple); margin-bottom: 20px;">VIP Weekend Value Breakdown</div>
+
+        <div class="value-row" style="border-bottom-color: rgba(217,119,87,0.2);">
+          <span class="item-name">Everything in General Admission</span>
+          <span class="item-value" style="color: var(--gray);">$2,624</span>
+        </div>
+        <div class="value-row" style="border-bottom-color: rgba(217,119,87,0.2);">
+          <span class="item-name">Full Second Day &mdash; Sunday, May 24 (advanced workflows + build)</span>
+          <span class="item-value" style="color: var(--gray);">$997</span>
+        </div>
+        <div class="value-row" style="border-bottom-color: rgba(217,119,87,0.2);">
+          <span class="item-name">Live Hot Seat &mdash; your business, your bottlenecks, in the room</span>
+          <span class="item-value" style="color: var(--gray);">$500</span>
+        </div>
+        <div class="value-row" style="border-bottom-color: rgba(217,119,87,0.2);">
+          <span class="item-name">Priority Seating &mdash; front of the room both days</span>
+          <span class="item-value" style="color: var(--gray);">Included</span>
+        </div>
+
+        <div class="value-total">
+          <span class="total-label" style="color: var(--gray);">Total Value</span>
+          <span class="total-amount" style="color: var(--gray);">$4,121</span>
+        </div>
+        <div class="value-today">
+          <span class="today-label">VIP Weekend Price</span>
+          <span class="today-amount">$850</span>
+        </div>
+      </div>
+
+      <div style="margin-top: 28px; text-align: center;">
+        <a href="#tickets" class="btn-primary">
+          Get John's Eyes On My Business &mdash; VIP
+          <span class="btn-sub">Extremely limited &mdash; fewer VIP seats than GA</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="section-darker">
+    <div class="container">
+      <div class="eyebrow-light">From People Who've Been In The Room</div>
+      <h2>What Happens When You Actually Implement</h2>
+
+      <p>These are the people who stopped watching and started building. Their words, not mine.</p>
+
+      <!-- RESULT-BASED LEAD TESTIMONIAL -->
+      <div class="testi-card" style="border-color: var(--gray); background: var(--white);">
+        <p style="font-style: italic; color: var(--black); font-size: 22px; margin-bottom: 12px; font-family:'Lora',serif;">"I was about to hire an expensive copywriter. After John's training, I built my own system &mdash; and now I can properly monetize my list of <strong style="color: var(--purple-dark);">88,000 people</strong>."</p>
+        <p style="color: var(--purple-dark); font-size: 16px; font-weight:bold; margin-bottom: 0;">&mdash; Linda P., CEO LiPav &mdash; <em>"The Queen of Webinars"</em></p>
+      </div>
+
+      <div class="testi-grid">
+
+        <div class="testi-card" style="background: var(--white); border-color: var(--gray);">
+          <p style="font-style: italic; color: #222; font-size: 18px; margin-bottom: 16px; font-family:'Lora',serif; line-height: 1.65;">"Me to my VA: 'I am loving these titles &mdash; very catchy.' Her reply: 'I used the AI system we built in Mr. John's training.' That was the moment I knew it actually worked."</p>
+          <p style="color: var(--purple-dark); font-size: 15px; font-weight: bold; margin-bottom: 0;">&mdash; Dr. Samm P., Chief Medical Officer &amp; TEDx Speaker</p>
+        </div>
+
+        <div class="testi-card" style="background: var(--white); border-color: var(--gray);">
+          <p style="font-style: italic; color: #222; font-size: 18px; margin-bottom: 16px; font-family:'Lora',serif; line-height: 1.65;">"As a 30-year media professional, I had a 'forest for the trees' moment. I was missing the simplest things. John's training helped me restructure my services and finally see the gaps I'd been ignoring for years."</p>
+          <p style="color: var(--purple-dark); font-size: 15px; font-weight: bold; margin-bottom: 0;">&mdash; Ren&eacute; S., Founder/CEO, Elite Media Mastery</p>
+        </div>
+
+        <div class="testi-card" style="background: var(--white); border-color: var(--gray);">
+          <p style="font-style: italic; color: #222; font-size: 18px; margin-bottom: 16px; font-family:'Lora',serif; line-height: 1.65;">"These frameworks pack years of business psychology into tools I can deploy immediately. I went from not knowing what I'd bought to using it every single day."</p>
+          <p style="color: var(--purple-dark); font-size: 15px; font-weight: bold; margin-bottom: 0;">&mdash; Jennifer J., Founder &mdash; <em>God Ain't Petty But I Am</em>, 7-Figure Apparel Brand</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHO IT IS FOR (mirror language) -->
+  <section class="section-light">
+    <div class="container">
+      <div class="eyebrow-light">Is This You?</div>
+      <h2>Who Saturday Is Built For</h2>
+
+      <div style="background: var(--dark2); border: 1px solid #333; border-radius: 12px; padding: 36px; margin-top: 32px;">
+        <p style="font-size: 22px; line-height: 1.7; color: var(--white);">
+          You're the one who's been telling yourself you'll "finally get systems in place this quarter." You've said it three quarters in a row. You've watched me teach, taken the notes, highlighted the slides, and meant to implement every time. You know Claude is the answer &mdash; but every time you sit down to actually set it up, you bounce off because the gap between "what it can do" and "what I need it to do for my specific business" feels like a 6-hour research project you don't have time for.
+        </p>
+        <p style="font-size: 22px; line-height: 1.7; color: var(--white); margin-top: 24px;">
+          Saturday is the day you skip the research project.
+        </p>
+      </div>
+
+      <div style="margin-top: 40px;">
+        <p style="font-size: 20px; color: #555; line-height: 1.7;">This day is right for you if:</p>
+        <ul class="bullet-list">
+          <li>You're running a service business &mdash; coaching, consulting, agency, freelance &mdash; and content + operations are eating your week</li>
+          <li>You've tried AI tools before, gotten mediocre output, and given up before you figured out the real setup</li>
+          <li>You know your business would grow faster if you weren't the one doing everything, but hiring isn't the answer right now</li>
+          <li>You've been in my world and you're done watching. You're ready to build.</li>
+        </ul>
+      </div>
+
+      <div style="margin-top: 30px; font-weight: bold; color: var(--black); font-size: 22px; line-height: 1.5;">
+        <p>If you've been meaning to implement for six months &mdash; <span style="color: var(--purple);">Saturday is the day it actually happens.</span></p>
+      </div>
+
+      <!-- WHO IT IS NOT FOR -->
+      <div style="margin-top: 48px; background: var(--dark3); border: 1px solid #444; border-radius: 12px; padding: 36px;">
+        <div style="font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); margin-bottom: 20px;">This Is NOT For You If&hellip;</div>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="padding: 10px 0 10px 28px; position: relative; border-bottom: 1px solid #3a3a3a; color: var(--gray); font-size: 18px; line-height: 1.5;">
+            <span style="position: absolute; left: 0; color: #555; font-weight: 900;">&#x2715;</span>
+            You want to watch, take notes, and implement "later" &mdash; there is no later, and there's no replay
+          </li>
+          <li style="padding: 10px 0 10px 28px; position: relative; border-bottom: 1px solid #3a3a3a; color: var(--gray); font-size: 18px; line-height: 1.5;">
+            <span style="position: absolute; left: 0; color: #555; font-weight: 900;">&#x2715;</span>
+            You're not willing to open your laptop and build in the room
+          </li>
+          <li style="padding: 10px 0 10px 28px; position: relative; border-bottom: 1px solid #3a3a3a; color: var(--gray); font-size: 18px; line-height: 1.5;">
+            <span style="position: absolute; left: 0; color: #555; font-weight: 900;">&#x2715;</span>
+            You think this is about ChatGPT &mdash; it isn't, Claude is a different tool with a different capability set entirely
+          </li>
+          <li style="padding: 10px 0 10px 28px; position: relative; border-bottom: 1px solid #3a3a3a; color: var(--gray); font-size: 18px; line-height: 1.5;">
+            <span style="position: absolute; left: 0; color: #555; font-weight: 900;">&#x2715;</span>
+            You already have a working AI system saving you 10+ hours a week &mdash; you're already winning, this isn't for you
+          </li>
+          <li style="padding: 10px 0 0 28px; position: relative; color: var(--gray); font-size: 18px; line-height: 1.5;">
+            <span style="position: absolute; left: 0; color: #555; font-weight: 900;">&#x2715;</span>
+            You need a virtual option &mdash; this is Atlanta, in person, period
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE (moved up, before pricing) -->
+  <section class="section-mid">
+    <div class="container" style="max-width: 720px;">
+      <div class="guarantee-box">
+        <div class="guarantee-headline">&#10003; The Power Move Guarantee &mdash; You Risk Nothing</div>
+        <p style="font-size: 20px; line-height: 1.7;">
+          Show up Saturday. Open your laptop. Do the work in the room. If Claude isn't running in your business before you leave the parking lot &mdash; <strong>I'll refund every dollar on the spot. And you keep everything.</strong> Every prompt. Every template. Every framework. You walk out with $3,426 in resources and your money back.
+        </p>
+        <p style="margin-top: 16px; font-size: 17px;">
+          I've never had to make good on that. I don't expect Saturday to be different. But you should know the risk is entirely mine &mdash; not yours.
+        </p>
+        <div style="margin-top: 20px; padding: 16px; background: rgba(106,155,204,0.08); border-radius: 8px; font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 700; color: var(--purple-light);">
+          The only way you lose is if you don't show up.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- URGENCY BAR -->
+  <div class="urgency-bar" id="get-access">
+    &#128209; Only 36 seats &mdash; intentional. This is a working session, not a conference. Every person in the room gets real attention.
+  </div>
+
+  <!-- PRICING -->
+  <section class="section-light" id="tickets">
+    <div class="container">
+
+      <div style="text-align:center; margin-bottom:40px;">
+        <div class="eyebrow-light" style="color: var(--purple-dark);">Choose Your Seat</div>
+        <h2 style="color: var(--black);">Saturday, May 23, 2026 &mdash; Atlanta, GA</h2>
+        <p style="color:#555; font-size:18px;">&#128205; Masterly Studios, 2135 Liddell Dr NE &nbsp;|&nbsp; 9:00 AM &ndash; 5:00 PM</p>
+        <div class="seat-counter" style="background: rgba(217,119,87,0.08); border-color: var(--purple-dark); color: var(--purple-dark);">
+          &#128205; Only <span style="color: var(--black);">36 seats left.</span> Register to hold yours.
+        </div>
+      </div>
+
+      <div class="ticket-grid">
+
+        <!-- GENERAL ADMISSION -->
+        <div class="ticket-card">
+          <div class="ticket-tier">General Admission</div>
+          <div class="ticket-name">The Claude Power Move Intensive</div>
+          <div class="ticket-price-now">$495</div>
+          <div class="ticket-price-was">Regular $995</div>
+          <ul class="ticket-features">
+            <li>Full-day hands-on working session (9 AM &ndash; 5 PM)</li>
+            <li>Your Claude business setup built in the room</li>
+            <li>5 named workflow templates: Weekly Content Engine, Client Follow-Up Cadence, Proposal Generator, Lead Nurture Sequence Builder, Monday Morning Operations Brief</li>
+            <li>502 done-for-you prompts (organized by use case)</li>
+            <li>John's personal Claude setup guide</li>
+            <li>Voice &amp; content prompting framework</li>
+          </ul>
+          <div style="background: rgba(106,155,204,0.07); border: 1px solid rgba(106,155,204,0.2); border-radius: 6px; padding: 10px 14px; margin-bottom: 16px; font-family: 'Poppins', sans-serif; font-size: 13px; color: var(--gray); text-align: left;">
+            Total value: <span style="text-decoration: line-through;">$3,426</span> &nbsp; Your price: <strong style="color: var(--white);">$495</strong>
+          </div>
+          <a href="https://sales.masterlystudios.com/the-claude-power-move-intensive/" class="btn-primary" style="width:100%; font-size:16px; padding:16px 20px;">
+            Lock In My Claude Day &mdash; $495
+            <span class="btn-sub">Early bird price &mdash; register before May 9 for bonus call</span>
+          </a>
+        </div>
+
+        <!-- VIP -->
+        <div class="ticket-card vip">
+          <div class="vip-badge">Best Value</div>
+          <div class="ticket-tier">The Full Build &mdash; Two Days</div>
+          <div class="ticket-name">Complete Business Overhaul</div>
+          <div class="ticket-price-now">$850</div>
+          <div class="ticket-price-was">Regular $1,995</div>
+          <ul class="ticket-features">
+            <li>Everything in General Admission (Saturday, May 23)</li>
+            <li>Full second day &mdash; Sunday, May 24: advanced workflows, deeper builds, more time</li>
+            <li>Live hot seat with John &mdash; your business, your bottlenecks, on the board in the room</li>
+            <li>Priority seating, front of the room, both days</li>
+          </ul>
+          <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; padding: 10px 14px; margin-bottom: 16px; font-family: 'Poppins', sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); text-align: left;">
+            Total value: <span style="text-decoration: line-through; opacity: 0.6;">$4,121</span> &nbsp; Your price: <strong style="color: var(--purple-light);">$850</strong>
+          </div>
+          <a href="https://sales.masterlystudios.com/the-claude-power-move-intensive/" class="btn-primary" style="width:100%; font-size:16px; padding:16px 20px; background:var(--purple-light);">
+            Get John's Eyes On My Business &mdash; VIP
+            <span class="btn-sub">Fewer VIP seats than GA &mdash; these go first</span>
+          </a>
+          <p style="font-size:14px; margin-top:14px; margin-bottom:0; line-height: 1.5;">GA gives you the system. The Weekend gives you two days of my attention on your specific business. If you already know what that's worth, the math is easy.</p>
+        </div>
+
+      </div>
+
+      <p style="font-size:16px; color:#666; margin-top:24px; text-align:center;">Seats are non-refundable but transferable. Questions? <a href="mailto:john@3rdpoweroutlet.com" style="color: var(--purple-dark);">john@3rdpoweroutlet.com</a></p>
+
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-darker" style="border-top: 1px solid #2a2a2a;">
+    <div class="container">
+      <div class="eyebrow-light">Real Questions</div>
+      <h2>FAQ</h2>
+
+      <!-- REAL OBJECTION QUESTIONS FIRST -->
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          I've already heard John teach AI. How is this different from what I've already learned?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Good question and I'd ask the same thing. The talks and webinars give you the concept. This day gives you the setup. The gap between "I understand AI" and "Claude is running in my business" is a build gap &mdash; not a knowledge gap. That's what Saturday closes. We're also going deeper on Claude specifically than I've gone in any previous training. New material, new tools, built around your actual business in the room with you.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Atlanta is a flight. Is this worth the travel?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">That's the real objection and I respect it. Here's how I think about it: the flight and hotel are probably $300&ndash;$600 depending on where you're coming from. You're in and out in a day. And you're leaving with Claude handling 5+ hours of your work every week going forward. Run that math. If you save 5 hours a week and your time is worth $100 an hour, that's $26,000 a year in recovered capacity &mdash; from a $495 ticket and a round-trip flight. The real question isn't whether it's worth the travel. It's whether you'll actually implement if you just watch a replay from your couch. I know the answer to that question. So do you.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What if I attend and still don't implement after?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">That's the right thing to be worried about &mdash; most people attend events and don't implement. That's why this isn't a sit-and-listen event. You're building your Claude setup in real time, in the room. By 5 PM Saturday, Claude is already running. There's no "I'll set it up later" because it's set up before you leave. The Power Move Promise covers you &mdash; if you do the work in the room and it's not running, I work with you personally until it is.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          $495 is real money. What's my actual ROI here?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Most attendees get 10 hours back in week one. If your time is worth $50 an hour, that's $500 &mdash; you've already recouped the ticket in 7 days. If your time is worth $100 an hour, week one is worth $1,000. And it compounds every single week after that. The 502 prompts alone, at market rate, are worth more than the ticket price before you ever walk in the room. The guarantee removes the financial risk entirely &mdash; if it doesn't work, you get your money back and keep everything. At that point the question isn't ROI. The question is why you'd wait.</div>
+      </div>
+
+      <!-- LOGISTICS QUESTIONS -->
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What do I need to bring?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">A laptop and Claude access. If you don't have a Claude account, we'll get you set up at the door &mdash; takes about 5 minutes. No prior AI experience required. Just bring your business and be ready to work.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Is there a replay or virtual option?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">No. This is live and in-person, period. The value is in building your system in real time with hands-on support from me and the room. That can't happen on a screen. If you can't make it to Atlanta, this isn't the right event for you right now &mdash; and I'll have more options in the future.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          I'm a complete beginner with AI. Is this for me?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Yes. The day is designed for people who haven't fully figured out Claude yet &mdash; whether you've never opened it or you've been dabbling without real results. No technical background needed. You need to show up and be willing to follow along. Only 36 seats in the room &mdash; you won't get lost in a crowd.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What's the refund policy?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-a">Seats are non-refundable but transferable. If you can't make it, you can send someone in your place. Contact john@3rdpoweroutlet.com with any questions or to arrange a transfer.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BIO (shrunk) -->
+  <section class="section-light" style="border-top: 1px solid #ddd; padding: 40px 20px;">
+    <div class="container" style="text-align: center; max-width: 680px;">
+      <div class="eyebrow-light">Your Instructor</div>
+      <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap; justify-content: center; margin-top: 24px;">
+        <img src="assets/about-john.jpg" alt="John Lawson" style="width: 90px; height: 90px; border-radius: 50%; border: 2px solid rgba(217,119,87,0.4); object-fit: cover; flex-shrink: 0;">
+        <p style="text-align: left; font-size: 17px; max-width: 520px; margin: 0;">
+          <strong style="font-family: 'Poppins', sans-serif;">John Lawson</strong> is an AI Strategy Consultant, 3x Amazon bestselling author, Verizon Digital Ready AI Instructor, and creator of the <em>People + AI = Power Moves</em> framework. He's built a $32M+ career knowing how to use the right tools at the right time. Claude is the right tool right now. Saturday is where you build with it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div style="margin-bottom:16px; font-family:'Poppins', sans-serif; font-weight:800; font-size:18px; color:var(--white);">
+      The Claude <span style="color:var(--purple);">Power Move</span>
+    </div>
+    <p style="margin-bottom:16px;">The Claude Power Move Intensive is presented by ColderICE Media.</p>
+    <p>Questions? Contact <a href="mailto:john@3rdpoweroutlet.com" style="color:var(--purple-light);">john@3rdpoweroutlet.com</a></p>
+    <p style="margin-top:30px; font-size:11px;">&copy; 2026 ColderICE Media. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // COUNTDOWN TIMER
+    (function() {
+      var eventDate = new Date('2026-05-23T09:00:00-04:00');
+      function pad(n) { return n < 10 ? '0' + n : n; }
+      function tick() {
+        var now = new Date();
+        var diff = eventDate - now;
+        if (diff <= 0) {
+          document.getElementById('cd-days').textContent = '00';
+          document.getElementById('cd-hours').textContent = '00';
+          document.getElementById('cd-mins').textContent = '00';
+          document.getElementById('cd-secs').textContent = '00';
+          return;
+        }
+        var days  = Math.floor(diff / 86400000);
+        var hours = Math.floor((diff % 86400000) / 3600000);
+        var mins  = Math.floor((diff % 3600000) / 60000);
+        var secs  = Math.floor((diff % 60000) / 1000);
+        document.getElementById('cd-days').textContent  = pad(days);
+        document.getElementById('cd-hours').textContent = pad(hours);
+        document.getElementById('cd-mins').textContent  = pad(mins);
+        document.getElementById('cd-secs').textContent  = pad(secs);
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+
+    // STICKY CTA
+    (function() {
+      var hero = document.getElementById('hero');
+      var cta  = document.getElementById('stickyCta');
+      function onScroll() {
+        var heroBottom = hero.getBoundingClientRect().bottom;
+        if (heroBottom < 0) {
+          cta.classList.add('visible');
+        } else {
+          cta.classList.remove('visible');
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+
+    // FAQ TOGGLE
+    function toggleFaq(el) {
+      var answer = el.nextElementSibling;
+      var isOpen = el.classList.contains('open');
+      document.querySelectorAll('.faq-q.open').forEach(function(q) {
+        q.classList.remove('open');
+        q.nextElementSibling.classList.remove('open');
+      });
+      if (!isOpen) {
+        el.classList.add('open');
+        answer.classList.add('open');
+      }
+    }
+  </script>
+
+</body>
+</html>

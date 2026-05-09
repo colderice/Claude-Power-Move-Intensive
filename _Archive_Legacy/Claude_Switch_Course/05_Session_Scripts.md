@@ -1,0 +1,498 @@
+# The Claude Switch — Session Scripts
+*All 6 sessions. Live delivery in the FB group. Repurpose to YouTube/recorded course after.*
+*Format: 35–45 min live. Trim to 25–30 min recorded.*
+*Demo-heavy. Talk less. Show more.*
+
+---
+
+# SESSION 1: "Why You Switched (And Why You're Not Going Back)"
+
+**Goal:** Validate the decision. Set the frame. Build trust. Plant the AI employee seed.
+**Demo:** Side-by-side prompt comparison — ChatGPT vs Claude.
+
+---
+
+## OPEN (2–3 min)
+
+"If you're in this group, you either already made the switch from ChatGPT to Claude — or you're thinking hard about it.
+
+Either way — you're in the right place.
+
+Before I get into anything, I want to ask: how many of you switched because you were frustrated? Something wasn't working. The outputs felt off. The voice felt generic. The tool felt like it was just trying to finish your sentence instead of actually helping you think.
+
+That's the experience most people bring here.
+
+And today I want to do something most AI content won't do — I'm going to show you the honest comparison. Not the marketing. The actual difference. What Claude does better. Where ChatGPT still holds ground. And what all of this means for how you should be using these tools in your business.
+
+Let's go."
+
+---
+
+## SECTION 1: The Honest Comparison (10 min)
+
+Key points to hit:
+
+ChatGPT is a completion engine. It's very good at finishing thoughts, generating volume, and producing content fast. It's been optimized to be helpful in a general, broad sense.
+
+Claude is a reasoning engine. It's better at nuance, pushback, long-form context, and outputs that sound like a human with an opinion actually wrote them. It holds more context. It's harder to manipulate. It's more likely to tell you when something doesn't make sense.
+
+Neither is "better" in the abstract. But for coaches, consultants, and service providers who need outputs that actually sound like them — Claude wins.
+
+**Demo: Run the same prompt in both tools.**
+
+Use a real business prompt — something like: "Write a follow-up email to a potential coaching client who went quiet after our discovery call."
+
+Show both outputs side by side. Let the audience see the difference. Don't over-narrate. The outputs speak.
+
+---
+
+## SECTION 2: The Mindset Shift (8 min)
+
+"Here's the thing nobody tells you when you switch:
+
+Claude is not ChatGPT with a different name.
+
+If you come in here using the same prompts, the same habits, the same copy-and-paste workflow — you'll get slightly better results. Maybe. But you won't get what Claude is actually capable of.
+
+Claude is designed to be a thinking partner. Not a task completor. Not a content vending machine.
+
+That means: the more context you give it, the better it performs. The more you push back and keep the conversation going, the more useful it becomes. The more you treat it like a smart person you work with — not a tool you type into — the more you get out of it.
+
+That reframe alone is worth this whole session."
+
+---
+
+## SECTION 3: The AI Employee Frame (5 min)
+
+*[Plant the seed — don't over-sell yet]*
+
+"I want to introduce a concept that's going to run through all six of these sessions.
+
+Most people think about AI as a tool. Something you use when you need something. You open it, you type, you get an answer, you close it.
+
+I think about it differently. I think about it as staff.
+
+Not tools. Employees.
+
+There's a difference between a hammer and a hire. A hammer sits there. A hire shows up, knows the business, knows what's expected, and executes without you standing over them every five minutes.
+
+That's where I'm taking you over the next six sessions. Not just how to use Claude. How to run Claude like an operation.
+
+More on that in Session 5. For now — let's get you set up right."
+
+---
+
+## CLOSE (3 min)
+
+"Alright. Session 1 is in the books.
+
+The honest comparison: Claude wins on reasoning, nuance, and voice. ChatGPT wins on volume and speed. Know what you need and use accordingly.
+
+The mindset shift: treat Claude like a thinking partner, not a vending machine.
+
+Session 2 drops in two days and it's the one most switchers skip — and regret. I'm going to show you the setup step that makes Claude remember your business every single session.
+
+Drop a comment: what finally made you switch? I read every reply."
+
+---
+
+---
+
+# SESSION 2: "How Claude Actually Thinks"
+
+**Goal:** Teach the mechanics. Make them feel like insiders. Get them to set up a Project.
+**Demo:** Build a Project live from scratch. Show before and after.
+
+---
+
+## OPEN (2–3 min)
+
+"Quick check: did you watch Session 1? Did you run the side-by-side comparison yourself?
+
+If you did — you already know the output difference. Now I want to show you why that difference happens and how to make it consistent.
+
+Because here's the problem most switchers have: they get one good output, then the next session Claude forgets everything. Forgets the business, forgets the tone, forgets what they're building. And it feels like starting over every time.
+
+That ends today."
+
+---
+
+## SECTION 1: How Context Works (8 min)
+
+Key points:
+
+Claude has a very large context window — it can hold a lot of information in a single conversation. But when you start a new chat, that context resets. Every session is a blank slate unless you set it up differently.
+
+This is why the same person can get wildly different outputs from Claude on different days. Not because Claude changed — because the context changed.
+
+The fix is Projects.
+
+---
+
+## SECTION 2: Claude Projects — Live Demo (15 min)
+
+Walk through live:
+
+1. Open Claude. Go to Projects. Create a new project.
+2. Name it with your business name or role.
+3. In the Project Instructions, write a business context block. Cover: who you are, what your business does, who your clients are, your tone/voice, your current priorities, and what you want Claude to remember every session.
+
+**Sample context block to demonstrate:**
+
+"I am John Lawson, CEO of ColderICE Media. I'm an AI strategy consultant, keynote speaker, and 3x Amazon bestselling author. My audience is coaches, consultants, and service providers. My signature framework is 'People + AI = Power Moves.' My tone is direct, no corporate fluff, punchy and results-focused. My current priority is filling a live event called the Claude Power Move Intensive on May 23, 2026 in Atlanta."
+
+4. Run a prompt without the project context. Then run the same prompt inside the Project. Show the difference.
+
+---
+
+## SECTION 3: The Insider Advantage (5 min)
+
+"The people who are getting real results with Claude aren't smarter than you. They're not spending more time with it.
+
+They set it up right.
+
+A Project-loaded Claude is a different experience than a cold Claude. It knows who you are. It knows your voice. It knows what you're building. It stops asking basic questions and starts contributing.
+
+That's your job before Session 3: go set up your Project. Load it with your business context. Run one prompt inside it.
+
+Then tell me what you notice."
+
+---
+
+## CLOSE (2 min)
+
+"Session 2 done. The one setup step everyone skips: Projects.
+
+Build yours before Session 3. Drop a screenshot in the group when you do.
+
+Next session is the one that breaks the habit most switchers have without even knowing it. Your ChatGPT prompts don't work here the same way — and I'm going to show you exactly what to change."
+
+---
+
+---
+
+# SESSION 3: "Prompting Claude the Right Way"
+
+**Goal:** Fix the #1 habit switchers carry over from ChatGPT. Give them a new framework and the prompt library.
+**Demo:** Rebuild real audience prompts live.
+**Lead magnet drop:** Starter Prompt Library PDF
+
+---
+
+## OPEN (2–3 min)
+
+"Before this session, I put a call out in the group. I asked: drop your best ChatGPT prompt in the comments.
+
+I got some good ones. And I'm going to use them today — live — to show you exactly what the problem is and how to fix it.
+
+Because here's what I see over and over: someone switches to Claude, brings their ChatGPT prompts with them, gets decent-but-not-great results, and assumes that's just Claude's ceiling.
+
+It's not. The prompts are the problem."
+
+---
+
+## SECTION 1: ChatGPT vs Claude Prompting (8 min)
+
+The key difference:
+
+ChatGPT was trained to respond well to short, command-style prompts. "Write me a sales email." "Give me 10 ideas for..." "Summarize this." That style works because ChatGPT has been heavily fine-tuned to fill in gaps and assume intent.
+
+Claude is a reasoning model. It performs better when you give it context, not just commands. When you tell it who it's being, what it's doing, who the audience is, and what format you want — the output quality goes up significantly.
+
+The same prompt that gets a 7/10 in ChatGPT can get a 9/10 in Claude if you structure it right.
+
+---
+
+## SECTION 2: The Four-Part Structure (10 min)
+
+Every good Claude prompt has four pieces:
+
+**Role:** Who is Claude being in this response? "You are a sales email copywriter for coaching businesses..." "You are an expert in..."
+
+**Task:** What exactly do you need? Be specific. "Write a 200-word follow-up email..." not "Write an email..."
+
+**Context:** What does Claude need to know to do this well? Business background, audience, tone, constraints, what you've already tried.
+
+**Format:** How do you want the output delivered? Length, structure, headers or no headers, tone, number of options.
+
+---
+
+## SECTION 3: Live Rebuild Demo (12 min)
+
+Take 2–3 prompts from the audience. Rebuild them on screen using the four-part structure. Show the output side by side — original prompt vs rebuilt prompt.
+
+Let the outputs do the talking.
+
+---
+
+## SECTION 4: Starter Prompt Library Drop (3 min)
+
+"I put together a library of 20 prompts built specifically for Claude — not generic AI prompts, not ChatGPT prompts with Claude's name on them. These are built for the four-part structure and built for the business types in this group.
+
+Grab it here: [LINK]
+
+It's free. It covers content, client work, operations, and strategy. Drop your email and it's yours."
+
+---
+
+## CLOSE (2 min)
+
+"Four-part structure. Role. Task. Context. Format. That's your new prompting habit.
+
+Session 4 is where I show you the Claude features most users never find. If you've been thinking Claude is just a better ChatGPT — what's coming next is going to reframe that."
+
+---
+
+---
+
+# SESSION 4: "Claude's Secret Weapons"
+
+**Goal:** Reveal the features that create loyalty and differentiation. Make them feel like power users.
+**Demo:** Artifacts live, long document analysis, extended thinking.
+
+---
+
+## OPEN (2 min)
+
+"Most Claude users are operating at about 30% of what this tool can do.
+
+I don't say that to be harsh. I say it because the features I'm about to show you are not obvious, they're not front and center, and most content about Claude just doesn't cover them.
+
+Today we fix that."
+
+---
+
+## SECTION 1: Artifacts (10 min)
+
+What they are: When Claude creates a self-contained piece of content — a document, a code snippet, a structured deliverable — it can render it in its own panel, separate from the conversation. You can iterate on it without rebuilding it.
+
+Why it matters: Instead of copy-pasting Claude's output into a doc and then prompting again and again, you can say "update the third section" and Claude updates the artifact directly. Your deliverable evolves in real time.
+
+**Demo:** Prompt Claude to create a one-page proposal. Show the artifact view. Make edits conversationally. Show how it iterates.
+
+---
+
+## SECTION 2: Extended Thinking (8 min)
+
+What it is: Claude's ability to reason through a complex problem step by step before answering — visible to you. It's like watching the thinking happen.
+
+When to use it: High-stakes decisions, complex strategy questions, anything where you want to see the reasoning, not just the conclusion.
+
+When to skip it: Simple tasks, fast outputs, anything conversational.
+
+**Demo:** Ask Claude a complex business decision question with extended thinking on. Show the reasoning process.
+
+---
+
+## SECTION 3: Long Document Analysis (8 min)
+
+What it is: Claude can take very long documents — contracts, reports, research papers, transcripts — and have a full conversation with them. Ask questions, extract specific information, identify issues, summarize for specific audiences.
+
+Why this matters for business owners: Drop your onboarding document in and ask "what's missing?" Drop a client contract in and ask "what are the risk areas?" Drop a year of email conversations in and ask "what patterns do you see?"
+
+**Demo:** Drop a real document in (use something publicly available or a sample business doc). Show the conversation.
+
+---
+
+## SECTION 4: Voice Calibration (5 min)
+
+What it is: Training Claude to write in your specific voice by giving it examples of your actual writing.
+
+How to do it: Inside your Project, paste 3–5 examples of your own writing (emails, posts, whatever you're happy with). Tell Claude "this is how I write — match this voice in all outputs."
+
+**Demo:** Show the difference between generic Claude output and voice-calibrated Claude output using real examples.
+
+---
+
+## CLOSE (2 min)
+
+"Four features. Most people use zero of them.
+
+Artifacts. Extended thinking. Document analysis. Voice calibration. Start with whichever one is most relevant to what you're working on this week.
+
+Session 5 is where we stop talking about features and start building. I want you to have a use case ready. Think about one repetitive workflow in your business that you want off your plate. We're going to build it together."
+
+---
+
+---
+
+# SESSION 5: "Build Your First Claude Workflow"
+
+**Goal:** Move from feature education to real business application. Introduce AI employee concept. Soft Marblism mention.
+**Demo:** Build a complete workflow live.
+
+---
+
+## OPEN (3 min)
+
+"Everything up to this point has been about learning Claude. Today we build something.
+
+Not a prompt. Not a one-off output. A workflow. Something that runs the same way every time, produces the output you need, and doesn't require you to start from zero.
+
+That's the difference between using Claude and running Claude.
+
+I asked you in Session 4 to come with a use case. I'm going to walk you through how to build it — using a real example from my own business — and then you build yours."
+
+---
+
+## SECTION 1: What a Workflow Actually Is (5 min)
+
+A Claude workflow has four parts:
+
+**Intake:** What information comes in? A client name, a brief, a piece of content, a question?
+
+**Analysis:** What does Claude do with that information? Organize it, evaluate it, rewrite it, extract from it?
+
+**Output:** What do you get at the end? A document, a draft, a decision, a plan?
+
+**Delivery:** Where does that output go? Into a doc, an email, a CRM note?
+
+Once you map those four things, you have a workflow. Not an idea — a workflow.
+
+---
+
+## SECTION 2: Live Workflow Build (18 min)
+
+**Example workflow to build on screen:** "New client intake to onboarding email sequence"
+
+Intake: Client fills out a form with their business background, goals, and current situation.
+Analysis: Claude takes that input, identifies the key pain points, and maps them to the coaching deliverables.
+Output: A personalized 3-email onboarding sequence that references their specific situation.
+Delivery: Paste into GHL and send.
+
+Walk through this live. Build the prompt structure. Run it. Show the output. Iterate once.
+
+Then invite the audience to share their use case in the comments and walk through one more if time allows.
+
+---
+
+## SECTION 3: The AI Employee Concept (8 min)
+
+"Now — I want to reframe what we just built.
+
+What we did is we gave Claude a job. A specific, repeatable job with inputs, process, and output. It shows up every time. It does it the same way. It doesn't complain. It doesn't call in sick.
+
+That's not a tool. That's an employee.
+
+And here's where I want to expand your thinking:
+
+Claude is your best strategic thinker. But Claude doesn't manage your inbox. It doesn't post your social media. It doesn't follow up with leads at scale.
+
+For those jobs, there's a platform called Marblism. $39/month. You get Eva (executive assistant — email, calendar), Sonny (social media manager), Penny (content writer), and Stan (sales outreach). A real team.
+
+Code JOHN gets you 25% off. Link is in the comments. Not a pitch — just what I use. The workflow concept we just built is how I think about Marblism too. Each AI employee has a job. Each one has inputs and outputs. Each one runs without me babysitting it.
+
+More on how this all fits together in Session 6."
+
+---
+
+## CLOSE (2 min)
+
+"Session 5 done. You either just built your first workflow or you know exactly how to build it before Session 6.
+
+Session 6 is the last one — and it's also where the real conversation starts. I'm going to show you the full picture and make you an offer that belongs to this group specifically."
+
+---
+
+---
+
+# SESSION 6: "What's Next — From Switched to Unstoppable"
+
+**Goal:** Close the training, deliver the final value, hard pivot to Atlanta.
+**Demo:** Full AI stack operating — Claude + Marblism in context.
+
+---
+
+## OPEN (3 min)
+
+"Six sessions in.
+
+Think about where you were when this started. You had just switched — or were thinking about it — and you wanted to know if it was worth it.
+
+Is it?
+
+By this point, you've set up a Project. You've rebuilt your prompts. You've used Artifacts and done document analysis. You've built at least one workflow. You know more about Claude than 90% of people who use it every day.
+
+But I want to use this final session to zoom out — because the switch to Claude is not the destination. It's the starting line."
+
+---
+
+## SECTION 1: The Full Picture (10 min)
+
+"Here's how I think about AI in a business:
+
+Claude is the brain. It's where strategy, copy, analysis, and thinking happen. It's where you have a conversation that actually goes somewhere.
+
+But a brain without a body doesn't run operations. For operations, you need people doing things — following up, posting, managing communications, staying on top of the pipeline.
+
+That's where the AI employee framework comes in.
+
+In my business, I run Eva, Sonny, Penny, and Stan through Marblism alongside Claude. Claude thinks. The team executes. I oversee.
+
+That stack — Claude as the strategic layer, Marblism as the operational layer — is what lets a one-person or small-team operation run like something much bigger."
+
+**Demo:** Show the stack operating. Real outputs from Marblism tools. Show how a Claude-written brief becomes a Sonny social post. Show how a Stan outreach sequence flows from a Claude-crafted message.
+
+---
+
+## SECTION 2: The Reframe (5 min)
+
+"Most people who go through AI training walk away with better prompts.
+
+That's fine. But it's not the move.
+
+The move is building a system that runs. Where AI isn't something you do — it's something that works for you. While you're with clients. While you're sleeping. While you're doing the stuff only you can do.
+
+That's the difference between switched and unstoppable.
+
+You've built the foundation. Now the question is: do you want to build the whole thing?"
+
+---
+
+## SECTION 3: The Atlanta Pitch (10 min)
+
+*[Earned by now. Go direct.]*
+
+"On May 23, I'm bringing 40 people to Atlanta for the Claude Power Move Intensive.
+
+This is not a seminar. This is not a watch-me-present-slides event.
+
+We build in the room. You leave with a working AI system — Claude configured for your business, AI employees handling your operations, a workflow stack that runs. We do 90-day roadmaps. We do hot seats. VIP Day on Sunday goes small-group with personalized buildouts.
+
+40 general seats. 12 VIP seats. That's it.
+
+A chunk of those seats belong to people in this group. You've been through the training. You know the framework. Atlanta is where you build the machine.
+
+Early bird ticket: $795. Expires April 7.
+VIP: $1,295. 12 seats. If you want Sunday too, that's the ticket.
+
+After April 7, GA goes to $1,000. VIP goes to $1,500.
+
+Link is in the comments and in your inbox. If you've got questions — reply to the email, drop a comment, or DM me. I answer personally.
+
+The people who are going to be in that room in May are the ones who stopped consuming and started building. If that's you — I'll see you in Atlanta."
+
+---
+
+## CLOSE (3 min)
+
+"Six sessions. That's The Claude Switch.
+
+You made a good decision when you switched. Now you know how to make it work.
+
+The group stays open. I'll keep dropping training, demos, and resources here. Stay engaged. Keep building.
+
+Thank you for being here. Now go build something."
+
+---
+
+## PRODUCTION NOTES (All Sessions)
+
+- Record live in the FB group. Export video.
+- Upload to YouTube as unlisted during course run, public after full run completes.
+- Add to GHL course page as embedded YouTube videos.
+- Trim each session to remove dead air, chat-reading pauses, and anything over 30 min for the recorded version.
+- Session 3 includes the Prompt Library link — have the GHL page live before Session 3 goes live.
+- Session 5 includes the Marblism affiliate link — pin it in comments.
+- Session 6 includes the Atlanta event links — pin both (GA + VIP) in comments.
+- Caption all videos before YouTube upload.

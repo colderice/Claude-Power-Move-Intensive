@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Profile Builder | Claude Power Move</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="global-header">
+    <div class="header-content">
+        <img src="../masterlystudios.png" alt="Masterly Studios" class="brand-logo">
+        <div class="header-text">
+            <span class="event-name">The Claude Power Move Intensive</span>
+            <span class="tool-name">Voice Profile Builder</span>
+        </div>
+    </div>
+</header>
+
+<div class="app-container">
+    <header class="app-header">
+        <div class="progress-indicator">
+            <div class="progress-bar-track">
+                <div class="progress-bar-fill" id="progress-fill"></div>
+            </div>
+            <div class="step-text" id="step-indicator">STEP 1 OF 7</div>
+        </div>
+    </header>
+
+    <main class="step-container" id="step-container">
+        <!-- Step 1: Who are you? -->
+        <section class="step active" data-step="1">
+            <h1>Who are you?</h1>
+            <p class="subtitle">Basic identity. Claude needs to know who it's working for.</p>
+            
+            <div class="form-group">
+                <label for="fullName">Your full name</label>
+                <input type="text" id="fullName" placeholder="e.g. Marcus Williams">
+            </div>
+
+            <div class="form-group">
+                <label for="titleRole">Your title or role</label>
+                <input type="text" id="titleRole" placeholder="e.g. Business Coach, CEO, Consultant">
+            </div>
+
+            <div class="form-group">
+                <label for="companyName">Your company name</label>
+                <input type="text" id="companyName" placeholder="e.g. Next Level Coaching Co.">
+            </div>
+
+            <div class="form-group">
+                <label for="tagline">Your tagline or core positioning (if you have one)</label>
+                <input type="text" id="tagline" placeholder="e.g. Helping real estate agents close more deals with less hustle">
+            </div>
+        </section>
+
+        <!-- Step 2: Audience -->
+        <section class="step" data-step="2">
+            <h1>Who is your audience?</h1>
+            <p class="subtitle">Define who you are speaking to so Claude matches their level.</p>
+
+            <div class="form-group">
+                <label for="idealClient">Ideal client profile</label>
+                <input type="text" id="idealClient" placeholder="e.g. B2B SaaS Founders, Local Services Businesses">
+            </div>
+
+            <div class="form-group">
+                <label for="painPoint">Primary pain point</label>
+                <textarea id="painPoint" placeholder="e.g. They are working 80 hour weeks and burning out from manual operations."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="desiredOutcome">Desired outcome</label>
+                <textarea id="desiredOutcome" placeholder="e.g. Scale to $10k/mo MRR without working weekends."></textarea>
+            </div>
+        </section>
+
+        <!-- Step 3: What do you sell? -->
+        <section class="step" data-step="3">
+            <h1>What do you sell?</h1>
+            <p class="subtitle">List your main offers. Claude will reference these naturally in content and copy.</p>
+
+            <div class="form-group">
+                <label for="offer1">Offer 1 — Name, description, price, and where to register or buy</label>
+                <textarea id="offer1" placeholder="e.g. The Clarity Intensive — a 1-day live workshop in Houston on June 14. Attendees leave with a 90-day action plan. $397 early bird / $697 regular. Register at ClarityWorkshop.com"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="offer2">Offer 2 (optional)</label>
+                <textarea id="offer2" placeholder="e.g. The Inner Circle — my monthly membership community for ongoing coaching and accountability. $97/month. Join at MyInnerCircle.com"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="offer3">Offer 3 (optional)</label>
+                <textarea id="offer3" placeholder="e.g. 1-on-1 Strategy Sessions — 60-minute deep dive. $350. Book at CalendlyLink.com"></textarea>
+            </div>
+        </section>
+
+        <!-- Step 4: Voice -->
+        <section class="step" data-step="4">
+            <h1>Voice & Tone</h1>
+            <p class="subtitle">How do you sound when you teach or speak?</p>
+
+            <div class="form-group">
+                <label for="commStyle">Describe your communication style in your own words</label>
+                <textarea id="commStyle" placeholder="e.g. I'm direct and encouraging. I use real-life examples. I talk like I'm having a conversation at a coffee shop, not giving a lecture. I'm warm but I don't sugarcoat."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="signatureWords">Signature words or phrases you use often (optional)</label>
+                <textarea id="signatureWords" placeholder="e.g. 'Listen up', 'Let's dive in', 'Game-changer'"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="neverUseWords">Words you NEVER use (optional)</label>
+                <textarea id="neverUseWords" placeholder="e.g. 'Synergy', 'Hack', 'Guru'"></textarea>
+            </div>
+        </section>
+
+        <!-- Step 5: Guardrails -->
+        <section class="step" data-step="5">
+            <h1>Guardrails</h1>
+            <p class="subtitle">Set boundaries for what Claude should absolutely avoid.</p>
+
+            <div class="form-group">
+                <label for="topicsAvoid">Topics to avoid</label>
+                <textarea id="topicsAvoid" placeholder="e.g. Politics, hustle culture, negative competitor bashing."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="formattingRules">Strict formatting rules</label>
+                <textarea id="formattingRules" placeholder="e.g. Keep paragraphs under 3 sentences. No emojis ever. Do not use corporate jargon."></textarea>
+            </div>
+        </section>
+
+        <!-- Step 6: Credibility -->
+        <section class="step" data-step="6">
+            <h1>Credibility</h1>
+            <p class="subtitle">Establish your authority so Claude can weave it into stories and bios.</p>
+
+            <div class="form-group">
+                <label for="credFacts">Your top 3 credibility facts (numbers, results, credentials)</label>
+                <textarea id="credFacts" placeholder="e.g. 15 years coaching corporate managers. Helped 300+ clients get promoted. Former VP at Fortune 500. Author of 'Lead Without the Title'."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="frameworks">Any signature frameworks, systems, or methods you teach?</label>
+                <input type="text" id="frameworks" placeholder="e.g. The 3-Step Clarity System, The BOLD Leadership Method">
+            </div>
+        </section>
+
+        <!-- Step 7: Standing Instructions -->
+        <section class="step" data-step="7">
+            <h1>Standing Instructions</h1>
+            <p class="subtitle">Global rules for every prompt.</p>
+
+            <div class="form-group">
+                <label for="standardCta">Standard sign-off or CTA</label>
+                <textarea id="standardCta" placeholder="e.g. Always end emails with 'To your success, [My Name]'."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="globalInstructions">Any other global instructions for Claude?</label>
+                <textarea id="globalInstructions" placeholder="e.g. Always format output in Markdown. Always ask me one clarifying question before writing a long piece."></textarea>
+            </div>
+        </section>
+
+        <!-- Step 8: Success / Output -->
+        <section class="step" data-step="8" id="result-step">
+            <h1>Your Voice Profile is Ready</h1>
+            <p class="subtitle">Copy the prompt below and paste it into Claude's Custom Instructions or a new Project.</p>
+
+            <div class="result-container">
+                <button class="btn btn-secondary copy-btn" id="copyBtn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    Copy to Clipboard
+                </button>
+                <textarea id="finalOutput" readonly></textarea>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-navigation">
+        <button class="btn btn-ghost" id="backBtn" style="visibility: hidden;">&larr; Back</button>
+        <button class="btn btn-primary" id="nextBtn">Next &rarr;</button>
+    </footer>
+</div>
+
+<footer class="global-footer">
+    <div class="footer-content">
+        <div class="tagline">People + AI = Power Moves</div>
+        <div class="copyright">&copy; 2026 Masterly Studios | John Lawson</div>
+    </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Atlanta AI Business Intensive – Atlanta, May 23</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo:wght@400;600&display=swap');
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; display: block; }
+    body { margin: 0; padding: 0; background-color: #09090b; font-family: 'Exo', Arial, Helvetica, sans-serif; }
+    a { color: #b53dff; }
+  </style>
+</head>
+<body style="margin:0; padding:0; background-color:#09090b;">
+
+  <!-- Preheader -->
+  <div style="display:none; max-height:0; overflow:hidden; mso-hide:all; font-size:1px; color:#09090b; line-height:1px;">
+    A real estate agent across town just set up an AI that follows up on every lead in 3 minutes. Around the clock. Here's how to do the same.
+  </div>
+
+  <!-- Wrapper -->
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#09090b;">
+    <tr>
+      <td align="center" style="padding: 30px 15px;">
+
+        <!-- Email Container -->
+        <table width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px; width:100%; background-color:#0d0d10; border-radius:6px; border: 1px solid #1e1e24;">
+
+          <!-- HEADER / LOGO BANNER -->
+          <tr>
+            <td align="center" style="background-color:#000000; padding: 0; border-radius:6px 6px 0 0; overflow:hidden;">
+              <img src="https://assets.cdn.filesafe.space/BMXjMgj1yLDVV2vU4n1Q/media/69bc701268ff99d0cb4b8c81.png"
+                   alt="AI Business Intensive – Atlanta, GA | May 23-24 | John Lawson"
+                   width="600"
+                   style="max-width:100%; height:auto; display:block;" />
+            </td>
+          </tr>
+
+          <!-- PURPLE RULE -->
+          <tr>
+            <td style="height:4px; background: linear-gradient(90deg, #b53dff 0%, #7b1fa2 100%);"></td>
+          </tr>
+
+          <!-- BODY -->
+          <tr>
+            <td style="padding: 40px 40px 10px; color:#e8edf5; font-size:16px; line-height:1.8; font-family:'Exo', Arial, Helvetica, sans-serif;">
+
+              <p style="margin:0 0 22px; font-size:18px; font-weight:bold; color:#ffffff; font-family:'Orbitron', Arial, sans-serif; letter-spacing:0.5px;">Real talk.</p>
+
+              <p style="margin:0 0 22px;">While you were handling everything yourself last week, a real estate agent across town set up an AI employee that follows up on every lead within <strong style="color:#b53dff;">3 minutes.</strong> Around the clock. No sick days. No attitude.</p>
+
+              <p style="margin:0 0 22px;">A contractor just deployed an AI that chases every open estimate until it gets a yes.</p>
+
+              <p style="margin:0 0 22px;">A coach just put an AI content writer to work that posts on-brand content every single day without being asked.</p>
+
+              <!-- Divider -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 28px 0;">
+                <tr><td style="height:1px; background-color:#1e1e24;"></td></tr>
+              </table>
+
+              <p style="margin:0 0 22px;">They're not smarter than you. They just stopped doing <strong style="color:#b53dff;">$20/hr work with $200/hr brainpower.</strong></p>
+
+              <!-- Hero callout -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 10px 0 28px;">
+                <tr>
+                  <td style="background-color:#0a0010; border-left:4px solid #b53dff; border-radius:0 4px 4px 0; padding: 20px 24px;">
+                    <p style="margin:0; font-size:19px; font-weight:bold; color:#ffffff; line-height:1.5; font-family:'Orbitron', Arial, sans-serif; letter-spacing:0.3px;">I'm fixing that in Atlanta on May 23.</p>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="margin:0 0 22px;">One day. One room. You walk in with a laptop and walk out with a <strong style="color:#ffffff;">4-person AI team running your business.</strong> Not a plan. Not a framework. Not homework. A live, running AI operation before you hit the parking lot.</p>
+
+              <p style="margin:0 0 24px; font-size:21px; font-weight:bold; color:#b53dff; letter-spacing:0.5px; font-family:'Orbitron', Arial, sans-serif;">This is the Atlanta AI Business Intensive.</p>
+
+              <p style="margin:0 0 22px;">We build it in the room. Together. Using three tools that become one complete operating system:</p>
+
+              <!-- Tools -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 0 0 32px;">
+                <tr>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #1e1e24;">
+                    <span style="color:#b53dff; font-weight:bold; font-size:15px;">Claude</span>
+                    <span style="color:#a0a0b0;"> &mdash; the business brain</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #1e1e24;">
+                    <span style="color:#b53dff; font-weight:bold; font-size:15px;">Genspark</span>
+                    <span style="color:#a0a0b0;"> &mdash; content and assets</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 0;">
+                    <span style="color:#b53dff; font-weight:bold; font-size:15px;">Marblism</span>
+                    <span style="color:#a0a0b0;"> &mdash; the workforce that runs 24 hours a day while you do something else</span>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+
+          <!-- PRICING SECTION -->
+          <tr>
+            <td style="padding: 0 40px 10px;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#09090b; border-radius:6px; border:1px solid #2a1040; overflow:hidden;">
+
+                <!-- Pricing header -->
+                <tr>
+                  <td colspan="2" style="background: linear-gradient(90deg, #b53dff 0%, #7b1fa2 100%); padding:14px 20px;">
+                    <p style="margin:0; font-size:13px; font-weight:bold; color:#ffffff; letter-spacing:1.5px; text-transform:uppercase; font-family:'Orbitron', Arial, sans-serif;">Early Bird Pricing &mdash; Ends May 1</p>
+                  </td>
+                </tr>
+
+                <!-- GA -->
+                <tr>
+                  <td style="padding:18px 20px; border-bottom:1px solid #1e1e24; color:#ffffff; font-size:15px; font-weight:bold;">
+                    General Admission
+                  </td>
+                  <td align="right" style="padding:18px 20px; border-bottom:1px solid #1e1e24; white-space:nowrap;">
+                    <span style="color:#b53dff; font-size:22px; font-weight:bold; font-family:'Orbitron', Arial, sans-serif;">$795</span>
+                    <span style="color:#555568; font-size:12px; display:block;">Goes to $995 on May 2</span>
+                  </td>
+                </tr>
+
+                <!-- VIP -->
+                <tr>
+                  <td style="padding:18px 20px; color:#ffffff; font-size:15px; font-weight:bold;">
+                    VIP Strategy Weekend
+                  </td>
+                  <td align="right" style="padding:18px 20px; white-space:nowrap;">
+                    <span style="color:#b53dff; font-size:22px; font-weight:bold; font-family:'Orbitron', Arial, sans-serif;">$1,295</span>
+                    <span style="color:#555568; font-size:12px; display:block;">Goes to $1,495 on May 2</span>
+                  </td>
+                </tr>
+
+              </table>
+            </td>
+          </tr>
+
+          <!-- VIP NOTE -->
+          <tr>
+            <td style="padding: 16px 40px 10px; color:#a0a0b0; font-size:14px; line-height:1.7; font-family:'Exo', Arial, Helvetica, sans-serif;">
+              VIP gets you Saturday plus a private Sunday strategy session with a small group. If you want direct access and hot seat time, that's the room to be in.
+            </td>
+          </tr>
+
+          <!-- SCARCITY -->
+          <tr>
+            <td style="padding: 12px 40px 32px;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#100e00; border:1px solid #3d3400; border-radius:4px;">
+                <tr>
+                  <td style="padding:16px 20px; font-size:14px; font-weight:bold; line-height:1.6; font-family:'Exo', Arial, Helvetica, sans-serif;">
+                    <span style="color:#fff234;">Only 40 seats total. No virtual option. No replay. When it's full, it's full.</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- CTA BUTTON -->
+          <tr>
+            <td align="center" style="padding: 0 40px 44px;">
+              <table cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="center" style="background: linear-gradient(135deg, #b53dff 0%, #7b1fa2 100%); border-radius:4px; box-shadow: 0 0 20px rgba(181,61,255,0.4);">
+                    <a href="https://AtlantaAIBusiness.com" target="_blank"
+                       style="display:inline-block; padding:18px 50px; font-size:16px; font-weight:bold; color:#ffffff; text-decoration:none; letter-spacing:1px; text-transform:uppercase; font-family:'Orbitron', Arial, sans-serif;">
+                      Grab Your Seat — AtlantaAIBusiness.com
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- SIGN OFF -->
+          <tr>
+            <td style="padding: 0 40px 40px; color:#e8edf5; font-size:16px; line-height:1.8; border-top:1px solid #1e1e24; font-family:'Exo', Arial, Helvetica, sans-serif;">
+              <p style="margin:24px 0 8px;">People + AI = Power Moves.</p>
+              <p style="margin:0 0 6px;">Come build yours.</p>
+              <p style="margin:16px 0 0; color:#a0a0b0; font-size:14px;">
+                &mdash; John Lawson<br>ColderICE Media
+              </p>
+            </td>
+          </tr>
+
+          <!-- BOTTOM RULE -->
+          <tr>
+            <td style="height:4px; background: linear-gradient(90deg, #b53dff 0%, #7b1fa2 100%);"></td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr>
+            <td style="padding: 24px 40px; background-color:#09090b; border-radius:0 0 6px 6px; text-align:center;">
+              <p style="margin:0 0 8px; color:#333340; font-size:12px; line-height:1.6; font-family:Arial, Helvetica, sans-serif;">
+                ColderICE Media &nbsp;|&nbsp; john@3rdpoweroutlet.com
+              </p>
+              <p style="margin:0; color:#333340; font-size:12px; font-family:Arial, Helvetica, sans-serif;">
+                You're receiving this because you opted in to updates from John Lawson / ColderICE Media.<br>
+                <a href="#" style="color:#b53dff; text-decoration:underline;">Unsubscribe</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+        <!-- / Email Container -->
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
