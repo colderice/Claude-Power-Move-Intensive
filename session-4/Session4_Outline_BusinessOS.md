@@ -1,4 +1,5 @@
 # Session 4 — Build Your Claude Business Operating System
+## Stop Starting From Scratch Every Week. The Prompting Is Over. Now It Just Runs.
 ## Claude Power Move Webinar Series
 ## Thursday, May 14, 2026 | 7:00 PM ET
 
@@ -6,25 +7,26 @@
 
 ## THE PHILOSOPHY BEHIND THIS SESSION
 
-This is the synthesis session. Sessions 1 through 3 each showed one piece: setup, content, follow-up. Tonight you put all three on the table and show what the full system looks like running together.
+Sessions 1 through 3 taught the skills. Tonight you install the system.
 
-The decision session is tonight. Nine days out from the intensive, attendees who haven't registered yet are either in or out. Your job is to make the cost of staying out feel real — and make the path in feel obvious.
+The problem with how most people use Claude is that every task starts at zero. Blank screen. Think up a prompt. Get output. Next week — blank screen again. Same effort, same friction, every single time. That's a chatbot. Not a business tool.
 
-The hook isn't a new trick. It's the answer to the question every attendee has been asking silently: "What does this actually look like when it's all working?"
+Tonight you show them what changes when the prompt is already written — when the SOP lives inside a Claude Project that already knows its job. You don't build the prompt anymore. You open the right department and give it the assignment. It runs. You review. Done.
 
-Tonight you show them.
+**The Project is the trained employee. You are the manager.**
 
-**The shift you're demonstrating: from using Claude as a one-off tool to running Claude as a business operating layer that handles content, follow-up, research, and operations continuously.**
+Three departments. Built tonight. Running this week.
 
 ---
 
 ## SETUP BEFORE THE SESSION
 
-- Claude Project open with your voice profile and ColderICE context loaded
-- Three browser tabs prepped: one for content workflow, one for follow-up, one for operations/research
-- Have your ColderICE stack visible — show this is real, not theoretical
-- Seat count updated for the pitch — know the real number before you go live
-- This file open on second monitor for segment reference
+- Three Claude Projects already created and named: Content Department, Follow-Up Department, Operations Department
+- Each Project has its SOP loaded in the system prompt — ready to demo
+- Have a realistic sample proposal ready for the Follow-Up demo
+- Have a short Zoom transcript excerpt ready (even a fake realistic one works)
+- Seat count updated — know the number before you go live
+- This file open on second monitor
 
 ---
 
@@ -32,253 +34,304 @@ Tonight you show them.
 
 | Segment | Content | Time |
 |---|---|---|
-| Open | Hook + the big picture | 4 min |
-| Context | Why most people use Claude wrong | 4 min |
-| Framework | The Claude Business OS — 4 layers | 8 min |
-| Live Demo | John's personal stack, connected live | 15 min |
-| Q&A Hotseats | Audience pain points mapped to Claude solutions | 10 min |
-| Recap | What they just watched | 2 min |
-| Pitch | Strong close — 9 days out | 7 min |
+| Open | The blank screen problem | 4 min |
+| The Shift | Project = Trained Employee | 5 min |
+| Department 1 | Content Department — build + demo | 10 min |
+| Department 2 | Follow-Up Department — build + demo | 12 min |
+| Department 3 | Operations Department — show + demo | 6 min |
+| Recap | What they now have | 2 min |
+| Pitch | Strong close — 9 days out | 6 min |
+| Q&A | Open floor | 5 min |
 
 **Total: ~50 minutes**
 
 ---
 
-## SEGMENT 1 — THE OPEN (4 min)
-
-### Say this to open:
-
-"Four weeks. Four sessions. Four skills.
-
-In Session 1, you learned how to set Claude up so it knows your business. Session 2, you used it to build a week of content in 20 minutes. Session 3, you built a follow-up system that works your leads whether you feel like following up or not.
-
-Tonight is different.
-
-Tonight I'm not teaching you a new trick. Tonight I'm going to show you what it looks like when all of those pieces are running at the same time — in a real business.
-
-My business.
-
-Because here's what I know after doing this: one Claude skill is useful. The full system is a competitive advantage. And most people stop at the skill.
-
-By the end of this session, you're going to understand exactly what your Claude Business Operating System looks like — and what it would take to build it for your specific situation.
-
-Let's go."
-
----
-
-## SEGMENT 2 — CONTEXT: WHY MOST PEOPLE USE CLAUDE WRONG (4 min)
+## SEGMENT 1 — THE OPEN: THE BLANK SCREEN PROBLEM (4 min)
 
 ### Say this:
 
-"Here's the mistake I see constantly.
+"Let me describe your Monday morning.
 
-Someone tries Claude. They ask it to write a social post. It's decent. They do it again. Maybe they even like it. Then they go back to doing things the old way, and they open Claude occasionally when they get stuck.
+You sit down, you open Claude, and then you stare at a blank screen trying to figure out what to type. You write a prompt. You get something back. You tweak it. You use it. Next Monday — same thing. Blank screen. Build the prompt again.
 
-That's not a system. That's a vending machine.
+That's not a system. That's a weekly tax on your time and your energy.
 
-You put something in, you get something out. One time. No memory. No continuity. No accumulation. The same effort every single time.
+Here's what changes after tonight.
 
-The businesses that are actually winning with AI right now aren't using it that way. They built a system. Content handled on Monday morning. Follow-up running in the background. Research and ops queries answered in seconds instead of hours.
+You open Claude. You pick a department. You type one line — the topic, the lead's name, the situation. Claude already knows what to do with it. The SOP is already in there. The output comes out ready to use.
 
-Claude isn't the feature. Claude is the operating system.
+Build it once. Run it every week.
 
-Here's what I mean."
-
----
-
-## SEGMENT 3 — THE FRAMEWORK: THE CLAUDE BUSINESS OS (8 min)
-
-### The 4-Layer Model
-
-"I think about a Claude Business Operating System as four layers. Every business needs all four. Most people have one, maybe two.
-
-**Layer 1 — Voice.** Your brand voice, your context, your background, your offers loaded into a Claude Project. This is the foundation. Without it, everything else is generic. With it, everything Claude produces sounds like you.
-
-**Layer 2 — Content.** The ongoing creation layer. Social posts, emails, scripts, blog outlines — all flowing from a single prompt session once a week. Content is never a blank screen problem when this layer is running.
-
-**Layer 3 — Follow-Up.** The revenue protection layer. Proposals, warm leads, past clients — all being worked by a systematic follow-up process that Claude writes for you. Nothing falls through the cracks.
-
-**Layer 4 — Operations.** The thinking layer. Research, decision support, client prep, competitive intel, summarizing documents, planning — Claude as your executive assistant who never sleeps and never drops the ball.
-
-When all four are running, you're not using AI. You're running on it.
-
-Tonight's demo: I'm going to show you exactly how I have this set up for ColderICE — and then map it to a real business situation live."
+That's what we're doing tonight."
 
 ---
 
-## SEGMENT 4 — LIVE DEMO: JOHN'S CLAUDE BUSINESS STACK (15 min)
+## SEGMENT 2 — THE SHIFT: THE PROJECT IS THE TRAINED EMPLOYEE (5 min)
 
-### Demo Framework
+### Say this:
 
-Open with your Claude Project visible. Show the system prompt briefly — voice, context, offers.
+"Here's the concept I want you to lock in before we build anything.
 
-"This is Layer 1. Everything that runs after this runs on top of this foundation."
+When you set up a Claude Project with a detailed system prompt — a real SOP — you're not configuring a chatbot. You're onboarding an employee.
+
+Think about how you'd bring a new person onto your team. You'd tell them what their job is. You'd walk them through exactly how you want things done. You'd give them the templates, the tone, the rules. After that, you don't re-explain it every time you give them an assignment. You just give them the assignment.
+
+That's what a Claude Department is.
+
+The SOP lives in the Project. Your voice is already in there. The output format is already in there. The rules are already in there. All you bring is the input — the topic, the situation, the context. Claude handles the rest.
+
+Tonight we build three departments:
+
+Content. Follow-Up. Operations.
+
+Each one is a trained employee. Let's meet them."
 
 ---
 
-### DEMO PART A — CONTENT LAYER (~4 min)
+## SEGMENT 3 — DEPARTMENT 1: CONTENT DEPARTMENT (10 min)
 
-**Show or describe:**
-"Every Monday morning, I sit down for about 15 minutes. I give Claude one topic I'm thinking about that week — something real, something current. Then I run this prompt."
+### Setup
 
-**Type live:**
+*(Have the Content Department Project open. Show the system prompt briefly — or build it live.)*
+
+### Say this:
+
+"Department one: Content.
+
+This employee's job is to take one topic and turn it into a full week of content — every time, in your voice, in the right formats, ready to schedule.
+
+Here's what the SOP looks like inside the Project."
+
+*(Show or read key parts of the system prompt. Key elements: voice profile, what to produce, format rules.)*
+
+---
+
+### CONTENT DEPARTMENT SYSTEM PROMPT (pre-loaded in Project)
+
 ```
-I need this week's content batch.
+You are the Content Department for [Business Name].
 
-Topic: [use current relevant topic — e.g., "How to use Claude Projects to save hours every week"]
+Your job: Take one topic or angle and produce a complete weekly content batch.
 
-From this, give me:
-- 3 LinkedIn/Facebook posts (different angles: insight, story, challenge)
+Every time you receive a topic, produce:
+- 3 social posts (Facebook/LinkedIn) — one insight, one story, one challenge/question
 - 1 email subject line with 3 variations
-- 1 short-form hook for Instagram/X (under 80 words)
+- 1 short-form hook for Instagram or X (under 80 words)
 
-My voice profile is loaded. Write punchy. Direct. No fluff. Real-business energy.
+Voice rules:
+- Direct and punchy. Short sentences.
+- No corporate filler. No "It's worth noting."
+- Write like a business owner who has actually built something — not like a marketer.
+- First person. Conversational.
+
+Output format: Label each piece clearly. Deliver in order listed above.
+
+When you receive a topic, ask nothing. Just run the SOP.
 ```
-
-"That's a Monday morning. Fifteen minutes. Week of content done."
 
 ---
 
-### DEMO PART B — FOLLOW-UP LAYER (~4 min)
+### LIVE DEMO — Content Department
+
+**Type live (minimal input):**
+```
+Topic: Why most small business owners are using AI at 5% of what it can actually do.
+```
+
+*(Let it run. Read output with the audience. Comment naturally.)*
+
+"One line in. Full week out. I didn't write a single prompt. I gave the department its assignment and it ran the SOP.
+
+That's what Monday morning looks like now. Fifteen minutes. Week of content. Done."
+
+---
+
+## SEGMENT 4 — DEPARTMENT 2: FOLLOW-UP DEPARTMENT (12 min)
+
+### Setup
+
+*(Switch to the Follow-Up Department Project.)*
+
+### Say this:
+
+"Department two is where most businesses are losing real money — and this is the one that changes the fastest.
+
+Most follow-up systems are reactive. Lead goes cold, then you scramble to write something. This department flips that completely.
+
+The rule is: the follow-up gets built the moment the proposal goes out.
+
+You just got off the call. You send the proposal. Before you close the laptop — you open this department, paste in the proposal, and it writes your 3-touch follow-up sequence right then. Day 2, Day 5, Day 10 — all written, all specific, all ready to send on schedule.
+
+And here's the part that makes it even better."
+
+*(pause)*
+
+"If you recorded the call — if you have a transcript from Zoom or Fathom or whatever you use — you paste that in too. Now the follow-up messages reference specific things from the actual conversation. What they said they were struggling with. What they told you their goal was. Claude read the call. The follow-up sounds like you were paying perfect attention — because Claude was."
+
+---
+
+### FOLLOW-UP DEPARTMENT SYSTEM PROMPT (pre-loaded in Project)
+
+```
+You are the Follow-Up Department for [Business Name].
+
+Your job: Turn a proposal and/or call context into a ready-to-send follow-up sequence.
+
+Every time you receive input, produce:
+- Touch 1 (send Day 2): Warm check-in. Short. One clear ask.
+- Touch 2 (send Day 5): Add one specific value point pulled directly from the proposal or call context. Soft CTA.
+- Touch 3 (send Day 10): Honest close. Give them an easy out. Keep the door open.
+
+Rules:
+- Pull specific details from the proposal and transcript. Never write generic messages.
+- Match the temperature — read how interested they seemed and write accordingly.
+- Under 100 words per message.
+- No "just checking in." No "I hope this finds you well."
+- Write in [Name]'s voice: direct, warm, no corporate softness.
+
+When you receive input, ask nothing. Run the SOP. Deliver all three touches.
+```
+
+---
+
+### LIVE DEMO — Follow-Up Department
 
 **Say:**
-"Layer 3 is what saves the most money. Let me show you a real scenario from my pipeline."
+"Here's a real scenario. Proposal just went out. Discovery call was solid. Let me show you what this department does with it."
 
 **Type live:**
 ```
-I had a call last week with a potential consulting client. $5K/month retainer. They were interested, asked good questions, said they'd talk to their partner and get back to me. Five days of silence.
+Proposal: 90-day marketing strategy engagement. $3,500. Sent today.
 
-Write me a 2-touch follow-up:
-- Touch 1: Today. Warm. Not pushy. Short. One ask: a yes or no.
-- Touch 2: Four days from now. Add one specific value point about what they said on the call. Give them an easy out if the timing isn't right.
+Call notes: Client is a business coach, 8 years in, growing but inconsistent revenue. Main pain point — feast or famine cycle. They want predictable lead flow. Said they've tried ads before and burned money. Skeptical about paid but open to organic systems. Call ended with "this sounds like exactly what I need, let me look it over and get back to you."
 
-Write it in my voice. Under 80 words each. No corporate filler.
+Write the follow-up sequence.
 ```
 
-"Read that first message. You'd send that. That's not AI copy — that's how I'd actually say it."
+*(Let it run. Read Touch 1 out loud.)*
+
+"That message references the feast or famine problem they told me about on the call. It references their skepticism about ads. Claude read the conversation. I didn't have to remember any of it.
+
+And I wrote this before a single day passed. Before they had time to get busy and forget about me.
+
+That's not follow-up. That's a system."
 
 ---
 
-### DEMO PART C — OPERATIONS LAYER (~4 min)
+## SEGMENT 5 — DEPARTMENT 3: OPERATIONS DEPARTMENT (6 min)
 
-**Say:**
-"The operations layer is where most people leave the most time on the table. Let me show you what I run through Claude every week that used to take hours."
+### Setup
+
+*(Switch to Operations Department Project.)*
+
+### Say this:
+
+"Department three handles everything else — and there's a lot of everything else.
+
+Research before a client call. Summarizing a long document. Competitive intel. Drafting internal communications. Prepping for a presentation. Any recurring operational task that currently lives in your head or takes you longer than it should.
+
+This department's SOP is more flexible than the other two — it's your general ops resource. But it still knows your business, your context, your voice. So the output is always relevant to you specifically, not just generic information."
+
+---
+
+### OPERATIONS DEPARTMENT SYSTEM PROMPT (pre-loaded in Project)
+
+```
+You are the Operations Department for [Business Name].
+
+You handle research, preparation, decision support, and operational tasks.
+
+You know the business: [brief company description, offers, target client, current priorities]
+
+When given a task or situation:
+- If it's a client call prep: produce 3 discovery questions, 2 tech/situation questions to ask, and 1 key insight to be ready to share.
+- If it's a research request: produce a concise brief — the 3 things that matter most, not an exhaustive list.
+- If it's a document summary: pull the key decisions, action items, and anything that needs follow-up.
+- If it's something else: ask one clarifying question, then execute.
+
+Always be concise. Decision-ready output, not academic output.
+```
+
+---
+
+### LIVE DEMO — Operations Department
 
 **Type live:**
 ```
-I have a client call tomorrow. They run a mid-size home services company. Revenue around $2M. Struggling with follow-up and repeat business. They watched my webinar series.
-
-Give me:
-- 3 questions I should ask to understand where their biggest revenue leak is
-- 2 things I should find out about their current tech stack before recommending anything
-- The #1 insight about home services businesses and AI that I should be ready to share
+Client call tomorrow. They run a residential cleaning company. 12 employees. Revenue around $900K. Interested in using AI to handle customer follow-up and booking reminders. Never used Claude before.
 ```
 
-"That replaced 30 minutes of me guessing what to prep. Claude does the thinking so I show up sharp."
+*(Let it run. Show the output quickly.)*
 
----
-
-### CLOSING THE DEMO
-
-"Three layers, demonstrated in 15 minutes.
-
-Content for the week. Follow-up for the pipeline. Prep for tomorrow's call.
-
-That's the system. Not one trick. A system. And it runs every week, not just when I feel inspired."
-
----
-
-## SEGMENT 5 — Q&A HOTSEATS (10 min)
-
-### How to run it:
-
-"I want to do something different for the next 10 minutes. Tell me your biggest operational pain point right now — the thing eating your time, draining your energy, or falling through the cracks. Drop it in the chat.
-
-I'll pick three and map them to a Claude solution live. No theory. Real answer, real business."
-
-### Prep: Common scenarios to expect
-
-**"I spend hours every week writing proposals."**
-Build a proposal template in Claude with your voice, pricing structure, and client context. Then each proposal is: client name, scope, budget — done in 10 minutes.
-
-**"I don't have time to stay up on my industry."**
-Weekly research brief. One prompt. Claude synthesizes the three things that matter for your business specifically.
-
-**"My team communication falls apart — things slip."**
-Claude as internal ops assistant. Meeting summaries, action item lists, follow-up reminders — formatted and ready to paste into Slack or email.
-
-**"I can't keep up with consistent posting."**
-Monthly batching. One Saturday morning, you batch 4 weeks of content. Claude handles the writing. You handle the schedule.
-
-**"I forget to follow up on leads."**
-Weekly pipeline trigger. Every Monday, paste your open deals — Claude writes that week's follow-up messages. You send. Done.
+"Two minutes of prep instead of thirty. I walk into that call sharp because the department already did the thinking."
 
 ---
 
 ## SEGMENT 6 — RECAP (2 min)
 
-"Here's what happened tonight.
+### Say this:
 
-You saw the four layers of a Claude Business Operating System: Voice, Content, Follow-Up, Operations.
+"Here's what you now have.
 
-You saw all three working layers demoed live on a real business — this one.
+Three Claude Projects. Three trained employees. Each one has a job, an SOP, and a voice. None of them need you to build a prompt. You open the department, give it the assignment, it runs.
 
-You saw three real business problems solved in real time from the audience.
+Content — one topic in, full week out. Every Monday.
+Follow-Up — proposal in, 3-touch sequence out. Every time you send one.
+Operations — situation in, decision-ready output out. Whenever you need it.
 
-And here's the thing: none of this required a developer. None of it required a tech background. It required a system — and the decision to build it.
+That's a business operating system. Not a chatbot. Not a one-off tool. A system that runs whether you feel like figuring out a prompt or not.
 
-The system exists. The question is whether you build yours."
+Build it once. Run it every week."
 
 ---
 
 ## PITCH TRANSITION
 
-*(Go straight into this — no break.)*
+*(Go straight in — no pause.)*
 
-"Nine days from now, that system gets built. For your business.
+"Nine days from now, in Atlanta, you build all three of these for your actual business.
 
-Not a template. Not a workshop you take notes in and never look at again. May 23rd in Atlanta, you sit in the room, you bring your real business, and you leave with a working Claude Business Operating System — content layer, follow-up layer, operations layer — all set up and tested before you walk out the door.
+Not a generic template. Your voice. Your SOPs. Your clients. Your offers loaded in.
 
-I'm there. My team is there. And we don't move on until your system is actually working.
+We don't leave the room until all three departments are built, tested, and running. You walk out with a Content Department that knows your brand, a Follow-Up Department that fires every time a proposal goes out, and an Operations Department that handles your recurring work.
 
-Here's where we are: the room is filling up. I know the seat count right now and there is not a lot of room left. This is not manufactured scarcity — this is a small-room intensive by design, because that's how you actually get the work done.
+That's May 23rd. That's the Claude Power Move Intensive.
 
-Early bird pricing is $495. If that window is still open, it closes before next week. I will tell you exactly where we stand in the chat right now.
+The room is filling up — I'll drop the seat count in the chat right now. If tonight made this feel real, AtlantaAIBusiness.com is your next click.
 
-If the last four sessions have made you think 'I need this for my business' — tonight is the night to stop thinking and start acting.
-
-AtlantaAIBusiness.com. Link is in the chat."
+Link is in the chat."
 
 ---
 
 ## Q&A NOTES
 
-**"Is this all done inside Claude.ai or do I need to code anything?"**
-All of this is done inside Claude.ai with Claude Projects. No code. No API. No technical setup beyond what you already have.
+**"What goes in the system prompt — how detailed does it need to be?"**
+Detailed enough that you wouldn't have to explain it again. Treat it like onboarding a smart new hire. The more context you give, the less you have to manage the output. We build these in full at the intensive.
 
-**"Do I need to be at all four sessions before coming to the intensive?"**
-No. The intensive is self-contained. Replays for sessions 1-3 are available to registrants so you can get up to speed before May 23rd.
+**"Can I have more than three departments?"**
+Absolutely. These are the three most high-impact for most service businesses. Once you see how they work, you'll know exactly what else to add.
 
-**"What's the difference between what you showed tonight and what we do at the intensive?"**
-Tonight you watched it. May 23rd you build it — for your business, your voice, your workflows. Everything is customized to the person in the seat.
+**"Does this work in the free version of Claude?"**
+Claude Projects require a paid plan (Claude Pro). Worth every penny — this is literally your operating system.
 
-**"I tried Claude before and it didn't stick. What's different?"**
-Most people try Claude without a system. Generic output, frustration, quit. The intensive builds the system. That's what makes it stick.
+**"What if my call wasn't recorded — can I still use the Follow-Up Department?"**
+Yes. Just paste your notes from the call instead of a transcript. Even rough notes give Claude enough context to personalize the sequence.
 
-**"Is $495 the final price or does it go up?"**
-The price increases after early bird closes. If you're on the fence, the financially smart move is to get in now.
+**"Is this what we build at the intensive?"**
+Exactly this — but for your business. Your actual clients, your offers, your voice, your situations.
 
 ---
 
 ## IF THINGS GO SIDEWAYS
 
-**Running long on demo:** Cut Demo Part C. Parts A and B tell the full story.
+**Output is generic:** Check that your voice details are in the system prompt. Generic output almost always means thin context. Use the fix live: "Watch what happens when I add more context."
 
-**Audience quiet for hotseats:** Have two planted scenarios ready. "Let me take one from a conversation I had with an attendee this week..."
+**Running long:** Cut the Operations demo to just showing the system prompt — skip the live run. Content and Follow-Up are the main event.
 
-**Output sounds off:** "Watch what happens when I sharpen this prompt." The correction is the lesson.
+**Claude asks a clarifying question instead of running:** Your SOP needs "When you receive input, ask nothing. Just run the SOP." — add that line and re-run.
 
-**Tech issue:** Have all prompts pre-typed somewhere you can copy. The output and your commentary teach — not the live typing.
+**Tech issue:** Have all three input prompts pre-typed to copy. The output and your commentary teach — not the live typing.
 
 ---
 

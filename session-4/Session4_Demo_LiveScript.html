@@ -6,79 +6,38 @@
   <title>Session 4 — Live Demo Script | Claude Power Move</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: #0d0d0d; color: #e0e0e0; font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; padding: 0 0 80px 0; }
 
-    body {
-      background-color: #0d0d0d;
-      color: #e0e0e0;
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      line-height: 1.7;
-      padding: 0 0 80px 0;
-    }
-
-    .top-bar {
-      background-color: #111111;
-      border-bottom: 2px solid #e8732a;
-      padding: 16px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+    .top-bar { background-color: #111111; border-bottom: 2px solid #e8732a; padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
     .top-bar .series-name { font-size: 11px; font-weight: 700; color: #888888; letter-spacing: 2px; text-transform: uppercase; }
     .top-bar .session-title { font-size: 18px; font-weight: 900; color: #ffffff; }
     .top-bar .session-title span { color: #e8732a; }
     .top-bar .session-meta { font-size: 11px; color: #666666; text-align: right; }
 
-    .hero {
-      background: linear-gradient(160deg, #1a1a1a 0%, #0d1a2a 100%);
-      padding: 60px 40px 50px;
-      border-bottom: 1px solid #222222;
-      text-align: center;
-    }
+    .hero { background: linear-gradient(160deg, #1a1a1a 0%, #0d1a2a 100%); padding: 60px 40px 50px; border-bottom: 1px solid #222222; text-align: center; }
     .hero-kicker { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #e8732a; margin-bottom: 14px; }
-    .hero-title { font-size: 52px; font-weight: 900; color: #ffffff; line-height: 1; letter-spacing: -2px; margin-bottom: 12px; }
+    .hero-title { font-size: 48px; font-weight: 900; color: #ffffff; line-height: 1; letter-spacing: -2px; margin-bottom: 12px; }
     .hero-title span { color: #e8732a; }
-    .hero-sub { font-size: 16px; color: #888888; margin-top: 10px; }
-    .hero-hook { font-size: 20px; font-weight: 700; color: #dddddd; margin-top: 20px; font-style: italic; max-width: 640px; margin-left: auto; margin-right: auto; }
+    .hero-sub { font-size: 15px; color: #888888; margin-top: 10px; }
+    .hero-hook { font-size: 18px; font-weight: 700; color: #dddddd; margin-top: 20px; font-style: italic; max-width: 640px; margin-left: auto; margin-right: auto; }
 
-    .timing-bar {
-      background-color: #111111;
-      border: 1px solid #222222;
-      border-radius: 10px;
-      margin: 30px 40px;
-      overflow: hidden;
-    }
+    .timing-bar { background-color: #111111; border: 1px solid #222222; border-radius: 10px; margin: 30px 40px; overflow: hidden; }
     .timing-header { background-color: #1a1a1a; padding: 14px 24px; font-size: 11px; font-weight: 700; color: #e8732a; letter-spacing: 2px; text-transform: uppercase; }
     table.timing-table { width: 100%; border-collapse: collapse; }
     table.timing-table th { background-color: #1a1a1a; font-size: 11px; font-weight: 700; color: #555555; letter-spacing: 1px; text-transform: uppercase; padding: 12px 20px; text-align: left; border-bottom: 1px solid #222222; }
     table.timing-table td { padding: 12px 20px; font-size: 14px; color: #bbbbbb; border-bottom: 1px solid #1a1a1a; }
     table.timing-table tr:last-child td { border-bottom: none; }
     table.timing-table td:last-child { color: #e8732a; font-weight: 700; font-size: 13px; }
-    table.timing-table tr.active-row td { background-color: #1a1a1a; color: #ffffff; }
+    table.timing-table tr.active-row td { background-color: #1a1a1a; color: #ffffff; font-weight: 600; }
 
-    .section {
-      margin: 30px 40px 0;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid #222222;
-    }
-
-    .section-header {
-      padding: 18px 28px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+    .section { margin: 30px 40px 0; border-radius: 12px; overflow: hidden; border: 1px solid #222222; }
+    .section-header { padding: 18px 28px; display: flex; align-items: center; gap: 14px; }
     .seg-open .section-header { background-color: #1a1a1a; border-bottom: 2px solid #e8732a; }
-    .seg-context .section-header { background-color: #1a1a1a; border-bottom: 2px solid #6b5ce7; }
-    .seg-framework .section-header { background-color: #1a1a1a; border-bottom: 2px solid #2ecc71; }
-    .seg-demo .section-header { background-color: #1a1a1a; border-bottom: 2px solid #3498db; }
-    .seg-hotseats .section-header { background-color: #1a1a1a; border-bottom: 2px solid #f39c12; }
+    .seg-shift .section-header { background-color: #1a1a1a; border-bottom: 2px solid #9b59b6; }
+    .seg-content .section-header { background-color: #1a1a1a; border-bottom: 2px solid #2ecc71; }
+    .seg-followup .section-header { background-color: #1a1a1a; border-bottom: 2px solid #3498db; }
+    .seg-ops .section-header { background-color: #1a1a1a; border-bottom: 2px solid #f39c12; }
     .seg-recap .section-header { background-color: #1a1a1a; border-bottom: 2px solid #888888; }
     .seg-pitch .section-header { background-color: #1c0a00; border-bottom: 2px solid #e8732a; }
 
@@ -86,100 +45,46 @@
     .seg-name { font-size: 20px; font-weight: 900; color: #ffffff; }
     .seg-time { font-size: 12px; font-weight: 700; color: #e8732a; margin-left: auto; background-color: rgba(232,115,42,0.1); padding: 4px 10px; border-radius: 20px; }
 
-    .section-body { background-color: #111111; padding: 28px 28px; }
+    .section-body { background-color: #111111; padding: 28px; }
 
-    .say-block {
-      background-color: #0d0d0d;
-      border-left: 3px solid #e8732a;
-      border-radius: 0 8px 8px 0;
-      padding: 18px 22px;
-      margin: 0 0 20px 0;
-    }
+    .say-block { background-color: #0d0d0d; border-left: 3px solid #e8732a; border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 0 0 20px 0; }
     .say-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #e8732a; margin-bottom: 10px; }
-    .say-text { font-size: 16px; color: #dddddd; line-height: 1.8; }
-    .say-text em { color: #888888; font-style: normal; }
+    .say-text { font-size: 16px; color: #dddddd; line-height: 1.9; }
     .say-text strong { color: #ffffff; }
 
-    .prompt-block {
-      background-color: #0a1520;
-      border: 1px solid #1e3a50;
-      border-left: 3px solid #3498db;
-      border-radius: 0 8px 8px 0;
-      padding: 18px 22px;
-      margin: 18px 0;
-      font-family: 'Courier New', monospace;
-    }
+    .sop-block { background-color: #080d12; border: 1px solid #1a3a50; border-left: 3px solid #2ecc71; border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 18px 0; font-family: 'Courier New', monospace; }
+    .sop-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #2ecc71; margin-bottom: 10px; font-family: 'Inter', sans-serif; }
+    .sop-text { font-size: 13px; color: #88c888; line-height: 1.8; white-space: pre-wrap; }
+
+    .prompt-block { background-color: #0a1520; border: 1px solid #1e3a50; border-left: 3px solid #3498db; border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 18px 0; font-family: 'Courier New', monospace; }
     .prompt-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #3498db; margin-bottom: 10px; font-family: 'Inter', sans-serif; }
     .prompt-text { font-size: 14px; color: #a8d4f0; line-height: 1.8; white-space: pre-wrap; }
 
-    .director-block {
-      background-color: #111500;
-      border-left: 3px solid #f1c40f;
-      border-radius: 0 8px 8px 0;
-      padding: 14px 18px;
-      margin: 14px 0;
-    }
+    .director-block { background-color: #111500; border-left: 3px solid #f1c40f; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 14px 0; }
     .director-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #f1c40f; margin-bottom: 8px; }
     .director-text { font-size: 14px; color: #c8c8a0; line-height: 1.7; }
 
-    .layer-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin: 18px 0;
-    }
-    .layer-card {
-      background-color: #0d0d0d;
-      border: 1px solid #222222;
-      border-radius: 8px;
-      padding: 16px 18px;
-    }
-    .layer-number { font-size: 10px; font-weight: 700; color: #e8732a; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
-    .layer-name { font-size: 16px; font-weight: 800; color: #ffffff; margin-bottom: 6px; }
-    .layer-desc { font-size: 13px; color: #888888; line-height: 1.6; }
-
-    .recovery-box {
-      background-color: #1a0a0a;
-      border: 1px solid #3a1a1a;
-      border-left: 3px solid #e74c3c;
-      border-radius: 0 8px 8px 0;
-      padding: 16px 20px;
-      margin: 18px 0;
-    }
+    .recovery-box { background-color: #1a0a0a; border: 1px solid #3a1a1a; border-left: 3px solid #e74c3c; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 18px 0; }
     .recovery-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #e74c3c; margin-bottom: 8px; }
     .recovery-text { font-size: 13px; color: #c0a0a0; line-height: 1.7; }
 
-    .hotseat-item {
-      background-color: #0d0d0d;
-      border: 1px solid #222222;
-      border-radius: 8px;
-      padding: 16px 20px;
-      margin-bottom: 12px;
-    }
-    .hotseat-q { font-size: 14px; font-weight: 700; color: #f39c12; margin-bottom: 8px; }
-    .hotseat-a { font-size: 14px; color: #bbbbbb; line-height: 1.7; }
-
-    .pitch-box {
-      background: linear-gradient(135deg, #1a0a00 0%, #0d1a0d 100%);
-      border: 1px solid #e8732a;
-      border-radius: 10px;
-      padding: 26px 28px;
-      margin: 20px 0;
-    }
-    .pitch-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #e8732a; margin-bottom: 12px; }
+    .pitch-box { background: linear-gradient(135deg, #1a0a00 0%, #0d1a0d 100%); border: 1px solid #e8732a; border-radius: 10px; padding: 26px 28px; margin: 20px 0; }
     .pitch-text { font-size: 16px; color: #dddddd; line-height: 1.9; }
     .pitch-text strong { color: #ffffff; }
 
     hr.seg-divider { border: none; border-top: 1px solid #1e1e1e; margin: 22px 0; }
 
+    .dept-badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; }
+    .dept-content { background-color: rgba(46,204,113,0.1); color: #2ecc71; border: 1px solid rgba(46,204,113,0.3); }
+    .dept-followup { background-color: rgba(52,152,219,0.1); color: #3498db; border: 1px solid rgba(52,152,219,0.3); }
+    .dept-ops { background-color: rgba(243,156,18,0.1); color: #f39c12; border: 1px solid rgba(243,156,18,0.3); }
+
     @media (max-width: 768px) {
       .top-bar { padding: 14px 20px; flex-wrap: wrap; gap: 8px; }
       .hero { padding: 40px 20px; }
-      .hero-title { font-size: 36px; }
+      .hero-title { font-size: 34px; }
       .timing-bar, .section { margin-left: 16px; margin-right: 16px; }
-      .section-header { padding: 14px 18px; }
       .section-body { padding: 20px 18px; }
-      .layer-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -190,313 +95,273 @@
       <div class="series-name">The Claude Power Move Series</div>
       <div class="session-title">Session 4 — <span>Build Your Claude Business OS</span></div>
     </div>
-    <div class="session-meta">Thursday, May 14, 2026<br>7:00 PM ET</div>
+    <div class="session-meta">Thursday, May 14, 2026 · 7:00 PM ET</div>
   </div>
 
   <div class="hero">
     <div class="hero-kicker">Session 4 of 5 · Live Demo Script</div>
-    <h1 class="hero-title">Claude<br><span>Business OS</span></h1>
+    <h1 class="hero-title">Claude<br><span>Departments</span></h1>
     <p class="hero-sub">Thursday, May 14, 2026 &nbsp;·&nbsp; 7:00 PM ET</p>
-    <p class="hero-hook">"What does it look like when Claude is running your content, your follow-up, and your operations — all at once?"</p>
+    <p class="hero-hook">"Stop starting from scratch every week. The prompting is over. Now it just runs."</p>
   </div>
 
-  <!-- TIMING TABLE -->
+  <!-- TIMING -->
   <div class="timing-bar">
     <div class="timing-header">Session Flow</div>
     <table class="timing-table">
       <tr><th>Segment</th><th>Content</th><th>Time</th></tr>
-      <tr><td>1 — Open</td><td>Hook + the big picture</td><td>4 min</td></tr>
-      <tr><td>2 — Context</td><td>Why most people use Claude wrong</td><td>4 min</td></tr>
-      <tr><td>3 — Framework</td><td>The Claude Business OS — 4 layers</td><td>8 min</td></tr>
-      <tr class="active-row"><td>4 — Live Demo</td><td>John's personal stack, live on screen</td><td>15 min</td></tr>
-      <tr><td>5 — Hotseats</td><td>Audience pain points mapped live</td><td>10 min</td></tr>
-      <tr><td>6 — Recap</td><td>What they just watched</td><td>2 min</td></tr>
-      <tr><td>7 — Pitch</td><td>Strong close — 9 days out</td><td>7 min</td></tr>
+      <tr><td>1 — Open</td><td>The blank screen problem</td><td>4 min</td></tr>
+      <tr><td>2 — The Shift</td><td>Project = Trained Employee</td><td>5 min</td></tr>
+      <tr class="active-row"><td>3 — Content Dept</td><td>Build the SOP + live demo</td><td>10 min</td></tr>
+      <tr class="active-row"><td>4 — Follow-Up Dept</td><td>Proactive sequences + transcript demo</td><td>12 min</td></tr>
+      <tr><td>5 — Operations Dept</td><td>Show SOP + quick demo</td><td>6 min</td></tr>
+      <tr><td>6 — Recap</td><td>What they now have</td><td>2 min</td></tr>
+      <tr><td>7 — Pitch</td><td>Strong close — 9 days out</td><td>6 min</td></tr>
+      <tr><td>8 — Q&A</td><td>Open floor</td><td>5 min</td></tr>
     </table>
   </div>
 
   <!-- SEGMENT 1: OPEN -->
   <div class="section seg-open">
     <div class="section-header">
-      <div>
-        <div class="seg-number">Segment 1</div>
-        <div class="seg-name">The Open</div>
-      </div>
+      <div><div class="seg-number">Segment 1</div><div class="seg-name">The Blank Screen Problem</div></div>
       <div class="seg-time">4 min</div>
     </div>
     <div class="section-body">
       <div class="say-block">
         <div class="say-label">Say This</div>
         <div class="say-text">
-          "Four weeks. Four sessions. Four skills.<br><br>
-          In Session 1, you learned how to set Claude up so it knows your business. Session 2, you used it to build a week of content in 20 minutes. Session 3, you built a follow-up system that works your leads whether you feel like following up or not.<br><br>
-          Tonight is different.<br><br>
-          Tonight I'm not teaching you a new trick. Tonight I'm going to show you what it looks like when all of those pieces are running at the same time — in a real business.<br><br>
-          <strong>My business.</strong><br><br>
-          Because here's what I know after doing this: one Claude skill is useful. The full system is a competitive advantage. And most people stop at the skill.<br><br>
-          By the end of this session, you're going to understand exactly what your Claude Business Operating System looks like — and what it would take to build it.<br><br>
-          Let's go."
+          "Let me describe your Monday morning.<br><br>
+          You sit down, you open Claude, and then you stare at a blank screen trying to figure out what to type. You write a prompt. You get something back. You tweak it. You use it. Next Monday — same thing. Blank screen. Build the prompt again.<br><br>
+          <strong>That's not a system. That's a weekly tax on your time and your energy.</strong><br><br>
+          Here's what changes after tonight.<br><br>
+          You open Claude. You pick a department. You type one line — the topic, the lead's name, the situation. Claude already knows what to do with it. The SOP is already in there. The output comes out ready to use.<br><br>
+          <strong>Build it once. Run it every week.</strong><br><br>
+          That's what we're doing tonight."
         </div>
       </div>
     </div>
   </div>
 
-  <!-- SEGMENT 2: CONTEXT -->
-  <div class="section seg-context">
+  <!-- SEGMENT 2: THE SHIFT -->
+  <div class="section seg-shift">
     <div class="section-header">
-      <div>
-        <div class="seg-number">Segment 2</div>
-        <div class="seg-name">Why Most People Use Claude Wrong</div>
-      </div>
-      <div class="seg-time">4 min</div>
+      <div><div class="seg-number">Segment 2</div><div class="seg-name">The Project is the Trained Employee</div></div>
+      <div class="seg-time">5 min</div>
     </div>
     <div class="section-body">
       <div class="say-block">
         <div class="say-label">Say This</div>
         <div class="say-text">
-          "Here's the mistake I see constantly.<br><br>
-          Someone tries Claude. They ask it to write a social post. It's decent. They do it again. Maybe they even like it. Then they go back to doing things the old way, and they open Claude occasionally when they get stuck.<br><br>
-          <strong>That's not a system. That's a vending machine.</strong><br><br>
-          You put something in, you get something out. One time. No memory. No continuity. No accumulation. The same effort every single time.<br><br>
-          The businesses that are actually winning with AI right now aren't using it that way. They built a system. Content handled on Monday morning. Follow-up running in the background. Research and ops queries answered in seconds instead of hours.<br><br>
-          Claude isn't the feature. <strong>Claude is the operating system.</strong><br><br>
-          Here's what I mean."
+          "Here's the concept I want you to lock in before we build anything.<br><br>
+          When you set up a Claude Project with a detailed system prompt — a real SOP — you're not configuring a chatbot. <strong>You're onboarding an employee.</strong><br><br>
+          Think about how you'd bring a new person onto your team. You'd tell them what their job is. You'd walk them through exactly how you want things done. You'd give them the templates, the tone, the rules. After that — you don't re-explain it every time you give them an assignment. You just give them the assignment.<br><br>
+          That's what a Claude Department is.<br><br>
+          The SOP lives in the Project. Your voice is already in there. The output format is already in there. The rules are already in there. All you bring is the input — the topic, the situation, the context. Claude handles the rest.<br><br>
+          Tonight we build three departments: <strong>Content. Follow-Up. Operations.</strong><br><br>
+          Each one is a trained employee. Let's meet them."
         </div>
       </div>
     </div>
   </div>
 
-  <!-- SEGMENT 3: FRAMEWORK -->
-  <div class="section seg-framework">
+  <!-- SEGMENT 3: CONTENT DEPARTMENT -->
+  <div class="section seg-content">
     <div class="section-header">
-      <div>
-        <div class="seg-number">Segment 3</div>
-        <div class="seg-name">The Claude Business OS — 4 Layers</div>
-      </div>
-      <div class="seg-time">8 min</div>
-    </div>
-    <div class="section-body">
-      <div class="say-block">
-        <div class="say-label">Say This</div>
-        <div class="say-text">
-          "I think about a Claude Business Operating System as four layers. Every business needs all four. Most people have one, maybe two."
-        </div>
-      </div>
-
-      <div class="layer-grid">
-        <div class="layer-card">
-          <div class="layer-number">Layer 1</div>
-          <div class="layer-name">Voice</div>
-          <div class="layer-desc">Brand voice, context, background, offers loaded into a Claude Project. The foundation. Without it, everything is generic. With it, everything sounds like you.</div>
-        </div>
-        <div class="layer-card">
-          <div class="layer-number">Layer 2</div>
-          <div class="layer-name">Content</div>
-          <div class="layer-desc">Social posts, emails, scripts, blog outlines — all flowing from one session per week. Content is never a blank screen problem when this layer is running.</div>
-        </div>
-        <div class="layer-card">
-          <div class="layer-number">Layer 3</div>
-          <div class="layer-name">Follow-Up</div>
-          <div class="layer-desc">Proposals, warm leads, past clients — all being worked. The revenue protection layer. Nothing falls through the cracks.</div>
-        </div>
-        <div class="layer-card">
-          <div class="layer-number">Layer 4</div>
-          <div class="layer-name">Operations</div>
-          <div class="layer-desc">Research, decision support, client prep, intel, summaries, planning. Claude as your executive assistant who never sleeps and never drops the ball.</div>
-        </div>
-      </div>
-
-      <div class="say-block">
-        <div class="say-label">Continue</div>
-        <div class="say-text">
-          "When all four are running, you're not using AI. <strong>You're running on it.</strong><br><br>
-          Tonight's demo: I'm showing you exactly how I have this set up for ColderICE — live, on screen."
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SEGMENT 4: LIVE DEMO -->
-  <div class="section seg-demo">
-    <div class="section-header">
-      <div>
-        <div class="seg-number">Segment 4</div>
-        <div class="seg-name">Live Demo — John's Claude Business Stack</div>
-      </div>
-      <div class="seg-time">15 min</div>
-    </div>
-    <div class="section-body">
-
-      <div class="director-block">
-        <div class="director-label">Director Note</div>
-        <div class="director-text">Open your Claude Project. Show the system prompt briefly — voice, context, offers visible on screen. "This is Layer 1. Everything that runs after this runs on top of this foundation."</div>
-      </div>
-
-      <hr class="seg-divider">
-      <strong style="color:#ffffff; font-size:15px;">DEMO PART A — Content Layer (~4 min)</strong>
-
-      <div class="say-block">
-        <div class="say-label">Say This</div>
-        <div class="say-text">
-          "Every Monday morning, I sit down for about 15 minutes. I give Claude one topic — something real, something current. Then I run this."
-        </div>
-      </div>
-
-      <div class="prompt-block">
-        <div class="prompt-label">Type Live — Content Batch Prompt</div>
-        <div class="prompt-text">I need this week's content batch.
-
-Topic: [current relevant topic — e.g., "How to use Claude Projects to save hours every week"]
-
-From this, give me:
-- 3 LinkedIn/Facebook posts (different angles: insight, story, challenge)
-- 1 email subject line with 3 variations
-- 1 short-form hook for Instagram/X (under 80 words)
-
-My voice profile is loaded. Write punchy. Direct. No fluff. Real-business energy.</div>
-      </div>
-
-      <div class="director-block">
-        <div class="director-label">After Output</div>
-        <div class="director-text">"That's a Monday morning. Fifteen minutes. Week of content done. I didn't write a single word. I directed it."</div>
-      </div>
-
-      <hr class="seg-divider">
-      <strong style="color:#ffffff; font-size:15px;">DEMO PART B — Follow-Up Layer (~4 min)</strong>
-
-      <div class="say-block">
-        <div class="say-label">Say This</div>
-        <div class="say-text">
-          "Layer 3 is what saves the most money. Let me show you a real scenario from my pipeline."
-        </div>
-      </div>
-
-      <div class="prompt-block">
-        <div class="prompt-label">Type Live — Follow-Up Prompt</div>
-        <div class="prompt-text">I had a call last week with a potential consulting client. $5K/month retainer. They were interested, asked good questions, said they'd talk to their partner and get back to me. Five days of silence.
-
-Write me a 2-touch follow-up:
-- Touch 1: Today. Warm. Not pushy. Short. One ask: a yes or no.
-- Touch 2: Four days from now. Add one specific value point about what they said on the call. Give them an easy out if the timing isn't right.
-
-Write it in my voice. Under 80 words each. No corporate filler.</div>
-      </div>
-
-      <div class="director-block">
-        <div class="director-label">After Output</div>
-        <div class="director-text">Read message one out loud. "You'd send that. That's not AI copy — that's how I'd actually say it. That's what Layer 1 does. Everything runs through your voice."</div>
-      </div>
-
-      <hr class="seg-divider">
-      <strong style="color:#ffffff; font-size:15px;">DEMO PART C — Operations Layer (~4 min)</strong>
-
-      <div class="say-block">
-        <div class="say-label">Say This</div>
-        <div class="say-text">
-          "The operations layer is where most people leave the most time on the table. Here's what I run through Claude before client calls."
-        </div>
-      </div>
-
-      <div class="prompt-block">
-        <div class="prompt-label">Type Live — Ops/Client Prep Prompt</div>
-        <div class="prompt-text">I have a client call tomorrow. They run a mid-size home services company. Revenue around $2M. Struggling with follow-up and repeat business. They watched my webinar series.
-
-Give me:
-- 3 questions I should ask to understand where their biggest revenue leak is
-- 2 things I should find out about their current tech stack before recommending anything
-- The #1 insight about home services businesses and AI that I should be ready to share</div>
-      </div>
-
-      <div class="director-block">
-        <div class="director-label">After Output</div>
-        <div class="director-text">"That replaced 30 minutes of prep. I show up sharp because Claude did the thinking. That's Layer 4."</div>
-      </div>
-
-      <hr class="seg-divider">
-
-      <div class="say-block">
-        <div class="say-label">Demo Close</div>
-        <div class="say-text">
-          "Three layers, demonstrated in 15 minutes.<br><br>
-          Content for the week. Follow-up for the pipeline. Prep for tomorrow's call.<br><br>
-          That's the system. Not one trick. <strong>A system.</strong> And it runs every week — not just when I feel inspired."
-        </div>
-      </div>
-
-      <div class="recovery-box">
-        <div class="recovery-label">If Things Go Sideways</div>
-        <div class="recovery-text">
-          Running long → Cut Demo Part C. Parts A and B tell the complete story.<br>
-          Output sounds off → "Watch what happens when I sharpen this prompt." The redirect IS the lesson.<br>
-          Tech issue → Have all three prompts pre-typed somewhere to copy. Output + commentary teaches, not the live typing.
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- SEGMENT 5: HOTSEATS -->
-  <div class="section seg-hotseats">
-    <div class="section-header">
-      <div>
-        <div class="seg-number">Segment 5</div>
-        <div class="seg-name">Q&A Hotseats</div>
-      </div>
+      <div><div class="seg-number">Segment 3</div><div class="seg-name">Content Department</div></div>
       <div class="seg-time">10 min</div>
     </div>
     <div class="section-body">
+      <div class="dept-badge dept-content">Content Department</div>
 
       <div class="say-block">
-        <div class="say-label">Say This to Open Hotseats</div>
+        <div class="say-label">Say This</div>
         <div class="say-text">
-          "I want to do something different for the next 10 minutes. Tell me your biggest operational pain point right now — the thing eating your time, draining your energy, or falling through the cracks. Drop it in the chat.<br><br>
-          I'll pick three and map them to a Claude solution live. No theory. Real answer, real business."
+          "Department one: Content.<br><br>
+          This employee's job is to take one topic and turn it into a full week of content — every time, in your voice, in the right formats, ready to schedule.<br><br>
+          Here's what the SOP looks like inside the Project."
         </div>
       </div>
 
-      <div class="hotseat-item">
-        <div class="hotseat-q">"I spend hours every week writing proposals."</div>
-        <div class="hotseat-a">Build a proposal template in Claude with your voice, pricing structure, and client context. Then each proposal is: client name, scope, budget — done in 10 minutes instead of two hours.</div>
-      </div>
-      <div class="hotseat-item">
-        <div class="hotseat-q">"I can't keep up with consistent posting."</div>
-        <div class="hotseat-a">Monthly batching. One Saturday morning, you batch 4 weeks of content. Claude handles the writing — you handle the schedule. The discipline is showing up once a month, not every day.</div>
-      </div>
-      <div class="hotseat-item">
-        <div class="hotseat-q">"My team communication falls apart — things slip."</div>
-        <div class="hotseat-a">Claude as internal ops assistant. Meeting summaries, action item lists, follow-up reminders — all formatted and ready to paste into Slack or email after every meeting.</div>
-      </div>
-      <div class="hotseat-item">
-        <div class="hotseat-q">"I don't have time to stay up on my industry."</div>
-        <div class="hotseat-a">Weekly research brief. You paste in whatever you've seen — articles, reports, competitor moves. Claude synthesizes the three things that actually matter for your business specifically.</div>
-      </div>
-      <div class="hotseat-item">
-        <div class="hotseat-q">"I forget to follow up on leads."</div>
-        <div class="hotseat-a">Weekly pipeline trigger. Every Monday, paste your open deals. Claude writes that week's follow-up messages. You review, you send. Done in 15 minutes.</div>
+      <div class="director-block">
+        <div class="director-label">Director Note</div>
+        <div class="director-text">Switch to the Content Department Project. Show the system prompt briefly — or scroll through it on screen. Then say the key line below before running the demo.</div>
       </div>
 
+      <div class="sop-block">
+        <div class="sop-label">Content Department — System Prompt (pre-loaded)</div>
+        <div class="sop-text">You are the Content Department for [Business Name].
+
+Your job: Take one topic or angle and produce a complete weekly content batch.
+
+Every time you receive a topic, produce:
+- 3 social posts (Facebook/LinkedIn) — one insight, one story, one challenge/question
+- 1 email subject line with 3 variations
+- 1 short-form hook for Instagram or X (under 80 words)
+
+Voice rules:
+- Direct and punchy. Short sentences.
+- No corporate filler. No "It's worth noting."
+- Write like a business owner who has actually built something — not like a marketer.
+- First person. Conversational.
+
+Output format: Label each piece clearly. Deliver in order listed above.
+
+When you receive a topic, ask nothing. Just run the SOP.</div>
+      </div>
+
+      <div class="say-block">
+        <div class="say-label">Before You Type</div>
+        <div class="say-text">"That's the whole SOP. It knows the format. It knows the voice. It knows not to ask me questions. Watch what happens when I give it one line."</div>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-label">Type Live — One Line Input</div>
+        <div class="prompt-text">Topic: Why most small business owners are using AI at 5% of what it can actually do.</div>
+      </div>
+
+      <div class="director-block">
+        <div class="director-label">After Output</div>
+        <div class="director-text">Read the first social post out loud. React naturally. Then: "One line in. Full week out. I didn't build a single prompt. I gave the department its assignment and it ran the SOP. That's what Monday morning looks like now."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEGMENT 4: FOLLOW-UP DEPARTMENT -->
+  <div class="section seg-followup">
+    <div class="section-header">
+      <div><div class="seg-number">Segment 4</div><div class="seg-name">Follow-Up Department</div></div>
+      <div class="seg-time">12 min</div>
+    </div>
+    <div class="section-body">
+      <div class="dept-badge dept-followup">Follow-Up Department</div>
+
+      <div class="say-block">
+        <div class="say-label">Say This — Setup</div>
+        <div class="say-text">
+          "Department two is where most businesses are losing real money — and this one changes immediately.<br><br>
+          Most follow-up is reactive. Lead goes cold, then you scramble to figure out what to say. <strong>This department flips that completely.</strong><br><br>
+          The rule is: the follow-up gets built the moment the proposal goes out.<br><br>
+          You just got off the call. You send the proposal. Before you close the laptop — you open this department, paste in the proposal, and it writes your 3-touch follow-up sequence right then. Day 2, Day 5, Day 10. All written. All specific. Ready to send on schedule.<br><br>
+          And here's what makes it even better."
+        </div>
+      </div>
+
+      <div class="say-block">
+        <div class="say-label">The Transcript Reveal</div>
+        <div class="say-text">
+          "If you recorded the call — if you have a transcript from Zoom or Fathom or wherever — you paste that in too.<br><br>
+          Now the follow-up messages reference specific things from the actual conversation. What they said they were struggling with. What they told you their goal was. What made them hesitate.<br><br>
+          <strong>Claude read the call. The follow-up sounds like you were paying perfect attention — because Claude was.</strong>"
+        </div>
+      </div>
+
+      <div class="sop-block">
+        <div class="sop-label">Follow-Up Department — System Prompt (pre-loaded)</div>
+        <div class="sop-text">You are the Follow-Up Department for [Business Name].
+
+Your job: Turn a proposal and/or call context into a ready-to-send follow-up sequence.
+
+Every time you receive input, produce:
+- Touch 1 (send Day 2): Warm check-in. Short. One clear ask.
+- Touch 2 (send Day 5): Add one specific value point pulled directly from the proposal or call context. Soft CTA.
+- Touch 3 (send Day 10): Honest close. Give them an easy out. Keep the door open.
+
+Rules:
+- Pull specific details from the proposal and transcript. Never write generic messages.
+- Match the temperature — read how interested they seemed and write accordingly.
+- Under 100 words per message.
+- No "just checking in." No "I hope this finds you well."
+- Write in [Name]'s voice: direct, warm, no corporate softness.
+
+When you receive input, ask nothing. Run the SOP. Deliver all three touches.</div>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-label">Type Live — Proposal + Call Notes Input</div>
+        <div class="prompt-text">Proposal: 90-day marketing strategy engagement. $3,500. Sent today.
+
+Call notes: Client is a business coach, 8 years in, growing but inconsistent revenue. Main pain point — feast or famine cycle. They want predictable lead flow. Said they've tried ads before and burned money. Skeptical about paid but open to organic systems. Call ended with "this sounds like exactly what I need, let me look it over and get back to you."
+
+Write the follow-up sequence.</div>
+      </div>
+
+      <div class="director-block">
+        <div class="director-label">After Output</div>
+        <div class="director-text">Read Touch 1 out loud. Point out the specific reference to "feast or famine" and the ad skepticism — pulled directly from the call notes. Then: "That message knows what they told me. I didn't have to remember it. And I wrote this before a single day passed. That's not follow-up. That's a system."</div>
+      </div>
+
+      <div class="recovery-box">
+        <div class="recovery-label">Key Line to Land</div>
+        <div class="recovery-text">"You never chase a cold lead again — because you never gave it time to get cold. The sequence fires the same day the proposal goes out."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEGMENT 5: OPERATIONS DEPARTMENT -->
+  <div class="section seg-ops">
+    <div class="section-header">
+      <div><div class="seg-number">Segment 5</div><div class="seg-name">Operations Department</div></div>
+      <div class="seg-time">6 min</div>
+    </div>
+    <div class="section-body">
+      <div class="dept-badge dept-ops">Operations Department</div>
+
+      <div class="say-block">
+        <div class="say-label">Say This</div>
+        <div class="say-text">
+          "Department three handles everything else — and there's a lot of everything else.<br><br>
+          Research before a client call. Summarizing a document. Competitive intel. Drafting internal comms. Prepping for a presentation. Any recurring operational task that currently lives in your head or takes longer than it should.<br><br>
+          This department already knows your business, your context, your clients. So the output isn't generic — it's relevant to your situation specifically."
+        </div>
+      </div>
+
+      <div class="sop-block">
+        <div class="sop-label">Operations Department — System Prompt (pre-loaded)</div>
+        <div class="sop-text">You are the Operations Department for [Business Name].
+
+You handle research, preparation, decision support, and operational tasks.
+
+You know the business: [brief company description, offers, target client, current priorities]
+
+When given a task or situation:
+- Client call prep: produce 3 discovery questions, 2 situation questions, 1 key insight to share.
+- Research request: the 3 things that matter most — not an exhaustive list.
+- Document summary: key decisions, action items, anything needing follow-up.
+- Anything else: ask one clarifying question, then execute.
+
+Always be concise. Decision-ready output, not academic output.</div>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-label">Type Live</div>
+        <div class="prompt-text">Client call tomorrow. They run a residential cleaning company. 12 employees. Revenue around $900K. Interested in using AI to handle customer follow-up and booking reminders. Never used Claude before.</div>
+      </div>
+
+      <div class="director-block">
+        <div class="director-label">After Output</div>
+        <div class="director-text">"Two minutes of prep instead of thirty. I walk into that call sharp because the department already did the thinking."</div>
+      </div>
     </div>
   </div>
 
   <!-- SEGMENT 6: RECAP -->
   <div class="section seg-recap">
     <div class="section-header">
-      <div>
-        <div class="seg-number">Segment 6</div>
-        <div class="seg-name">Recap</div>
-      </div>
+      <div><div class="seg-number">Segment 6</div><div class="seg-name">Recap</div></div>
       <div class="seg-time">2 min</div>
     </div>
     <div class="section-body">
       <div class="say-block">
         <div class="say-label">Say This</div>
         <div class="say-text">
-          "Here's what happened tonight.<br><br>
-          You saw the four layers of a Claude Business Operating System: Voice, Content, Follow-Up, Operations.<br><br>
-          You saw all three working layers demoed live on a real business — this one.<br><br>
-          You saw real business problems solved in real time from the audience.<br><br>
-          And here's the thing: none of this required a developer. None of it required a tech background. It required a system — and the decision to build it.<br><br>
-          <strong>The system exists. The question is whether you build yours.</strong>"
+          "Here's what you now have.<br><br>
+          Three Claude Projects. Three trained employees. Each one has a job, an SOP, and your voice. None of them need you to build a prompt. You open the department, give it the assignment, it runs.<br><br>
+          <strong>Content</strong> — one topic in, full week out. Every Monday.<br>
+          <strong>Follow-Up</strong> — proposal in, 3-touch sequence out. Every time you send one.<br>
+          <strong>Operations</strong> — situation in, decision-ready output out. Whenever you need it.<br><br>
+          That's a business operating system. Not a chatbot. Not a one-off tool. <strong>A system that runs whether you feel like figuring out a prompt or not.</strong><br><br>
+          Build it once. Run it every week."
         </div>
       </div>
     </div>
@@ -505,37 +370,40 @@ Give me:
   <!-- SEGMENT 7: PITCH -->
   <div class="section seg-pitch">
     <div class="section-header">
-      <div>
-        <div class="seg-number">Segment 7</div>
-        <div class="seg-name">The Close — 9 Days Out</div>
-      </div>
-      <div class="seg-time">7 min</div>
+      <div><div class="seg-number">Segment 7</div><div class="seg-name">The Close — 9 Days Out</div></div>
+      <div class="seg-time">6 min</div>
     </div>
     <div class="section-body">
-
       <div class="pitch-box">
-        <div class="pitch-label">Go Straight Into This — No Break</div>
         <div class="pitch-text">
-          "Nine days from now, that system gets built. For your business.<br><br>
-          Not a template. Not a workshop you take notes in and never look at again. May 23rd in Atlanta, you sit in the room, you bring your real business, and you leave with a working Claude Business Operating System — content layer, follow-up layer, operations layer — all set up and tested before you walk out the door.<br><br>
-          I'm there. My team is there. And <strong>we don't move on until your system is actually working.</strong><br><br>
-          Here's where we are: the room is filling up. I know the seat count right now and there is not a lot of room left. This is not manufactured scarcity — this is a small-room intensive by design, because that's how you actually get the work done.<br><br>
-          Early bird pricing is $495. If that window is still open, it closes before next week. I will tell you exactly where we stand in the chat right now.<br><br>
-          If the last four sessions have made you think 'I need this for my business' — <strong>tonight is the night to stop thinking and start acting.</strong><br><br>
-          AtlantaAIBusiness.com. Link is in the chat."
+          "Nine days from now, in Atlanta, you build all three of these for your actual business.<br><br>
+          Not a generic template. <strong>Your voice. Your SOPs. Your clients. Your offers loaded in.</strong><br><br>
+          We don't leave the room until all three departments are built, tested, and running. You walk out with a Content Department that knows your brand, a Follow-Up Department that fires every time a proposal goes out, and an Operations Department that handles your recurring work.<br><br>
+          That's May 23rd. That's the Claude Power Move Intensive.<br><br>
+          The room is filling — I'll drop the seat count in the chat right now. If tonight made this feel real, <strong>AtlantaAIBusiness.com</strong> is your next click.<br><br>
+          Link is in the chat."
         </div>
       </div>
 
       <div class="director-block">
         <div class="director-label">Post-Pitch Q&A — Common Questions</div>
         <div class="director-text">
-          <strong>"Is this done in Claude.ai or do I need to code?"</strong> — All Claude.ai with Projects. No code. No API.<br><br>
-          <strong>"Do I need to attend all sessions first?"</strong> — No. Intensive is self-contained. Replays available with registration.<br><br>
-          <strong>"I tried Claude before and it didn't stick."</strong> — You tried it without a system. The intensive builds the system. That's what makes it stick.<br><br>
-          <strong>"Is $495 the final price?"</strong> — It increases after early bird closes. Fence = get in now.
+          <strong>"What goes in the system prompt?"</strong> — Detailed enough that you wouldn't have to explain it again. Like onboarding a smart new hire. We build these in full at the intensive.<br><br>
+          <strong>"Does this work on the free Claude?"</strong> — Projects require Claude Pro. Worth every penny — this is your operating system.<br><br>
+          <strong>"What if my call wasn't recorded?"</strong> — Paste your notes instead of a transcript. Even rough notes give Claude enough to personalize.<br><br>
+          <strong>"Can I have more than three departments?"</strong> — Absolutely. These three are the highest-impact starting point. You'll know what to add once they're running.<br><br>
+          <strong>"Output is generic / Claude asks questions instead of running."</strong> — Your SOP needs more context, or the line "When you receive input, ask nothing. Just run the SOP." Fix it live — the correction teaches.
         </div>
       </div>
 
+      <div class="recovery-box">
+        <div class="recovery-label">If Things Go Sideways</div>
+        <div class="recovery-text">
+          Running long → Cut Operations demo to just showing the SOP, skip the live run. Content + Follow-Up are the session.<br>
+          Generic output → "Watch what happens when I add more context to the SOP." Fix it live.<br>
+          Tech issue → Have all three input prompts pre-typed to paste. The output and your commentary teach.
+        </div>
+      </div>
     </div>
   </div>
 
