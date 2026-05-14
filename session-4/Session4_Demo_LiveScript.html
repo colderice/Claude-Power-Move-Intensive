@@ -1,196 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Session 4 — Live Demo Script | Claude Power Move</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Session 4 Live Demo — Claude Departments</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background-color: #0d0d0d; color: #e0e0e0; font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; padding: 0 0 80px 0; }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-    .top-bar { background-color: #111111; border-bottom: 2px solid #e8732a; padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
-    .top-bar .series-name { font-size: 11px; font-weight: 700; color: #888888; letter-spacing: 2px; text-transform: uppercase; }
-    .top-bar .session-title { font-size: 18px; font-weight: 900; color: #ffffff; }
-    .top-bar .session-title span { color: #e8732a; }
-    .top-bar .session-meta { font-size: 11px; color: #666666; text-align: right; }
-
-    .hero { background: linear-gradient(160deg, #1a1a1a 0%, #0d1a2a 100%); padding: 60px 40px 50px; border-bottom: 1px solid #222222; text-align: center; }
-    .hero-kicker { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #e8732a; margin-bottom: 14px; }
-    .hero-title { font-size: 48px; font-weight: 900; color: #ffffff; line-height: 1; letter-spacing: -2px; margin-bottom: 12px; }
-    .hero-title span { color: #e8732a; }
-    .hero-sub { font-size: 15px; color: #888888; margin-top: 10px; }
-    .hero-hook { font-size: 18px; font-weight: 700; color: #dddddd; margin-top: 20px; font-style: italic; max-width: 640px; margin-left: auto; margin-right: auto; }
-
-    .timing-bar { background-color: #111111; border: 1px solid #222222; border-radius: 10px; margin: 30px 40px; overflow: hidden; }
-    .timing-header { background-color: #1a1a1a; padding: 14px 24px; font-size: 11px; font-weight: 700; color: #e8732a; letter-spacing: 2px; text-transform: uppercase; }
-    table.timing-table { width: 100%; border-collapse: collapse; }
-    table.timing-table th { background-color: #1a1a1a; font-size: 11px; font-weight: 700; color: #555555; letter-spacing: 1px; text-transform: uppercase; padding: 12px 20px; text-align: left; border-bottom: 1px solid #222222; }
-    table.timing-table td { padding: 12px 20px; font-size: 14px; color: #bbbbbb; border-bottom: 1px solid #1a1a1a; }
-    table.timing-table tr:last-child td { border-bottom: none; }
-    table.timing-table td:last-child { color: #e8732a; font-weight: 700; font-size: 13px; }
-    table.timing-table tr.active-row td { background-color: #1a1a1a; color: #ffffff; font-weight: 600; }
-
-    .section { margin: 30px 40px 0; border-radius: 12px; overflow: hidden; border: 1px solid #222222; }
-    .section-header { padding: 18px 28px; display: flex; align-items: center; gap: 14px; }
-    .seg-open .section-header { background-color: #1a1a1a; border-bottom: 2px solid #e8732a; }
-    .seg-shift .section-header { background-color: #1a1a1a; border-bottom: 2px solid #9b59b6; }
-    .seg-content .section-header { background-color: #1a1a1a; border-bottom: 2px solid #2ecc71; }
-    .seg-followup .section-header { background-color: #1a1a1a; border-bottom: 2px solid #3498db; }
-    .seg-ops .section-header { background-color: #1a1a1a; border-bottom: 2px solid #f39c12; }
-    .seg-recap .section-header { background-color: #1a1a1a; border-bottom: 2px solid #888888; }
-    .seg-pitch .section-header { background-color: #1c0a00; border-bottom: 2px solid #e8732a; }
-
-    .seg-number { font-size: 11px; font-weight: 700; color: #555555; letter-spacing: 2px; text-transform: uppercase; }
-    .seg-name { font-size: 20px; font-weight: 900; color: #ffffff; }
-    .seg-time { font-size: 12px; font-weight: 700; color: #e8732a; margin-left: auto; background-color: rgba(232,115,42,0.1); padding: 4px 10px; border-radius: 20px; }
-
-    .section-body { background-color: #111111; padding: 28px; }
-
-    .say-block { background-color: #0d0d0d; border-left: 3px solid #e8732a; border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 0 0 20px 0; }
-    .say-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #e8732a; margin-bottom: 10px; }
-    .say-text { font-size: 16px; color: #dddddd; line-height: 1.9; }
-    .say-text strong { color: #ffffff; }
-
-    .sop-block { background-color: #080d12; border: 1px solid #1a3a50; border-left: 3px solid #2ecc71; border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 18px 0; font-family: 'Courier New', monospace; }
-    .sop-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #2ecc71; margin-bottom: 10px; font-family: 'Inter', sans-serif; }
-    .sop-text { font-size: 13px; color: #88c888; line-height: 1.8; white-space: pre-wrap; }
-
-    .prompt-block { background-color: #0a1520; border: 1px solid #1e3a50; border-left: 3px solid #3498db; border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 18px 0; font-family: 'Courier New', monospace; }
-    .prompt-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #3498db; margin-bottom: 10px; font-family: 'Inter', sans-serif; }
-    .prompt-text { font-size: 14px; color: #a8d4f0; line-height: 1.8; white-space: pre-wrap; }
-
-    .director-block { background-color: #111500; border-left: 3px solid #f1c40f; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 14px 0; }
-    .director-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #f1c40f; margin-bottom: 8px; }
-    .director-text { font-size: 14px; color: #c8c8a0; line-height: 1.7; }
-
-    .recovery-box { background-color: #1a0a0a; border: 1px solid #3a1a1a; border-left: 3px solid #e74c3c; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 18px 0; }
-    .recovery-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #e74c3c; margin-bottom: 8px; }
-    .recovery-text { font-size: 13px; color: #c0a0a0; line-height: 1.7; }
-
-    .pitch-box { background: linear-gradient(135deg, #1a0a00 0%, #0d1a0d 100%); border: 1px solid #e8732a; border-radius: 10px; padding: 26px 28px; margin: 20px 0; }
-    .pitch-text { font-size: 16px; color: #dddddd; line-height: 1.9; }
-    .pitch-text strong { color: #ffffff; }
-
-    hr.seg-divider { border: none; border-top: 1px solid #1e1e1e; margin: 22px 0; }
-
-    .dept-badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; }
-    .dept-content { background-color: rgba(46,204,113,0.1); color: #2ecc71; border: 1px solid rgba(46,204,113,0.3); }
-    .dept-followup { background-color: rgba(52,152,219,0.1); color: #3498db; border: 1px solid rgba(52,152,219,0.3); }
-    .dept-ops { background-color: rgba(243,156,18,0.1); color: #f39c12; border: 1px solid rgba(243,156,18,0.3); }
-
-    @media (max-width: 768px) {
-      .top-bar { padding: 14px 20px; flex-wrap: wrap; gap: 8px; }
-      .hero { padding: 40px 20px; }
-      .hero-title { font-size: 34px; }
-      .timing-bar, .section { margin-left: 16px; margin-right: 16px; }
-      .section-body { padding: 20px 18px; }
+    :root {
+      --bg-color: #f7f3ec;
+      --text-color: #444444;
+      --card-bg: #ffffff;
+      --primary: #e8732a;
+      --primary-hover: #cf631f;
+      --accent: #6a9bcc;
+      --border: rgba(17,17,17,0.08);
+      --nav-bg: rgba(255,253,249,0.94);
+      --mid-gray: #7a746c;
+      --dark-bg: #111111;
+      --dark-text: #f7f1e8;
+      --green: #2ecc71;
+      --blue: #3498db;
+      --gold: #f1c40f;
+      --red: #e74c3c;
     }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.7;
+      font-size: 18px;
+      padding-bottom: 60px;
+    }
+
+    header {
+      background: radial-gradient(circle at top right, rgba(232,115,42,0.24), transparent 34%),
+        linear-gradient(180deg, #171717 0%, #111111 100%);
+      padding: 32px 20px 42px;
+      text-align: center;
+      border-bottom: 1px solid rgba(232,115,42,0.3);
+    }
+
+    .header-badge-row {
+      display: flex; justify-content: center; align-items: center;
+      gap: 12px; flex-wrap: wrap; margin-bottom: 18px;
+    }
+    .header-badge {
+      display: inline-flex; align-items: center; border-radius: 999px;
+      padding: 8px 14px; font-size: 0.88rem; font-weight: 700;
+      letter-spacing: 0.02em; background: var(--primary); color: #fff;
+    }
+    .header-series {
+      display: inline-flex; align-items: center; border-radius: 999px;
+      padding: 8px 14px; font-size: 0.88rem; font-weight: 700;
+      background: rgba(255,255,255,0.08); color: var(--dark-text);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    h1 {
+      font-size: 2.8rem; margin-bottom: 10px; color: var(--dark-text);
+      letter-spacing: -0.03em; font-weight: 800;
+    }
+    .subtitle { font-size: 1.05rem; color: rgba(247,241,232,0.78); font-weight: 500; }
+    .tagline { margin-top: 14px; font-size: 0.95rem; color: rgba(247,241,232,0.7); font-weight: 600; }
+    .format-note {
+      display: inline-block; background: rgba(232,115,42,0.12); color: var(--dark-text);
+      border: 1px solid rgba(232,115,42,0.28); padding: 10px 16px;
+      border-radius: 999px; font-size: 0.92rem; margin-top: 20px; font-weight: 500;
+    }
+
+    nav {
+      position: sticky; top: 0; background-color: var(--nav-bg);
+      backdrop-filter: blur(8px); padding: 15px 20px;
+      border-bottom: 1px solid rgba(106,155,204,0.18);
+      z-index: 100; text-align: center;
+      box-shadow: 0 8px 24px rgba(42,37,33,0.08);
+    }
+    nav a {
+      color: var(--accent); text-decoration: none; margin: 0 8px;
+      font-weight: 600; font-size: 0.9rem;
+    }
+    nav a:hover { text-decoration: underline; }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+    .global-actions { display: flex; justify-content: flex-end; margin: 20px 0; }
+
+    button {
+      background-color: var(--primary); color: #ffffff; border: none;
+      padding: 10px 20px; border-radius: 8px; font-size: 0.98rem;
+      font-weight: 700; font-family: 'Inter', Arial, sans-serif;
+      cursor: pointer; transition: background-color 0.2s, transform 0.2s;
+      box-shadow: 0 6px 18px rgba(232,115,42,0.2);
+    }
+    button:hover { background-color: var(--primary-hover); transform: translateY(-1px); }
+    button.success { background-color: var(--accent); }
+
+    .card {
+      background: var(--card-bg); border-radius: 16px; padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 18px 36px rgba(17,17,17,0.06), inset 0 1px 0 rgba(255,255,255,0.65);
+    }
+
+    h2 {
+      font-size: 1.9rem; margin-top: 0; margin-bottom: 15px; color: #222;
+      letter-spacing: -0.02em; font-weight: 800;
+    }
+    h3 { font-size: 1.3rem; margin: 20px 0 10px; color: var(--accent); font-weight: 700; }
+
+    .section-label {
+      display: inline-block; background: var(--primary); color: #fff;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; padding: 4px 12px; border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    .section-label.green { background: var(--green); }
+    .section-label.blue  { background: var(--blue); }
+    .section-label.gold  { background: #b8900a; }
+
+    /* Say-this blocks */
+    .say-this {
+      background: #fffaf3; border-left: 4px solid var(--primary);
+      border-radius: 0 10px 10px 0; padding: 20px 24px; margin: 16px 0;
+      font-size: 1.05rem; line-height: 1.85; color: #222;
+    }
+
+    /* Stage direction / tip */
+    .tip {
+      background: rgba(106,155,204,0.10); border: 1px solid rgba(106,155,204,0.25);
+      border-radius: 8px; padding: 12px 18px; margin: 14px 0;
+      font-size: 0.95rem; color: #2a4a6a; font-style: italic;
+    }
+
+    /* Action blocks */
+    .action-block {
+      background: #f9f9f9; border: 1px solid #eeeeee;
+      border-radius: 10px; padding: 18px 22px; margin: 16px 0;
+    }
+    .action-label {
+      display: inline-block; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid-gray);
+      margin-bottom: 8px;
+    }
+
+    /* SOP blocks (green — pre-loaded in Project) */
+    .sop-container {
+      background: #0d140d; border-radius: 12px; overflow: hidden; margin: 20px 0;
+    }
+    .sop-header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 20px; background: rgba(46,204,113,0.12);
+      border-bottom: 1px solid rgba(46,204,113,0.2);
+    }
+    .sop-header span {
+      font-size: 0.85rem; font-weight: 700; color: var(--green);
+      letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .sop-container pre {
+      padding: 22px; color: #88c888; font-family: 'Courier New', monospace;
+      font-size: 0.9rem; line-height: 1.7; white-space: pre-wrap; word-break: break-word;
+      margin: 0;
+    }
+
+    /* Prompt boxes (blue — live input) */
+    .prompt-container {
+      background: #1a1a1a; border-radius: 12px; overflow: hidden; margin: 20px 0;
+    }
+    .prompt-header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 20px; background: rgba(232,115,42,0.15);
+      border-bottom: 1px solid rgba(232,115,42,0.2);
+    }
+    .prompt-header span {
+      font-size: 0.85rem; font-weight: 700; color: var(--primary);
+      letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .prompt-container pre {
+      padding: 22px; color: #e8e0d4; font-family: 'Courier New', monospace;
+      font-size: 0.95rem; line-height: 1.7; white-space: pre-wrap; word-break: break-word;
+      margin: 0;
+    }
+
+    /* Philosophy dark card */
+    .dark-card {
+      background: var(--dark-bg); color: var(--dark-text); border-radius: 16px;
+      padding: 30px; margin-bottom: 30px;
+      box-shadow: 0 18px 36px rgba(17,17,17,0.14);
+    }
+    .dark-card h2 { color: #fff; }
+    .dark-card p { color: rgba(247,241,232,0.82); margin-bottom: 14px; }
+    .dark-card .shift-line {
+      border-left: 4px solid var(--primary); padding: 14px 20px;
+      background: rgba(232,115,42,0.08); border-radius: 0 8px 8px 0;
+      font-size: 1.05rem; color: #fff; margin-top: 20px;
+    }
+
+    /* Dept label pills */
+    .dept-pill {
+      display: inline-block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 5px 14px; border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .dept-content { background: rgba(46,204,113,0.12); color: #1a8a4a; border: 1px solid rgba(46,204,113,0.3); }
+    .dept-followup { background: rgba(52,152,219,0.12); color: #1a5a8a; border: 1px solid rgba(52,152,219,0.3); }
+    .dept-ops     { background: rgba(243,156,18,0.12); color: #8a5a0a; border: 1px solid rgba(243,156,18,0.3); }
+
+    /* Timing table */
+    .timing-card {
+      background: var(--card-bg); border-radius: 16px; padding: 0;
+      margin-bottom: 30px; overflow: hidden;
+      box-shadow: 0 18px 36px rgba(17,17,17,0.06);
+    }
+    .timing-head {
+      background: var(--dark-bg); padding: 16px 24px;
+      font-size: 0.8rem; font-weight: 700; color: var(--primary);
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+
+    /* Troubleshooting table */
+    table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    th {
+      background: var(--dark-bg); color: var(--primary); font-size: 0.82rem;
+      letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 16px;
+      text-align: left;
+    }
+    td { padding: 14px 16px; border-bottom: 1px solid #eee; font-size: 0.97rem; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: #fafafa; }
+    td code {
+      background: #f0ece4; padding: 2px 8px; border-radius: 4px;
+      font-family: 'Courier New', monospace; font-size: 0.9rem; color: #333;
+    }
+
+    /* Toast */
+    .copy-toast {
+      position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+      background: var(--dark-bg); color: #fff; padding: 12px 24px;
+      border-radius: 999px; font-size: 0.92rem; font-weight: 600;
+      opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 999;
+    }
+    .copy-toast.show { opacity: 1; }
+
+    footer {
+      background: var(--dark-bg); padding: 28px; text-align: center; margin-top: 20px;
+    }
+    .footer-brand { font-size: 0.85rem; font-weight: 700; color: #555; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+    .footer-tagline { font-size: 0.78rem; color: #333; letter-spacing: 0.15em; text-transform: uppercase; }
   </style>
 </head>
 <body>
 
-  <div class="top-bar">
-    <div>
-      <div class="series-name">The Claude Power Move Series</div>
-      <div class="session-title">Session 4 — <span>Build Your Claude Business OS</span></div>
-    </div>
-    <div class="session-meta">Thursday, May 14, 2026 · 7:00 PM ET</div>
+<header>
+  <div class="header-badge-row">
+    <span class="header-badge">Session 4</span>
+    <span class="header-series">The Claude Power Move Series</span>
+  </div>
+  <h1>Claude Departments</h1>
+  <p class="subtitle">Live Demo Script — Word for Word</p>
+  <p class="tagline">Thursday, May 14, 2026 &nbsp;·&nbsp; 7:00 PM ET</p>
+  <span class="format-note">Presenter notes · Say-This blocks · 3-Department stack · Copyable live prompts</span>
+</header>
+
+<nav>
+  <a href="#philosophy">Philosophy</a>
+  <a href="#setup">Setup</a>
+  <a href="#timing">Timing</a>
+  <a href="#open">Open</a>
+  <a href="#shift">The Shift</a>
+  <a href="#content">Content Dept</a>
+  <a href="#followup">Follow-Up Dept</a>
+  <a href="#ops">Ops Dept</a>
+  <a href="#recap">Recap</a>
+  <a href="#pitch">Pitch</a>
+  <a href="#troubleshooting">Troubleshooting</a>
+</nav>
+
+<div class="container">
+
+  <div class="global-actions">
+    <button id="copyAllBtn">📋 Copy All Live Prompts (1–3)</button>
   </div>
 
-  <div class="hero">
-    <div class="hero-kicker">Session 4 of 5 · Live Demo Script</div>
-    <h1 class="hero-title">Claude<br><span>Departments</span></h1>
-    <p class="hero-sub">Thursday, May 14, 2026 &nbsp;·&nbsp; 7:00 PM ET</p>
-    <p class="hero-hook">"Stop starting from scratch every week. The prompting is over. Now it just runs."</p>
+  <!-- PHILOSOPHY -->
+  <div class="dark-card" id="philosophy">
+    <span class="section-label">Philosophy</span>
+    <h2>The Shift Behind This Session</h2>
+    <p>Sessions 1, 2, and 3 each gave the audience one skill. Session 4 is the moment it all becomes a system. The concept to land: a Claude Project with a detailed SOP is not a chatbot. It is an employee with a job description.</p>
+    <p>The blank screen problem — re-building the prompt every Monday, re-explaining your voice, re-setting the context — disappears when the SOP lives inside the Project. The audience doesn't need to learn new prompting skills tonight. They need to see what happens when the prompting is already done.</p>
+    <p>Three departments. Three inputs. Three outputs. One business operating system.</p>
+    <div class="shift-line">
+      The shift you're demonstrating: from <em>starting from scratch every week</em> — to having trained departments that run on one line of input.
+    </div>
   </div>
+
+  <!-- SETUP -->
+  <section class="card" id="setup">
+    <span class="section-label">Setup Before the Session</span>
+    <h2>Before You Go Live</h2>
+    <ul style="margin-left: 22px; margin-top: 10px; line-height: 2;">
+      <li>Three Claude Projects already created — <strong>Content Dept, Follow-Up Dept, Operations Dept</strong> — each with its SOP pre-loaded in the system prompt</li>
+      <li>Second monitor or window: <strong>keep this script open for reference</strong></li>
+      <li>Have all three live-input prompts ready to paste — know what's coming even though you type them "fresh"</li>
+      <li>Navigate to Content Dept first — start there, tab between Projects as you go</li>
+      <li>Links ready for chat: <strong>ClaudePowerMove.com</strong> / <strong>AtlantaAIBusiness.com</strong></li>
+      <li>Confirm Claude Pro is active — Projects require Pro</li>
+    </ul>
+  </section>
 
   <!-- TIMING -->
-  <div class="timing-bar">
-    <div class="timing-header">Session Flow</div>
-    <table class="timing-table">
+  <div class="timing-card" id="timing">
+    <div class="timing-head">Session Flow</div>
+    <table>
       <tr><th>Segment</th><th>Content</th><th>Time</th></tr>
-      <tr><td>1 — Open</td><td>The blank screen problem</td><td>4 min</td></tr>
-      <tr><td>2 — The Shift</td><td>Project = Trained Employee</td><td>5 min</td></tr>
-      <tr class="active-row"><td>3 — Content Dept</td><td>Build the SOP + live demo</td><td>10 min</td></tr>
-      <tr class="active-row"><td>4 — Follow-Up Dept</td><td>Proactive sequences + transcript demo</td><td>12 min</td></tr>
-      <tr><td>5 — Operations Dept</td><td>Show SOP + quick demo</td><td>6 min</td></tr>
-      <tr><td>6 — Recap</td><td>What they now have</td><td>2 min</td></tr>
-      <tr><td>7 — Pitch</td><td>Strong close — 9 days out</td><td>6 min</td></tr>
-      <tr><td>8 — Q&A</td><td>Open floor</td><td>5 min</td></tr>
+      <tr><td><strong>1 — Open</strong></td><td>The blank screen problem</td><td>4 min</td></tr>
+      <tr><td><strong>2 — The Shift</strong></td><td>Project = Trained Employee</td><td>5 min</td></tr>
+      <tr><td><strong>3 — Content Dept</strong></td><td>SOP reveal + one-line demo</td><td>10 min</td></tr>
+      <tr><td><strong>4 — Follow-Up Dept</strong></td><td>Proactive sequence + transcript angle</td><td>12 min</td></tr>
+      <tr><td><strong>5 — Operations Dept</strong></td><td>SOP reveal + client prep demo</td><td>6 min</td></tr>
+      <tr><td><strong>6 — Recap</strong></td><td>What they now have</td><td>2 min</td></tr>
+      <tr><td><strong>7 — Pitch</strong></td><td>Strong close — 9 days out</td><td>6 min</td></tr>
+      <tr><td><strong>8 — Q&amp;A</strong></td><td>Open floor</td><td>5 min</td></tr>
     </table>
   </div>
 
   <!-- SEGMENT 1: OPEN -->
-  <div class="section seg-open">
-    <div class="section-header">
-      <div><div class="seg-number">Segment 1</div><div class="seg-name">The Blank Screen Problem</div></div>
-      <div class="seg-time">4 min</div>
+  <section class="card" id="open">
+    <span class="section-label">Segment 1 — 4 Min</span>
+    <h2>The Blank Screen Problem</h2>
+    <div class="tip">Camera only. No screen share yet. Direct eye contact.</div>
+
+    <div class="say-this">
+      Let me describe your Monday morning.<br><br>
+      You sit down, you open Claude, and then you stare at a blank screen trying to figure out what to type. You write a prompt. You get something back. You tweak it. You use it. Next Monday — same thing. Blank screen. Build the prompt again.<br><br>
+      <strong>That's not a system. That's a weekly tax on your time and your energy.</strong><br><br>
+      Here's what changes after tonight.<br><br>
+      You open Claude. You pick a department. You type one line — the topic, the lead's name, the situation. Claude already knows what to do with it. The SOP is already in there. The output comes out ready to use.<br><br>
+      <strong>Build it once. Run it every week.</strong><br><br>
+      That's what we're doing tonight.
     </div>
-    <div class="section-body">
-      <div class="say-block">
-        <div class="say-label">Say This</div>
-        <div class="say-text">
-          "Let me describe your Monday morning.<br><br>
-          You sit down, you open Claude, and then you stare at a blank screen trying to figure out what to type. You write a prompt. You get something back. You tweak it. You use it. Next Monday — same thing. Blank screen. Build the prompt again.<br><br>
-          <strong>That's not a system. That's a weekly tax on your time and your energy.</strong><br><br>
-          Here's what changes after tonight.<br><br>
-          You open Claude. You pick a department. You type one line — the topic, the lead's name, the situation. Claude already knows what to do with it. The SOP is already in there. The output comes out ready to use.<br><br>
-          <strong>Build it once. Run it every week.</strong><br><br>
-          That's what we're doing tonight."
-        </div>
-      </div>
-    </div>
-  </div>
+  </section>
 
   <!-- SEGMENT 2: THE SHIFT -->
-  <div class="section seg-shift">
-    <div class="section-header">
-      <div><div class="seg-number">Segment 2</div><div class="seg-name">The Project is the Trained Employee</div></div>
-      <div class="seg-time">5 min</div>
+  <section class="card" id="shift">
+    <span class="section-label">Segment 2 — 5 Min</span>
+    <h2>The Project Is the Trained Employee</h2>
+    <div class="tip">Still camera only. This concept needs to land before you share your screen.</div>
+
+    <div class="say-this">
+      Here's the concept I want you to lock in before we build anything.<br><br>
+      When you set up a Claude Project with a detailed system prompt — a real SOP — you're not configuring a chatbot. <strong>You're onboarding an employee.</strong><br><br>
+      Think about how you'd bring a new person onto your team. You'd tell them what their job is. You'd walk them through exactly how you want things done. You'd give them the templates, the tone, the rules. After that — you don't re-explain it every time you give them an assignment. You just give them the assignment.<br><br>
+      That's what a Claude Department is.<br><br>
+      The SOP lives in the Project. Your voice is already in there. The output format is already in there. The rules are already in there. All you bring is the input — the topic, the situation, the context. Claude handles the rest.<br><br>
+      Tonight we build three departments: <strong>Content. Follow-Up. Operations.</strong><br><br>
+      Each one is a trained employee. Let's meet them.
     </div>
-    <div class="section-body">
-      <div class="say-block">
-        <div class="say-label">Say This</div>
-        <div class="say-text">
-          "Here's the concept I want you to lock in before we build anything.<br><br>
-          When you set up a Claude Project with a detailed system prompt — a real SOP — you're not configuring a chatbot. <strong>You're onboarding an employee.</strong><br><br>
-          Think about how you'd bring a new person onto your team. You'd tell them what their job is. You'd walk them through exactly how you want things done. You'd give them the templates, the tone, the rules. After that — you don't re-explain it every time you give them an assignment. You just give them the assignment.<br><br>
-          That's what a Claude Department is.<br><br>
-          The SOP lives in the Project. Your voice is already in there. The output format is already in there. The rules are already in there. All you bring is the input — the topic, the situation, the context. Claude handles the rest.<br><br>
-          Tonight we build three departments: <strong>Content. Follow-Up. Operations.</strong><br><br>
-          Each one is a trained employee. Let's meet them."
-        </div>
-      </div>
-    </div>
-  </div>
+
+    <div class="tip">Switch to screen share. Navigate to the Content Department Project.</div>
+  </section>
 
   <!-- SEGMENT 3: CONTENT DEPARTMENT -->
-  <div class="section seg-content">
-    <div class="section-header">
-      <div><div class="seg-number">Segment 3</div><div class="seg-name">Content Department</div></div>
-      <div class="seg-time">10 min</div>
+  <section class="card" id="content">
+    <span class="section-label green">Segment 3 — 10 Min</span>
+    <span class="dept-pill dept-content" style="margin-left:10px;">📝 Content Department</span>
+    <h2>Content Department</h2>
+
+    <div class="say-this">
+      Department one: Content.<br><br>
+      This employee's job is to take one topic and turn it into a full week of content — every time, in your voice, in the right formats, ready to schedule.<br><br>
+      Here's what the SOP looks like inside the Project.
     </div>
-    <div class="section-body">
-      <div class="dept-badge dept-content">Content Department</div>
 
-      <div class="say-block">
-        <div class="say-label">Say This</div>
-        <div class="say-text">
-          "Department one: Content.<br><br>
-          This employee's job is to take one topic and turn it into a full week of content — every time, in your voice, in the right formats, ready to schedule.<br><br>
-          Here's what the SOP looks like inside the Project."
-        </div>
+    <div class="tip">Switch to the Content Department Project. Show the system prompt on screen — scroll through it slowly so the audience can see it's already loaded. Then say:</div>
+
+    <div class="sop-container">
+      <div class="sop-header">
+        <span>Content Department — System Prompt (Pre-Loaded in Project)</span>
       </div>
-
-      <div class="director-block">
-        <div class="director-label">Director Note</div>
-        <div class="director-text">Switch to the Content Department Project. Show the system prompt briefly — or scroll through it on screen. Then say the key line below before running the demo.</div>
-      </div>
-
-      <div class="sop-block">
-        <div class="sop-label">Content Department — System Prompt (pre-loaded)</div>
-        <div class="sop-text">You are the Content Department for [Business Name].
+      <pre>You are the Content Department for [Business Name].
 
 Your job: Take one topic or angle and produce a complete weekly content batch.
 
@@ -207,58 +397,67 @@ Voice rules:
 
 Output format: Label each piece clearly. Deliver in order listed above.
 
-When you receive a topic, ask nothing. Just run the SOP.</div>
-      </div>
+When you receive a topic, ask nothing. Just run the SOP.</pre>
+    </div>
 
-      <div class="say-block">
-        <div class="say-label">Before You Type</div>
-        <div class="say-text">"That's the whole SOP. It knows the format. It knows the voice. It knows not to ask me questions. Watch what happens when I give it one line."</div>
-      </div>
+    <div class="say-this">
+      That's the whole SOP. It knows the format. It knows the voice. It knows not to ask me questions. Watch what happens when I give it one line.
+    </div>
 
-      <div class="prompt-block">
-        <div class="prompt-label">Type Live — One Line Input</div>
-        <div class="prompt-text">Topic: Why most small business owners are using AI at 5% of what it can actually do.</div>
+    <div class="prompt-container">
+      <div class="prompt-header">
+        <span>Live Input — Type This</span>
+        <button class="copy-btn" id="btn-p1">Copy Prompt</button>
       </div>
+      <pre id="p1">Topic: Why most small business owners are using AI at 5% of what it can actually do.</pre>
+    </div>
 
-      <div class="director-block">
-        <div class="director-label">After Output</div>
-        <div class="director-text">Read the first social post out loud. React naturally. Then: "One line in. Full week out. I didn't build a single prompt. I gave the department its assignment and it ran the SOP. That's what Monday morning looks like now."</div>
+    <div class="action-block">
+      <span class="action-label">What You Should See</span>
+      <p>Three social posts (insight/story/question), three email subject line variations, and one short-form hook — all in your voice, all labeled, delivered in order. No questions asked. No preamble. It just runs.</p>
+    </div>
+
+    <div class="action-block">
+      <span class="action-label">What to Say After</span>
+      <div class="say-this">
+        Read that first social post out loud.<br><br>
+        [Read it. Pause.]<br><br>
+        One line in. Full week out. I didn't build a single prompt. I gave the department its assignment and it ran the SOP.<br><br>
+        That's what Monday morning looks like now. Not a blank screen. Not "what do I type." I open this Project, drop in a topic, and I'm done.
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- SEGMENT 4: FOLLOW-UP DEPARTMENT -->
-  <div class="section seg-followup">
-    <div class="section-header">
-      <div><div class="seg-number">Segment 4</div><div class="seg-name">Follow-Up Department</div></div>
-      <div class="seg-time">12 min</div>
+  <section class="card" id="followup">
+    <span class="section-label blue">Segment 4 — 12 Min</span>
+    <span class="dept-pill dept-followup" style="margin-left:10px;">📞 Follow-Up Department</span>
+    <h2>Follow-Up Department</h2>
+
+    <h3>Beat 1 — The Flip</h3>
+    <div class="say-this">
+      Department two is where most businesses are losing real money — and this one changes immediately.<br><br>
+      Most follow-up is reactive. Lead goes cold, then you scramble to figure out what to say. <strong>This department flips that completely.</strong><br><br>
+      The rule is: the follow-up gets built the moment the proposal goes out.<br><br>
+      You just got off the call. You send the proposal. Before you close the laptop — you open this department, paste in the proposal, and it writes your 3-touch follow-up sequence right then. Day 2, Day 5, Day 10. All written. All specific. Ready to send on schedule.<br><br>
+      You never chase a cold lead again — because you never gave it time to get cold.
     </div>
-    <div class="section-body">
-      <div class="dept-badge dept-followup">Follow-Up Department</div>
 
-      <div class="say-block">
-        <div class="say-label">Say This — Setup</div>
-        <div class="say-text">
-          "Department two is where most businesses are losing real money — and this one changes immediately.<br><br>
-          Most follow-up is reactive. Lead goes cold, then you scramble to figure out what to say. <strong>This department flips that completely.</strong><br><br>
-          The rule is: the follow-up gets built the moment the proposal goes out.<br><br>
-          You just got off the call. You send the proposal. Before you close the laptop — you open this department, paste in the proposal, and it writes your 3-touch follow-up sequence right then. Day 2, Day 5, Day 10. All written. All specific. Ready to send on schedule.<br><br>
-          And here's what makes it even better."
-        </div>
+    <h3>Beat 2 — The Transcript Reveal</h3>
+    <div class="say-this">
+      And here's what makes it even better.<br><br>
+      If you recorded the call — if you have a transcript from Zoom or Fathom or wherever — you paste that in too.<br><br>
+      Now the follow-up messages reference specific things from the actual conversation. What they said they were struggling with. What they told you their goal was. What made them hesitate.<br><br>
+      <strong>Claude read the call. The follow-up sounds like you were paying perfect attention — because Claude was.</strong>
+    </div>
+
+    <div class="tip">Switch to the Follow-Up Department Project. Show the SOP loaded in the system prompt. Scroll through it briefly before running the demo.</div>
+
+    <div class="sop-container">
+      <div class="sop-header">
+        <span>Follow-Up Department — System Prompt (Pre-Loaded in Project)</span>
       </div>
-
-      <div class="say-block">
-        <div class="say-label">The Transcript Reveal</div>
-        <div class="say-text">
-          "If you recorded the call — if you have a transcript from Zoom or Fathom or wherever — you paste that in too.<br><br>
-          Now the follow-up messages reference specific things from the actual conversation. What they said they were struggling with. What they told you their goal was. What made them hesitate.<br><br>
-          <strong>Claude read the call. The follow-up sounds like you were paying perfect attention — because Claude was.</strong>"
-        </div>
-      </div>
-
-      <div class="sop-block">
-        <div class="sop-label">Follow-Up Department — System Prompt (pre-loaded)</div>
-        <div class="sop-text">You are the Follow-Up Department for [Business Name].
+      <pre>You are the Follow-Up Department for [Business Name].
 
 Your job: Turn a proposal and/or call context into a ready-to-send follow-up sequence.
 
@@ -274,51 +473,58 @@ Rules:
 - No "just checking in." No "I hope this finds you well."
 - Write in [Name]'s voice: direct, warm, no corporate softness.
 
-When you receive input, ask nothing. Run the SOP. Deliver all three touches.</div>
-      </div>
+When you receive input, ask nothing. Run the SOP. Deliver all three touches.</pre>
+    </div>
 
-      <div class="prompt-block">
-        <div class="prompt-label">Type Live — Proposal + Call Notes Input</div>
-        <div class="prompt-text">Proposal: 90-day marketing strategy engagement. $3,500. Sent today.
+    <div class="prompt-container">
+      <div class="prompt-header">
+        <span>Live Input — Type This</span>
+        <button class="copy-btn" id="btn-p2">Copy Prompt</button>
+      </div>
+      <pre id="p2">Proposal: 90-day marketing strategy engagement. $3,500. Sent today.
 
 Call notes: Client is a business coach, 8 years in, growing but inconsistent revenue. Main pain point — feast or famine cycle. They want predictable lead flow. Said they've tried ads before and burned money. Skeptical about paid but open to organic systems. Call ended with "this sounds like exactly what I need, let me look it over and get back to you."
 
-Write the follow-up sequence.</div>
-      </div>
-
-      <div class="director-block">
-        <div class="director-label">After Output</div>
-        <div class="director-text">Read Touch 1 out loud. Point out the specific reference to "feast or famine" and the ad skepticism — pulled directly from the call notes. Then: "That message knows what they told me. I didn't have to remember it. And I wrote this before a single day passed. That's not follow-up. That's a system."</div>
-      </div>
-
-      <div class="recovery-box">
-        <div class="recovery-label">Key Line to Land</div>
-        <div class="recovery-text">"You never chase a cold lead again — because you never gave it time to get cold. The sequence fires the same day the proposal goes out."</div>
-      </div>
+Write the follow-up sequence.</pre>
     </div>
-  </div>
+
+    <div class="action-block">
+      <span class="action-label">What You Should See</span>
+      <p>Three messages that each have a different job. Touch 1 is warm and brief. Touch 2 pulls a specific detail from the call notes — the feast or famine issue, the ad skepticism. Touch 3 is an honest close with an easy out. None of them open with "just checking in." If one does, correct it live — that's the directing lesson.</p>
+    </div>
+
+    <div class="action-block">
+      <span class="action-label">What to Say After — Read Touch 1 Out Loud</span>
+      <div class="say-this">
+        Read that first message with me.<br><br>
+        [Read it. Pause.]<br><br>
+        See that reference to feast or famine? That came from the call notes. I didn't write that — I gave the department the context and it pulled what mattered.<br><br>
+        And I built this sequence the same day the proposal went out. Not after three days of silence. Not after I started wondering if I should follow up. The moment the proposal was sent.<br><br>
+        That's the system. You never chase a cold lead again — because you never gave it time to get cold.
+      </div>
+      <div class="tip">If an em dash appears in any message, call it out and fix it live: <code>"No em dashes — rewrite any sentence that uses one."</code> Let it self-correct. "The department knows the rules. I just enforced them."</div>
+    </div>
+  </section>
 
   <!-- SEGMENT 5: OPERATIONS DEPARTMENT -->
-  <div class="section seg-ops">
-    <div class="section-header">
-      <div><div class="seg-number">Segment 5</div><div class="seg-name">Operations Department</div></div>
-      <div class="seg-time">6 min</div>
+  <section class="card" id="ops">
+    <span class="section-label gold">Segment 5 — 6 Min</span>
+    <span class="dept-pill dept-ops" style="margin-left:10px;">⚙️ Operations Department</span>
+    <h2>Operations Department</h2>
+
+    <div class="say-this">
+      Department three handles everything else — and there's a lot of everything else.<br><br>
+      Research before a client call. Summarizing a document. Competitive intel. Drafting internal docs. Prepping for a presentation. Any recurring operational task that currently lives in your head or takes longer than it should.<br><br>
+      This department already knows your business, your context, your clients. So the output isn't generic — it's relevant to your situation specifically.
     </div>
-    <div class="section-body">
-      <div class="dept-badge dept-ops">Operations Department</div>
 
-      <div class="say-block">
-        <div class="say-label">Say This</div>
-        <div class="say-text">
-          "Department three handles everything else — and there's a lot of everything else.<br><br>
-          Research before a client call. Summarizing a document. Competitive intel. Drafting internal comms. Prepping for a presentation. Any recurring operational task that currently lives in your head or takes longer than it should.<br><br>
-          This department already knows your business, your context, your clients. So the output isn't generic — it's relevant to your situation specifically."
-        </div>
+    <div class="tip">Switch to the Operations Department Project. Show the SOP briefly, then move to the live input.</div>
+
+    <div class="sop-container">
+      <div class="sop-header">
+        <span>Operations Department — System Prompt (Pre-Loaded in Project)</span>
       </div>
-
-      <div class="sop-block">
-        <div class="sop-label">Operations Department — System Prompt (pre-loaded)</div>
-        <div class="sop-text">You are the Operations Department for [Business Name].
+      <pre>You are the Operations Department for [Business Name].
 
 You handle research, preparation, decision support, and operational tasks.
 
@@ -330,82 +536,195 @@ When given a task or situation:
 - Document summary: key decisions, action items, anything needing follow-up.
 - Anything else: ask one clarifying question, then execute.
 
-Always be concise. Decision-ready output, not academic output.</div>
-      </div>
+Always be concise. Decision-ready output, not academic output.</pre>
+    </div>
 
-      <div class="prompt-block">
-        <div class="prompt-label">Type Live</div>
-        <div class="prompt-text">Client call tomorrow. They run a residential cleaning company. 12 employees. Revenue around $900K. Interested in using AI to handle customer follow-up and booking reminders. Never used Claude before.</div>
+    <div class="prompt-container">
+      <div class="prompt-header">
+        <span>Live Input — Type This</span>
+        <button class="copy-btn" id="btn-p3">Copy Prompt</button>
       </div>
+      <pre id="p3">Client call tomorrow. They run a residential cleaning company. 12 employees. Revenue around $900K. Interested in using AI to handle customer follow-up and booking reminders. Never used Claude before.</pre>
+    </div>
 
-      <div class="director-block">
-        <div class="director-label">After Output</div>
-        <div class="director-text">"Two minutes of prep instead of thirty. I walk into that call sharp because the department already did the thinking."</div>
+    <div class="action-block">
+      <span class="action-label">What You Should See</span>
+      <p>3 discovery questions, 2 situation questions, and 1 insight to lead with — concise and specific to a cleaning business interested in AI. Not academic. Decision-ready. If it's too long or generic, redirect: <code>"Cut it. Give me only what I'd actually need to walk into this call sharp."</code></p>
+    </div>
+
+    <div class="action-block">
+      <span class="action-label">What to Say After</span>
+      <div class="say-this">
+        Two minutes of prep instead of thirty. I walk into that call sharp because the department already did the thinking.<br><br>
+        Same department handles the call summary after. The competitive intel before a pitch. The internal SOP when I hire someone new. Everything operational that used to live in my head or on a sticky note.
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- SEGMENT 6: RECAP -->
-  <div class="section seg-recap">
-    <div class="section-header">
-      <div><div class="seg-number">Segment 6</div><div class="seg-name">Recap</div></div>
-      <div class="seg-time">2 min</div>
+  <section class="card" id="recap">
+    <span class="section-label">Segment 6 — 2 Min</span>
+    <h2>Here's What You Now Have</h2>
+    <div class="say-this">
+      Here's what you now have.<br><br>
+      Three Claude Projects. Three trained employees. Each one has a job, an SOP, and your voice. None of them need you to build a prompt. You open the department, give it the assignment, it runs.<br><br>
+      <strong>Content</strong> — one topic in, full week out. Every Monday.<br>
+      <strong>Follow-Up</strong> — proposal in, 3-touch sequence out. Every time you send one.<br>
+      <strong>Operations</strong> — situation in, decision-ready output out. Whenever you need it.<br><br>
+      That's a business operating system. Not a chatbot. Not a one-off tool. <strong>A system that runs whether you feel like figuring out a prompt or not.</strong><br><br>
+      Build it once. Run it every week.
     </div>
-    <div class="section-body">
-      <div class="say-block">
-        <div class="say-label">Say This</div>
-        <div class="say-text">
-          "Here's what you now have.<br><br>
-          Three Claude Projects. Three trained employees. Each one has a job, an SOP, and your voice. None of them need you to build a prompt. You open the department, give it the assignment, it runs.<br><br>
-          <strong>Content</strong> — one topic in, full week out. Every Monday.<br>
-          <strong>Follow-Up</strong> — proposal in, 3-touch sequence out. Every time you send one.<br>
-          <strong>Operations</strong> — situation in, decision-ready output out. Whenever you need it.<br><br>
-          That's a business operating system. Not a chatbot. Not a one-off tool. <strong>A system that runs whether you feel like figuring out a prompt or not.</strong><br><br>
-          Build it once. Run it every week."
-        </div>
-      </div>
-    </div>
-  </div>
+  </section>
 
   <!-- SEGMENT 7: PITCH -->
-  <div class="section seg-pitch">
-    <div class="section-header">
-      <div><div class="seg-number">Segment 7</div><div class="seg-name">The Close — 9 Days Out</div></div>
-      <div class="seg-time">6 min</div>
+  <section class="card" id="pitch">
+    <span class="section-label">Segment 7 — 6 Min</span>
+    <h2>Into the Intensive — No Pause</h2>
+    <div class="tip">Go straight from recap. No break. No "okay so..." Flow directly into this.</div>
+
+    <div class="say-this">
+      Nine days from now, in Atlanta, you build all three of these for your actual business.<br><br>
+      Not a generic template. <strong>Your voice. Your SOPs. Your clients. Your offers loaded in.</strong><br><br>
+      We don't leave the room until all three departments are built, tested, and running. You walk out with a Content Department that knows your brand, a Follow-Up Department that fires every time a proposal goes out, and an Operations Department that handles your recurring work.<br><br>
+      That's May 23rd. That's the Claude Power Move Intensive.<br><br>
+      The room is filling — I'll drop the seat count in the chat right now. If tonight made this feel real, <strong>AtlantaAIBusiness.com</strong> is your next click.<br><br>
+      Link is in the chat.
     </div>
-    <div class="section-body">
-      <div class="pitch-box">
-        <div class="pitch-text">
-          "Nine days from now, in Atlanta, you build all three of these for your actual business.<br><br>
-          Not a generic template. <strong>Your voice. Your SOPs. Your clients. Your offers loaded in.</strong><br><br>
-          We don't leave the room until all three departments are built, tested, and running. You walk out with a Content Department that knows your brand, a Follow-Up Department that fires every time a proposal goes out, and an Operations Department that handles your recurring work.<br><br>
-          That's May 23rd. That's the Claude Power Move Intensive.<br><br>
-          The room is filling — I'll drop the seat count in the chat right now. If tonight made this feel real, <strong>AtlantaAIBusiness.com</strong> is your next click.<br><br>
-          Link is in the chat."
-        </div>
-      </div>
 
-      <div class="director-block">
-        <div class="director-label">Post-Pitch Q&A — Common Questions</div>
-        <div class="director-text">
-          <strong>"What goes in the system prompt?"</strong> — Detailed enough that you wouldn't have to explain it again. Like onboarding a smart new hire. We build these in full at the intensive.<br><br>
-          <strong>"Does this work on the free Claude?"</strong> — Projects require Claude Pro. Worth every penny — this is your operating system.<br><br>
-          <strong>"What if my call wasn't recorded?"</strong> — Paste your notes instead of a transcript. Even rough notes give Claude enough to personalize.<br><br>
-          <strong>"Can I have more than three departments?"</strong> — Absolutely. These three are the highest-impact starting point. You'll know what to add once they're running.<br><br>
-          <strong>"Output is generic / Claude asks questions instead of running."</strong> — Your SOP needs more context, or the line "When you receive input, ask nothing. Just run the SOP." Fix it live — the correction teaches.
-        </div>
-      </div>
+    <h3>Q&amp;A — Common Questions</h3>
 
-      <div class="recovery-box">
-        <div class="recovery-label">If Things Go Sideways</div>
-        <div class="recovery-text">
-          Running long → Cut Operations demo to just showing the SOP, skip the live run. Content + Follow-Up are the session.<br>
-          Generic output → "Watch what happens when I add more context to the SOP." Fix it live.<br>
-          Tech issue → Have all three input prompts pre-typed to paste. The output and your commentary teach.
-        </div>
+    <div class="action-block">
+      <span class="action-label">What goes in the system prompt?</span>
+      <div class="say-this" style="margin-top:8px;">
+        Detailed enough that you wouldn't have to explain it again — like onboarding a smart new hire. We build these from scratch at the intensive, for your actual business.
       </div>
     </div>
-  </div>
+
+    <div class="action-block">
+      <span class="action-label">Does this work on free Claude?</span>
+      <div class="say-this" style="margin-top:8px;">
+        Projects require Claude Pro. Worth every penny — this is your operating system, not a tool you use once a week.
+      </div>
+    </div>
+
+    <div class="action-block">
+      <span class="action-label">What if my call wasn't recorded?</span>
+      <div class="say-this" style="margin-top:8px;">
+        Paste your notes instead of a transcript. Even rough notes give Claude enough to personalize the sequence. The key is giving it the context — however you captured it.
+      </div>
+    </div>
+
+    <div class="action-block">
+      <span class="action-label">Can I have more than three departments?</span>
+      <div class="say-this" style="margin-top:8px;">
+        Absolutely. These three are the highest-impact starting point. Once they're running, you'll know exactly what to add next. Build in order of where your time and money are going.
+      </div>
+    </div>
+  </section>
+
+  <!-- TROUBLESHOOTING -->
+  <section class="card" id="troubleshooting">
+    <span class="section-label">Troubleshooting</span>
+    <h2>If Things Go Sideways</h2>
+    <table>
+      <tr>
+        <th>Problem</th>
+        <th>What to Do</th>
+      </tr>
+      <tr>
+        <td><strong>Output sounds generic</strong></td>
+        <td>Say: "Watch what happens when I add more context to the SOP." Fix it live — the correction teaches more than a perfect first run.</td>
+      </tr>
+      <tr>
+        <td><strong>Claude asks questions instead of running</strong></td>
+        <td>Your SOP is missing the line "When you receive input, ask nothing. Just run the SOP." Add it and re-run. Fix it live.</td>
+      </tr>
+      <tr>
+        <td><strong>Em dash appears</strong></td>
+        <td>Call it out. Fix it live: <code>"No em dashes. Rewrite any sentence that uses one."</code> Then say: "The department knows the rules. I just enforced them."</td>
+      </tr>
+      <tr>
+        <td><strong>Running long</strong></td>
+        <td>Cut Operations to just showing the SOP — skip the live run. Content + Follow-Up are the session. Operations is the bonus.</td>
+      </tr>
+      <tr>
+        <td><strong>Technical issue / Claude lag</strong></td>
+        <td>Have all three input prompts pre-typed to paste. The output and your commentary are what teach. The typing is theater — it's fine to paste.</td>
+      </tr>
+      <tr>
+        <td><strong>Follow-up output is not specific enough</strong></td>
+        <td><code>"Pull from the call notes more specifically — reference the feast or famine issue by name."</code> Let the audience watch you direct it. That IS the lesson.</td>
+      </tr>
+      <tr>
+        <td><strong>Output opens with "I hope..."</strong></td>
+        <td><code>"Rewrite the opening of each message. None of them start with 'I.' Lead with them, not with me."</code></td>
+      </tr>
+    </table>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-brand">ColderICE Media</div>
+  <div class="footer-tagline">People + AI = Power Moves &nbsp;·&nbsp; The Claude Power Move Series</div>
+</footer>
+
+<div id="copyToast" class="copy-toast" aria-live="polite">Copied to clipboard</div>
+
+<script>
+  document.querySelectorAll('.copy-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var promptId = btn.id.replace('btn-', '');
+      var pre = document.getElementById(promptId);
+      if (!pre) return;
+      var text = pre.innerText || pre.textContent;
+      navigator.clipboard.writeText(text).then(function() {
+        btn.textContent = '✅ Copied!';
+        btn.classList.add('success');
+        showToast('Prompt copied to clipboard');
+        setTimeout(function() { btn.textContent = 'Copy Prompt'; btn.classList.remove('success'); }, 2000);
+      }).catch(function() {
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.focus(); ta.select();
+        document.execCommand('copy'); document.body.removeChild(ta);
+        btn.textContent = '✅ Copied!'; btn.classList.add('success');
+        showToast('Prompt copied to clipboard');
+        setTimeout(function() { btn.textContent = 'Copy Prompt'; btn.classList.remove('success'); }, 2000);
+      });
+    });
+  });
+
+  document.getElementById('copyAllBtn').addEventListener('click', function() {
+    var ids = ['p1','p2','p3'];
+    var labels = [
+      'PROMPT 1 — CONTENT DEPARTMENT INPUT',
+      'PROMPT 2 — FOLLOW-UP DEPARTMENT INPUT',
+      'PROMPT 3 — OPERATIONS DEPARTMENT INPUT'
+    ];
+    var allText = ids.map(function(id, i) {
+      var el = document.getElementById(id);
+      return el ? ('=== ' + labels[i] + ' ===\n\n' + (el.innerText || el.textContent)) : '';
+    }).filter(Boolean).join('\n\n\n');
+    navigator.clipboard.writeText(allText).then(function() {
+      document.getElementById('copyAllBtn').textContent = '✅ All Prompts Copied!';
+      document.getElementById('copyAllBtn').classList.add('success');
+      showToast('All 3 prompts copied to clipboard');
+      setTimeout(function() {
+        document.getElementById('copyAllBtn').textContent = '📋 Copy All Live Prompts (1–3)';
+        document.getElementById('copyAllBtn').classList.remove('success');
+      }, 2500);
+    });
+  });
+
+  function showToast(msg) {
+    var toast = document.getElementById('copyToast');
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(function() { toast.classList.remove('show'); }, 2200);
+  }
+</script>
 
 </body>
 </html>
