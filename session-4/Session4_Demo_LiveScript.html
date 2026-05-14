@@ -159,6 +159,14 @@
       font-size: 0.85rem; font-weight: 700; color: var(--green);
       letter-spacing: 0.05em; text-transform: uppercase;
     }
+    .copy-sop-btn {
+      background: rgba(46,204,113,0.15); color: var(--green); border: 1px solid rgba(46,204,113,0.4);
+      padding: 5px 14px; border-radius: 6px; font-size: 0.78rem; font-weight: 700;
+      font-family: 'Inter', Arial, sans-serif; cursor: pointer; transition: background 0.2s;
+      box-shadow: none;
+    }
+    .copy-sop-btn:hover { background: rgba(46,204,113,0.28); transform: none; }
+    .copy-sop-btn.success { background: rgba(106,155,204,0.2); color: var(--accent); border-color: var(--accent); }
     .sop-container pre {
       padding: 22px; color: #88c888; font-family: 'Courier New', monospace;
       font-size: 0.9rem; line-height: 1.7; white-space: pre-wrap; word-break: break-word;
@@ -268,6 +276,7 @@
   <a href="#philosophy">Philosophy</a>
   <a href="#setup">Setup</a>
   <a href="#timing">Timing</a>
+  <a href="#projects">Projects</a>
   <a href="#open">Open</a>
   <a href="#shift">The Shift</a>
   <a href="#content">Content Dept</a>
@@ -281,7 +290,7 @@
 <div class="container">
 
   <div class="global-actions">
-    <button id="copyAllBtn">📋 Copy All Live Prompts (1–3)</button>
+    <button id="copyAllBtn">📋 Copy All SOPs + Live Prompts (6 Total)</button>
   </div>
 
   <!-- PHILOSOPHY -->
@@ -325,6 +334,41 @@
       <tr><td><strong>8 — Q&amp;A</strong></td><td>Open floor</td><td>5 min</td></tr>
     </table>
   </div>
+
+  <!-- PROJECTS OVERVIEW -->
+  <section class="card" id="projects">
+    <span class="section-label">Projects Overview</span>
+    <h2>What Is a Claude Project?</h2>
+    <div class="tip">Show this on screen — navigate to Claude Projects in the sidebar before you explain. Let them see the UI as you talk.</div>
+
+    <h3>Regular Chat vs. Project</h3>
+    <div class="say-this">
+      When you open Claude and start a regular chat, it knows nothing about you. Every conversation starts cold. You have to explain who you are, what you do, how you want it to sound — every single time.<br><br>
+      A Project is different. A Project has a permanent system prompt — a set of instructions that is always loaded, always active, every time you open it. You set it once. It never forgets.
+    </div>
+
+    <h3>Where to Find It</h3>
+    <div class="tip">On screen: show the left sidebar in Claude. Point to "Projects" and click to open one.</div>
+    <div class="action-block">
+      <span class="action-label">On Screen — Show This</span>
+      <p>Left sidebar → <strong>Projects</strong>. Each Project is a separate workspace. Click into one and you see the conversation history plus the system prompt in the top-right panel. That system prompt is the SOP — it loads automatically every time someone starts a conversation inside that Project.</p>
+    </div>
+
+    <h3>Four Things That Make a Project Different</h3>
+    <div class="say-this">
+      One — the system prompt is always on. You don't paste it. You don't reference it. It just runs in the background every time.<br><br>
+      Two — it remembers the conversation history. Every session inside the Project adds to the context. Your departments learn your patterns over time.<br><br>
+      Three — you can upload files. Add your proposal template. Add your brand guide. Add a past client summary. The department has access to whatever you put in there.<br><br>
+      Four — it's yours. Nobody else's. Nobody else's prompts, nobody else's training data influencing it. This is your department, configured for your business.
+    </div>
+
+    <div class="action-block">
+      <span class="action-label">The One Line to Land</span>
+      <div class="say-this" style="margin-top:8px;">
+        A regular Claude chat is a conversation. A Claude Project is an employee. That's the shift — and everything we build tonight lives inside a Project.
+      </div>
+    </div>
+  </section>
 
   <!-- SEGMENT 1: OPEN -->
   <section class="card" id="open">
@@ -379,8 +423,9 @@
     <div class="sop-container">
       <div class="sop-header">
         <span>Content Department — System Prompt (Pre-Loaded in Project)</span>
+        <button class="copy-sop-btn" id="btn-sop1">Copy SOP</button>
       </div>
-      <pre>You are the Content Department for [Business Name].
+      <pre id="sop1">You are the Content Department for [Business Name].
 
 Your job: Take one topic or angle and produce a complete weekly content batch.
 
@@ -456,8 +501,9 @@ When you receive a topic, ask nothing. Just run the SOP.</pre>
     <div class="sop-container">
       <div class="sop-header">
         <span>Follow-Up Department — System Prompt (Pre-Loaded in Project)</span>
+        <button class="copy-sop-btn" id="btn-sop2">Copy SOP</button>
       </div>
-      <pre>You are the Follow-Up Department for [Business Name].
+      <pre id="sop2">You are the Follow-Up Department for [Business Name].
 
 Your job: Turn a proposal and/or call context into a ready-to-send follow-up sequence.
 
@@ -523,8 +569,9 @@ Write the follow-up sequence.</pre>
     <div class="sop-container">
       <div class="sop-header">
         <span>Operations Department — System Prompt (Pre-Loaded in Project)</span>
+        <button class="copy-sop-btn" id="btn-sop3">Copy SOP</button>
       </div>
-      <pre>You are the Operations Department for [Business Name].
+      <pre id="sop3">You are the Operations Department for [Business Name].
 
 You handle research, preparation, decision support, and operational tasks.
 
@@ -696,24 +743,51 @@ Always be concise. Decision-ready output, not academic output.</pre>
   });
 
   document.getElementById('copyAllBtn').addEventListener('click', function() {
-    var ids = ['p1','p2','p3'];
+    var ids    = ['sop1','sop2','sop3','p1','p2','p3'];
     var labels = [
-      'PROMPT 1 — CONTENT DEPARTMENT INPUT',
-      'PROMPT 2 — FOLLOW-UP DEPARTMENT INPUT',
-      'PROMPT 3 — OPERATIONS DEPARTMENT INPUT'
+      'SOP 1 — CONTENT DEPARTMENT (System Prompt)',
+      'SOP 2 — FOLLOW-UP DEPARTMENT (System Prompt)',
+      'SOP 3 — OPERATIONS DEPARTMENT (System Prompt)',
+      'LIVE INPUT 1 — CONTENT DEPARTMENT',
+      'LIVE INPUT 2 — FOLLOW-UP DEPARTMENT',
+      'LIVE INPUT 3 — OPERATIONS DEPARTMENT'
     ];
     var allText = ids.map(function(id, i) {
       var el = document.getElementById(id);
       return el ? ('=== ' + labels[i] + ' ===\n\n' + (el.innerText || el.textContent)) : '';
     }).filter(Boolean).join('\n\n\n');
     navigator.clipboard.writeText(allText).then(function() {
-      document.getElementById('copyAllBtn').textContent = '✅ All Prompts Copied!';
+      document.getElementById('copyAllBtn').textContent = '✅ All 6 Copied!';
       document.getElementById('copyAllBtn').classList.add('success');
-      showToast('All 3 prompts copied to clipboard');
+      showToast('All 6 items copied to clipboard');
       setTimeout(function() {
-        document.getElementById('copyAllBtn').textContent = '📋 Copy All Live Prompts (1–3)';
+        document.getElementById('copyAllBtn').textContent = '📋 Copy All SOPs + Live Prompts (6 Total)';
         document.getElementById('copyAllBtn').classList.remove('success');
       }, 2500);
+    });
+  });
+
+  // SOP copy buttons
+  document.querySelectorAll('.copy-sop-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var sopId = btn.id.replace('btn-', '');
+      var pre = document.getElementById(sopId);
+      if (!pre) return;
+      var text = pre.innerText || pre.textContent;
+      navigator.clipboard.writeText(text).then(function() {
+        btn.textContent = '✅ Copied!';
+        btn.classList.add('success');
+        showToast('SOP copied to clipboard');
+        setTimeout(function() { btn.textContent = 'Copy SOP'; btn.classList.remove('success'); }, 2000);
+      }).catch(function() {
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.focus(); ta.select();
+        document.execCommand('copy'); document.body.removeChild(ta);
+        btn.textContent = '✅ Copied!'; btn.classList.add('success');
+        showToast('SOP copied to clipboard');
+        setTimeout(function() { btn.textContent = 'Copy SOP'; btn.classList.remove('success'); }, 2000);
+      });
     });
   });
 
