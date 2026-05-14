@@ -329,7 +329,7 @@
 <div class="container">
 
   <div class="global-actions">
-    <button id="copyAllBtn">📋 Copy All SOPs + Live Prompts (11 Total)</button>
+    <button id="copyAllBtn">📋 Copy All SOPs + Live Prompts (13 Total)</button>
   </div>
 
   <!-- PHILOSOPHY -->
@@ -780,10 +780,36 @@ When you receive input, ask nothing. Run the SOP. Deliver all three touches.</pr
 Call notes: Client is a business coach, 8 years in, growing but inconsistent revenue. Main pain point — feast or famine cycle. They want predictable lead flow. Said they've tried ads before and burned money. Skeptical about paid but open to organic systems. Call ended with "this sounds like exactly what I need, let me look it over and get back to you."
 
 Write the follow-up sequence.</pre>
+
+    <p style="font-size:0.95rem; color:var(--mid-gray); margin: 20px 0 6px; font-weight:600;">Alternative Example — swap this in to show a trades business scenario:</p>
+    <div class="prompt-container">
+      <div class="prompt-header">
+        <span>Live Input — Example 2 (Landscaping Business)</span>
+        <button class="copy-btn" id="btn-p2b">Copy Prompt</button>
+      </div>
+      <pre id="p2b">Proposal: 6-month business growth coaching program. $4,800 paid in full or $850/month. Sent today.
+
+Call notes: Client is David Rivera, owns Rivera Landscaping in Charlotte — 8 employees, $620K revenue, wants to hit $1M in 18 months. His biggest problem: everything runs through him. He's the bottleneck. Tried hiring a foreman twice, both left in 90 days. Working long days with no real time off — said his wife has pointed out the business owns him. Revenue drops hard in winter, lost two commercial accounts last year because he didn't follow up on renewals in time.
+
+He's been burned by a coach before — said it felt too generic. Tried a CRM, quit after 6 weeks. Knows the theory (read E-Myth, Buy Back Your Time) but struggling with execution in his specific business.
+
+Positive signals: asked detailed questions about months 2-4, stayed 15 minutes past the scheduled call end, asked if other trades businesses had done this. His exact words: "I don't need motivation, I need a blueprint. Can you actually give me that?"
+
+Hesitation: past coaching disappointment and Q2 timing — worried about bandwidth during his busiest season. Call ended warm. Reviewing over the weekend and getting back Monday.
+
+Write the follow-up sequence.</pre>
     </div>
 
     <div class="action-block">
-      <span class="action-label">What You Should See</span>
+      <span class="action-label">What to Point Out in Example 2</span>
+      <p>Watch for Touch 2 to reference David's specific situation — the bottleneck problem, the foreman turnover, or the winter revenue drop. It should NOT sound like the business coach example. Same department. Completely different output. That's the point.</p>
+      <div class="say-this" style="margin-top: 12px;">
+        Same department. Same SOP. Completely different client, completely different output. I didn't change a single instruction — I just gave it different context. That message knows David. A generic follow-up doesn't close David. This one might.
+      </div>
+    </div>
+
+    <div class="action-block">
+      <span class="action-label">What You Should See — Example 1 (Business Coach)</span>
       <p>Three messages that each have a different job. Touch 1 is warm and brief. Touch 2 pulls a specific detail from the call notes — the feast or famine issue, the ad skepticism. Touch 3 is an honest close with an easy out. None of them open with "just checking in." If one does, correct it live — that's the directing lesson.</p>
     </div>
 
@@ -884,10 +910,28 @@ When you receive input, ask nothing unless the task type is unclear. Run the SOP
         <button class="copy-btn" id="btn-p3">Copy Prompt</button>
       </div>
       <pre id="p3">Client call tomorrow. They run a residential cleaning company. 12 employees. Revenue around $900K. Interested in using AI to handle customer follow-up and booking reminders. Never used Claude before.</pre>
+
+    <p style="font-size:0.95rem; color:var(--mid-gray); margin: 20px 0 6px; font-weight:600;">Alternative Example — swap this in to show the research request format:</p>
+    <div class="prompt-container">
+      <div class="prompt-header">
+        <span>Live Input — Example 2 (Research Request)</span>
+        <button class="copy-btn" id="btn-p3b">Copy Prompt</button>
+      </div>
+      <pre id="p3b">Research request: I'm pitching a local accounting firm next week on a 90-day AI implementation consulting engagement. They have 14 employees, mostly doing bookkeeping and tax prep for small businesses. I know they're under pressure from software like QuickBooks and automated payroll platforms eating into their commoditized services.
+
+Give me the 3 things that matter most going into this pitch — what the firm is likely afraid of, where the real opportunity is for them, and one angle I should lead with that makes AI feel like a survival tool instead of a threat.</pre>
     </div>
 
     <div class="action-block">
-      <span class="action-label">What You Should See</span>
+      <span class="action-label">What to Point Out</span>
+      <p>The output should be tight — three points, each actionable. Not a market research report. Not five paragraphs of background. Decision-ready intel you could read in 90 seconds before walking into the pitch. If it goes long, redirect live: <code>"Cut it in half. I need what I'd actually use, not everything you know."</code></p>
+      <div class="say-this" style="margin-top:12px;">
+        That's competitive intel. That's pitch prep. That's what used to take me an hour of Googling and thinking. The department gave me the three things that matter — not everything it could possibly say. That's the difference between academic output and operational output.
+      </div>
+    </div>
+
+    <div class="action-block">
+      <span class="action-label">What You Should See — Example 1 (Client Call Prep)</span>
       <p>3 discovery questions, 2 situation questions, and 1 insight to lead with — concise and specific to a cleaning business interested in AI. Not academic. Decision-ready. If it's too long or generic, redirect: <code>"Cut it. Give me only what I'd actually need to walk into this call sharp."</code></p>
     </div>
 
@@ -1035,7 +1079,7 @@ When you receive input, ask nothing unless the task type is unclear. Run the SOP
   });
 
   document.getElementById('copyAllBtn').addEventListener('click', function() {
-    var ids    = ['s2-profile','compress','sop1','u1','sop2','u2','sop3','u3','p1','p2','p3'];
+    var ids    = ['s2-profile','compress','sop1','u1','sop2','u2','sop3','u3','p1','p2','p2b','p3','p3b'];
     var labels = [
       'SESSION 2 VOICE PROFILE',
       'COMPRESSION PROMPT',
@@ -1046,19 +1090,21 @@ When you receive input, ask nothing unless the task type is unclear. Run the SOP
       'SOP 3A — OPERATIONS DEPT (Generic)',
       'SOP 3B — OPERATIONS DEPT (Upgraded — Voice Profile)',
       'LIVE INPUT 1 — CONTENT DEPARTMENT',
-      'LIVE INPUT 2 — FOLLOW-UP DEPARTMENT',
-      'LIVE INPUT 3 — OPERATIONS DEPARTMENT'
+      'LIVE INPUT 2A — FOLLOW-UP DEPT (Business Coach)',
+      'LIVE INPUT 2B — FOLLOW-UP DEPT (Landscaping)',
+      'LIVE INPUT 3A — OPS DEPT (Client Call Prep)',
+      'LIVE INPUT 3B — OPS DEPT (Research Request)'
     ];
     var allText = ids.map(function(id, i) {
       var el = document.getElementById(id);
       return el ? ('=== ' + labels[i] + ' ===\n\n' + (el.innerText || el.textContent)) : '';
     }).filter(Boolean).join('\n\n\n');
     navigator.clipboard.writeText(allText).then(function() {
-      document.getElementById('copyAllBtn').textContent = '✅ All 11 Copied!';
+      document.getElementById('copyAllBtn').textContent = '✅ All 13 Copied!';
       document.getElementById('copyAllBtn').classList.add('success');
-      showToast('All 11 items copied to clipboard');
+      showToast('All 13 items copied to clipboard');
       setTimeout(function() {
-        document.getElementById('copyAllBtn').textContent = '📋 Copy All SOPs + Live Prompts (11 Total)';
+        document.getElementById('copyAllBtn').textContent = '📋 Copy All SOPs + Live Prompts (13 Total)';
         document.getElementById('copyAllBtn').classList.remove('success');
       }, 2500);
     });
