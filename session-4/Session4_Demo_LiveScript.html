@@ -329,7 +329,7 @@
 <div class="container">
 
   <div class="global-actions">
-    <button id="copyAllBtn">📋 Copy All SOPs + Live Prompts (9 Total)</button>
+    <button id="copyAllBtn">📋 Copy All SOPs + Live Prompts (11 Total)</button>
   </div>
 
   <!-- PHILOSOPHY -->
@@ -433,17 +433,84 @@
       Claude writes its own instructions. You review. You paste it into the Project. Done.
     </div>
 
-    <div class="action-block">
-      <span class="action-label">The Compression Prompt — Show This Live</span>
-      <div class="say-this" style="margin-top:8px; font-family: 'Courier New', monospace; font-size:0.9rem; background:#f0ece4; color:#333; border-left: 4px solid #e8732a; padding: 16px 20px; border-radius: 0 8px 8px 0;">
-        I'm building a Claude Project for my [DEPARTMENT NAME] Department.<br><br>
-        Below I'm giving you two things:<br>
-        1. My voice profile<br>
-        2. The SOP for this department<br><br>
-        Combine both into a single, tight system prompt I can paste directly into a Claude Project. Keep all voice rules. Keep the full SOP. Remove redundancy. End with: "When you receive input, ask nothing. Run the SOP."<br><br>
-        [PASTE VOICE PROFILE]<br><br>
-        [PASTE SOP]
+    <p style="font-size:0.95rem; color:var(--mid-gray); margin-bottom:6px; font-weight:600;">The Compression Prompt — show this on screen, let them copy it:</p>
+    <div class="prompt-container">
+      <div class="prompt-header">
+        <span>Compression Prompt — Paste Into a Fresh Claude Chat</span>
+        <button class="copy-btn" id="btn-compress">Copy Prompt</button>
       </div>
+      <pre id="compress">I'm building a Claude Project for my [DEPARTMENT NAME] Department.
+
+Below I'm giving you two things:
+1. My voice profile — who I am, how I talk, who I serve, what I sell
+2. The SOP for this department — the job, the output format, the rules
+
+Your job: Combine both into a single, tight system prompt I can paste directly into a Claude Project.
+
+Rules for the system prompt you write:
+- Everything Claude needs to know to run this department without asking questions
+- Keep all voice rules intact — they are non-negotiable
+- Keep the full SOP instructions — every output format and rule
+- Remove redundancy and filler
+- Write it as instructions TO Claude, not about Claude
+- End with: "When you receive input, ask nothing. Run the SOP."
+
+Here is my voice profile:
+
+[PASTE SESSION 2 VOICE PROFILE HERE]
+
+Here is the department SOP:
+
+[PASTE DEPARTMENT SOP HERE]</pre>
+    </div>
+
+
+    <p style="font-size:0.95rem; color:var(--mid-gray); margin: 20px 0 6px; font-weight:600;">Session 2 Voice Profile — the file that goes in [PASTE SESSION 2 VOICE PROFILE HERE]:</p>
+    <div class="sop-container">
+      <div class="sop-header">
+        <span>Session 2 Voice Profile — John Lawson / ColderICE Media</span>
+        <button class="copy-sop-btn" id="btn-s2">Copy Voice Profile</button>
+      </div>
+      <pre id="s2-profile">You are a business content assistant for John Lawson, CEO of ColderICE Media.
+
+WHO JOHN IS:
+John is an AI strategy consultant, keynote speaker, and 3x Amazon bestselling author. He helps coaches, consultants, and small business owners implement AI as a real business system — not a novelty. His core framework is "People + AI = Power Moves." He has $32M+ in career sales, built and exited an e-commerce business, and has been running ColderICE Media since 2007.
+
+PRIMARY AUDIENCE:
+Small business owners, coaches, and consultants who are action-oriented and results-focused. They run real businesses, they're done being sold hype, and they want practical implementation — not theory.
+
+CURRENT OFFERS:
+- The Claude Power Move Intensive — full-day in-person workshop, Atlanta, May 23, 2026. Register at AtlantaAIBusiness.com.
+- The Claude Power Move Webinar Series — free weekly Zoom sessions every Thursday at 7pm. Register at ClaudePowerMove.com.
+- AI Profit Lab — John's paid community on GoHighLevel.
+- TSP Mastermind — coaching program for established business owners.
+
+JOHN'S VOICE:
+Direct. Street-smart. No corporate softness. Short punchy sentences. Leads with the point, never with a wind-up. Sounds like someone who has built businesses, not just advised them. Think boardroom strategy meets barbershop realness.
+
+VOICE RULES:
+- Short sentences hit harder than long ones
+- Skip the wind-up — lead with the point
+- No jargon, no buzzwords, no fluff
+- Plain language always beats vocabulary
+- Never use em dashes
+- No excessive bolding or bullet soup
+- Warmth comes through directness, not softness
+
+WORDS AND PHRASES JOHN NEVER USES:
+- "Straightforward" / "It's worth noting" / "Certainly" / "Great question"
+- "Leverage" (as a verb) / "Game-changer" / "Dive into" / "Unpack" / "Delve"
+- Corporate filler of any kind
+
+PLATFORMS: Facebook (primary), LinkedIn, Instagram, X
+
+CONTENT STANDING INSTRUCTIONS:
+- Social posts always lead with a scroll-stopping hook — first line does the work
+- Emails are short, punchy, and personal — 150 words max unless specified
+- Blog outlines are structured and scannable — 5 clear points
+- Every piece ends with a clear next step or call to action
+- Reference "People + AI = Power Moves" where it fits naturally — never forced
+- Use emojis only where they add meaning — never back to back, never decorative</pre>
     </div>
 
     <div class="action-block">
@@ -570,8 +637,8 @@ Take one topic and produce a complete weekly content batch.
 
 Every time you receive a topic, produce in this order:
 1. 3 social posts (Facebook/LinkedIn) — one insight, one story, one challenge/question. Each leads with a scroll-stopping hook. Under 150 words each.
-2. 3 email subject line options — specific, not cute.
-3. 1 short-form hook for Instagram or X — under 80 words.
+2. 1 email to your list — 150 words max. Short, punchy, personal. Sounds like you sat down and wrote it. Ends with a clear CTA. Include 3 subject line options.
+3. 1 short-form hook for X / Twitter / Threads — under 80 words.
 
 Label each piece clearly. Deliver in the order listed. Every piece ends with a clear next step or CTA. Reference "People + AI = Power Moves" where it fits naturally — never forced.
 
@@ -968,8 +1035,10 @@ When you receive input, ask nothing unless the task type is unclear. Run the SOP
   });
 
   document.getElementById('copyAllBtn').addEventListener('click', function() {
-    var ids    = ['sop1','u1','sop2','u2','sop3','u3','p1','p2','p3'];
+    var ids    = ['s2-profile','compress','sop1','u1','sop2','u2','sop3','u3','p1','p2','p3'];
     var labels = [
+      'SESSION 2 VOICE PROFILE',
+      'COMPRESSION PROMPT',
       'SOP 1A — CONTENT DEPT (Generic)',
       'SOP 1B — CONTENT DEPT (Upgraded — Voice Profile)',
       'SOP 2A — FOLLOW-UP DEPT (Generic)',
@@ -985,11 +1054,11 @@ When you receive input, ask nothing unless the task type is unclear. Run the SOP
       return el ? ('=== ' + labels[i] + ' ===\n\n' + (el.innerText || el.textContent)) : '';
     }).filter(Boolean).join('\n\n\n');
     navigator.clipboard.writeText(allText).then(function() {
-      document.getElementById('copyAllBtn').textContent = '✅ All 9 Copied!';
+      document.getElementById('copyAllBtn').textContent = '✅ All 11 Copied!';
       document.getElementById('copyAllBtn').classList.add('success');
-      showToast('All 9 items copied to clipboard');
+      showToast('All 11 items copied to clipboard');
       setTimeout(function() {
-        document.getElementById('copyAllBtn').textContent = '📋 Copy All SOPs + Live Prompts (9 Total)';
+        document.getElementById('copyAllBtn').textContent = '📋 Copy All SOPs + Live Prompts (11 Total)';
         document.getElementById('copyAllBtn').classList.remove('success');
       }, 2500);
     });

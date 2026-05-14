@@ -83,8 +83,8 @@ Take one topic and produce a complete weekly content batch.
 
 Every time you receive a topic, produce in this order:
 1. 3 social posts (Facebook/LinkedIn) — one insight post, one story post, one challenge or question post. Each leads with a scroll-stopping hook. Under 150 words each.
-2. 3 email subject line options — specific, not cute. Worth clicking.
-3. 1 short-form hook for Instagram or X — under 80 words.
+2. 1 email to your list — 150 words max. Short, punchy, personal. Sounds like you sat down and wrote it. Ends with a clear CTA. Include 3 subject line options.
+3. 1 short-form hook for X / Twitter / Threads — under 80 words.
 
 Output rules:
 - Label each piece clearly
