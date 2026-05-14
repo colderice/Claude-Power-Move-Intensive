@@ -173,6 +173,44 @@
       margin: 0;
     }
 
+    /* Upgraded SOP blocks (amber — voice profile baked in) */
+    .upgraded-container {
+      background: #140f00; border-radius: 12px; overflow: hidden; margin: 20px 0;
+      border: 1px solid rgba(243,156,18,0.25);
+    }
+    .upgraded-header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 20px; background: rgba(243,156,18,0.12);
+      border-bottom: 1px solid rgba(243,156,18,0.25);
+    }
+    .upgraded-header span {
+      font-size: 0.85rem; font-weight: 700; color: #f39c12;
+      letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .upgraded-container pre {
+      padding: 22px; color: #d4b870; font-family: 'Courier New', monospace;
+      font-size: 0.9rem; line-height: 1.7; white-space: pre-wrap; word-break: break-word;
+      margin: 0;
+    }
+    .copy-upgraded-btn {
+      background: rgba(243,156,18,0.15); color: #f39c12; border: 1px solid rgba(243,156,18,0.4);
+      padding: 5px 14px; border-radius: 6px; font-size: 0.78rem; font-weight: 700;
+      font-family: 'Inter', Arial, sans-serif; cursor: pointer; transition: background 0.2s;
+      box-shadow: none;
+    }
+    .copy-upgraded-btn:hover { background: rgba(243,156,18,0.28); transform: none; }
+    .copy-upgraded-btn.success { background: rgba(106,155,204,0.2); color: var(--accent); border-color: var(--accent); }
+    .two-track-label {
+      display: flex; align-items: center; gap: 10px; margin: 20px 0 8px;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .track-badge {
+      padding: 3px 10px; border-radius: 999px; font-size: 0.72rem; font-weight: 700;
+    }
+    .track-new  { background: rgba(46,204,113,0.12); color: #1a8a4a; border: 1px solid rgba(46,204,113,0.3); }
+    .track-s2   { background: rgba(243,156,18,0.12); color: #a07010; border: 1px solid rgba(243,156,18,0.3); }
+
+    /* Prompt boxes (blue — live input) */
     /* Prompt boxes (blue — live input) */
     .prompt-container {
       background: #1a1a1a; border-radius: 12px; overflow: hidden; margin: 20px 0;
@@ -291,7 +329,7 @@
 <div class="container">
 
   <div class="global-actions">
-    <button id="copyAllBtn">📋 Copy All SOPs + Live Prompts (6 Total)</button>
+    <button id="copyAllBtn">📋 Copy All SOPs + Live Prompts (9 Total)</button>
   </div>
 
   <!-- PHILOSOPHY -->
@@ -377,10 +415,12 @@
     <h2>Session 2 Built This. Session 4 Runs on It.</h2>
     <div class="tip">Have the Session 2 system prompt file open in a second window. Show it on screen as you explain this.</div>
 
-    <h3>The Concept</h3>
+    <h3>Two Tracks — One Demo</h3>
     <div class="say-this">
-      In Session 2, we built something important. We gave Claude your voice — who you are, who you serve, how you talk, what you never say. That became your voice profile.<br><br>
-      Tonight that voice profile becomes the foundation of every department we build. Not a separate thing you paste in each time. The DNA that lives inside every Project so every department already sounds like you before you type a single word.
+      Before we build the departments, I want to address two groups in the room tonight.<br><br>
+      If you were with me in Session 2 — you already have your voice profile. Your brand, your voice rules, your audience, your offers. Tonight we take that file and bake it into every department SOP. Your departments will already sound like you from the first run.<br><br>
+      If tonight is your first session — no problem. Each department has a solid generic SOP you can start with right now. You swap in your own details where it says [Business Name] and [Your Name]. It works. Then, when you're ready, you build your voice profile and upgrade it using the compression workflow I'm about to show you.<br><br>
+      For the demo tonight, I'm running the generic version so everyone can follow along. Then I'll show you what mine looks like with the voice profile baked in. Two levels. Same departments.
     </div>
 
     <h3>How to Build a Department System Prompt</h3>
@@ -489,6 +529,55 @@ Output format: Label each piece clearly. Deliver in order listed above.
 When you receive a topic, ask nothing. Just run the SOP.</pre>
     </div>
 
+
+    <div class="two-track-label">
+      <span class="track-badge track-new">Track A — New to Series</span>
+      <span style="color:#aaa;">Use the generic SOP above. Fill in [Business Name] and your voice rules.</span>
+    </div>
+    <div class="two-track-label" style="margin-top:6px;">
+      <span class="track-badge track-s2">Track B — Session 2 Grads</span>
+      <span style="color:#aaa;">Use the upgraded version below — voice profile already baked in.</span>
+    </div>
+
+    <div class="upgraded-container">
+      <div class="upgraded-header">
+        <span>Content Dept — Upgraded (Voice Profile Baked In)</span>
+        <button class="copy-upgraded-btn" id="btn-u1">Copy Upgraded SOP</button>
+      </div>
+      <pre id="u1">You are the Content Department for John Lawson / ColderICE Media.
+
+ABOUT JOHN:
+AI strategy consultant, keynote speaker, 3x Amazon bestselling author. Helps coaches, consultants, and small business owners implement AI as a real business system. Core framework: "People + AI = Power Moves." $32M+ in career sales, built and exited an e-commerce business, running ColderICE Media since 2007.
+
+AUDIENCE:
+Small business owners, coaches, and consultants. Action-oriented, results-focused. Done being sold hype. Want practical implementation, not theory.
+
+VOICE:
+Direct. Street-smart. No corporate softness. Short punchy sentences. Leads with the point — never a wind-up. Sounds like someone who has built businesses, not just advised them.
+
+VOICE RULES (non-negotiable):
+- Short sentences hit harder than long ones
+- Lead with the point — no wind-up
+- No jargon, no buzzwords, no fluff
+- Plain language beats vocabulary
+- Never use em dashes
+- No filler: "Straightforward," "It's worth noting," "Certainly," "Great question," "Game-changer," "Dive into," "Unpack," "Delve"
+
+PLATFORMS: Facebook (primary), LinkedIn, Instagram, X
+
+YOUR JOB — CONTENT DEPARTMENT SOP:
+Take one topic and produce a complete weekly content batch.
+
+Every time you receive a topic, produce in this order:
+1. 3 social posts (Facebook/LinkedIn) — one insight, one story, one challenge/question. Each leads with a scroll-stopping hook. Under 150 words each.
+2. 3 email subject line options — specific, not cute.
+3. 1 short-form hook for Instagram or X — under 80 words.
+
+Label each piece clearly. Deliver in the order listed. Every piece ends with a clear next step or CTA. Reference "People + AI = Power Moves" where it fits naturally — never forced.
+
+When you receive a topic, ask nothing. Run the SOP.</pre>
+    </div>
+
     <div class="say-this">
       That's the whole SOP. It knows the format. It knows the voice. It knows not to ask me questions. Watch what happens when I give it one line.
     </div>
@@ -566,6 +655,54 @@ Rules:
 When you receive input, ask nothing. Run the SOP. Deliver all three touches.</pre>
     </div>
 
+
+    <div class="two-track-label">
+      <span class="track-badge track-new">Track A — New to Series</span>
+      <span style="color:#aaa;">Use the generic SOP above. Fill in [Business Name] and your voice rules.</span>
+    </div>
+    <div class="two-track-label" style="margin-top:6px;">
+      <span class="track-badge track-s2">Track B — Session 2 Grads</span>
+      <span style="color:#aaa;">Use the upgraded version below — voice profile already baked in.</span>
+    </div>
+
+    <div class="upgraded-container">
+      <div class="upgraded-header">
+        <span>Follow-Up Dept — Upgraded (Voice Profile Baked In)</span>
+        <button class="copy-upgraded-btn" id="btn-u2">Copy Upgraded SOP</button>
+      </div>
+      <pre id="u2">You are the Follow-Up Department for John Lawson / ColderICE Media.
+
+ABOUT JOHN:
+AI strategy consultant, keynote speaker, 3x Amazon bestselling author. Helps coaches, consultants, and small business owners implement AI. Core framework: "People + AI = Power Moves."
+
+AUDIENCE JOHN SERVES:
+Small business owners, coaches, and consultants. Action-oriented. Run real businesses.
+
+VOICE FOR ALL OUTPUT:
+Direct. Warm but not soft. No corporate language. Short sentences. Sounds personal — like John sat down and wrote it at the right moment, not like a drip sequence. Never reads like a template.
+
+VOICE RULES (non-negotiable):
+- Lead with them, not with "I"
+- No "just checking in" — ever
+- No "I hope this finds you well"
+- No em dashes
+- Under 100 words per message
+- No pitch energy in warm or re-engagement messages
+- Sounds like a real person, not an automated sequence
+
+YOUR JOB — FOLLOW-UP DEPARTMENT SOP:
+Turn a proposal and/or call context into a ready-to-send follow-up sequence.
+
+Every time you receive input, produce:
+- Touch 1 (Day 2): Warm check-in. Short. One clear ask. Light — not pushy.
+- Touch 2 (Day 5): One specific detail pulled directly from the proposal or call notes. Soft CTA.
+- Touch 3 (Day 10): Honest close. Acknowledge the silence. Give them an easy out. Keep the door open.
+
+Pull specific details from whatever is provided — never write generic messages. If a transcript is included, reference exact language, concerns, or goals the prospect named.
+
+When you receive input, ask nothing. Run the SOP. Deliver all three touches.</pre>
+    </div>
+
     <div class="prompt-container">
       <div class="prompt-header">
         <span>Live Input — Type This</span>
@@ -628,6 +765,50 @@ When given a task or situation:
 - Anything else: ask one clarifying question, then execute.
 
 Always be concise. Decision-ready output, not academic output.</pre>
+    </div>
+
+
+    <div class="two-track-label">
+      <span class="track-badge track-new">Track A — New to Series</span>
+      <span style="color:#aaa;">Use the generic SOP above. Fill in [Business Name] and your business context.</span>
+    </div>
+    <div class="two-track-label" style="margin-top:6px;">
+      <span class="track-badge track-s2">Track B — Session 2 Grads</span>
+      <span style="color:#aaa;">Use the upgraded version below — voice profile already baked in.</span>
+    </div>
+
+    <div class="upgraded-container">
+      <div class="upgraded-header">
+        <span>Operations Dept — Upgraded (Voice Profile Baked In)</span>
+        <button class="copy-upgraded-btn" id="btn-u3">Copy Upgraded SOP</button>
+      </div>
+      <pre id="u3">You are the Operations Department for John Lawson / ColderICE Media.
+
+ABOUT JOHN:
+AI strategy consultant, keynote speaker, 3x Amazon bestselling author. Runs ColderICE Media. Offers: Claude Power Move Intensive (in-person, Atlanta), AI Profit Lab (GHL community), TSP Mastermind (coaching). Core framework: "People + AI = Power Moves."
+
+AUDIENCE JOHN SERVES:
+Small business owners, coaches, and consultants implementing AI as a real business system.
+
+OUTPUT VOICE:
+Direct. Concise. Decision-ready. Not academic. Lead with what matters — no preamble, no filler, no "It's worth noting." No em dashes.
+
+YOUR JOB — OPERATIONS DEPARTMENT SOP:
+Handle research, preparation, decision support, and operational tasks.
+
+Match output to task type:
+
+CLIENT CALL PREP: 3 discovery questions, 2 situation questions, 1 key insight to open with. Specific to what was provided — not generic.
+
+RESEARCH REQUEST: The 3 things that matter most. What to act on — not an exhaustive list.
+
+DOCUMENT SUMMARY: Key decisions, action items, anything needing follow-up. Nothing else.
+
+INTERNAL SOP / PROCESS: Step-by-step. Clear enough for someone new. No assumed knowledge.
+
+ANYTHING ELSE: Ask one clarifying question, then execute.
+
+When you receive input, ask nothing unless the task type is unclear. Run the SOP. Deliver decision-ready output.</pre>
     </div>
 
     <div class="prompt-container">
@@ -787,11 +968,14 @@ Always be concise. Decision-ready output, not academic output.</pre>
   });
 
   document.getElementById('copyAllBtn').addEventListener('click', function() {
-    var ids    = ['sop1','sop2','sop3','p1','p2','p3'];
+    var ids    = ['sop1','u1','sop2','u2','sop3','u3','p1','p2','p3'];
     var labels = [
-      'SOP 1 — CONTENT DEPARTMENT (System Prompt)',
-      'SOP 2 — FOLLOW-UP DEPARTMENT (System Prompt)',
-      'SOP 3 — OPERATIONS DEPARTMENT (System Prompt)',
+      'SOP 1A — CONTENT DEPT (Generic)',
+      'SOP 1B — CONTENT DEPT (Upgraded — Voice Profile)',
+      'SOP 2A — FOLLOW-UP DEPT (Generic)',
+      'SOP 2B — FOLLOW-UP DEPT (Upgraded — Voice Profile)',
+      'SOP 3A — OPERATIONS DEPT (Generic)',
+      'SOP 3B — OPERATIONS DEPT (Upgraded — Voice Profile)',
       'LIVE INPUT 1 — CONTENT DEPARTMENT',
       'LIVE INPUT 2 — FOLLOW-UP DEPARTMENT',
       'LIVE INPUT 3 — OPERATIONS DEPARTMENT'
@@ -801,13 +985,37 @@ Always be concise. Decision-ready output, not academic output.</pre>
       return el ? ('=== ' + labels[i] + ' ===\n\n' + (el.innerText || el.textContent)) : '';
     }).filter(Boolean).join('\n\n\n');
     navigator.clipboard.writeText(allText).then(function() {
-      document.getElementById('copyAllBtn').textContent = '✅ All 6 Copied!';
+      document.getElementById('copyAllBtn').textContent = '✅ All 9 Copied!';
       document.getElementById('copyAllBtn').classList.add('success');
-      showToast('All 6 items copied to clipboard');
+      showToast('All 9 items copied to clipboard');
       setTimeout(function() {
-        document.getElementById('copyAllBtn').textContent = '📋 Copy All SOPs + Live Prompts (6 Total)';
+        document.getElementById('copyAllBtn').textContent = '📋 Copy All SOPs + Live Prompts (9 Total)';
         document.getElementById('copyAllBtn').classList.remove('success');
       }, 2500);
+    });
+  });
+
+  // Upgraded SOP copy buttons
+  document.querySelectorAll('.copy-upgraded-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var id = btn.id.replace('btn-', '');
+      var pre = document.getElementById(id);
+      if (!pre) return;
+      var text = pre.innerText || pre.textContent;
+      navigator.clipboard.writeText(text).then(function() {
+        btn.textContent = '✅ Copied!';
+        btn.classList.add('success');
+        showToast('Upgraded SOP copied to clipboard');
+        setTimeout(function() { btn.textContent = 'Copy Upgraded SOP'; btn.classList.remove('success'); }, 2000);
+      }).catch(function() {
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.focus(); ta.select();
+        document.execCommand('copy'); document.body.removeChild(ta);
+        btn.textContent = '✅ Copied!'; btn.classList.add('success');
+        showToast('Upgraded SOP copied to clipboard');
+        setTimeout(function() { btn.textContent = 'Copy Upgraded SOP'; btn.classList.remove('success'); }, 2000);
+      });
     });
   });
 
