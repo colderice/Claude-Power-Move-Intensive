@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Edit Template — AgreementDesk</title>
+<script>
+  // Just redirect to create-template with the id parameter
+  const id = new URLSearchParams(location.search).get('id');
+  if (id) window.location.replace('/create-template?id=' + id);
+  else window.location.replace('/templates');
+</script>
+</head>
+</html>

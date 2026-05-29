@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Create Template — AgreementDesk</title>
+<link rel="stylesheet" href="/css/styles.css">
+<style>
+  .template-body { display: grid; grid-template-columns: 1fr 360px; gap: 20px; align-items: start; }
+  @media (max-width: 900px) { .template-body { grid-template-columns: 1fr; } }
+  .placeholder-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .chip { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; border-radius: 99px; padding: 3px 10px; font-size: 11px; font-family: monospace; cursor: pointer; }
+  .chip:hover { background: #dbeafe; }
+</style>
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="org">📄 AgreementDesk</div><div class="tagline">Document Signing</div></div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section">Main</div>
+      <a href="/dashboard"><span class="icon">🏠</span> Dashboard</a>
+      <a href="/send"><span class="icon">✉️</span> Send Agreement</a>
+      <div class="sidebar-section">Manage</div>
+      <a href="/templates"><span class="icon">📋</span> Templates</a>
+      <a href="/create-template"><span class="icon">➕</span> New Template</a>
+    </nav>
+    <div class="sidebar-user"><strong id="sidebar-name">Loading…</strong><span id="sidebar-email"></span><br><a href="#" onclick="logout()">Sign out</a></div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <h1 id="page-title">Create Template</h1>
+      <div class="topbar-actions">
+        <a href="/templates" class="btn btn-secondary">Cancel</a>
+        <button class="btn btn-primary" id="save-btn">Save Template</button>
+      </div>
+    </div>
+    <div class="content">
+      <div id="alert-area"></div>
+      <div class="template-body">
+        <!-- Left: Agreement content -->
+        <div>
+          <div class="card mb-4">
+            <div class="card-header"><h2>Agreement Details</h2></div>
+            <div class="card-body">
+              <div class="form-group">
+                <label>Template Name *</label>
+                <input type="text" id="title" class="form-control" placeholder="e.g. Client Service Agreement">
+              </div>
+              <div class="form-group">
+                <label>Description (internal note)</label>
+                <input type="text" id="description" class="form-control" placeholder="Brief description of when to use this template">
+              </div>
+              <div class="form-group">
+                <label>Agreement Body *</label>
+                <div class="form-hint" style="margin-bottom:6px">Use <strong>{{field_name}}</strong> placeholders where client info should appear. These will be filled in when the client completes the form.</div>
+                <textarea id="content" class="form-control" style="min-height:360px;font-family:inherit" placeholder="Write your full agreement text here...
+
+Example:
+This agreement is entered into between {{client_name}} (hereinafter 'Client') and 3rd Power Outlet...
+
+CLIENT INFORMATION
+Company: {{company_name}}
+Phone: {{phone_number}}"></textarea>
+                <div id="placeholder-chips" class="placeholder-chips"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Custom fields -->
+        <div>
+          <div class="card">
+            <div class="card-header">
+              <h2>Custom Fields</h2>
+              <button class="btn btn-secondary btn-sm" id="add-field-btn">➕ Add Field</button>
+            </div>
+            <div class="card-body">
+              <div class="form-hint mb-4">These are the fields the client fills in before signing. Add fields for any info you need, then reference them in your agreement with <strong>{{field_name}}</strong>.</div>
+              <div id="fields-list"></div>
+              <div id="fields-empty" class="text-muted text-sm" style="padding:8px 0">No custom fields yet. Add fields like Name, Company, Phone, etc.</div>
+            </div>
+          </div>
+
+          <div class="card mt-4">
+            <div class="card-header"><h2>📌 Tips</h2></div>
+            <div class="card-body" style="font-size:12px;color:var(--gray-500);line-height:1.8">
+              <p>• A <strong>Signature</strong> field is always included automatically.</p>
+              <p>• Use <strong>required</strong> to force the client to fill in a field.</p>
+              <p>• Field names must be lowercase with no spaces (use underscores).</p>
+              <p>• Click a <strong>placeholder chip</strong> below the text area to insert it at your cursor.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/utils.js"></script>
+<script>
+  if (!requireAuth()) throw new Error('redirect');
+  initSidebar();
+
+  // Support edit mode
+  const params = new URLSearchParams(location.search);
+  const editId = params.get('id');
+  if (editId) document.getElementById('page-title').textContent = 'Edit Template';
+
+  let fields = [];
+
+  function renderFields() {
+    const list = document.getElementById('fields-list');
+    const empty = document.getElementById('fields-empty');
+    empty.style.display = fields.length ? 'none' : 'block';
+
+    list.innerHTML = fields.map((f, i) => `
+      <div class="field-item" data-index="${i}">
+        <button class="remove-field" onclick="removeField(${i})">×</button>
+        <div class="form-row">
+          <div class="form-group" style="margin:0">
+            <label>Field Name *</label>
+            <input type="text" class="form-control field-name" value="${f.name}" placeholder="client_name" onchange="updateField(${i},'name',this.value)">
+          </div>
+          <div class="form-group" style="margin:0">
+            <label>Label *</label>
+            <input type="text" class="form-control" value="${f.label}" placeholder="Client Name" onchange="updateField(${i},'label',this.value)">
+          </div>
+        </div>
+        <div class="form-row" style="margin-top:10px;grid-template-columns:1fr 1fr">
+          <div class="form-group" style="margin:0">
+            <label>Type</label>
+            <select class="form-control" onchange="updateField(${i},'type',this.value)">
+              ${['text','email','tel','date','textarea','checkbox'].map(t => `<option value="${t}" ${f.type===t?'selected':''}>${t}</option>`).join('')}
+            </select>
+          </div>
+          <div class="form-group" style="margin:0;display:flex;align-items:flex-end;gap:8px;padding-bottom:2px">
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer;text-transform:none;letter-spacing:0;font-size:13px;color:var(--gray-700)">
+              <input type="checkbox" ${f.required?'checked':''} onchange="updateField(${i},'required',this.checked)"> Required
+            </label>
+          </div>
+        </div>
+        ${f.placeholder !== undefined ? `<div class="form-group" style="margin-top:10px 0 0">
+          <label>Placeholder text</label>
+          <input type="text" class="form-control" value="${f.placeholder||''}" placeholder="e.g. Enter your company name" onchange="updateField(${i},'placeholder',this.value)">
+        </div>` : ''}
+      </div>`).join('');
+
+    updatePlaceholderChips();
+  }
+
+  function updatePlaceholderChips() {
+    const chips = document.getElementById('placeholder-chips');
+    chips.innerHTML = fields.filter(f => f.name).map(f =>
+      `<span class="chip" onclick="insertPlaceholder('${f.name}')">{{${f.name}}}</span>`
+    ).join('');
+  }
+
+  function insertPlaceholder(name) {
+    const ta = document.getElementById('content');
+    const start = ta.selectionStart;
+    const end = ta.selectionEnd;
+    const text = ta.value;
+    ta.value = text.slice(0, start) + `{{${name}}}` + text.slice(end);
+    ta.selectionStart = ta.selectionEnd = start + name.length + 4;
+    ta.focus();
+  }
+
+  function addField() {
+    fields.push({ name: '', label: '', type: 'text', required: false, placeholder: '' });
+    renderFields();
+  }
+
+  function removeField(i) {
+    fields.splice(i, 1);
+    renderFields();
+  }
+
+  function updateField(i, key, value) {
+    fields[i][key] = value;
+    if (key === 'name') {
+      // Auto-sanitize: lowercase, underscores
+      fields[i].name = value.toLowerCase().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '');
+      document.querySelectorAll('.field-name')[i].value = fields[i].name;
+      updatePlaceholderChips();
+    }
+  }
+
+  document.getElementById('add-field-btn').addEventListener('click', addField);
+
+  document.getElementById('save-btn').addEventListener('click', async () => {
+    const title = document.getElementById('title').value.trim();
+    const content = document.getElementById('content').value.trim();
+    if (!title || !content) return showAlert('Title and agreement body are required', 'error', document.getElementById('alert-area'));
+
+    // Validate fields
+    for (const f of fields) {
+      if (!f.name || !f.label) return showAlert('All fields must have a name and label', 'error', document.getElementById('alert-area'));
+    }
+
+    const btn = document.getElementById('save-btn');
+    btn.disabled = true; btn.textContent = 'Saving…';
+
+    try {
+      const payload = { title, description: document.getElementById('description').value.trim(), content, fields };
+      if (editId) {
+        await apiFetch(`/templates/${editId}`, { method: 'PUT', body: payload });
+      } else {
+        await apiFetch('/templates', { method: 'POST', body: payload });
+      }
+      window.location.href = '/templates';
+    } catch (err) {
+      showAlert(err.message, 'error', document.getElementById('alert-area'));
+      btn.disabled = false; btn.textContent = 'Save Template';
+    }
+  });
+
+  // Load for edit
+  async function init() {
+    const editIdParam = new URLSearchParams(location.search).get('id');
+    if (!editIdParam) return;
+    try {
+      const t = await apiFetch(`/templates/${editIdParam}`);
+      document.getElementById('title').value = t.title;
+      document.getElementById('description').value = t.description || '';
+      document.getElementById('content').value = t.content;
+      fields = t.fields || [];
+      renderFields();
+    } catch (err) { showAlert(err.message, 'error', document.getElementById('alert-area')); }
+  }
+
+  init();
+  renderFields();
+</script>
+</body>
+</html>

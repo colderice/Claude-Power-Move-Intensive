@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>AgreementDesk</title></head>
+<body>
+<script>
+  if (localStorage.getItem('ds_token')) {
+    window.location.replace('/dashboard');
+  } else {
+    window.location.replace('/login');
+  }
+</script>
+</body>
+</html>
