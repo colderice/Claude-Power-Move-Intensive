@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sign Agreement</title>
+<link rel="stylesheet" href="/css/styles.css">
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js"></script>
+<style>
+  .step-panel { padding: 28px; display: none; }
+  .step-panel.active { display: block; }
+  .field-group { margin-bottom: 18px; }
+  .field-group label { display: block; font-size: 12px; font-weight: 600; color: var(--gray-500); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+  .sig-tabs { display: flex; gap: 0; margin-bottom: 12px; border-bottom: 1px solid var(--gray-200); }
+  .sig-tab { padding: 8px 16px; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--gray-500); border-bottom: 2px solid transparent; }
+  .sig-tab.active { color: var(--blue); border-bottom-color: var(--blue); }
+  .type-sig-input { width: 100%; padding: 16px; font-size: 28px; font-family: 'Brush Script MT', cursive; border: 2px dashed var(--gray-200); border-radius: var(--radius); text-align: center; background: #fff; }
+  .type-sig-input:focus { outline: none; border-color: var(--blue); }
+  .bottom-nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 28px; border-top: 1px solid var(--gray-200); }
+</style>
+</head>
+<body>
+<div class="sign-wrap">
+  <div class="sign-header">
+    <div class="org" id="org-name">AGREEMENTDESK</div>
+    <h1 id="agreement-title">Loading agreement…</h1>
+    <p id="agreement-desc"></p>
+  </div>
+
+  <!-- Error states -->
+  <div id="error-state" style="display:none;text-align:center;padding:40px;max-width:500px">
+    <div style="font-size:48px;margin-bottom:16px">⚠️</div>
+    <h2 id="error-title" style="color:var(--dark);margin-bottom:8px">Agreement not found</h2>
+    <p id="error-msg" style="color:var(--gray-500)"></p>
+  </div>
+
+  <!-- Main card -->
+  <div class="sign-card" id="sign-card" style="display:none">
+    <!-- Progress -->
+    <div class="sign-progress">
+      <div class="progress-step">
+        <div class="progress-dot active" id="dot-1">1</div>
+        <div class="progress-label active" id="lbl-1">Review</div>
+      </div>
+      <div class="progress-line"></div>
+      <div class="progress-step">
+        <div class="progress-dot" id="dot-2">2</div>
+        <div class="progress-label" id="lbl-2">Your Info</div>
+      </div>
+      <div class="progress-line"></div>
+      <div class="progress-step">
+        <div class="progress-dot" id="dot-3">3</div>
+        <div class="progress-label" id="lbl-3">Sign</div>
+      </div>
+    </div>
+
+    <!-- Step 1: Review agreement -->
+    <div class="step-panel active" id="step-1">
+      <h2 style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:4px" id="step1-title"></h2>
+      <p class="text-sm text-muted" style="margin-bottom:16px" id="step1-from"></p>
+      <div id="client-message-box" class="alert alert-info" style="display:none;margin-bottom:16px"></div>
+      <div class="agreement-content" id="agreement-body"></div>
+      <div class="bottom-nav" style="border-top:none;padding-left:0;padding-right:0;padding-top:16px">
+        <div class="consent-box" style="flex:1;margin-right:20px">
+          By proceeding, you confirm you have read and understand this agreement.
+        </div>
+        <button class="btn btn-primary btn-lg" onclick="goStep(2)">Continue →</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Fill in fields -->
+    <div class="step-panel" id="step-2">
+      <h2 style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:4px">Your Information</h2>
+      <p class="text-sm text-muted" style="margin-bottom:20px">Please fill in all required fields below.</p>
+      <div id="fields-form"></div>
+      <div class="bottom-nav">
+        <button class="btn btn-secondary" onclick="goStep(1)">← Back</button>
+        <button class="btn btn-primary" onclick="validateAndGoSign()">Continue to Sign →</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Sign -->
+    <div class="step-panel" id="step-3">
+      <h2 style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:4px">Add Your Signature</h2>
+      <p class="text-sm text-muted" style="margin-bottom:16px">Draw or type your signature below.</p>
+
+      <div class="sig-tabs">
+        <div class="sig-tab active" id="tab-draw" onclick="switchSigTab('draw')">✍️ Draw</div>
+        <div class="sig-tab" id="tab-type" onclick="switchSigTab('type')">⌨️ Type</div>
+      </div>
+
+      <div id="draw-mode">
+        <div class="sig-pad-wrap" style="height:160px">
+          <canvas id="sig-canvas"></canvas>
+          <div class="sig-empty-hint" id="sig-hint">Sign here using your mouse or finger</div>
+          <button class="sig-clear" onclick="clearSig()">Clear</button>
+        </div>
+      </div>
+
+      <div id="type-mode" style="display:none">
+        <input type="text" class="type-sig-input" id="type-sig" placeholder="Type your full name" oninput="renderTypedSig()">
+        <canvas id="type-canvas" style="display:none"></canvas>
+      </div>
+
+      <div style="margin-top:20px">
+        <div class="consent-box">
+          <strong>Electronic Signature Consent:</strong> By clicking "Submit Signature" you agree that your electronic signature is legally equivalent to your handwritten signature and constitutes a legally binding agreement. You confirm that you are authorized to sign this agreement and that all information provided is accurate.
+        </div>
+      </div>
+
+      <div id="step3-error" class="alert alert-error" style="display:none;margin-top:12px"></div>
+
+      <div class="bottom-nav">
+        <button class="btn btn-secondary" onclick="goStep(2)" id="back-btn-3">← Back</button>
+        <button class="btn btn-success btn-lg" id="submit-btn" onclick="submitSignature()">
+          ✅ Submit Signature
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success state -->
+  <div id="done-state" style="display:none;text-align:center;padding:60px 20px;max-width:600px">
+    <div style="font-size:64px;margin-bottom:16px">🎉</div>
+    <h2 style="font-size:24px;font-weight:700;color:var(--dark);margin-bottom:12px">You're all signed!</h2>
+    <p style="color:var(--gray-500);line-height:1.7;margin-bottom:8px">
+      Your signature has been received. The agreement will now be reviewed and countersigned.
+    </p>
+    <p style="color:var(--gray-500);line-height:1.7;margin-bottom:24px">
+      Once fully executed, you'll receive a copy of the signed agreement via email.
+    </p>
+    <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:16px;font-size:13px;color:var(--green-dark)">
+      ✅ You may safely close this window.
+    </div>
+  </div>
+</div>
+
+<script>
+  const token = new URLSearchParams(location.search).get('token');
+  let agreement = null;
+  let sigPad = null;
+  let sigMode = 'draw';
+  const ORG = 'AgreementDesk';
+
+  // Update org name display
+  document.getElementById('org-name').textContent = ORG.toUpperCase();
+
+  async function init() {
+    if (!token) return showError('Invalid Link', 'No signing token found in the URL. Please use the link from your email.');
+    try {
+      const res = await fetch(`/api/signing/verify/${token}`);
+      const data = await res.json();
+      if (!res.ok) {
+        if (res.status === 409) return showError('Already Signed', data.error || 'This agreement has already been signed.');
+        if (res.status === 410) return showError('Agreement Voided', data.error || 'This agreement has been voided.');
+        return showError('Error', data.error || 'Unable to load agreement.');
+      }
+      agreement = data;
+      renderAgreement();
+    } catch (err) {
+      showError('Network Error', 'Unable to load the agreement. Please check your connection and try again.');
+    }
+  }
+
+  function showError(title, msg) {
+    document.getElementById('agreement-title').textContent = title;
+    document.getElementById('error-title').textContent = title;
+    document.getElementById('error-msg').textContent = msg;
+    document.getElementById('error-state').style.display = 'block';
+  }
+
+  function renderAgreement() {
+    document.getElementById('agreement-title').textContent = agreement.title;
+    document.getElementById('agreement-desc').textContent = `Sent to ${agreement.client_name}`;
+    document.getElementById('step1-title').textContent = agreement.title;
+    document.getElementById('step1-from').textContent = agreement.description || '';
+    document.getElementById('agreement-body').textContent = agreement.content;
+
+    if (agreement.client_message) {
+      const box = document.getElementById('client-message-box');
+      box.textContent = `"${agreement.client_message}"`;
+      box.style.display = 'block';
+    }
+
+    // Build fields form
+    const fields = agreement.fields || [];
+    if (fields.length === 0) {
+      document.getElementById('fields-form').innerHTML = '<p class="text-muted">No additional fields required — proceed to sign.</p>';
+    } else {
+      document.getElementById('fields-form').innerHTML = fields.map(f => {
+        let input;
+        if (f.type === 'textarea') {
+          input = `<textarea class="form-control" id="field-${f.name}" placeholder="${f.placeholder || ''}" ${f.required ? 'required' : ''} style="min-height:80px"></textarea>`;
+        } else if (f.type === 'checkbox') {
+          input = `<label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;font-weight:400;text-transform:none;letter-spacing:0"><input type="checkbox" id="field-${f.name}" style="width:16px;height:16px"> ${f.label}</label>`;
+        } else {
+          input = `<input type="${f.type}" class="form-control" id="field-${f.name}" placeholder="${f.placeholder || ''}" ${f.required ? 'required' : ''}>`;
+        }
+        return `<div class="field-group">
+          ${f.type !== 'checkbox' ? `<label>${f.label}${f.required ? ' <span style="color:var(--red)">*</span>' : ''}</label>` : ''}
+          ${input}
+        </div>`;
+      }).join('');
+    }
+
+    document.getElementById('sign-card').style.display = 'block';
+
+    // Init signature pad
+    const canvas = document.getElementById('sig-canvas');
+    resizeCanvas(canvas);
+    sigPad = new SignaturePad(canvas, { backgroundColor: 'rgba(255,255,255,0)' });
+    sigPad.addEventListener('beginStroke', () => { document.getElementById('sig-hint').style.display = 'none'; });
+    window.addEventListener('resize', () => { const data = sigPad.toData(); resizeCanvas(canvas); sigPad.fromData(data); });
+  }
+
+  function resizeCanvas(canvas) {
+    const ratio = Math.max(window.devicePixelRatio || 1, 1);
+    canvas.width = canvas.offsetWidth * ratio;
+    canvas.height = canvas.offsetHeight * ratio;
+    canvas.getContext('2d').scale(ratio, ratio);
+  }
+
+  function goStep(n) {
+    [1,2,3].forEach(i => {
+      document.getElementById(`step-${i}`).classList.toggle('active', i === n);
+      document.getElementById(`dot-${i}`).classList.toggle('active', i === n);
+      document.getElementById(`dot-${i}`).classList.toggle('done', i < n);
+      document.getElementById(`lbl-${i}`).classList.toggle('active', i === n);
+    });
+    // Skip step 2 if no fields
+    if (n === 2 && (!agreement.fields || agreement.fields.length === 0)) {
+      goStep(3); return;
+    }
+    // Re-init canvas when showing step 3
+    if (n === 3 && sigPad) {
+      setTimeout(() => { const canvas = document.getElementById('sig-canvas'); resizeCanvas(canvas); }, 50);
+    }
+  }
+
+  function validateAndGoSign() {
+    const fields = agreement.fields || [];
+    for (const f of fields) {
+      if (f.required && f.type !== 'checkbox') {
+        const el = document.getElementById(`field-${f.name}`);
+        if (!el || !el.value.trim()) { el?.focus(); alert(`"${f.label}" is required.`); return; }
+      }
+      if (f.required && f.type === 'checkbox') {
+        const el = document.getElementById(`field-${f.name}`);
+        if (!el?.checked) { alert(`"${f.label}" must be checked.`); return; }
+      }
+    }
+    goStep(3);
+  }
+
+  function switchSigTab(mode) {
+    sigMode = mode;
+    document.getElementById('tab-draw').classList.toggle('active', mode === 'draw');
+    document.getElementById('tab-type').classList.toggle('active', mode === 'type');
+    document.getElementById('draw-mode').style.display = mode === 'draw' ? 'block' : 'none';
+    document.getElementById('type-mode').style.display = mode === 'type' ? 'block' : 'none';
+    if (mode === 'draw') setTimeout(() => { resizeCanvas(document.getElementById('sig-canvas')); }, 50);
+  }
+
+  function clearSig() {
+    sigPad.clear();
+    document.getElementById('sig-hint').style.display = 'flex';
+  }
+
+  function renderTypedSig() {
+    // We'll capture the typed sig as a canvas when submitting
+  }
+
+  function getSignatureDataUrl() {
+    if (sigMode === 'draw') {
+      if (sigPad.isEmpty()) return null;
+      return sigPad.toDataURL('image/png');
+    } else {
+      const text = document.getElementById('type-sig').value.trim();
+      if (!text) return null;
+      const canvas = document.createElement('canvas');
+      canvas.width = 500; canvas.height = 120;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#1e293b';
+      ctx.font = '52px "Brush Script MT", cursive';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(text, 250, 60);
+      return canvas.toDataURL('image/png');
+    }
+  }
+
+  async function submitSignature() {
+    const errEl = document.getElementById('step3-error');
+    errEl.style.display = 'none';
+
+    const sigDataUrl = getSignatureDataUrl();
+    if (!sigDataUrl) {
+      errEl.textContent = 'Please add your signature before submitting.';
+      errEl.style.display = 'block';
+      return;
+    }
+
+    // Collect field values
+    const fieldValues = {};
+    (agreement.fields || []).forEach(f => {
+      const el = document.getElementById(`field-${f.name}`);
+      if (el) fieldValues[f.name] = f.type === 'checkbox' ? (el.checked ? 'Yes' : 'No') : el.value;
+    });
+
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Submitting…';
+
+    try {
+      const res = await fetch(`/api/signing/client/${token}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ field_values: fieldValues, signature: sigDataUrl }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Submission failed');
+      document.getElementById('sign-card').style.display = 'none';
+      document.getElementById('done-state').style.display = 'block';
+      document.getElementById('agreement-title').textContent = 'Agreement Signed';
+      document.getElementById('agreement-desc').textContent = '';
+    } catch (err) {
+      errEl.textContent = err.message;
+      errEl.style.display = 'block';
+      btn.disabled = false; btn.innerHTML = '✅ Submit Signature';
+    }
+  }
+
+  init();
+</script>
+</body>
+</html>

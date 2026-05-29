@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Send Agreement — AgreementDesk</title>
+<link rel="stylesheet" href="/css/styles.css">
+<style>
+  .preview-content { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 20px; font-size: 13px; line-height: 1.7; white-space: pre-wrap; max-height: 260px; overflow-y: auto; color: var(--gray-700); }
+  .preview-fields { margin-top: 12px; }
+  .field-tag { display: inline-block; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; border-radius: 4px; padding: 2px 8px; font-size: 11px; margin: 3px 2px; font-family: monospace; }
+</style>
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="org">📄 AgreementDesk</div><div class="tagline">Document Signing</div></div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section">Main</div>
+      <a href="/dashboard"><span class="icon">🏠</span> Dashboard</a>
+      <a href="/send"><span class="icon">✉️</span> Send Agreement</a>
+      <div class="sidebar-section">Manage</div>
+      <a href="/templates"><span class="icon">📋</span> Templates</a>
+      <a href="/create-template"><span class="icon">➕</span> New Template</a>
+    </nav>
+    <div class="sidebar-user"><strong id="sidebar-name">Loading…</strong><span id="sidebar-email"></span><br><a href="#" onclick="logout()">Sign out</a></div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <h1>Send Agreement</h1>
+      <div class="topbar-actions"><a href="/dashboard" class="btn btn-secondary">← Back</a></div>
+    </div>
+    <div class="content">
+      <div id="alert-area"></div>
+      <div style="display:grid;grid-template-columns:1fr 380px;gap:20px;align-items:start">
+        <!-- Form -->
+        <div class="card">
+          <div class="card-header"><h2>Agreement Details</h2></div>
+          <div class="card-body">
+            <div class="form-group">
+              <label>Select Template *</label>
+              <select id="template-select" class="form-control">
+                <option value="">— Choose a template —</option>
+              </select>
+              <div class="form-hint">Don't have one? <a href="/create-template">Create a template</a> first.</div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Client Name *</label>
+                <input type="text" id="client-name" class="form-control" placeholder="Jane Smith">
+              </div>
+              <div class="form-group">
+                <label>Client Email *</label>
+                <input type="email" id="client-email" class="form-control" placeholder="jane@company.com">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Personal Message (optional)</label>
+              <textarea id="client-message" class="form-control" style="min-height:80px" placeholder="Hi Jane, please review and sign the agreement below. Let me know if you have any questions."></textarea>
+              <div class="form-hint">This message will appear in the signing email.</div>
+            </div>
+            <button class="btn btn-primary btn-lg w-full" id="send-btn" disabled>
+              ✉️ Send Agreement
+            </button>
+            <div style="margin-top:12px;font-size:12px;color:var(--gray-400);text-align:center">
+              The client will receive an email with a unique signing link. You'll be notified when they sign.
+            </div>
+          </div>
+        </div>
+
+        <!-- Preview -->
+        <div>
+          <div class="card" id="preview-card" style="display:none">
+            <div class="card-header"><h2>Template Preview</h2></div>
+            <div class="card-body">
+              <div style="margin-bottom:12px">
+                <div style="font-weight:600;color:var(--dark);margin-bottom:4px" id="preview-title"></div>
+                <div class="text-sm text-muted" id="preview-desc"></div>
+              </div>
+              <div class="preview-content" id="preview-content"></div>
+              <div class="preview-fields" id="preview-fields"></div>
+            </div>
+          </div>
+          <div class="card" id="no-template-card">
+            <div class="card-body" style="text-align:center;padding:40px 20px;color:var(--gray-400)">
+              <div style="font-size:32px;margin-bottom:12px">📋</div>
+              <p>Select a template to preview it here</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Success state -->
+      <div id="success-state" style="display:none;text-align:center;padding:60px 20px">
+        <div style="font-size:56px;margin-bottom:16px">✅</div>
+        <h2 style="font-size:22px;color:var(--dark);margin-bottom:8px">Agreement sent!</h2>
+        <p style="color:var(--gray-500);margin-bottom:8px" id="success-msg"></p>
+        <p style="color:var(--gray-400);font-size:12px;margin-bottom:28px">You'll receive an email notification when they sign.</p>
+        <div class="flex gap-3" style="justify-content:center">
+          <a href="/dashboard" class="btn btn-primary">Go to Dashboard</a>
+          <button class="btn btn-secondary" onclick="resetForm()">Send Another</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/utils.js"></script>
+<script>
+  if (!requireAuth()) throw new Error('redirect');
+  initSidebar();
+
+  let templates = [];
+
+  async function load() {
+    try {
+      templates = await apiFetch('/templates');
+      const sel = document.getElementById('template-select');
+      templates.forEach(t => {
+        const opt = document.createElement('option');
+        opt.value = t.id;
+        opt.textContent = t.title;
+        sel.appendChild(opt);
+      });
+      // Pre-select from URL param
+      const preselect = new URLSearchParams(location.search).get('template');
+      if (preselect) { sel.value = preselect; sel.dispatchEvent(new Event('change')); }
+    } catch (err) { showAlert(err.message, 'error', document.getElementById('alert-area')); }
+  }
+
+  document.getElementById('template-select').addEventListener('change', function() {
+    const t = templates.find(x => x.id === this.value);
+    const previewCard = document.getElementById('preview-card');
+    const noCard = document.getElementById('no-template-card');
+    document.getElementById('send-btn').disabled = !t;
+    if (!t) { previewCard.style.display = 'none'; noCard.style.display = 'block'; return; }
+    previewCard.style.display = 'block';
+    noCard.style.display = 'none';
+    document.getElementById('preview-title').textContent = t.title;
+    document.getElementById('preview-desc').textContent = t.description || '';
+    document.getElementById('preview-content').textContent = t.content;
+    const fields = t.fields || [];
+    document.getElementById('preview-fields').innerHTML = fields.length
+      ? `<div style="font-size:11px;font-weight:600;color:var(--gray-500);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px">Client will fill in:</div>` +
+        fields.map(f => `<span class="field-tag">${f.label}${f.required ? ' *' : ''}</span>`).join('')
+      : '<div class="text-sm text-muted">No custom fields (signature only)</div>';
+  });
+
+  document.getElementById('send-btn').addEventListener('click', async () => {
+    const templateId = document.getElementById('template-select').value;
+    const clientName = document.getElementById('client-name').value.trim();
+    const clientEmail = document.getElementById('client-email').value.trim();
+    const clientMessage = document.getElementById('client-message').value.trim();
+    if (!templateId || !clientName || !clientEmail) {
+      return showAlert('Template, client name, and email are all required', 'error', document.getElementById('alert-area'));
+    }
+
+    const btn = document.getElementById('send-btn');
+    btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Sending…';
+
+    try {
+      const data = await apiFetch('/instances', { method: 'POST', body: { template_id: templateId, client_name: clientName, client_email: clientEmail, client_message: clientMessage } });
+      document.querySelector('.content > div:first-child + div').style.display = 'none';
+      // Actually hide the main form grid and show success
+      document.querySelector('.content').querySelector('[style*="grid"]').style.display = 'none';
+      const success = document.getElementById('success-state');
+      success.style.display = 'block';
+      document.getElementById('success-msg').textContent = `Signing link sent to ${clientEmail}`;
+    } catch (err) {
+      showAlert(err.message, 'error', document.getElementById('alert-area'));
+      btn.disabled = false; btn.innerHTML = '✉️ Send Agreement';
+    }
+  });
+
+  function resetForm() {
+    document.getElementById('success-state').style.display = 'none';
+    document.querySelector('.content').querySelector('[style*="grid"]').style.display = 'grid';
+    document.getElementById('template-select').value = '';
+    document.getElementById('client-name').value = '';
+    document.getElementById('client-email').value = '';
+    document.getElementById('client-message').value = '';
+    document.getElementById('send-btn').disabled = true;
+    document.getElementById('preview-card').style.display = 'none';
+    document.getElementById('no-template-card').style.display = 'block';
+  }
+
+  load();
+</script>
+</body>
+</html>

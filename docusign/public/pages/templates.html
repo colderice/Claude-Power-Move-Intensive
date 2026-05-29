@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Templates — AgreementDesk</title>
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="org">📄 AgreementDesk</div><div class="tagline">Document Signing</div></div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section">Main</div>
+      <a href="/dashboard"><span class="icon">🏠</span> Dashboard</a>
+      <a href="/send"><span class="icon">✉️</span> Send Agreement</a>
+      <div class="sidebar-section">Manage</div>
+      <a href="/templates"><span class="icon">📋</span> Templates</a>
+      <a href="/create-template"><span class="icon">➕</span> New Template</a>
+    </nav>
+    <div class="sidebar-user"><strong id="sidebar-name">Loading…</strong><span id="sidebar-email"></span><br><a href="#" onclick="logout()">Sign out</a></div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <h1>Agreement Templates</h1>
+      <div class="topbar-actions"><a href="/create-template" class="btn btn-primary">➕ New Template</a></div>
+    </div>
+    <div class="content">
+      <div class="card">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Template Name</th><th>Fields</th><th>Created</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+          <div id="empty" class="empty hidden">
+            <div class="empty-icon">📋</div>
+            <p>No templates yet. Create your first one.</p>
+            <a href="/create-template" class="btn btn-primary">Create Template</a>
+          </div>
+          <div id="loading" class="empty"><div class="empty-icon">⏳</div><p>Loading…</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/utils.js"></script>
+<script>
+  if (!requireAuth()) throw new Error('redirect');
+  initSidebar();
+
+  async function load() {
+    try {
+      const templates = await apiFetch('/templates');
+      document.getElementById('loading').classList.add('hidden');
+      if (!templates.length) { document.getElementById('empty').classList.remove('hidden'); return; }
+      document.getElementById('tbody').innerHTML = templates.map(t => `
+        <tr>
+          <td>
+            <div style="font-weight:600;color:var(--dark)">${t.title}</div>
+            ${t.description ? `<div class="text-sm text-muted">${t.description}</div>` : ''}
+          </td>
+          <td class="text-sm">${(t.fields||[]).length} field${(t.fields||[]).length !== 1 ? 's' : ''}</td>
+          <td class="text-sm text-muted">${fmtDate(t.created_at)}</td>
+          <td>
+            <div class="flex gap-2">
+              <a href="/send?template=${t.id}" class="btn btn-primary btn-sm">✉️ Send</a>
+              <a href="/edit-template?id=${t.id}" class="btn btn-secondary btn-sm">✏️ Edit</a>
+              <button class="btn btn-danger btn-sm" onclick="del('${t.id}')">🗑 Delete</button>
+            </div>
+          </td>
+        </tr>`).join('');
+    } catch (err) {
+      document.getElementById('loading').innerHTML = `<p class="text-muted">${err.message}</p>`;
+    }
+  }
+
+  async function del(id) {
+    const ok = await confirmModal({ title: 'Delete template?', message: 'This cannot be undone. Existing sent agreements using this template will not be affected.', confirmLabel: 'Delete', danger: true });
+    if (!ok) return;
+    try { await apiFetch(`/templates/${id}`, { method: 'DELETE' }); await load(); }
+    catch (err) { alert(err.message); }
+  }
+
+  load();
+</script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard — AgreementDesk</title>
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="app-layout">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="org">📄 AgreementDesk</div>
+      <div class="tagline">Document Signing</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section">Main</div>
+      <a href="/dashboard"><span class="icon">🏠</span> Dashboard</a>
+      <a href="/send"><span class="icon">✉️</span> Send Agreement</a>
+      <div class="sidebar-section">Manage</div>
+      <a href="/templates"><span class="icon">📋</span> Templates</a>
+      <a href="/create-template"><span class="icon">➕</span> New Template</a>
+    </nav>
+    <div class="sidebar-user">
+      <strong id="sidebar-name">Loading…</strong>
+      <span id="sidebar-email"></span>
+      <br><a href="#" onclick="logout()">Sign out</a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="main">
+    <div class="topbar">
+      <h1>Dashboard</h1>
+      <div class="topbar-actions">
+        <a href="/send" class="btn btn-primary">✉️ Send Agreement</a>
+      </div>
+    </div>
+    <div class="content">
+      <!-- Stats -->
+      <div class="stats" id="stats">
+        <div class="stat-card"><div class="label">Total Sent</div><div class="value blue" id="stat-total">—</div></div>
+        <div class="stat-card"><div class="label">Awaiting Client</div><div class="value yellow" id="stat-pending">—</div></div>
+        <div class="stat-card"><div class="label">Needs Countersign</div><div class="value purple" id="stat-review">—</div></div>
+        <div class="stat-card"><div class="label">Completed</div><div class="value green" id="stat-done">—</div></div>
+      </div>
+
+      <!-- Tabs + Table -->
+      <div class="card">
+        <div class="card-body" style="padding-bottom:0">
+          <div class="tabs">
+            <div class="tab active" data-status="">All</div>
+            <div class="tab" data-status="sent">Awaiting Client</div>
+            <div class="tab" data-status="client_signed">Needs Countersign</div>
+            <div class="tab" data-status="completed">Completed</div>
+            <div class="tab" data-status="voided">Voided</div>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Agreement</th>
+                <th>Client</th>
+                <th>Status</th>
+                <th>Sent</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
+          <div id="empty" class="empty hidden">
+            <div class="empty-icon">📭</div>
+            <p>No agreements found</p>
+            <a href="/send" class="btn btn-primary">Send your first agreement</a>
+          </div>
+          <div id="loading" class="empty"><div class="empty-icon">⏳</div><p>Loading…</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/utils.js"></script>
+<script>
+  if (!requireAuth()) throw new Error('redirect');
+  initSidebar();
+
+  let allInstances = [];
+  let currentFilter = '';
+
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      currentFilter = tab.dataset.status;
+      render();
+    });
+  });
+
+  async function load() {
+    try {
+      allInstances = await apiFetch('/instances');
+      document.getElementById('loading').classList.add('hidden');
+      updateStats();
+      render();
+    } catch (err) {
+      document.getElementById('loading').innerHTML = `<p class="text-muted">${err.message}</p>`;
+    }
+  }
+
+  function updateStats() {
+    document.getElementById('stat-total').textContent = allInstances.length;
+    document.getElementById('stat-pending').textContent = allInstances.filter(i => i.status === 'sent').length;
+    document.getElementById('stat-review').textContent = allInstances.filter(i => i.status === 'client_signed').length;
+    document.getElementById('stat-done').textContent = allInstances.filter(i => i.status === 'completed').length;
+  }
+
+  function render() {
+    const filtered = currentFilter ? allInstances.filter(i => i.status === currentFilter) : allInstances;
+    const tbody = document.getElementById('table-body');
+    const empty = document.getElementById('empty');
+
+    if (filtered.length === 0) {
+      tbody.innerHTML = '';
+      empty.classList.remove('hidden');
+      return;
+    }
+    empty.classList.add('hidden');
+
+    tbody.innerHTML = filtered.map(inst => {
+      const snap = inst.template_snapshot || {};
+      const actions = buildActions(inst);
+      return `<tr>
+        <td>
+          <div style="font-weight:600;color:var(--dark)">${snap.title || '(no title)'}</div>
+          <div class="text-sm text-muted font-mono">${inst.id.slice(0,8)}</div>
+        </td>
+        <td>
+          <div>${inst.client_name}</div>
+          <div class="text-sm text-muted">${inst.client_email}</div>
+        </td>
+        <td>${statusBadge(inst.status)}</td>
+        <td class="text-sm text-muted">${fmtDate(inst.created_at)}</td>
+        <td><div class="flex gap-2">${actions}</div></td>
+      </tr>`;
+    }).join('');
+
+    // Wire up action buttons
+    document.querySelectorAll('[data-action]').forEach(btn => {
+      btn.addEventListener('click', () => handleAction(btn.dataset.action, btn.dataset.id));
+    });
+  }
+
+  function buildActions(inst) {
+    const btns = [];
+    if (inst.status === 'client_signed') {
+      btns.push(`<a href="/review?id=${inst.id}" class="btn btn-primary btn-sm">✍️ Countersign</a>`);
+    }
+    if (inst.status === 'completed' && inst.pdf_path) {
+      btns.push(`<a href="/api/instances/${inst.id}/pdf" class="btn btn-secondary btn-sm" target="_blank">📄 PDF</a>`);
+    }
+    if (inst.status === 'sent') {
+      btns.push(`<button class="btn btn-secondary btn-sm" data-action="remind" data-id="${inst.id}">🔔 Remind</button>`);
+    }
+    if (inst.status !== 'completed' && inst.status !== 'voided') {
+      btns.push(`<button class="btn btn-danger btn-sm" data-action="void" data-id="${inst.id}">✕ Void</button>`);
+    }
+    return btns.join('') || '<span class="text-muted text-sm">—</span>';
+  }
+
+  async function handleAction(action, id) {
+    if (action === 'void') {
+      const ok = await confirmModal({ title: 'Void agreement?', message: 'This will cancel the signing link. This cannot be undone.', confirmLabel: 'Void', danger: true });
+      if (!ok) return;
+      try {
+        await apiFetch(`/instances/${id}/void`, { method: 'POST' });
+        await load();
+      } catch (err) { alert(err.message); }
+    }
+    if (action === 'remind') {
+      try {
+        await apiFetch(`/instances/${id}/remind`, { method: 'POST' });
+        alert('Reminder sent!');
+      } catch (err) { alert(err.message); }
+    }
+  }
+
+  load();
+</script>
+</body>
+</html>
